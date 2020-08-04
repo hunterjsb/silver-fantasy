@@ -1,0 +1,288 @@
+{
+    "LEAGUES": [
+        {
+            "name": "COUNCIL LEAGUE",
+            "commissioner": "x\u00c3\u00a2n",
+            "index": 0,
+            "season": 1,
+            "numTeams": 4,
+            "benchPlayers": 1,
+            "royale": false,
+            "teams": {
+                "team xan": {
+                    "black xan bible": 76.89706066291431,
+                    "x\u00e2n": 73.06923076923077,
+                    "xtrader": 125.91176470588236,
+                    "snakebee16": 1.876756756756757,
+                    "micheal nguyen": 157.14285714285717
+                },
+                "team blk": {
+                    "fent bars": 68.22972972972974,
+                    "yasheo": 127.45098039215686,
+                    "jhonny blaze": 56.105,
+                    "jusyithings": 156.4,
+                    "stinny": 118.243178807947
+                },
+                "team drk": {
+                    "durkledingus": 156.25,
+                    "purplebumblebeez": 107.70833333333333,
+                    "b\u00e9p": 133.21875,
+                    "drag0nham": 15.484848484848484,
+                    "xxda1hpwarriorxx": 54.23728813559322
+                },
+                "team pog": {
+                    "kronova": 148.15902140672782,
+                    "nkjukko": 64.50945273631841,
+                    "ipogoz": 105.02798982188295,
+                    "fent bars": 68.22972972972974,
+                    "1deepturtle": 109.81293319042516
+                }
+            }
+        },
+        {
+            "name": "ROYALE COUNCIL",
+            "commissioner": "x\u00e2n",
+            "index": 1,
+            "budget": 275,
+            "royale": true,
+            "teams": {
+                "b": {
+                    "owner": "ed",
+                    "pick": 1,
+                    "points": 0,
+                    "budget": 275,
+                    "players": {}
+                },
+                "x": {
+                    "owner": "x\u00e2n",
+                    "pick": 1,
+                    "points": 0,
+                    "budget": 2,
+                    "players": {
+                        "yasuomoe": 54,
+                        "ipogoz": 60,
+                        "nkjukko": 55,
+                        "fent bars": 52,
+                        "bobbyzlich": 52
+                    }
+                },
+                "p": {
+                    "owner": "pogo",
+                    "pick": 1,
+                    "points": 0,
+                    "budget": 275,
+                    "players": {}
+                },
+                "d": {
+                    "owner": "durk",
+                    "pick": 1,
+                    "points": 0,
+                    "budget": 260,
+                    "players": {}
+                }
+            }
+        }
+    ],
+    "PLAYERS": {
+        "black xan bible": {
+            "rank": "SILVER III",
+            "wr": 50.18,
+            "leagues": [],
+            "games": 564,
+            "wr mod": 55.8828664495114,
+            "stats": {}
+        },
+        "x\u00e2n": {
+            "rank": "SILVER III",
+            "wr": 48.49,
+            "leagues": [],
+            "games": 365,
+            "wr mod": 54.299698795180724,
+            "stats": {}
+        },
+        "ipogoz": {
+            "rank": "GOLD IV",
+            "wr": 52.15,
+            "leagues": [],
+            "games": 303,
+            "wr mod": 59.6813597733711,
+            "stats": {}
+        },
+        "xtrader": {
+            "rank": "PLATINUM III",
+            "wr": 44.38,
+            "leagues": [],
+            "games": 169,
+            "wr mod": 56.387100456621006,
+            "stats": {}
+        },
+        "snakebee16": {
+            "rank": "IRON IV",
+            "wr": 45.41,
+            "leagues": [],
+            "games": 185,
+            "wr mod": 46.69297872340426,
+            "stats": {}
+        },
+        "durkledingus": {
+            "rank": "GOLD I",
+            "wr": 62.5,
+            "leagues": [],
+            "games": 24,
+            "wr mod": 63.429054054054056,
+            "stats": {}
+        },
+        "purplebumblebeez": {
+            "rank": "GOLD II",
+            "wr": 45.83,
+            "leagues": [],
+            "games": 24,
+            "wr mod": 57.523648648648646,
+            "stats": {}
+        },
+        "b\u00e9p": {
+            "rank": "GOLD IV",
+            "wr": 65.62,
+            "leagues": [],
+            "games": 64,
+            "wr mod": 66.4969298245614,
+            "stats": {}
+        },
+        "drag0nham": {
+            "rank": "BRONZE IV",
+            "wr": 22.73,
+            "leagues": [],
+            "games": 22,
+            "wr mod": 44.276666666666664,
+            "stats": {}
+        },
+        "xxda1hpwarriorxx": {
+            "rank": "BRONZE II",
+            "wr": 50.0,
+            "leagues": [],
+            "games": 60,
+            "wr mod": 54.25,
+            "stats": {}
+        },
+        "kronova": {
+            "rank": "PLATINUM II",
+            "wr": 48.93,
+            "leagues": [],
+            "games": 327,
+            "wr mod": 60.53161803713528,
+            "stats": {}
+        },
+        "nkjukko": {
+            "rank": "SILVER IV",
+            "wr": 48.65,
+            "leagues": [],
+            "games": 74,
+            "wr mod": 54.578548387096774,
+            "stats": {}
+        },
+        "fent bars": {
+            "rank": "SILVER III",
+            "wr": 45.2,
+            "leagues": [],
+            "games": 177,
+            "wr mod": 52.10550660792952,
+            "stats": {}
+        },
+        "1deepturtle": {
+            "rank": "GOLD IV",
+            "wr": 50.41,
+            "leagues": [],
+            "games": 978,
+            "wr mod": 58.054105058365764,
+            "stats": {}
+        },
+        "darkshadow2015": {
+            "rank": "SILVER III",
+            "wr": 44.76,
+            "leagues": [],
+            "games": 105,
+            "wr mod": 52.29161290322581,
+            "stats": {}
+        },
+        "micheal nguyen": {
+            "rank": "PLATINUM II",
+            "wr": 54.55,
+            "leagues": [],
+            "games": 22,
+            "wr mod": 62.75888888888888,
+            "stats": {}
+        },
+        "yasheo": {
+            "rank": "GOLD III",
+            "wr": 57.97,
+            "leagues": [],
+            "games": 69,
+            "wr mod": 62.7468487394958,
+            "stats": {}
+        },
+        "jhonny blaze": {
+            "rank": "BRONZE I",
+            "wr": 47.71,
+            "leagues": [],
+            "games": 480,
+            "wr mod": 52.369528301886795,
+            "stats": {}
+        },
+        "jusyithings": {
+            "rank": "PLATINUM III",
+            "wr": 55.2,
+            "leagues": [],
+            "games": 125,
+            "wr mod": 64.33928571428572,
+            "stats": {}
+        },
+        "stinny": {
+            "rank": "GOLD IV",
+            "wr": 49.24,
+            "leagues": [],
+            "games": 794,
+            "wr mod": 57.12409952606635,
+            "stats": {}
+        },
+        "graynote": {
+            "rank": "GOLD II",
+            "wr": 47.83,
+            "leagues": [],
+            "games": 115,
+            "wr mod": 57.60484848484848,
+            "stats": {}
+        },
+        "larrylobster333": {
+            "rank": "SILVER IV",
+            "wr": 36.36,
+            "leagues": [],
+            "games": 11,
+            "wr mod": 52.540983606557376,
+            "stats": {}
+        },
+        "yasuomoe": {
+            "rank": "SILVER III",
+            "wr": 48.2,
+            "leagues": [],
+            "games": 500,
+            "wr mod": 53.98863636363636,
+            "stats": {}
+        },
+        "1deepgenz": {
+            "rank": "SILVER II",
+            "wr": 48.02,
+            "leagues": [],
+            "games": 202,
+            "wr mod": 54.87269841269841,
+            "stats": {}
+        },
+        "bobbyzlich": {
+            "rank": "BRONZE I",
+            "wr": 45.0,
+            "leagues": [],
+            "games": 60,
+            "wr mod": 52.14772727272727,
+            "stats": {}
+        }
+    }
+}

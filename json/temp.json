@@ -1,0 +1,46 @@
+{
+    "ranks": [
+        {
+            "name": "xan",
+            "rank": "iron iv",
+            "mmr": 10
+        },
+        {
+            "name": "Your Friendly Neighborhood PogoZ",
+            "rank": "iron iii",
+            "mmr": 20
+        }
+    ],
+    "strikes": [
+        {
+            "name": "xan",
+            "xds": 18,
+            "@everyones": 5
+        },
+        {
+            "name": "Your Friendly Neighborhood PogoZ",
+            "xds": 2,
+            "@everyones": 3
+        },
+        {
+            "name": "skt xanax",
+            "xds": 4,
+            "@everyones": 1
+        },
+        {
+            "name": "LePogoZ",
+            "xds": 1,
+            "@everyones": 0
+        },
+        {
+            "name": "skt bender",
+            "xds": 7,
+            "@everyones": 0
+        },
+        {
+            "name": "Romeo",
+            "xds": 0,
+            "@everyones": 0
+        }
+    ]
+}
