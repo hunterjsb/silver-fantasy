@@ -169,13 +169,15 @@ class Summoner:
         gamestatlist = {}
 
         for game in games:
+            k, d, a = game.get_kda(self.ign)
             score = game.calc_point_base(self.ign)
             stats = {
+                'score': game.calc_point_base(self.ign),
                 'champ': game.player_champ(self.ign),
                 'date': game.game_time.strftime("%m/%d/%Y"),
                 'duration': game.game_duration_min,
-                'kda': game.get_kda(self.ign),
-                'csm': game.get_csm(self.ign),
+                'kda': f'{k}/{d}/{a}',
+                'csm': round(game.get_csm(self.ign), 2),
                 'vision': game.get_vision_score(self.ign)
             }
 

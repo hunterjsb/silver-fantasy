@@ -59,6 +59,12 @@ async def on_ready():
     print('- R E A D Y -')
 
 
+@bot.command()
+async def gto(ctx, league='ROYALE COUNCIL'):
+    for owner, oid in get_owners(league):
+        await ctx.send(owner)
+
+
 # DELETE MESSAGES IN A CHANNEL
 @bot.command()  # clean channel
 async def clean(ctx):  # UOP
@@ -86,6 +92,21 @@ async def standings(ctx, leauge_name='ROYALE COUNCIL'):
 
     for player, pts in league.ordered_players():
         await ctx.send(f'{player}: {round(pts)}')
+
+
+@bot.command()
+async def history(ctx, ign):
+    player = rh.Summoner(ign)
+    await ctx.send('*GETTING GAMES...*')
+    stats = player.recent_soloq_stats
+    t = 0
+
+    for stat in stats:
+        t += stat
+        s = stats[stat]
+        await ctx.send(f'**{stat} POINTS** {s}\n')
+
+    await ctx.send(f'\n***AVERAGE {round(t/len(stats), 2)}***')
 
 
 @bot.command()
@@ -147,7 +168,7 @@ async def on_message(message):
 async def on_voice_state_update(user, before, after):
 
     # STREAMING
-    stream_channel = bot.get_channel(537761321551265821)  # xanation #general
+    stream_channel = bot.get_channel(710226878207754271)  # xanation #general
     if after.self_stream and not before.self_stream:  # if streaming now but not before
         await stream_channel.send(f'-----\n**{user}** is now streaming in **# {after.channel}**\n-----')
 
