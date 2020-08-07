@@ -120,19 +120,17 @@ class League:
 
         self.save_league()
 
-    def add_rteam(self, team, owner):
+    def add_rteam(self, team, name):
         teams = self.league_dat["teams"]
-        if team not in teams:
-            teams[team] = {
-                'owner': owner,
-                'pick': 1,
-                'points': 0,
-                'budget': self.league_dat['budget'],
-                'players': {}
-            }
+        teams[team] = {
+            'points': 0,
+            'owner': name,
+            'budget': self.league_dat['budget'],
+            'players': {}
+        }
 
-            self.save_league()
-            return team
+        self.save_league()
+        return team
 
     def add_player_to_team(self, ign, team):
         player = self.update_player(ign)
@@ -147,6 +145,15 @@ class League:
             else:
                 print(player.wr_mod-budget, ' PTS TOO EXPENSIVE')
                 return 101
+
+    def remove_player_from_team(self, ign, team):
+        pts = self.league_dat['teams'][team]['players'][ign]
+        del self.league_dat['teams'][team]['players'][ign]
+
+        if self.league_dat['royale']:
+            self.league_dat['teams'][team]['budget'] += pts
+
+        self.save_league()
 
     def sum_team_pts(self, team):
         team_dict = self.league_dat['teams'][team]

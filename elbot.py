@@ -26,6 +26,14 @@ def save_dat():  # for writing j_dat to local json file
         json.dump(j_dat, outfile, indent=4)
 
 
+def get_owners(league_name='ROYALE COUNCIL'):
+    league = fm.League(league_name)
+
+    for oid in league.league_dat['teams']:
+        owner = bot.get_user(int(oid))
+        yield owner, oid
+
+
 # CALCULATE "STRIKES"
 def strike(user_name, category):  # add strike to 'strikes' in temp.json
     culprit = next((item for item in strikes if item["name"] == user_name), None)  # get user vector
@@ -64,18 +72,52 @@ async def clean(ctx):  # UOP
 
 
 @bot.command()
-async def draft(ctx, *, args):
+async def start_draft(ctx, *, args):
     await ctx.send('***STARTING DRAFT***')
     arglist = args.split(' ')
     for a in arglist:
         await ctx.send(a)
 
-
 # DRAFT ROYALE!
 @bot.command()
-async def draftr(ctx, *, args):
+async def standings(ctx, leauge_name='ROYALE COUNCIL'):
     await ctx.send('***STARTING DRAFT ROYALE***')
-    arglist = args.split(' ')
+    league = fm.League(leauge_name)
+
+    for player, pts in league.ordered_players():
+        await ctx.send(f'{player}: {round(pts)}')
+
+
+@bot.command()
+async def register(ctx, league_name='ROYALE COUNCIL'):
+    team = ctx.author.id
+    name = ctx.author.name
+    league = fm.League(league_name)
+    if str(team) not in league.league_dat['teams']:
+        league.add_rteam(team, name)
+        await ctx.send('TEAM ADDED')
+
+
+@bot.command()
+async def draft(ctx, ign, league_name='ROYALE COUNCIL'):
+    team = str(ctx.author.id)
+    league = fm.League(league_name)
+
+    if ign not in league.league_dat['teams'][team]['players']:
+        league.add_player_to_team(ign, team)
+        await ctx.send(f'*team:* {league.league_dat["teams"][team]["players"]}')
+        await ctx.send(f'*points left:* {league.league_dat["teams"][team]["budget"]}')
+
+
+@bot.command()
+async def release(ctx, ign, league_name='ROYALE COUNCIL'):
+    team = str(ctx.author.id)
+    league = fm.League(league_name)
+
+    if ign in league.league_dat['teams'][team]['players']:
+        league.remove_player_from_team(ign, team)
+        await ctx.send(f'*team:* {league.league_dat["teams"][team]["players"]}')
+        await ctx.send(f'*points left:* {league.league_dat["teams"][team]["budget"]}')
 
 
 # COUNT XDs, @ALLs
@@ -84,7 +126,6 @@ async def on_message(message):
 
     content = message.content
     channel = message.channel  # bot_testing
-    user_name = message.author.name
 
     # STRIKE FOR @EVERYONE
     if message.mention_everyone:  # everyone counter

@@ -43,42 +43,77 @@
             "name": "ROYALE COUNCIL",
             "commissioner": "x\u00e2n",
             "index": 1,
-            "budget": 275,
+            "budget": 290,
             "royale": true,
             "teams": {
-                "b": {
-                    "owner": "ed",
-                    "pick": 1,
+                "371034483836846090": {
                     "points": 0,
-                    "budget": 275,
-                    "players": {}
-                },
-                "x": {
-                    "owner": "x\u00e2n",
-                    "pick": 1,
-                    "points": 0,
-                    "budget": 2,
+                    "budget": 0,
                     "players": {
-                        "yasuomoe": 54,
-                        "ipogoz": 60,
-                        "nkjukko": 55,
                         "fent bars": 52,
-                        "bobbyzlich": 52
+                        "ipogoz": 59,
+                        "1deepgenz": 55,
+                        "kronova": 61,
+                        "yasheo": 63
                     }
                 },
-                "p": {
-                    "owner": "pogo",
-                    "pick": 1,
+                "409135880960213002": {
                     "points": 0,
-                    "budget": 275,
-                    "players": {}
+                    "budget": 4,
+                    "players": {
+                        "x\u00e2n": 54,
+                        "purplebumblebeez": 58,
+                        "durkledingus": 63,
+                        "black xan bible": 56,
+                        "1deepgenz": 55
+                    }
                 },
-                "d": {
-                    "owner": "durk",
-                    "pick": 1,
+                "434766902221340682": {
                     "points": 0,
-                    "budget": 260,
-                    "players": {}
+                    "budget": 0,
+                    "players": {
+                        "durkledingus": 63,
+                        "xtrader": 58,
+                        "yasuomoe": 54,
+                        "graynote": 58,
+                        "stinny": 57
+                    }
+                },
+                "300110170858717184": {
+                    "points": 0,
+                    "owner": "DurkleDingus",
+                    "budget": 2,
+                    "players": {
+                        "xtrader": 58,
+                        "purplebumblebeez": 58,
+                        "ipogoz": 59,
+                        "1deepturtle": 58,
+                        "1deepgenz": 55
+                    }
+                },
+                "264422225711464448": {
+                    "points": 0,
+                    "owner": "Jukko",
+                    "budget": 0,
+                    "players": {
+                        "ipogoz": 59,
+                        "yasheo": 63,
+                        "michealnguyen": 63,
+                        "bobbyzlich": 51,
+                        "yasuomoe": 54
+                    }
+                },
+                "408704037358272535": {
+                    "points": 0,
+                    "owner": "\ud835\udd21\ud835\udd2f\ud835\udd1e\ud835\udd24\ud835\udd2c\ud835\udd2b\ud835\udd25\ud835\udd1e\ud835\udd2a",
+                    "budget": 18,
+                    "players": {
+                        "kronova": 61,
+                        "nkjukko": 55,
+                        "purplebumblebeez": 58,
+                        "1deepgenz": 55,
+                        "Drag0nHam": 43
+                    }
                 }
             }
         }
@@ -86,42 +121,42 @@
     "PLAYERS": {
         "black xan bible": {
             "rank": "SILVER III",
-            "wr": 50.18,
+            "wr": 49.91,
             "leagues": [],
-            "games": 564,
-            "wr mod": 55.8828664495114,
+            "games": 569,
+            "wr mod": 55.544224555735056,
             "stats": {}
         },
         "x\u00e2n": {
-            "rank": "SILVER III",
-            "wr": 48.49,
+            "rank": "SILVER IV",
+            "wr": 48.5,
             "leagues": [],
-            "games": 365,
-            "wr mod": 54.299698795180724,
+            "games": 367,
+            "wr mod": 54.1510551558753,
             "stats": {}
         },
         "ipogoz": {
             "rank": "GOLD IV",
-            "wr": 52.15,
+            "wr": 51.96,
             "leagues": [],
-            "games": 303,
-            "wr mod": 59.6813597733711,
+            "games": 306,
+            "wr mod": 59.43539325842697,
             "stats": {}
         },
         "xtrader": {
             "rank": "PLATINUM III",
-            "wr": 44.38,
+            "wr": 45.95,
             "leagues": [],
-            "games": 169,
-            "wr mod": 56.387100456621006,
+            "games": 185,
+            "wr mod": 57.878510638297875,
             "stats": {}
         },
         "snakebee16": {
             "rank": "IRON IV",
-            "wr": 45.41,
+            "wr": 45.7,
             "leagues": [],
-            "games": 185,
-            "wr mod": 46.69297872340426,
+            "games": 186,
+            "wr mod": 47.00016949152542,
             "stats": {}
         },
         "durkledingus": {
@@ -150,10 +185,10 @@
         },
         "drag0nham": {
             "rank": "BRONZE IV",
-            "wr": 22.73,
+            "wr": 20.83,
             "leagues": [],
-            "games": 22,
-            "wr mod": 44.276666666666664,
+            "games": 24,
+            "wr mod": 43.075540540540544,
             "stats": {}
         },
         "xxda1hpwarriorxx": {
@@ -190,10 +225,10 @@
         },
         "1deepturtle": {
             "rank": "GOLD IV",
-            "wr": 50.41,
+            "wr": 50.2,
             "leagues": [],
-            "games": 978,
-            "wr mod": 58.054105058365764,
+            "games": 990,
+            "wr mod": 57.82730769230769,
             "stats": {}
         },
         "darkshadow2015": {
@@ -238,10 +273,10 @@
         },
         "stinny": {
             "rank": "GOLD IV",
-            "wr": 49.24,
+            "wr": 49.06,
             "leagues": [],
-            "games": 794,
-            "wr mod": 57.12409952606635,
+            "games": 797,
+            "wr mod": 56.69452184179457,
             "stats": {}
         },
         "graynote": {
@@ -261,11 +296,11 @@
             "stats": {}
         },
         "yasuomoe": {
-            "rank": "SILVER III",
-            "wr": 48.2,
+            "rank": "SILVER IV",
+            "wr": 48.1,
             "leagues": [],
-            "games": 500,
-            "wr mod": 53.98863636363636,
+            "games": 501,
+            "wr mod": 53.650862068965516,
             "stats": {}
         },
         "1deepgenz": {
@@ -278,10 +313,66 @@
         },
         "bobbyzlich": {
             "rank": "BRONZE I",
-            "wr": 45.0,
+            "wr": 43.55,
             "leagues": [],
-            "games": 60,
-            "wr mod": 52.14772727272727,
+            "games": 62,
+            "wr mod": 51.14857142857143,
+            "stats": {}
+        },
+        "xan": {
+            "rank": "SILVER IV",
+            "wr": 53.57,
+            "leagues": [],
+            "games": 28,
+            "wr mod": 56.70705128205128,
+            "stats": {}
+        },
+        "dingusdurkle": {
+            "rank": null,
+            "wr": 0.0,
+            "leagues": [],
+            "games": 0,
+            "wr mod": 0,
+            "stats": {}
+        },
+        "michealnguyen": {
+            "rank": "PLATINUM II",
+            "wr": 54.55,
+            "leagues": [],
+            "games": 22,
+            "wr mod": 62.75888888888888,
+            "stats": {}
+        },
+        "johnnyblaze": {
+            "rank": null,
+            "wr": 0.0,
+            "leagues": [],
+            "games": 0,
+            "wr mod": 0,
+            "stats": {}
+        },
+        "Drag0nHam": {
+            "rank": "BRONZE IV",
+            "wr": 20.83,
+            "leagues": [],
+            "games": 24,
+            "wr mod": 43.075540540540544,
+            "stats": {}
+        },
+        "goldwolfe": {
+            "rank": null,
+            "wr": 0.0,
+            "leagues": [],
+            "games": 0,
+            "wr mod": 0,
+            "stats": {}
+        },
+        "u\u00f1orthodox": {
+            "rank": "SILVER IV",
+            "wr": 46.26,
+            "leagues": [],
+            "games": 147,
+            "wr mod": 52.40812182741117,
             "stats": {}
         }
     }

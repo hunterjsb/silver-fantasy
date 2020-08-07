@@ -147,6 +147,7 @@ class Summoner:
             if match['queue'] == queue_type:
                 soloq_match = Match(match['gameId'])
                 if soloq_match.game_duration > 15*60:  # 15 min
+                    print('got match!')
                     yield soloq_match
 
     def get_recent_soloq_games(self, days=7, limit=57):
@@ -161,6 +162,26 @@ class Summoner:
             else:
                 # print('DONE', matches)
                 return matches
+
+    @property
+    def recent_soloq_stats(self):
+        games = self.get_recent_soloq_games()
+        gamestatlist = {}
+
+        for game in games:
+            score = game.calc_point_base(self.ign)
+            stats = {
+                'champ': game.player_champ(self.ign),
+                'date': game.game_time.strftime("%m/%d/%Y"),
+                'duration': game.game_duration_min,
+                'kda': game.get_kda(self.ign),
+                'csm': game.get_csm(self.ign),
+                'vision': game.get_vision_score(self.ign)
+            }
+
+            gamestatlist[score] = stats
+
+        return gamestatlist
 
 
 class Match:
@@ -190,12 +211,15 @@ class Match:
     def game_duration(self):
         return self.game['gameDuration']
 
-    @property  # BR0KEN
+    @property
     def game_duration_min(self):
         g_d = self.game['gameDuration']
         mins = g_d // 60
         remainder = round((g_d - mins) / 100)
-        return f'{mins}:{remainder}'
+        if remainder > 9:
+            return f'{mins}:{remainder}'
+        else:
+            return f'{mins}:0{remainder}'
 
     def get_participant(self, name):
         for part in self.game['participantIdentities']:
@@ -213,6 +237,7 @@ class Match:
             print('SUMMONER NOT FOUND!')
             return 404
 
+    # USED IN POINT BASE
     def get_kda(self, name, decimal=False):
 
         # LOOK UP STATS
@@ -230,18 +255,22 @@ class Match:
             kda = (kills, deaths, assists)
         return kda
 
+    # USED IN POINT BASE
     def get_cs(self, name):
         stats = self.get_participant(name)['stats']
         cs = stats['neutralMinionsKilled'] + stats['totalMinionsKilled']
         return cs
 
+    # USED IN POINT BASE
     def get_vision_score(self, name):
         return self.get_participant(name)['stats']['visionScore']
 
+    # USED IN POINT BASE
     def get_csm(self, name):
         cs = self.get_cs(name)
         return cs/(self.game_duration/60)
 
+    # MFKING POINT BASE
     def calc_point_base(self, name):
         k, d, a = self.get_kda(name)
         csm = self.get_csm(name)
@@ -249,6 +278,7 @@ class Match:
         points = k - d + a/2 + 1.5*csm + vision/10
         return round(points, 2)
 
+    # LOOK UP CHAMP NAME OF PLAYER IN GAME
     def player_champ(self, name):
         stats = self.get_participant(name)
         return get_champ(stats['championId'])
@@ -299,7 +329,10 @@ def compare_bois(sum1, sum2, n_games=57, days=7):
 
 
 def main():
-    compare_bois('yasuomoe', 'nkjukko', n_games=10, days=21)
+    ed = Summoner('ipogoz')
+    gamestats = ed.recent_soloq_stats
+    for stat in gamestats:
+        print(stat, gamestats[stat])
 
 
 if __name__ == '__main__':
