@@ -91,7 +91,8 @@ async def standings(ctx, leauge_name='ROYALE COUNCIL'):
     league = fm.League(leauge_name)
 
     for player, pts in league.ordered_players():
-        await ctx.send(f'{player}: {round(pts)}')
+        if pts > 0:
+            await ctx.send(f'{player}: {round(pts)}')
 
 
 @bot.command()
@@ -104,7 +105,7 @@ async def history(ctx, ign):
     for stat in stats:
         t += stat
         s = stats[stat]
-        await ctx.send(f'**{stat} POINTS** {s}\n')
+        await ctx.send(f'-----\n**{stat} POINTS**\n {s}')
 
     await ctx.send(f'\n***AVERAGE {round(t/len(stats), 2)}***')
 
@@ -125,7 +126,7 @@ async def draft(ctx, ign, league_name='ROYALE COUNCIL'):
     league = fm.League(league_name)
 
     if ign not in league.league_dat['teams'][team]['players']:
-        league.add_player_to_team(ign, team)
+        league.add_player_to_team(ign.lower(), team)
         await ctx.send(f'*team:* {league.league_dat["teams"][team]["players"]}')
         await ctx.send(f'*points left:* {league.league_dat["teams"][team]["budget"]}')
 

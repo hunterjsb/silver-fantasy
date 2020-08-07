@@ -40,7 +40,6 @@ class Player(rh.Summoner):
             points = 0
         else:
             points = 50 + (self.games/(self.games+50))*((self.wr*100)-50) + (self.soloq_lin_mmr/400)
-            print(points)
 
         return points
 

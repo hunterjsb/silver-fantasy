@@ -48,13 +48,9 @@
             "teams": {
                 "371034483836846090": {
                     "points": 0,
-                    "budget": 0,
+                    "budget": 290,
                     "players": {
-                        "fent bars": 52,
-                        "ipogoz": 59,
-                        "1deepgenz": 55,
-                        "kronova": 61,
-                        "yasheo": 63
+
                     }
                 },
                 "409135880960213002": {
@@ -124,6 +120,17 @@
                         "bobbyzlich": 51,
                         "u\u00f1orthodox": 52,
                         "ipogoz": 59
+                    }
+                },
+                "178942452034568192": {
+                    "points": 0,
+                    "owner": "xtrader",
+                    "budget": 29,
+                    "players": {
+                        "nounfirecrow": 73,
+                        "ahhhaustin": 57,
+                        "i am dogunyun": 73,
+                        "xtrader": 58
                     }
                 }
             }
@@ -330,60 +337,52 @@
             "wr mod": 51.14857142857143,
             "stats": {}
         },
-        "xan": {
-            "rank": "SILVER IV",
-            "wr": 53.57,
-            "leagues": [],
-            "games": 28,
-            "wr mod": 56.70705128205128,
-            "stats": {}
-        },
-        "dingusdurkle": {
-            "rank": null,
-            "wr": 0.0,
-            "leagues": [],
-            "games": 0,
-            "wr mod": 0,
-            "stats": {}
-        },
-        "michealnguyen": {
-            "rank": "PLATINUM II",
-            "wr": 54.55,
-            "leagues": [],
-            "games": 22,
-            "wr mod": 62.75888888888888,
-            "stats": {}
-        },
-        "johnnyblaze": {
-            "rank": null,
-            "wr": 0.0,
-            "leagues": [],
-            "games": 0,
-            "wr mod": 0,
-            "stats": {}
-        },
-        "Drag0nHam": {
-            "rank": "BRONZE IV",
-            "wr": 20.83,
-            "leagues": [],
-            "games": 24,
-            "wr mod": 43.075540540540544,
-            "stats": {}
-        },
-        "goldwolfe": {
-            "rank": null,
-            "wr": 0.0,
-            "leagues": [],
-            "games": 0,
-            "wr mod": 0,
-            "stats": {}
-        },
         "u\u00f1orthodox": {
             "rank": "SILVER IV",
             "wr": 46.26,
             "leagues": [],
             "games": 147,
             "wr mod": 52.40812182741117,
+            "stats": {}
+        },
+        "ahhhaustin": {
+            "rank": "PLATINUM III",
+            "wr": 45.21,
+            "leagues": [],
+            "games": 188,
+            "wr mod": 56.84348739495799,
+            "stats": {}
+        },
+        "i am dogunyun": {
+            "rank": "PLATINUM IV",
+            "wr": 75.51,
+            "leagues": [],
+            "games": 49,
+            "wr mod": 72.88126262626263,
+            "stats": {}
+        },
+        "i am doguyun": {
+            "rank": null,
+            "wr": 0.0,
+            "leagues": [],
+            "games": 0,
+            "wr mod": 0,
+            "stats": {}
+        },
+        "our lee sucks": {
+            "rank": null,
+            "wr": 0.0,
+            "leagues": [],
+            "games": 0,
+            "wr mod": 0,
+            "stats": {}
+        },
+        "tinkerbeil": {
+            "rank": null,
+            "wr": 0.0,
+            "leagues": [],
+            "games": 0,
+            "wr mod": 0,
             "stats": {}
         }
     }

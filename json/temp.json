@@ -14,7 +14,7 @@
     "strikes": [
         {
             "name": "xan",
-            "xds": 22,
+            "xds": 24,
             "@everyones": 6
         },
         {
@@ -29,7 +29,7 @@
         },
         {
             "name": "LePogoZ",
-            "xds": 1,
+            "xds": 2,
             "@everyones": 0
         },
         {
@@ -44,7 +44,7 @@
         },
         {
             "name": "DurkleDingus",
-            "xds": 4,
+            "xds": 5,
             "@everyones": 0
         }
     ]
