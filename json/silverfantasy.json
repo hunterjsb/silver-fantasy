@@ -48,9 +48,12 @@
             "teams": {
                 "371034483836846090": {
                     "points": 0,
-                    "budget": 290,
+                    "budget": 108,
+                    "owner": "xân",
                     "players": {
-
+                        "fent bars": 52,
+                        "xtrader": 58,
+                        "i am dogunyun": 72
                     }
                 },
                 "409135880960213002": {
@@ -353,31 +356,7 @@
             "wr mod": 56.84348739495799,
             "stats": {}
         },
-        "i am dogunyun": {
-            "rank": "PLATINUM IV",
-            "wr": 75.51,
-            "leagues": [],
-            "games": 49,
-            "wr mod": 72.88126262626263,
-            "stats": {}
-        },
-        "i am doguyun": {
-            "rank": null,
-            "wr": 0.0,
-            "leagues": [],
-            "games": 0,
-            "wr mod": 0,
-            "stats": {}
-        },
-        "our lee sucks": {
-            "rank": null,
-            "wr": 0.0,
-            "leagues": [],
-            "games": 0,
-            "wr mod": 0,
-            "stats": {}
-        },
-        "tinkerbeil": {
+        "i am dongunyun": {
             "rank": null,
             "wr": 0.0,
             "leagues": [],

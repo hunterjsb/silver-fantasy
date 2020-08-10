@@ -286,50 +286,6 @@ class Match:
         return get_champ(stats['championId'])
 
 
-# PRINT BASE STATS FOR TWO PLAYERS SIDE-BY-SIDE OVER N GAMES IN M DAYS
-def compare_bois(sum1, sum2, n_games=57, days=7):
-    ed = Summoner(sum1)
-    pogoz = Summoner(sum2)
-    edwins = 0
-    pogozwins = 0
-
-    # get and zip da matches as match objects
-    matches = ed.get_recent_soloq_games(days=days, limit=n_games)
-    p_matches = pogoz.get_recent_soloq_games(days=days, limit=n_games)
-    z_matches = zip(matches, p_matches)
-
-    # pull da stats from the match objects and print! also count wins
-    print(f'{sum1} vs {sum2} over {n_games}\n--------------------------------------------------------------\n')
-    for match, p_match in z_matches:
-
-        # pull stats sum1
-        k, d, a = match.get_kda(ed.ign)
-        csm = round(100*match.get_csm(ed.ign))/100
-        pts = match.calc_point_base(ed.ign)
-        v = match.get_vision_score(ed.ign)
-
-        # pull stats sum2
-        pk, pd, pa = p_match.get_kda(pogoz.ign)
-        pcsm = round(p_match.get_csm(pogoz.ign), 2)
-        ppts = p_match.calc_point_base(pogoz.ign)
-        pv = p_match.get_vision_score(pogoz.ign)
-
-        # preeeent
-        print('      ', match.game_duration_min, match.player_champ(ed.ign), "  vs  ",
-              p_match.game_duration_min, p_match.player_champ(pogoz.ign))
-        print(f'    {k}/{d}/{a} {csm}cs/m | {pk}/{pd}/{pa} {pcsm}cs/m\n          {v} vision | {pv} vision\n'
-              f'        {pts} POINTS | {ppts} POINTS')
-
-        # win count
-        if pts > ppts:
-            print(ed.ign, ' wins')
-            edwins += 1
-        else:
-            print(pogoz.ign, ' wins')
-            pogozwins += 1
-        print(f'{edwins} - {pogozwins}\n')
-
-
 def main():
     ed = Summoner('ipogoz')
     gamestats = ed.recent_soloq_stats

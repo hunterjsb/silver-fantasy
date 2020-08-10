@@ -155,7 +155,7 @@ class League:
         self.save_league()
 
     def sum_team_pts(self, team):
-        team_dict = self.league_dat['teams'][team]
+        team_dict = self.league_dat['teams'][team]["players"]
         team_sum = 0
         for player in team_dict:
             team_sum += team_dict[player]
