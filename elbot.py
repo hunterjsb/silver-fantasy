@@ -87,7 +87,7 @@ async def start_draft(ctx, *, args):
 # DRAFT ROYALE!
 @bot.command()
 async def standings(ctx, leauge_name='ROYALE COUNCIL'):
-    await ctx.send('***STARTING DRAFT ROYALE***')
+    await ctx.send('***STANDINGS***')
     league = fm.League(leauge_name)
 
     for player, pts in league.ordered_players():
@@ -99,7 +99,7 @@ async def standings(ctx, leauge_name='ROYALE COUNCIL'):
 async def history(ctx, ign):
     player = rh.Summoner(ign)
     await ctx.send('*GETTING GAMES...*')
-    stats = player.recent_soloq_stats
+    stats = player.weekly_soloq_stats
     t = 0
 
     for stat in stats:
@@ -108,6 +108,17 @@ async def history(ctx, ign):
         await ctx.send(f'-----\n**{stat} POINTS**\n {s}')
 
     await ctx.send(f'\n***AVERAGE {round(t/len(stats), 2)}***')
+
+
+@bot.command()
+async def top2(ctx, ign, n_games=2):
+    player = rh.Summoner(ign)
+    await ctx.send('*GETTING GAMES...*')
+    g_sum, stats = player.get_top_games(2)
+
+    for stat in stats:
+        await ctx.send(stat)
+    await ctx.send(f'**POINTS: {round(g_sum, 1)}**')
 
 
 @bot.command()

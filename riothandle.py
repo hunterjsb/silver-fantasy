@@ -164,7 +164,7 @@ class Summoner:
                 return matches
 
     @property
-    def recent_soloq_stats(self):
+    def weekly_soloq_stats(self):
         games = self.get_recent_soloq_games()
         gamestatlist = {}
 
@@ -174,7 +174,7 @@ class Summoner:
             stats = {
                 'score': game.calc_point_base(self.ign),
                 'champ': game.player_champ(self.ign),
-                'date': game.game_time.strftime("%m/%d/%Y"),
+                # 'date': game.game_time.strftime("%m/%d/%Y"),
                 'duration': game.game_duration_min,
                 'kda': f'{k}/{d}/{a}',
                 'csm': round(game.get_csm(self.ign), 2),
@@ -184,6 +184,20 @@ class Summoner:
             gamestatlist[score] = stats
 
         return gamestatlist
+
+    def get_top_games(self, n_games):
+        top_games = []
+        gsum = 0
+        gamestatlist = self.weekly_soloq_stats
+        scores = sorted(list(gamestatlist.keys()), reverse=True)
+
+        for i in range(n_games):
+            score = scores[i]
+            stats = gamestatlist[score]
+            top_games.append(stats)
+            gsum += score
+
+        return gsum, top_games
 
 
 class Match:
@@ -287,10 +301,9 @@ class Match:
 
 
 def main():
-    ed = Summoner('ipogoz')
-    gamestats = ed.recent_soloq_stats
-    for stat in gamestats:
-        print(stat, gamestats[stat])
+    ed = Summoner('xân')
+    gsum, gamestats = ed.get_top_games(2)
+    print(gsum)
 
 
 if __name__ == '__main__':
