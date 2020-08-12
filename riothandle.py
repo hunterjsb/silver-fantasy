@@ -3,6 +3,7 @@ import os
 from dotenv import load_dotenv
 import datetime
 import time
+import json
 
 # RIOTAPI.PY REWRITE.
 # RIOT API HANDLER 2
@@ -37,6 +38,27 @@ def get_riot_token():
 
 HEADERZ = get_riot_token()
 is249 = False
+
+
+def open_soloq_games():
+    with open('./json/soloqgames.json') as f:
+        soloq_games = json.load(f)
+        return soloq_games
+
+
+def check_soloq_game(gid, return_game=False):
+    games = open_soloq_games()
+    if str(gid) in games.keys() and return_game:
+        return games[str(gid)]
+    elif gid in games.keys():
+        return True
+    else:
+        return False
+
+
+def save_soloq_game(games):
+    with open('./json/soloqgames.json', 'w') as f:
+        sg = json.dump(games, f, indent=4)
 
 
 def get_champ(champ_id):
@@ -148,12 +170,12 @@ class Summoner:
                                  headers=self.headers).json()
         return game_hist
 
+    # this function is important lmao
     def yield_games(self, queue_type=420):
         for match in self.match_history['matches']:
             if match['queue'] == queue_type:
                 soloq_match = Match(match['gameId'])
                 if soloq_match.game_duration > 15*60:  # 15 min
-                    print('got match!')
                     yield soloq_match
 
     def get_recent_soloq_games(self, days=7, limit=57):
@@ -235,16 +257,29 @@ class Match:
         self.headers = HEADERZ
         self.game = self.get_game()
 
+# ALRIGHT I GOTTA SAVE THE FKIN GAMES
     @except429
     def get_game(self):
         # print('GET_GAME')
-        game = requests.get(f'https://na1.api.riotgames.com/lol/match/v4/matches/{self.id}', headers=self.headers)
-        if game.status_code == 200:
-            game = game.json()
-            return game
+        a = check_soloq_game(self.id, True)
+        if not a:
+            game = requests.get(f'https://na1.api.riotgames.com/lol/match/v4/matches/{self.id}', headers=self.headers)
+            print('requested match!')
+            if game.status_code == 200:
+                game = game.json()
+
+                # LOAD AND SAVE GAME LOCALLY
+                sg = open_soloq_games()
+                sg[self.id] = game
+                save_soloq_game(sg)
+
+                return game
+            else:
+                print(f'GAME REQUEST ERROR: {game.status_code, type(game.status_code)}')
+                return game.status_code
         else:
-            print(f'TOO MANY GET_GAME REQUESTS')
-            return game.status_code
+            print('loaded match!')
+            return a
 
     @property
     def game_time(self):
@@ -339,8 +374,9 @@ class Match:
 
 
 def main():
-    ed = Summoner('purplebumblebeez')
-    print(ed.weekly_soloq_stats)
+    ed = Summoner('yasuomoe')
+    edm = next(ed.yield_games())
+    print(edm.game)
 
 
 if __name__ == '__main__':

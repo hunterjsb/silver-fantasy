@@ -110,15 +110,13 @@ async def lastgame(ctx, ign):
 async def history(ctx, ign):
     player = rh.Summoner(ign)
     await ctx.send('*GETTING GAMES...*')
-    stats = player.weekly_soloq_stats
-    t = 0
+    stats, p_avg = player.weekly_soloq_stats
 
     for stat in stats:
-        t += stat
         s = stats[stat]
         await ctx.send(f'-----\n**{stat} POINTS**\n {s}')
 
-    await ctx.send(f'\n***AVERAGE {round(t/len(stats), 2)}***')
+    await ctx.send(f'\n***AVERAGE {round(p_avg, 2)}***')
 
 
 @bot.command()
