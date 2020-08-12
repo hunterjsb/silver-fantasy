@@ -48,12 +48,14 @@
             "teams": {
                 "371034483836846090": {
                     "points": 0,
-                    "budget": 108,
-                    "owner": "xân",
+                    "budget": 1,
+                    "owner": "x\u00c3\u00a2n",
                     "players": {
-                        "fent bars": 52,
                         "xtrader": 58,
-                        "i am dogunyun": 72
+                        "i am dogunyun": 72,
+                        "x\u00e2n": 54,
+                        "drag0nham": 48,
+                        "1deepturtle": 57
                     }
                 },
                 "409135880960213002": {
@@ -104,14 +106,14 @@
                 },
                 "408704037358272535": {
                     "points": 0,
-                    "owner": "\ud835\udd21\ud835\udd2f\ud835\udd1e\ud835\udd24\ud835\udd2c\ud835\udd2b\ud835\udd25\ud835\udd1e\ud835\udd2a",
-                    "budget": 18,
+                    "owner": "dragonham",
+                    "budget": 15,
                     "players": {
-                        "kronova": 61,
                         "nkjukko": 55,
-                        "purplebumblebeez": 58,
                         "1deepgenz": 55,
-                        "Drag0nHam": 43
+                        "Drag0nHam": 43,
+                        "ipogoz": 59,
+                        "durkledingus": 63
                     }
                 },
                 "199962540275400704": {
@@ -135,6 +137,18 @@
                         "i am dogunyun": 73,
                         "xtrader": 58
                     }
+                },
+                "460129267775176715": {
+                    "points": 0,
+                    "owner": "Alex Figs \u30c4",
+                    "budget": 7,
+                    "players": {
+                        "1deepgenz": 54,
+                        "1deepturtle": 57,
+                        "u\u00f1orthodox": 52,
+                        "x\u00e2n": 54,
+                        "b\u00e9p": 66
+                    }
                 }
             }
         }
@@ -149,19 +163,19 @@
             "stats": {}
         },
         "x\u00e2n": {
-            "rank": "SILVER IV",
-            "wr": 48.5,
+            "rank": "SILVER III",
+            "wr": 48.52,
             "leagues": [],
-            "games": 367,
-            "wr mod": 54.1510551558753,
+            "games": 371,
+            "wr mod": 54.31858669833729,
             "stats": {}
         },
         "ipogoz": {
             "rank": "GOLD IV",
-            "wr": 51.96,
+            "wr": 51.61,
             "leagues": [],
-            "games": 306,
-            "wr mod": 59.43539325842697,
+            "games": 310,
+            "wr mod": 58.968888888888884,
             "stats": {}
         },
         "xtrader": {
@@ -205,11 +219,11 @@
             "stats": {}
         },
         "drag0nham": {
-            "rank": "BRONZE IV",
-            "wr": 20.83,
+            "rank": "BRONZE II",
+            "wr": 36.59,
             "leagues": [],
-            "games": 24,
-            "wr mod": 43.075540540540544,
+            "games": 41,
+            "wr mod": 48.01604395604396,
             "stats": {}
         },
         "xxda1hpwarriorxx": {
@@ -245,11 +259,11 @@
             "stats": {}
         },
         "1deepturtle": {
-            "rank": "GOLD IV",
-            "wr": 50.2,
+            "rank": "SILVER I",
+            "wr": 50.1,
             "leagues": [],
-            "games": 990,
-            "wr mod": 57.82730769230769,
+            "games": 1020,
+            "wr mod": 57.04845794392523,
             "stats": {}
         },
         "darkshadow2015": {
@@ -318,18 +332,18 @@
         },
         "yasuomoe": {
             "rank": "SILVER IV",
-            "wr": 48.1,
+            "wr": 48.11,
             "leagues": [],
-            "games": 501,
-            "wr mod": 53.650862068965516,
+            "games": 503,
+            "wr mod": 53.682097649186254,
             "stats": {}
         },
         "1deepgenz": {
             "rank": "SILVER II",
-            "wr": 48.02,
+            "wr": 47.6,
             "leagues": [],
-            "games": 202,
-            "wr mod": 54.87269841269841,
+            "games": 208,
+            "wr mod": 54.33701550387597,
             "stats": {}
         },
         "bobbyzlich": {
@@ -342,10 +356,10 @@
         },
         "u\u00f1orthodox": {
             "rank": "SILVER IV",
-            "wr": 46.26,
+            "wr": 45.64,
             "leagues": [],
-            "games": 147,
-            "wr mod": 52.40812182741117,
+            "games": 149,
+            "wr mod": 51.778668341708546,
             "stats": {}
         },
         "ahhhaustin": {

@@ -36,6 +36,7 @@ def get_riot_token():
 
 
 HEADERZ = get_riot_token()
+is249 = False
 
 
 def get_champ(champ_id):
@@ -52,11 +53,16 @@ def except429(func):
         funcy = func(*args, **kwargs)
         if type(funcy) is not int:
             return funcy
-        else:
+
+        elif funcy == 429:
             print(f'CODE {funcy}')
             print('trying again in 100 seconds...')
             time.sleep(100)
             return func(*args, **kwargs)
+
+        else:
+            print(f'CODE {funcy}')
+            return funcy
 
     return except_wrapper
 
@@ -164,6 +170,26 @@ class Summoner:
                 return matches
 
     @property
+    def avg_stats(self):
+        n, t_kdad, t_k, t_d, t_a, t_csm, t_vision = 0, 0, 0, 0, 0, 0, 0
+        t_points = 0
+
+        for game in self.yield_games():
+            n += 1
+            t_points += game.calc_point_base(self.ign)
+            k, d, a = game.get_kda(self.ign)
+            t_k += k
+            t_d += d
+            t_a += a
+            t_kdad = (t_k + t_a) / t_d
+            t_csm += game.get_csm(self.ign)
+            t_vision += game.get_vision_score(self.ign)
+
+        totals = (n, t_points, t_k, t_d, t_a, t_csm, t_vision)
+        return {'games': n, 'ppg': t_points/n, 'kda': f'{round(t_k/n)}/{round(t_d/n)}/{round(t_a/n)}', 'csm': t_csm/n,
+                'vision': t_vision/n, 'kdad': t_kdad, 'totals': totals}
+
+    @property
     def weekly_soloq_stats(self):
         games = self.get_recent_soloq_games()
         gamestatlist = {}
@@ -172,7 +198,7 @@ class Summoner:
             k, d, a = game.get_kda(self.ign)
             score = game.calc_point_base(self.ign)
             stats = {
-                'score': game.calc_point_base(self.ign),
+                'score': score,
                 'champ': game.player_champ(self.ign),
                 # 'date': game.game_time.strftime("%m/%d/%Y"),
                 'duration': game.game_duration_min,
@@ -291,8 +317,17 @@ class Match:
         k, d, a = self.get_kda(name)
         csm = self.get_csm(name)
         vision = self.get_vision_score(name)
-        points = k - d + a/2 + 1.5*csm + vision/10
+        points = k - d + a/1.5 + 1.5*csm + vision/10
         return round(points, 2)
+
+    # USED IN CC POINTS
+    def get_cc(self, name):
+        stats = self.get_participant(name)['stats']
+        cc = stats["timeCCingOthers"]
+        kda = self.get_kda(name, True)
+
+        ccp = (kda/(2*self.game_duration/60)) * (cc/(self.game_duration/60))
+        return ccp
 
     # LOOK UP CHAMP NAME OF PLAYER IN GAME
     def player_champ(self, name):
@@ -301,9 +336,11 @@ class Match:
 
 
 def main():
-    ed = Summoner('xân')
-    gsum, gamestats = ed.get_top_games(2)
-    print(gsum)
+    ed = Summoner('purplebumblebeez')
+    games = ed.get_recent_soloq_games()
+
+    for game in games:
+        print(game.game)
 
 
 if __name__ == '__main__':

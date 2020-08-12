@@ -96,6 +96,25 @@ async def standings(ctx, leauge_name='ROYALE COUNCIL'):
 
 
 @bot.command()
+async def lastgame(ctx, ign):
+    player = rh.Summoner(ign)
+    last_game = next(player.yield_games())
+    p = last_game.get_participant(ign)
+    pc = rh.get_champ(p['championId'])
+    ps = p['stats']
+    ptl = p['timeline']
+    print(p)
+
+    await ctx.send(f'**{pc} STATS:**')
+    for i in ps:
+        await ctx.send(f'{i}: {ps[i]}')
+
+    await ctx.send(f'**TIMELINE:**')
+    for j in ptl:
+        await ctx.send(f'{j}: {ptl[j]}')
+
+
+@bot.command()
 async def history(ctx, ign):
     player = rh.Summoner(ign)
     await ctx.send('*GETTING GAMES...*')
@@ -108,6 +127,20 @@ async def history(ctx, ign):
         await ctx.send(f'-----\n**{stat} POINTS**\n {s}')
 
     await ctx.send(f'\n***AVERAGE {round(t/len(stats), 2)}***')
+
+
+@bot.command()
+async def avg(ctx, ign):
+    player = rh.Summoner(ign)
+    await ctx.send("*GETTING GAMES...*")
+    stats = player.avg_stats
+    for stat in stats:
+        if stat is not 'kda' and stat is not 'totals':
+            await ctx.send(f'**{stat}**: {round(stats[stat], 2)}')
+        elif stat is 'kda':
+            await ctx.send(f'**{stat}**: {stats[stat]}')
+        else:
+            await ctx.send(f'*totals: {stats[stat]}*')
 
 
 @bot.command()

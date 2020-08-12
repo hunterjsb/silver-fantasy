@@ -154,14 +154,6 @@ class League:
 
         self.save_league()
 
-    def sum_team_pts(self, team):
-        team_dict = self.league_dat['teams'][team]["players"]
-        team_sum = 0
-        for player in team_dict:
-            team_sum += team_dict[player]
-
-        return team_sum
-
     def ordered_players(self):
         # MAKE SORTED LIST OF DR COSTS
         pointlist = []
@@ -184,8 +176,6 @@ class League:
 def main():
     rc = League("ROYALE COUNCIL")
     rc.add_player_to_team('bobbyzlich', 'x')
-    # for t, u in [('yasuomoe', 'x'), ('ipogoz', 'x'), ('nkjukko', 'x'), ('fent bars', 'x'), ('xxda1hpwarriorxx', 'x')]:
-    #     rc.add_player_to_team(t, u)
 
 
 if __name__ == '__main__':
