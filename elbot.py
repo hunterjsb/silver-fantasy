@@ -76,14 +76,6 @@ async def clean(ctx):  # UOP
             delete_count += 1
     await ctx.message.channel.send(f'deleted {delete_count} messages')
 
-
-@bot.command()
-async def start_draft(ctx, *, args):
-    await ctx.send('***STARTING DRAFT***')
-    arglist = args.split(' ')
-    for a in arglist:
-        await ctx.send(a)
-
 # DRAFT ROYALE!
 @bot.command()
 async def standings(ctx, leauge_name='ROYALE COUNCIL'):
@@ -147,7 +139,7 @@ async def avg(ctx, ign):
 async def top2(ctx, ign, n_games=2):
     player = rh.Summoner(ign)
     await ctx.send('*GETTING GAMES...*')
-    g_sum, stats = player.get_top_games(2)
+    g_sum, g_avg, stats = player.get_top_games(2)
 
     for stat in stats:
         await ctx.send(stat)
@@ -185,6 +177,19 @@ async def release(ctx, ign, league_name='ROYALE COUNCIL'):
         await ctx.send(f'*team:* {league.league_dat["teams"][team]["players"]}')
         await ctx.send(f'*points left:* {league.league_dat["teams"][team]["budget"]}')
 
+
+@bot.command()
+async def teamscore(ctx, league_name='ROYALE COUNCIL'):
+    team = str(ctx.author.id)
+    league = fm.League(league_name)
+    pts, savg, gl = league.get_rteam_ppw(team)
+
+    await ctx.send(f'***TEAM {ctx.author.name}***:\n**{pts} POINTS ({savg} SAVG)**')
+    await ctx.send(f'-\n*games:*\n')
+    for player in gl:
+        await ctx.send(player)
+        for game in gl[player]:
+            await ctx.send(game)
 
 # COUNT XDs, @ALLs
 @bot.event  # on message!!!

@@ -131,6 +131,22 @@ class League:
         self.save_league()
         return team
 
+    def get_rteam_ppw(self, team):
+        team = self.league_dat["teams"][team]
+        team_pts = 0
+        sumavg = 0
+        gamelist = {}
+
+        for player in team["players"]:
+            summoner = rh.Summoner(player)
+            pts, avg, games = summoner.get_top_games(2)
+            team_pts += pts
+            sumavg += avg
+            gamelist[player] = games
+            gamelist[player].append({'avg': avg})
+
+        return team_pts, sumavg, gamelist
+
     def add_player_to_team(self, ign, team):
         player = self.update_player(ign)
         self.league_dat['teams'][team]['players'][ign] = round(player.wr_mod)
@@ -175,7 +191,7 @@ class League:
 
 def main():
     rc = League("ROYALE COUNCIL")
-    rc.add_player_to_team('bobbyzlich', 'x')
+    print(rc.get_rteam_ppw("371034483836846090"))
 
 
 if __name__ == '__main__':

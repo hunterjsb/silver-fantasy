@@ -193,10 +193,12 @@ class Summoner:
     def weekly_soloq_stats(self):
         games = self.get_recent_soloq_games()
         gamestatlist = {}
+        week_total = 0
 
         for game in games:
             k, d, a = game.get_kda(self.ign)
             score = game.calc_point_base(self.ign)
+            week_total += score
             stats = {
                 'score': score,
                 'champ': game.player_champ(self.ign),
@@ -209,12 +211,13 @@ class Summoner:
 
             gamestatlist[score] = stats
 
-        return gamestatlist
+        avg = week_total / len(games)
+        return gamestatlist, avg
 
     def get_top_games(self, n_games):
         top_games = []
         gsum = 0
-        gamestatlist = self.weekly_soloq_stats
+        gamestatlist, g_avg = self.weekly_soloq_stats
         scores = sorted(list(gamestatlist.keys()), reverse=True)
 
         for i in range(n_games):
@@ -223,7 +226,7 @@ class Summoner:
             top_games.append(stats)
             gsum += score
 
-        return gsum, top_games
+        return gsum, g_avg, top_games
 
 
 class Match:
@@ -337,10 +340,7 @@ class Match:
 
 def main():
     ed = Summoner('purplebumblebeez')
-    games = ed.get_recent_soloq_games()
-
-    for game in games:
-        print(game.game)
+    print(ed.weekly_soloq_stats)
 
 
 if __name__ == '__main__':
