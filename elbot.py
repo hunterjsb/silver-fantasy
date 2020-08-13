@@ -17,7 +17,7 @@ bot = commands.Bot(command_prefix='$')  # Bot is like discord.Client
 with open('./json/temp.json') as j_file:  # get user data from local json file
     j_dat = json.load(j_file)
     strikes = j_dat["strikes"]  # user strikes as list of dicts
-    ranks = j_dat["ranks"]  # user ranks as list of dicts
+    data = j_dat["data"]
 
 
 # SAVE TO TEMP.JSON
@@ -139,7 +139,7 @@ async def avg(ctx, ign):
 async def top2(ctx, ign, n_games=2):
     player = rh.Summoner(ign)
     await ctx.send('*GETTING GAMES...*')
-    g_sum, g_avg, stats = player.get_top_games(2)
+    g_sum, g_avg, stats = player.get_top_games(n_games)
 
     for stat in stats:
         await ctx.send(stat)
@@ -179,8 +179,11 @@ async def release(ctx, ign, league_name='ROYALE COUNCIL'):
 
 
 @bot.command()
-async def teamscore(ctx, league_name='ROYALE COUNCIL'):
-    team = str(ctx.author.id)
+async def teamscore(ctx, user_id=None, league_name='ROYALE COUNCIL'):
+    if not user_id:
+        team = str(ctx.author.id)
+    else:
+        team = str(user_id)
     league = fm.League(league_name)
     pts, savg, gl = league.get_rteam_ppw(team)
 

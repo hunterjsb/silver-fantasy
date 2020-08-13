@@ -1,16 +1,4 @@
 {
-    "ranks": [
-        {
-            "name": "xan",
-            "rank": "iron iv",
-            "mmr": 10
-        },
-        {
-            "name": "Your Friendly Neighborhood PogoZ",
-            "rank": "iron iii",
-            "mmr": 20
-        }
-    ],
     "strikes": [
         {
             "name": "xan",
@@ -47,5 +35,8 @@
             "xds": 5,
             "@everyones": 0
         }
-    ]
+    ],
+    "data": {
+
+    }
 }

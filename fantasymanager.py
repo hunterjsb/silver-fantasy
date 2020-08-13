@@ -1,5 +1,17 @@
-import riothandle as rh
+from riothandle import Summoner, Match
 import json
+import datetime
+
+sq_file = open('./json/soloqgames.json')
+sq_games = json.load(sq_file)
+
+
+def sq_save():
+    with open('./json/soloqgames.json', 'w') as f:
+        json.dump(sq_games, f, indent=4)
+
+    global sq_file
+    sq_file = open('./json/soloqgames.json')
 
 
 def new_dr_league(name, budget):
@@ -29,7 +41,7 @@ def new_dr_league(name, budget):
             return 40
 
 
-class Player(rh.Summoner):
+class Player(Summoner):
     def __init__(self, ign):
         super().__init__(ign)
         self.leagues = []
@@ -42,6 +54,54 @@ class Player(rh.Summoner):
             points = 50 + (self.games/(self.games+50))*((self.wr*100)-50) + (self.soloq_lin_mmr/400)
 
         return points
+
+    def sq_load(self):
+        gamestatlist = {}
+        week_total = 0
+
+        # CHECK TO SEE IF THE PLAYER IS IN SOLOQGAMES.JSON
+        if self.ign in sq_games:
+            games = sq_games[self.ign]
+        else:
+            sq_games[self.ign] = {}
+            games = {}
+
+        for game in self.match_history['matches']:
+
+            # MAKE SURE IT'S RECENT
+            time = datetime.datetime.fromtimestamp(game['timestamp'] // 1000)
+            week_ago = datetime.datetime.now() - datetime.timedelta(7)
+            recent = time > week_ago
+
+            if recent:
+                if str(game['gameId']) in list(games.keys()):
+                    print('game loaded')
+                    g = games[str(game['gameId'])]
+                    gamestatlist[g['score']] = g
+                    week_total += g['score']
+                else:
+                    game = Match(game['gameId'])
+                    k, d, a = game.get_kda(self.ign)
+                    score = game.calc_point_base(self.ign)
+                    week_total += score
+                    stats = {
+                        'score': score,
+                        'champ': game.player_champ(self.ign),
+                        'date': game.game_time.strftime("%m/%d/%Y"),
+                        'duration': game.game_duration_min,
+                        'kda': f'{k}/{d}/{a}',
+                        'csm': round(game.get_csm(self.ign), 2),
+                        'vision': game.get_vision_score(self.ign)
+                    }
+
+                    gamestatlist[score] = stats
+                    games[game.id] = stats
+
+        avg = week_total / len(games)
+        sq_games[self.ign] = games
+        print(games)
+        sq_save()
+        return gamestatlist, avg
 
 
 class League:
@@ -138,12 +198,12 @@ class League:
         gamelist = {}
 
         for player in team["players"]:
-            summoner = rh.Summoner(player)
+            summoner = Player(player)
             pts, avg, games = summoner.get_top_games(2)
             team_pts += pts
             sumavg += avg
             gamelist[player] = games
-            gamelist[player].append({'avg': avg})
+            gamelist[player].append({'avg': round(avg, 1), 'pts': round(pts, 1)})
 
         return team_pts, sumavg, gamelist
 
@@ -190,8 +250,8 @@ class League:
 
 
 def main():
-    rc = League("ROYALE COUNCIL")
-    print(rc.get_rteam_ppw("371034483836846090"))
+    rc = Player("ipogoz")
+    print(rc.sq_load())
 
 
 if __name__ == '__main__':

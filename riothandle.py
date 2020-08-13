@@ -1,5 +1,6 @@
 import requests
 import os
+import json
 from dotenv import load_dotenv
 import datetime
 import time
@@ -35,8 +36,7 @@ def get_riot_token():
     return headers
 
 
-HEADERZ = get_riot_token()
-is249 = False
+headers = get_riot_token()
 
 
 def get_champ(champ_id):
@@ -46,6 +46,14 @@ def get_champ(champ_id):
         cid = int(champ_dat[champ]['key'])
         if cid == champ_id:
             return champ
+
+
+def print_func(func):
+    def wrapper(*args, **kwargs):
+        f = func(*args, **kwargs)
+        print(f'called {func.__name__}')
+        return f
+    return wrapper
 
 
 def except429(func):
@@ -71,7 +79,7 @@ class Summoner:
 
     def __init__(self, ign):
         self.ign = ign
-        self.headers = HEADERZ
+        self.headers = headers
         self.soloq = None
         self.flex = None
         self.rank = None
@@ -142,8 +150,8 @@ class Summoner:
             return None
 
     @property
+    @print_func
     def match_history(self):
-        # print("MATCH_HISTORY")
         game_hist = requests.get(f"https://na1.api.riotgames.com/lol/match/v4/matchlists/by-account/{self.ids[1]}",
                                  headers=self.headers).json()
         return game_hist
@@ -153,7 +161,6 @@ class Summoner:
             if match['queue'] == queue_type:
                 soloq_match = Match(match['gameId'])
                 if soloq_match.game_duration > 15*60:  # 15 min
-                    print('got match!')
                     yield soloq_match
 
     def get_recent_soloq_games(self, days=7, limit=57):
@@ -202,11 +209,12 @@ class Summoner:
             stats = {
                 'score': score,
                 'champ': game.player_champ(self.ign),
-                # 'date': game.game_time.strftime("%m/%d/%Y"),
+                'date': game.game_time.strftime("%m/%d/%Y"),
                 'duration': game.game_duration_min,
                 'kda': f'{k}/{d}/{a}',
                 'csm': round(game.get_csm(self.ign), 2),
-                'vision': game.get_vision_score(self.ign)
+                'vision': game.get_vision_score(self.ign),
+                '*cc': round(game.get_cc(self.ign), 2)
             }
 
             gamestatlist[score] = stats
@@ -232,10 +240,11 @@ class Summoner:
 class Match:
     def __init__(self, match_id):
         self.id = match_id
-        self.headers = HEADERZ
+        self.headers = headers
         self.game = self.get_game()
 
     @except429
+    @print_func
     def get_game(self):
         # print('GET_GAME')
         game = requests.get(f'https://na1.api.riotgames.com/lol/match/v4/matches/{self.id}', headers=self.headers)
@@ -292,8 +301,10 @@ class Match:
         assists = stats['assists']
 
         # RETURN KDA AS DECIMAL
-        if decimal:
+        if decimal and deaths > 0:
             kda = (kills + assists) / deaths
+        elif decimal:
+            kda = kills + assists
 
         # RETURN KDA TUPLE
         else:
@@ -329,7 +340,7 @@ class Match:
         cc = stats["timeCCingOthers"]
         kda = self.get_kda(name, True)
 
-        ccp = (kda/(2*self.game_duration/60)) * (cc/(self.game_duration/60))
+        ccp = (kda/(self.game_duration/60)) * (cc)
         return ccp
 
     # LOOK UP CHAMP NAME OF PLAYER IN GAME
@@ -339,7 +350,7 @@ class Match:
 
 
 def main():
-    ed = Summoner('purplebumblebeez')
+    ed = Summoner('xân')
     print(ed.weekly_soloq_stats)
 
 
