@@ -55,7 +55,7 @@ class Player(Summoner):
 
         return points
 
-    def sq_load(self):
+    def weekly_soloq_stats(self):
         gamestatlist = {}
         week_total = 0
 
@@ -73,7 +73,7 @@ class Player(Summoner):
             week_ago = datetime.datetime.now() - datetime.timedelta(7)
             recent = time > week_ago
 
-            if recent:
+            if recent and game['queue'] == 420:
                 if str(game['gameId']) in list(games.keys()):
                     print('game loaded')
                     g = games[str(game['gameId'])]
@@ -99,7 +99,6 @@ class Player(Summoner):
 
         avg = week_total / len(games)
         sq_games[self.ign] = games
-        print(games)
         sq_save()
         return gamestatlist, avg
 
@@ -250,8 +249,8 @@ class League:
 
 
 def main():
-    rc = Player("ipogoz")
-    print(rc.sq_load())
+    rc = Player("c9 zven")
+    print(rc.get_top_games(2))
 
 
 if __name__ == '__main__':

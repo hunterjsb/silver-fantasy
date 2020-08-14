@@ -1,422 +1,49 @@
 {
-    "x\u00e2n": {
-        "3532541607": {
-            "score": 11.56,
-            "champ": "Sett",
-            "date": "08/12/2020",
-            "duration": "37:22",
-            "kda": "2/7/10",
-            "csm": 5.0,
-            "vision": 24
-        },
-        "3531927672": {
-            "score": 9.19,
-            "champ": "Jhin",
-            "date": "08/12/2020",
-            "duration": "23:14",
-            "kda": "2/7/6",
-            "csm": 5.8,
-            "vision": 15
-        },
-        "3531953300": {
-            "score": 6.68,
-            "champ": "Caitlyn",
-            "date": "08/12/2020",
-            "duration": "32:19",
-            "kda": "2/8/4",
-            "csm": 5.61,
-            "vision": 16
-        },
-        "3531051102": {
-            "score": 8.22,
-            "champ": "Yasuo",
-            "date": "08/11/2020",
-            "duration": "26:15",
-            "kda": "4/11/7",
-            "csm": 5.71,
-            "vision": 20
-        },
-        "3530527337": {
-            "score": 9.66,
-            "champ": "Caitlyn",
-            "date": "08/11/2020",
-            "duration": "17:10",
-            "kda": "1/1/0",
-            "csm": 5.91,
-            "vision": 8
-        },
-        "3529338025": {
-            "score": 18.11,
-            "champ": "Caitlyn",
-            "date": "08/10/2020",
-            "duration": "40:24",
-            "kda": "10/10/12",
-            "csm": 5.21,
-            "vision": 23
-        },
-        "3529322967": {
-            "score": 17.08,
-            "champ": "Caitlyn",
-            "date": "08/10/2020",
-            "duration": "30:18",
-            "kda": "10/6/7",
-            "csm": 4.48,
-            "vision": 17
-        },
-        "3528825806": {
-            "score": 6.93,
-            "champ": "Yasuo",
-            "date": "08/10/2020",
-            "duration": "30:18",
-            "kda": "1/8/9",
-            "csm": 4.29,
-            "vision": 15
-        },
-        "3528800802": {
-            "score": 15.57,
-            "champ": null,
-            "date": "08/10/2020",
-            "duration": "13:08",
-            "kda": "6/2/1",
-            "csm": 7.07,
-            "vision": 3
-        },
-        "3528708307": {
-            "score": -1.5,
-            "champ": null,
-            "date": "08/10/2020",
-            "duration": "15:09",
-            "kda": "0/7/1",
-            "csm": 2.89,
-            "vision": 5
-        },
-        "3528630824": {
-            "score": 7.79,
-            "champ": "Irelia",
-            "date": "08/09/2020",
-            "duration": "25:15",
-            "kda": "2/7/3",
-            "csm": 6.39,
-            "vision": 12
-        },
-        "3528604052": {
-            "score": 13.99,
-            "champ": "Caitlyn",
-            "date": "08/09/2020",
-            "duration": "22:13",
-            "kda": "4/3/2",
-            "csm": 7.3,
-            "vision": 7
-        },
-        "3528533015": {
-            "score": 13.72,
-            "champ": "Nautilus",
-            "date": "08/09/2020",
-            "duration": "31:19",
-            "kda": "1/8/20",
-            "csm": 1.39,
-            "vision": 53
-        },
-        "3528466663": {
-            "score": 3.06,
-            "champ": "Nautilus",
-            "date": "08/09/2020",
-            "duration": "21:13",
-            "kda": "0/5/6",
-            "csm": 1.31,
-            "vision": 21
-        },
-        "3528387183": {
-            "score": 11.39,
-            "champ": "Nautilus",
-            "date": "08/09/2020",
-            "duration": "21:13",
-            "kda": "5/3/7",
-            "csm": 1.28,
-            "vision": 28
-        },
-        "3528118914": {
-            "score": 43.48,
-            "champ": "Sion",
-            "date": "08/09/2020",
-            "duration": "36:22",
-            "kda": "18/5/24",
-            "csm": 6.72,
-            "vision": 44
-        },
-        "3528087837": {
-            "score": 10.1,
-            "champ": "Chogath",
-            "date": "08/09/2020",
-            "duration": "3:02",
-            "kda": "0/0/0",
-            "csm": 6.73,
-            "vision": 0
-        }
-    },
-    "black xan bible": {
-        "3532541607": {
-            "score": 15.04,
-            "champ": "Ashe",
-            "date": "08/12/2020",
-            "duration": "37:22",
-            "kda": "11/8/7",
-            "csm": 3.78,
-            "vision": 17
-        },
-        "3532328888": {
-            "score": 9.75,
-            "champ": "Ashe",
-            "date": "08/12/2020",
-            "duration": "34:20",
-            "kda": "3/10/13",
-            "csm": 4.05,
-            "vision": 20
-        },
-        "3532300364": {
-            "score": 12.4,
-            "champ": "Caitlyn",
-            "date": "08/12/2020",
-            "duration": "34:20",
-            "kda": "4/6/9",
-            "csm": 4.8,
-            "vision": 12
-        },
-        "3532213563": {
-            "score": 21.77,
-            "champ": "Sejuani",
-            "date": "08/12/2020",
-            "duration": "41:25",
-            "kda": "4/5/20",
-            "csm": 4.29,
-            "vision": 30
-        },
-        "3531051102": {
-            "score": 10.31,
-            "champ": "Kaisa",
-            "date": "08/11/2020",
-            "duration": "26:15",
-            "kda": "3/6/7",
-            "csm": 5.63,
-            "vision": 2
-        },
-        "3530954589": {
-            "score": 10.61,
-            "champ": "Jax",
-            "date": "08/11/2020",
-            "duration": "34:20",
-            "kda": "3/6/7",
-            "csm": 4.29,
-            "vision": 25
-        },
-        "3530935056": {
-            "score": 17.78,
-            "champ": "Sejuani",
-            "date": "08/11/2020",
-            "duration": "44:26",
-            "kda": "5/9/19",
-            "csm": 3.88,
-            "vision": 33
-        },
-        "3530848681": {
-            "score": 19.47,
-            "champ": "Sejuani",
-            "date": "08/11/2020",
-            "duration": "34:20",
-            "kda": "7/5/15",
-            "csm": 3.64,
-            "vision": 20
-        },
-        "3530835644": {
-            "score": 8.13,
-            "champ": "Sejuani",
-            "date": "08/11/2020",
-            "duration": "18:11",
-            "kda": "4/4/1",
-            "csm": 3.91,
-            "vision": 16
-        },
-        "3530813258": {
-            "score": 4.13,
-            "champ": "Ashe",
-            "date": "08/11/2020",
-            "duration": "17:10",
-            "kda": "1/5/1",
-            "csm": 4.31,
-            "vision": 10
-        },
-        "3530021554": {
-            "score": 11.14,
-            "champ": "Annie",
-            "date": "08/10/2020",
-            "duration": "42:25",
-            "kda": "3/7/7",
-            "csm": 4.52,
-            "vision": 37
-        },
-        "3529872637": {
-            "score": 12.9,
-            "champ": "Sejuani",
-            "date": "08/10/2020",
-            "duration": "29:18",
-            "kda": "0/4/10",
-            "csm": 5.69,
-            "vision": 17
-        },
-        "3529813342": {
-            "score": 10.73,
-            "champ": "Annie",
-            "date": "08/10/2020",
-            "duration": "29:18",
-            "kda": "5/7/7",
-            "csm": 4.04,
-            "vision": 20
-        },
-        "3529747981": {
-            "score": 14.17,
-            "champ": "Annie",
-            "date": "08/10/2020",
-            "duration": "26:15",
-            "kda": "4/1/4",
-            "csm": 4.87,
-            "vision": 12
-        },
-        "3529714139": {
-            "score": 3.05,
-            "champ": "Sejuani",
-            "date": "08/10/2020",
-            "duration": "19:11",
-            "kda": "1/7/3",
-            "csm": 3.77,
-            "vision": 14
-        },
-        "3529618796": {
-            "score": -0.78,
-            "champ": "Leona",
-            "date": "08/10/2020",
-            "duration": "35:21",
-            "kda": "3/11/3",
-            "csm": 1.01,
-            "vision": 37
-        },
-        "3528545073": {
-            "score": 18.67,
-            "champ": "Ashe",
-            "date": "08/09/2020",
-            "duration": "30:18",
-            "kda": "12/7/6",
-            "csm": 5.58,
-            "vision": 13
-        },
-        "3528466358": {
-            "score": 8.41,
-            "champ": "Ashe",
-            "date": "08/09/2020",
-            "duration": "31:19",
-            "kda": "2/6/6",
-            "csm": 4.47,
-            "vision": 17
-        },
-        "3528197352": {
-            "score": 19.64,
-            "champ": "Jax",
-            "date": "08/09/2020",
-            "duration": "18:11",
-            "kda": "8/1/3",
-            "csm": 6.69,
-            "vision": 6
-        },
-        "3528118914": {
-            "score": 19.27,
-            "champ": "Annie",
-            "date": "08/09/2020",
-            "duration": "36:22",
-            "kda": "11/8/14",
-            "csm": 3.22,
-            "vision": 21
-        },
-        "3528087837": {
-            "score": 4.8,
-            "champ": "Caitlyn",
-            "date": "08/09/2020",
-            "duration": "3:02",
-            "kda": "0/0/1",
-            "csm": 2.76,
-            "vision": 0
-        },
-        "3526388632": {
-            "score": 4.98,
-            "champ": "Sejuani",
-            "date": "08/08/2020",
-            "duration": "28:17",
-            "kda": "1/7/4",
-            "csm": 4.94,
+    "ipogoz": {
+        "3533485903": {
+            "score": 10.34,
+            "champ": "Karthus",
+            "date": "08/13/2020",
+            "duration": "24:15",
+            "kda": "2/6/4",
+            "csm": 7.18,
             "vision": 9
         },
-        "3526348233": {
-            "score": 5.0,
-            "champ": "Yorick",
-            "date": "08/08/2020",
-            "duration": "3:02",
-            "kda": "0/0/0",
-            "csm": 3.33,
-            "vision": 0
-        },
-        "3526346214": {
-            "score": 17.06,
-            "champ": "Jax",
-            "date": "08/08/2020",
+        "3533450173": {
+            "score": 11.77,
+            "champ": "Soraka",
+            "date": "08/13/2020",
             "duration": "35:21",
-            "kda": "12/7/6",
-            "csm": 3.9,
+            "kda": "1/9/17",
+            "csm": 4.63,
+            "vision": 15
+        },
+        "3533164924": {
+            "score": 17.58,
+            "champ": "Ivern",
+            "date": "08/13/2020",
+            "duration": "28:17",
+            "kda": "2/2/14",
+            "csm": 3.77,
+            "vision": 26
+        },
+        "3533141112": {
+            "score": 26.27,
+            "champ": "Caitlyn",
+            "date": "08/13/2020",
+            "duration": "31:19",
+            "kda": "12/5/13",
+            "csm": 5.6,
             "vision": 22
         },
-        "3525879447": {
-            "score": 10.46,
-            "champ": "Sejuani",
-            "date": "08/07/2020",
-            "duration": "27:16",
-            "kda": "1/4/6",
-            "csm": 5.24,
-            "vision": 16
-        },
-        "3525777061": {
-            "score": 9.35,
-            "champ": "Ashe",
-            "date": "08/07/2020",
-            "duration": "43:25",
-            "kda": "6/12/11",
-            "csm": 4.14,
-            "vision": 18
-        },
-        "3525694021": {
-            "score": -2.45,
-            "champ": "Leona",
-            "date": "08/07/2020",
-            "duration": "22:13",
-            "kda": "1/7/1",
-            "csm": 1.12,
-            "vision": 12
-        }
-    },
-    "ipogoz": {
-        "3533001750": {
-            "score": 12.72,
-            "champ": "Kassadin",
+        "3533058563": {
+            "score": 26.13,
+            "champ": "Jhin",
             "date": "08/13/2020",
             "duration": "26:15",
-            "kda": "5/4/3",
-            "csm": 6.15,
-            "vision": 5
-        },
-        "3532949163": {
-            "score": 23.22,
-            "champ": "Teemo",
-            "date": "08/13/2020",
-            "duration": "21:13",
-            "kda": "21/10/12",
-            "csm": 2.81,
-            "vision": 0
+            "kda": "14/5/12",
+            "csm": 5.49,
+            "vision": 9
         },
         "3532328888": {
             "score": 18.93,
@@ -427,24 +54,6 @@
             "csm": 6.36,
             "vision": 14
         },
-        "3532261643": {
-            "score": 25.94,
-            "champ": "Teemo",
-            "date": "08/12/2020",
-            "duration": "28:17",
-            "kda": "14/10/27",
-            "csm": 2.63,
-            "vision": 0
-        },
-        "3532149794": {
-            "score": 18.47,
-            "champ": "Khazix",
-            "date": "08/12/2020",
-            "duration": "18:11",
-            "kda": "17/8/13",
-            "csm": 0.54,
-            "vision": 0
-        },
         "3532002679": {
             "score": 28.69,
             "champ": "Karthus",
@@ -453,51 +62,6 @@
             "kda": "17/10/15",
             "csm": 6.19,
             "vision": 24
-        },
-        "3531051102": {
-            "score": 5.96,
-            "champ": "Senna",
-            "date": "08/11/2020",
-            "duration": "26:15",
-            "kda": "6/9/8",
-            "csm": 1.15,
-            "vision": 19
-        },
-        "3530918997": {
-            "score": 20.14,
-            "champ": "Chogath",
-            "date": "08/11/2020",
-            "duration": "40:24",
-            "kda": "12/10/10",
-            "csm": 6.25,
-            "vision": 21
-        },
-        "3530884684": {
-            "score": 13.17,
-            "champ": "Gangplank",
-            "date": "08/11/2020",
-            "duration": "26:16",
-            "kda": "1/3/6",
-            "csm": 6.98,
-            "vision": 7
-        },
-        "3530880466": {
-            "score": 20.87,
-            "champ": "Kayle",
-            "date": "08/11/2020",
-            "duration": "16:09",
-            "kda": "6/0/1",
-            "csm": 9.0,
-            "vision": 7
-        },
-        "3530805182": {
-            "score": 13.53,
-            "champ": "Gangplank",
-            "date": "08/11/2020",
-            "duration": "27:16",
-            "kda": "3/2/2",
-            "csm": 6.66,
-            "vision": 12
         },
         "3530611448": {
             "score": 21.4,
@@ -544,15 +108,6 @@
             "csm": 4.99,
             "vision": 82
         },
-        "3529851931": {
-            "score": 28.72,
-            "champ": "Ezreal",
-            "date": "08/10/2020",
-            "duration": "27:16",
-            "kda": "14/4/12",
-            "csm": 6.48,
-            "vision": 10
-        },
         "3529755427": {
             "score": 21.61,
             "champ": "Orianna",
@@ -562,168 +117,6 @@
             "csm": 7.05,
             "vision": 17
         },
-        "3529585861": {
-            "score": 16.24,
-            "champ": "Yasuo",
-            "date": "08/10/2020",
-            "duration": "15:09",
-            "kda": "8/3/1",
-            "csm": 6.78,
-            "vision": 4
-        },
-        "3529572868": {
-            "score": 20.04,
-            "champ": "Skarner",
-            "date": "08/10/2020",
-            "duration": "21:13",
-            "kda": "4/1/3",
-            "csm": 8.56,
-            "vision": 22
-        },
-        "3529469066": {
-            "score": 19.27,
-            "champ": "Karthus",
-            "date": "08/10/2020",
-            "duration": "24:14",
-            "kda": "4/2/7",
-            "csm": 7.07,
-            "vision": 20
-        },
-        "3529492915": {
-            "score": 35.59,
-            "champ": "Viktor",
-            "date": "08/10/2020",
-            "duration": "41:24",
-            "kda": "16/3/11",
-            "csm": 9.17,
-            "vision": 15
-        },
-        "3528533015": {
-            "score": 19.76,
-            "champ": "Jhin",
-            "date": "08/09/2020",
-            "duration": "31:19",
-            "kda": "6/5/10",
-            "csm": 6.8,
-            "vision": 19
-        },
-        "3528466663": {
-            "score": 21.8,
-            "champ": "Karthus",
-            "date": "08/09/2020",
-            "duration": "21:13",
-            "kda": "7/4/10",
-            "csm": 7.56,
-            "vision": 8
-        },
-        "3528387183": {
-            "score": 11.94,
-            "champ": "Caitlyn",
-            "date": "08/09/2020",
-            "duration": "21:13",
-            "kda": "0/4/8",
-            "csm": 6.4,
-            "vision": 10
-        },
-        "3528259625": {
-            "score": 6.14,
-            "champ": "TwistedFate",
-            "date": "08/09/2020",
-            "duration": "26:15",
-            "kda": "1/7/5",
-            "csm": 5.07,
-            "vision": 12
-        },
-        "3528163130": {
-            "score": 21.92,
-            "champ": "Ezreal",
-            "date": "08/09/2020",
-            "duration": "31:19",
-            "kda": "5/1/10",
-            "csm": 6.57,
-            "vision": 14
-        },
-        "3528078576": {
-            "score": 18.05,
-            "champ": "Camille",
-            "date": "08/09/2020",
-            "duration": "21:13",
-            "kda": "5/1/3",
-            "csm": 7.7,
-            "vision": 5
-        },
-        "3528123013": {
-            "score": 8.02,
-            "champ": "Camille",
-            "date": "08/09/2020",
-            "duration": "22:13",
-            "kda": "2/3/1",
-            "csm": 5.24,
-            "vision": 5
-        },
-        "3527484048": {
-            "score": 12.38,
-            "champ": "Graves",
-            "date": "08/08/2020",
-            "duration": "26:16",
-            "kda": "1/3/5",
-            "csm": 5.76,
-            "vision": 24
-        },
-        "3527116868": {
-            "score": 13.31,
-            "champ": "Kayle",
-            "date": "08/08/2020",
-            "duration": "33:20",
-            "kda": "2/6/9",
-            "csm": 6.34,
-            "vision": 18
-        },
-        "3526954539": {
-            "score": 19.78,
-            "champ": "Caitlyn",
-            "date": "08/08/2020",
-            "duration": "24:14",
-            "kda": "4/1/6",
-            "csm": 7.66,
-            "vision": 13
-        },
-        "3526812196": {
-            "score": 12.48,
-            "champ": "Evelynn",
-            "date": "08/08/2020",
-            "duration": "25:15",
-            "kda": "6/4/2",
-            "csm": 4.76,
-            "vision": 20
-        },
-        "3526692946": {
-            "score": 39.51,
-            "champ": "Ezreal",
-            "date": "08/08/2020",
-            "duration": "39:23",
-            "kda": "31/7/7",
-            "csm": 5.9,
-            "vision": 20
-        },
-        "3526619272": {
-            "score": 14.65,
-            "champ": "Trundle",
-            "date": "08/08/2020",
-            "duration": "23:14",
-            "kda": "8/4/2",
-            "csm": 4.81,
-            "vision": 21
-        },
-        "3526634476": {
-            "score": 23.06,
-            "champ": "Caitlyn",
-            "date": "08/08/2020",
-            "duration": "29:18",
-            "kda": "14/4/4",
-            "csm": 6.06,
-            "vision": 13
-        },
         "3526468847": {
             "score": 10.57,
             "champ": "Graves",
@@ -732,134 +125,856 @@
             "kda": "3/12/10",
             "csm": 5.8,
             "vision": 42
-        },
-        "3526114068": {
-            "score": 16.64,
-            "champ": "Fiddlesticks",
-            "date": "08/08/2020",
-            "duration": "34:20",
-            "kda": "6/11/18",
-            "csm": 4.23,
-            "vision": 33
-        },
-        "3526107346": {
-            "score": 22.2,
-            "champ": "Caitlyn",
-            "date": "08/08/2020",
+        }
+    },
+    "xtrader": {
+        "3533343708": {
+            "score": 24.26,
+            "champ": "Ekko",
+            "date": "08/13/2020",
             "duration": "24:15",
-            "kda": "7/4/11",
-            "csm": 7.18,
-            "vision": 11
+            "kda": "9/0/6",
+            "csm": 6.18,
+            "vision": 20
         },
-        "3525936578": {
-            "score": 14.18,
-            "champ": "Jhin",
-            "date": "08/07/2020",
-            "duration": "21:12",
-            "kda": "3/2/2",
-            "csm": 7.23,
-            "vision": 10
+        "3533319086": {
+            "score": 3.05,
+            "champ": "Hecarim",
+            "date": "08/13/2020",
+            "duration": "24:15",
+            "kda": "3/8/1",
+            "csm": 4.13,
+            "vision": 12
         },
-        "3525960108": {
-            "score": -1.02,
-            "champ": "Zyra",
-            "date": "08/07/2020",
-            "duration": "21:12",
-            "kda": "0/3/1",
-            "csm": 0.47,
-            "vision": 6
-        },
-        "3525830294": {
-            "score": 29.94,
-            "champ": "Ezreal",
-            "date": "08/07/2020",
-            "duration": "30:18",
-            "kda": "17/2/5",
-            "csm": 6.74,
+        "3530867563": {
+            "score": 6.76,
+            "champ": "Hecarim",
+            "date": "08/11/2020",
+            "duration": "20:12",
+            "kda": "1/5/4",
+            "csm": 4.4,
             "vision": 15
         },
-        "3525822567": {
-            "score": 17.34,
-            "champ": "Aphelios",
-            "date": "08/07/2020",
-            "duration": "32:19",
-            "kda": "11/9/8",
-            "csm": 5.54,
-            "vision": 17
+        "3530861250": {
+            "score": 19.72,
+            "champ": "Ekko",
+            "date": "08/11/2020",
+            "duration": "23:14",
+            "kda": "5/2/6",
+            "csm": 6.95,
+            "vision": 23
         },
-        "3525705586": {
-            "score": 28.97,
-            "champ": "Fiddlesticks",
-            "date": "08/07/2020",
-            "duration": "38:23",
-            "kda": "13/7/11",
-            "csm": 5.49,
-            "vision": 74
-        },
-        "3525749749": {
-            "score": 13.35,
-            "champ": "Morgana",
-            "date": "08/07/2020",
-            "duration": "29:17",
-            "kda": "2/8/19",
-            "csm": 1.65,
-            "vision": 42
-        },
-        "3524344346": {
-            "score": 20.68,
+        "3530746906": {
+            "score": 28.15,
             "champ": "Hecarim",
-            "date": "08/06/2020",
+            "date": "08/11/2020",
             "duration": "30:18",
-            "kda": "9/6/8",
-            "csm": 5.43,
-            "vision": 42
+            "kda": "11/5/17",
+            "csm": 5.48,
+            "vision": 26
         },
-        "3524257012": {
-            "score": 15.65,
-            "champ": "Viktor",
-            "date": "08/06/2020",
-            "duration": "35:21",
-            "kda": "7/7/2",
-            "csm": 8.48,
+        "3530045017": {
+            "score": 17.94,
+            "champ": "Hecarim",
+            "date": "08/10/2020",
+            "duration": "21:13",
+            "kda": "3/0/4",
+            "csm": 6.91,
+            "vision": 19
+        },
+        "3529996452": {
+            "score": 19.64,
+            "champ": "Ekko",
+            "date": "08/10/2020",
+            "duration": "15:09",
+            "kda": "9/1/2",
+            "csm": 6.2,
+            "vision": 10
+        },
+        "3529970834": {
+            "score": 9.1,
+            "champ": "Hecarim",
+            "date": "08/10/2020",
+            "duration": "26:16",
+            "kda": "3/5/1",
+            "csm": 5.69,
+            "vision": 19
+        },
+        "3529952925": {
+            "score": 22.52,
+            "champ": "Ekko",
+            "date": "08/10/2020",
+            "duration": "30:18",
+            "kda": "5/2/11",
+            "csm": 6.19,
+            "vision": 29
+        },
+        "3528390675": {
+            "score": 17.69,
+            "champ": "Hecarim",
+            "date": "08/09/2020",
+            "duration": "26:16",
+            "kda": "4/5/10",
+            "csm": 6.75,
+            "vision": 19
+        },
+        "3528287043": {
+            "score": 21.99,
+            "champ": "Hecarim",
+            "date": "08/09/2020",
+            "duration": "23:14",
+            "kda": "9/4/7",
+            "csm": 6.75,
+            "vision": 22
+        }
+    },
+    "i am dogunyun": {
+        "3530434821": {
+            "score": 19.62,
+            "champ": "Zed",
+            "date": "08/11/2020",
+            "duration": "22:13",
+            "kda": "9/7/7",
+            "csm": 7.1,
+            "vision": 23
+        },
+        "3530383707": {
+            "score": 35.24,
+            "champ": "Nunu",
+            "date": "08/11/2020",
+            "duration": "40:24",
+            "kda": "17/6/16",
+            "csm": 6.38,
+            "vision": 40
+        },
+        "3530391927": {
+            "score": 15.5,
+            "champ": "Akali",
+            "date": "08/11/2020",
+            "duration": "21:13",
+            "kda": "3/4/8",
+            "csm": 6.04,
+            "vision": 21
+        },
+        "3530267358": {
+            "score": 27.9,
+            "champ": "Leblanc",
+            "date": "08/11/2020",
+            "duration": "22:13",
+            "kda": "10/2/12",
+            "csm": 6.47,
+            "vision": 22
+        },
+        "3529344760": {
+            "score": 9.31,
+            "champ": "Yasuo",
+            "date": "08/10/2020",
+            "duration": "29:17",
+            "kda": "3/9/1",
+            "csm": 7.89,
+            "vision": 28
+        },
+        "3529322572": {
+            "score": 25.57,
+            "champ": "Zed",
+            "date": "08/10/2020",
+            "duration": "18:11",
+            "kda": "10/2/8",
+            "csm": 7.29,
+            "vision": 13
+        },
+        "3528954177": {
+            "score": 16.85,
+            "champ": "Yasuo",
+            "date": "08/10/2020",
+            "duration": "39:23",
+            "kda": "4/9/12",
+            "csm": 7.24,
+            "vision": 30
+        },
+        "3528971567": {
+            "score": 23.4,
+            "champ": "Yasuo",
+            "date": "08/10/2020",
+            "duration": "18:11",
+            "kda": "5/1/6",
+            "csm": 9.0,
+            "vision": 19
+        },
+        "3527850338": {
+            "score": 1.11,
+            "champ": "Leblanc",
+            "date": "08/09/2020",
+            "duration": "26:15",
+            "kda": "2/8/0",
+            "csm": 3.54,
+            "vision": 18
+        },
+        "3527757949": {
+            "score": 27.52,
+            "champ": "Leblanc",
+            "date": "08/09/2020",
+            "duration": "37:22",
+            "kda": "11/5/14",
+            "csm": 5.53,
+            "vision": 39
+        },
+        "3527765273": {
+            "score": 9.6,
+            "champ": "Yasuo",
+            "date": "08/09/2020",
+            "duration": "28:17",
+            "kda": "3/8/2",
+            "csm": 7.78,
             "vision": 16
         },
-        "3524250561": {
-            "score": 9.9,
-            "champ": "Ashe",
-            "date": "08/06/2020",
-            "duration": "24:14",
-            "kda": "3/6/2",
-            "csm": 6.98,
-            "vision": 11
+        "3526329045": {
+            "score": 8.41,
+            "champ": "Darius",
+            "date": "08/08/2020",
+            "duration": "23:14",
+            "kda": "2/6/3",
+            "csm": 6.01,
+            "vision": 14
         },
-        "3524193919": {
-            "score": 15.62,
-            "champ": "Caitlyn",
+        "3524549374": {
+            "score": 14.8,
+            "champ": "Yasuo",
             "date": "08/06/2020",
-            "duration": "27:16",
-            "kda": "7/6/5",
-            "csm": 6.46,
+            "duration": "17:10",
+            "kda": "7/6/1",
+            "csm": 7.29,
+            "vision": 22
+        },
+        "3524550374": {
+            "score": 31.1,
+            "champ": "Leblanc",
+            "date": "08/06/2020",
+            "duration": "37:22",
+            "kda": "10/3/19",
+            "csm": 6.02,
+            "vision": 24
+        },
+        "3524318002": {
+            "score": 32.11,
+            "champ": "Pyke",
+            "date": "08/06/2020",
+            "duration": "23:14",
+            "kda": "15/2/12",
+            "csm": 6.34,
             "vision": 16
         }
     },
-    "yasuomoe": {
+    "x\u00e2n": {
+        "3532541607": {
+            "score": 11.56,
+            "champ": "Sett",
+            "date": "08/12/2020",
+            "duration": "37:22",
+            "kda": "2/7/10",
+            "csm": 5.0,
+            "vision": 24
+        },
+        "3531927672": {
+            "score": 9.19,
+            "champ": "Jhin",
+            "date": "08/12/2020",
+            "duration": "23:14",
+            "kda": "2/7/6",
+            "csm": 5.8,
+            "vision": 15
+        },
+        "3531953300": {
+            "score": 6.68,
+            "champ": "Caitlyn",
+            "date": "08/12/2020",
+            "duration": "32:19",
+            "kda": "2/8/4",
+            "csm": 5.61,
+            "vision": 16
+        },
+        "3530527337": {
+            "score": 9.66,
+            "champ": "Caitlyn",
+            "date": "08/11/2020",
+            "duration": "17:10",
+            "kda": "1/1/0",
+            "csm": 5.91,
+            "vision": 8
+        },
         "3529338025": {
-            "score": 18.54,
-            "champ": "Lux",
+            "score": 18.11,
+            "champ": "Caitlyn",
             "date": "08/10/2020",
             "duration": "40:24",
-            "kda": "10/10/13",
-            "csm": 3.99,
-            "vision": 39
+            "kda": "10/10/12",
+            "csm": 5.21,
+            "vision": 23
         },
         "3529322967": {
-            "score": 24.75,
-            "champ": "Veigar",
+            "score": 17.08,
+            "champ": "Caitlyn",
             "date": "08/10/2020",
             "duration": "30:18",
-            "kda": "11/5/9",
-            "csm": 5.83,
+            "kda": "10/6/7",
+            "csm": 4.48,
+            "vision": 17
+        },
+        "3528604052": {
+            "score": 13.99,
+            "champ": "Caitlyn",
+            "date": "08/09/2020",
+            "duration": "22:13",
+            "kda": "4/3/2",
+            "csm": 7.3,
+            "vision": 7
+        },
+        "3528118914": {
+            "score": 43.48,
+            "champ": "Sion",
+            "date": "08/09/2020",
+            "duration": "36:22",
+            "kda": "18/5/24",
+            "csm": 6.72,
+            "vision": 44
+        },
+        "3528087837": {
+            "score": 10.1,
+            "champ": "Chogath",
+            "date": "08/09/2020",
+            "duration": "3:02",
+            "kda": "0/0/0",
+            "csm": 6.73,
+            "vision": 0
+        }
+    },
+    "drag0nham": {
+        "3530505005": {
+            "score": 1.61,
+            "champ": "Lulu",
+            "date": "08/11/2020",
+            "duration": "21:13",
+            "kda": "0/5/4",
+            "csm": 1.23,
+            "vision": 21
+        },
+        "3530453355": {
+            "score": 2.56,
+            "champ": "Janna",
+            "date": "08/11/2020",
+            "duration": "27:16",
+            "kda": "0/6/6",
+            "csm": 0.9,
+            "vision": 32
+        },
+        "3530451196": {
+            "score": 1.93,
+            "champ": "Janna",
+            "date": "08/11/2020",
+            "duration": "25:15",
+            "kda": "0/7/5",
+            "csm": 1.13,
+            "vision": 39
+        },
+        "3530409087": {
+            "score": 1.22,
+            "champ": "Janna",
+            "date": "08/11/2020",
+            "duration": "25:15",
+            "kda": "0/4/4",
+            "csm": 1.04,
+            "vision": 10
+        },
+        "3529380948": {
+            "score": 22.94,
+            "champ": "Janna",
+            "date": "08/10/2020",
+            "duration": "32:19",
+            "kda": "2/4/25",
+            "csm": 1.25,
+            "vision": 64
+        },
+        "3529174136": {
+            "score": 18.98,
+            "champ": "Janna",
+            "date": "08/10/2020",
+            "duration": "37:22",
+            "kda": "3/7/24",
+            "csm": 1.25,
+            "vision": 51
+        },
+        "3528671523": {
+            "score": 11.72,
+            "champ": "Janna",
+            "date": "08/09/2020",
+            "duration": "29:17",
+            "kda": "0/2/12",
+            "csm": 1.41,
+            "vision": 36
+        },
+        "3528567216": {
+            "score": 0.61,
+            "champ": "Janna",
+            "date": "08/09/2020",
+            "duration": "21:13",
+            "kda": "1/5/1",
+            "csm": 1.36,
+            "vision": 19
+        },
+        "3528611465": {
+            "score": 4.04,
+            "champ": "Janna",
+            "date": "08/09/2020",
+            "duration": "16:10",
+            "kda": "0/2/4",
+            "csm": 1.38,
+            "vision": 13
+        },
+        "3528516109": {
+            "score": 15.52,
+            "champ": "Janna",
+            "date": "08/09/2020",
+            "duration": "25:15",
+            "kda": "0/1/17",
+            "csm": 1.32,
+            "vision": 32
+        },
+        "3528454975": {
+            "score": 26.06,
+            "champ": "Janna",
+            "date": "08/09/2020",
+            "duration": "47:28",
+            "kda": "6/6/27",
+            "csm": 0.84,
+            "vision": 68
+        },
+        "3527980787": {
+            "score": 13.46,
+            "champ": "Janna",
+            "date": "08/09/2020",
+            "duration": "22:13",
+            "kda": "1/0/14",
+            "csm": 1.02,
+            "vision": 16
+        },
+        "3527847906": {
+            "score": 16.71,
+            "champ": "Janna",
+            "date": "08/09/2020",
+            "duration": "27:16",
+            "kda": "4/3/17",
+            "csm": 0.51,
+            "vision": 36
+        },
+        "3527846205": {
+            "score": 14.72,
+            "champ": "Janna",
+            "date": "08/09/2020",
+            "duration": "26:15",
+            "kda": "1/4/20",
+            "csm": 0.92,
+            "vision": 30
+        },
+        "3524953107": {
+            "score": 13.37,
+            "champ": "Janna",
+            "date": "08/07/2020",
+            "duration": "37:22",
+            "kda": "3/10/23",
+            "csm": 0.82,
+            "vision": 38
+        },
+        "3524528926": {
+            "score": 9.16,
+            "champ": "Janna",
+            "date": "08/06/2020",
+            "duration": "37:22",
+            "kda": "1/7/15",
+            "csm": 0.37,
+            "vision": 46
+        },
+        "3524487286": {
+            "score": 5.68,
+            "champ": "Lulu",
+            "date": "08/06/2020",
+            "duration": "44:26",
+            "kda": "0/9/15",
+            "csm": 0.65,
+            "vision": 37
+        },
+        "3524418582": {
+            "score": 8.46,
+            "champ": "Morgana",
+            "date": "08/06/2020",
+            "duration": "35:21",
+            "kda": "6/10/9",
+            "csm": 1.11,
+            "vision": 48
+        }
+    },
+    "c9 zven": {
+        "3532608121": {
+            "score": 22.09,
+            "champ": "Caitlyn",
+            "date": "08/12/2020",
+            "duration": "16:10",
+            "kda": "6/1/2",
+            "csm": 9.77,
+            "vision": 11
+        },
+        "3531455818": {
+            "score": 22.66,
+            "champ": "Caitlyn",
+            "date": "08/11/2020",
+            "duration": "18:11",
+            "kda": "6/1/2",
+            "csm": 9.62,
+            "vision": 19
+        },
+        "3531087779": {
+            "score": 22.29,
+            "champ": "Caitlyn",
+            "date": "08/11/2020",
+            "duration": "20:12",
+            "kda": "6/4/11",
+            "csm": 7.37,
+            "vision": 19
+        },
+        "3531047910": {
+            "score": 22.85,
+            "champ": "Caitlyn",
+            "date": "08/11/2020",
+            "duration": "24:14",
+            "kda": "2/1/9",
+            "csm": 8.63,
+            "vision": 29
+        },
+        "3531008128": {
+            "score": 18.87,
+            "champ": "Ashe",
+            "date": "08/11/2020",
+            "duration": "30:18",
+            "kda": "3/6/8",
+            "csm": 8.29,
+            "vision": 41
+        },
+        "3530188702": {
+            "score": 22.32,
+            "champ": "Kalista",
+            "date": "08/11/2020",
+            "duration": "32:19",
+            "kda": "8/5/6",
+            "csm": 8.28,
+            "vision": 29
+        },
+        "3530193565": {
+            "score": 34.4,
+            "champ": "Kalista",
+            "date": "08/11/2020",
+            "duration": "24:15",
+            "kda": "12/0/3",
+            "csm": 11.13,
+            "vision": 37
+        },
+        "3530115333": {
+            "score": 21.96,
+            "champ": "Ashe",
+            "date": "08/10/2020",
+            "duration": "32:19",
+            "kda": "10/9/8",
+            "csm": 8.15,
+            "vision": 34
+        },
+        "3530055851": {
+            "score": 13.64,
+            "champ": "Caitlyn",
+            "date": "08/10/2020",
+            "duration": "27:16",
+            "kda": "3/6/3",
+            "csm": 8.36,
+            "vision": 21
+        },
+        "3530020316": {
+            "score": 14.6,
+            "champ": "Caitlyn",
+            "date": "08/10/2020",
+            "duration": "28:17",
+            "kda": "5/6/2",
+            "csm": 8.18,
+            "vision": 20
+        },
+        "3529893170": {
+            "score": 16.91,
+            "champ": "Lucian",
+            "date": "08/10/2020",
+            "duration": "25:15",
+            "kda": "10/7/0",
+            "csm": 7.67,
+            "vision": 24
+        },
+        "3527579252": {
+            "score": 43.05,
+            "champ": "Lucian",
+            "date": "08/09/2020",
+            "duration": "42:25",
+            "kda": "11/1/14",
+            "csm": 11.01,
+            "vision": 72
+        },
+        "3527477703": {
+            "score": 26.94,
+            "champ": "Lucian",
+            "date": "08/08/2020",
+            "duration": "24:15",
+            "kda": "6/2/10",
+            "csm": 9.12,
+            "vision": 26
+        },
+        "3527337629": {
+            "score": 9.96,
+            "champ": "Kalista",
+            "date": "08/08/2020",
+            "duration": "15:09",
+            "kda": "2/5/0",
+            "csm": 8.31,
+            "vision": 5
+        }
+    },
+    "zven": {},
+    "Ssumdayday": {
+        "3532810384": {
+            "score": 9.59,
+            "champ": "Camille",
+            "date": "08/13/2020",
+            "duration": "15:09",
+            "kda": "2/2/0",
+            "csm": 5.99,
+            "vision": 6
+        },
+        "3532745150": {
+            "score": 22.95,
+            "champ": "Renekton",
+            "date": "08/13/2020",
+            "duration": "28:17",
+            "kda": "3/2/3",
+            "csm": 10.97,
+            "vision": 35
+        },
+        "3532750602": {
+            "score": 31.94,
+            "champ": "Camille",
+            "date": "08/13/2020",
+            "duration": "22:13",
+            "kda": "15/2/9",
+            "csm": 7.63,
+            "vision": 15
+        },
+        "3532635921": {
+            "score": 24.03,
+            "champ": "Camille",
+            "date": "08/13/2020",
+            "duration": "29:17",
+            "kda": "8/4/7",
+            "csm": 8.64,
+            "vision": 24
+        },
+        "3532608121": {
+            "score": 12.34,
+            "champ": "Shen",
+            "date": "08/12/2020",
+            "duration": "16:10",
+            "kda": "0/0/7",
+            "csm": 4.58,
+            "vision": 8
+        },
+        "3532572491": {
+            "score": 21.36,
+            "champ": "Kalista",
+            "date": "08/12/2020",
+            "duration": "31:18",
+            "kda": "4/8/12",
+            "csm": 7.64,
+            "vision": 59
+        },
+        "3532546974": {
+            "score": 17.53,
+            "champ": "Fiora",
+            "date": "08/12/2020",
+            "duration": "15:09",
+            "kda": "4/2/2",
+            "csm": 8.2,
+            "vision": 19
+        },
+        "3531956718": {
+            "score": 26.64,
+            "champ": "Camille",
+            "date": "08/12/2020",
+            "duration": "21:13",
+            "kda": "10/1/6",
+            "csm": 8.16,
+            "vision": 14
+        },
+        "3531642810": {
+            "score": 16.25,
+            "champ": "Quinn",
+            "date": "08/12/2020",
+            "duration": "33:20",
+            "kda": "4/5/1",
+            "csm": 8.86,
+            "vision": 33
+        },
+        "3531527533": {
+            "score": 13.37,
+            "champ": "Camille",
+            "date": "08/12/2020",
+            "duration": "32:19",
+            "kda": "3/8/4",
+            "csm": 7.8,
             "vision": 40
+        },
+        "3531541758": {
+            "score": 28.7,
+            "champ": "Camille",
+            "date": "08/12/2020",
+            "duration": "32:19",
+            "kda": "8/3/12",
+            "csm": 8.4,
+            "vision": 31
+        },
+        "3531455818": {
+            "score": 8.04,
+            "champ": "Ezreal",
+            "date": "08/11/2020",
+            "duration": "18:11",
+            "kda": "0/3/1",
+            "csm": 5.71,
+            "vision": 18
+        },
+        "3530568312": {
+            "score": 14.18,
+            "champ": "Akali",
+            "date": "08/11/2020",
+            "duration": "21:13",
+            "kda": "0/1/3",
+            "csm": 7.45,
+            "vision": 20
+        },
+        "3528041652": {
+            "score": 9.98,
+            "champ": "MonkeyKing",
+            "date": "08/09/2020",
+            "duration": "21:13",
+            "kda": "1/3/2",
+            "csm": 6.23,
+            "vision": 13
+        },
+        "3526762333": {
+            "score": 13.61,
+            "champ": "Morgana",
+            "date": "08/08/2020",
+            "duration": "26:15",
+            "kda": "3/7/14",
+            "csm": 0.65,
+            "vision": 73
+        },
+        "3526557937": {
+            "score": 30.94,
+            "champ": "Quinn",
+            "date": "08/08/2020",
+            "duration": "30:18",
+            "kda": "9/4/13",
+            "csm": 8.78,
+            "vision": 41
+        },
+        "3526310395": {
+            "score": 12.69,
+            "champ": "Camille",
+            "date": "08/08/2020",
+            "duration": "29:17",
+            "kda": "7/6/2",
+            "csm": 5.37,
+            "vision": 23
+        },
+        "3526235286": {
+            "score": 18.63,
+            "champ": "Camille",
+            "date": "08/08/2020",
+            "duration": "22:13",
+            "kda": "3/0/2",
+            "csm": 8.66,
+            "vision": 13
+        },
+        "3526179687": {
+            "score": 28.73,
+            "champ": "Camille",
+            "date": "08/08/2020",
+            "duration": "30:18",
+            "kda": "11/3/7",
+            "csm": 7.98,
+            "vision": 41
+        },
+        "3526133446": {
+            "score": 13.43,
+            "champ": "Caitlyn",
+            "date": "08/08/2020",
+            "duration": "24:14",
+            "kda": "4/5/1",
+            "csm": 7.71,
+            "vision": 22
+        },
+        "3526103803": {
+            "score": 22.29,
+            "champ": "Camille",
+            "date": "08/07/2020",
+            "duration": "28:17",
+            "kda": "6/4/9",
+            "csm": 7.53,
+            "vision": 30
+        },
+        "3524724857": {
+            "score": 13.6,
+            "champ": "Irelia",
+            "date": "08/07/2020",
+            "duration": "13:08",
+            "kda": "2/3/3",
+            "csm": 7.87,
+            "vision": 8
+        },
+        "3524710447": {
+            "score": 3.28,
+            "champ": "Jayce",
+            "date": "08/07/2020",
+            "duration": "21:12",
+            "kda": "4/9/1",
+            "csm": 4.54,
+            "vision": 8
+        },
+        "3524646353": {
+            "score": 11.95,
+            "champ": "Malphite",
+            "date": "08/07/2020",
+            "duration": "15:09",
+            "kda": "3/2/0",
+            "csm": 6.83,
+            "vision": 7
+        },
+        "3524629486": {
+            "score": 10.6,
+            "champ": "Thresh",
+            "date": "08/07/2020",
+            "duration": "23:14",
+            "kda": "2/5/8",
+            "csm": 1.65,
+            "vision": 58
+        },
+        "3524571981": {
+            "score": 23.74,
+            "champ": "Caitlyn",
+            "date": "08/06/2020",
+            "duration": "22:14",
+            "kda": "3/1/10",
+            "csm": 8.38,
+            "vision": 25
         }
     }
 }

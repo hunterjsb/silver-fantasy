@@ -89,7 +89,7 @@ async def standings(ctx, leauge_name='ROYALE COUNCIL'):
 
 @bot.command()
 async def lastgame(ctx, ign):
-    player = rh.Summoner(ign)
+    player = fm.Player(ign)
     last_game = next(player.yield_games())
     p = last_game.get_participant(ign)
     pc = rh.get_champ(p['championId'])
@@ -108,9 +108,9 @@ async def lastgame(ctx, ign):
 
 @bot.command()
 async def history(ctx, ign):
-    player = rh.Summoner(ign)
+    player = fm.Player(ign)
     await ctx.send('*GETTING GAMES...*')
-    stats = player.weekly_soloq_stats
+    stats, gavg = player.weekly_soloq_stats()
     t = 0
 
     for stat in stats:
@@ -118,12 +118,12 @@ async def history(ctx, ign):
         s = stats[stat]
         await ctx.send(f'-----\n**{stat} POINTS**\n {s}')
 
-    await ctx.send(f'\n***AVERAGE {round(t/len(stats), 2)}***')
+    await ctx.send(f'\n***AVERAGE {round(gavg, 2)}***')
 
 
 @bot.command()
 async def avg(ctx, ign):
-    player = rh.Summoner(ign)
+    player = fm.Player(ign)
     await ctx.send("*GETTING GAMES...*")
     stats = player.avg_stats
     for stat in stats:
@@ -137,7 +137,7 @@ async def avg(ctx, ign):
 
 @bot.command()
 async def top2(ctx, ign, n_games=2):
-    player = rh.Summoner(ign)
+    player = fm.Player(ign)
     await ctx.send('*GETTING GAMES...*')
     g_sum, g_avg, stats = player.get_top_games(n_games)
 
@@ -187,7 +187,7 @@ async def teamscore(ctx, user_id=None, league_name='ROYALE COUNCIL'):
     league = fm.League(league_name)
     pts, savg, gl = league.get_rteam_ppw(team)
 
-    await ctx.send(f'***TEAM {ctx.author.name}***:\n**{pts} POINTS ({savg} SAVG)**')
+    await ctx.send(f'***TEAM {ctx.author.name}***:\n**{pts} POINTS ({round(savg, 2)} SAVG)**')
     await ctx.send(f'-\n*games:*\n')
     for player in gl:
         await ctx.send(player)

@@ -141,7 +141,9 @@ class Summoner:
         lin_mmr_dict = {'IRON IV': 0, 'IRON III': 250, 'IRON II': 500, 'IRON I': 750, 'BRONZE IV': 1000, 'BRONZE III':
             1250, 'BRONZE II': 1500, 'BRONZE I': 1750, 'SILVER IV': 2000, 'SILVER III': 2250, 'SILVER II':
                             2500, 'SILVER I': 2750, 'GOLD IV': 3000, 'GOLD III': 3250, 'GOLD II': 3500, 'GOLD I': 3750,
-                        'PLATINUM IV': 4000, 'PLATINUM III': 4250, 'PLATINUM II': 4500, 'PLATINUM I': 4750}
+                        'PLATINUM IV': 4000, 'PLATINUM III': 4250, 'PLATINUM II': 4500, 'PLATINUM I': 4750,
+                        'DIAMOND IV': 5000, 'DIAMOND III': 5250, 'DIAMOND II': 5500, 'DIAMOND I': 5750, 'MASTER I': 6000,
+                        'GRANDMASTER I': 6250, 'CHALLENGER I': 6500}
 
         if type(self.rank) is str:
             return lin_mmr_dict[self.rank] + 2 * self.lp
@@ -196,7 +198,6 @@ class Summoner:
         return {'games': n, 'ppg': t_points/n, 'kda': f'{round(t_k/n)}/{round(t_d/n)}/{round(t_a/n)}', 'csm': t_csm/n,
                 'vision': t_vision/n, 'kdad': t_kdad, 'totals': totals}
 
-    @property
     def weekly_soloq_stats(self):
         games = self.get_recent_soloq_games()
         gamestatlist = {}
@@ -225,7 +226,7 @@ class Summoner:
     def get_top_games(self, n_games):
         top_games = []
         gsum = 0
-        gamestatlist, g_avg = self.weekly_soloq_stats
+        gamestatlist, g_avg = self.weekly_soloq_stats()
         scores = sorted(list(gamestatlist.keys()), reverse=True)
 
         for i in range(n_games):
@@ -340,7 +341,7 @@ class Match:
         cc = stats["timeCCingOthers"]
         kda = self.get_kda(name, True)
 
-        ccp = (kda/(self.game_duration/60)) * (cc)
+        ccp = (kda/(self.game_duration/60)) * cc
         return ccp
 
     # LOOK UP CHAMP NAME OF PLAYER IN GAME
@@ -351,7 +352,7 @@ class Match:
 
 def main():
     ed = Summoner('xân')
-    print(ed.weekly_soloq_stats)
+    print(ed.weekly_soloq_stats())
 
 
 if __name__ == '__main__':
