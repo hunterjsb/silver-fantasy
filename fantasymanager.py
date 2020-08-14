@@ -91,7 +91,8 @@ class Player(Summoner):
                         'duration': game.game_duration_min,
                         'kda': f'{k}/{d}/{a}',
                         'csm': round(game.get_csm(self.ign), 2),
-                        'vision': game.get_vision_score(self.ign)
+                        'vision': game.get_vision_score(self.ign),
+                        '*cc': round(game.get_cc(self.ign), 2)
                     }
 
                     gamestatlist[score] = stats
