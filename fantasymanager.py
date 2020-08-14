@@ -6,12 +6,34 @@ sq_file = open('./json/soloqgames.json')
 sq_games = json.load(sq_file)
 
 
+def recent(raw_timestamp_ms, date=False):
+
+    if date:
+        time = datetime.datetime.strptime(raw_timestamp_ms, "%m/%d/%Y")
+    else:
+        time = datetime.datetime.fromtimestamp(raw_timestamp_ms // 1000)
+
+    week_ago = datetime.datetime.now() - datetime.timedelta(15)
+    return time > week_ago
+
+
 def sq_save():
     with open('./json/soloqgames.json', 'w') as f:
         json.dump(sq_games, f, indent=4)
 
     global sq_file
     sq_file = open('./json/soloqgames.json')
+
+
+def sq_clean_games():
+    # Using dictionary comprehension to find list
+    for player in sq_games:
+        delete = [key for key in sq_games[player] if not recent(sq_games[player][key]["date"], True)]
+        for key in delete:
+            del sq_games[player][key]
+
+    sq_save()
+    print('DELETED:\n', delete)
 
 
 def new_dr_league(name, budget):
@@ -67,13 +89,7 @@ class Player(Summoner):
             games = {}
 
         for game in self.match_history['matches']:
-
-            # MAKE SURE IT'S RECENT
-            time = datetime.datetime.fromtimestamp(game['timestamp'] // 1000)
-            week_ago = datetime.datetime.now() - datetime.timedelta(7)
-            recent = time > week_ago
-
-            if recent and game['queue'] == 420:
+            if recent(game['timestamp']) and game['queue'] == 420:
                 if str(game['gameId']) in list(games.keys()):
                     print('game loaded')
                     g = games[str(game['gameId'])]
@@ -84,6 +100,7 @@ class Player(Summoner):
                     k, d, a = game.get_kda(self.ign)
                     score = game.calc_point_base(self.ign)
                     week_total += score
+
                     stats = {
                         'score': score,
                         'champ': game.player_champ(self.ign),
@@ -250,8 +267,10 @@ class League:
 
 
 def main():
-    rc = Player("c9 zven")
-    print(rc.get_top_games(2))
+    players = ["xân", "black xan bible", "1deepturtle", "1deepgenz", "yasuomoe", "ipogoz", "drag0nham"]
+    for player in players:
+        ed = Player(player)
+        ed.weekly_soloq_stats()
 
 
 if __name__ == '__main__':
