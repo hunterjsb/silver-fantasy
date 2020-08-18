@@ -82,9 +82,19 @@ async def standings(ctx, leauge_name='ROYALE COUNCIL'):
     await ctx.send('***STANDINGS***')
     league = fm.League(leauge_name)
 
-    for player, pts in league.ordered_players():
-        if pts > 0:
+    for player, pts in league.ordered_players:
+        if pts > 0 and league.whitelisted(player):
             await ctx.send(f'{player}: {round(pts)}')
+
+
+@bot.command()
+async def profile(ctx, ign, leauge_name='ROYALE COUNCIL'):
+    league = fm.League(leauge_name)
+
+    await ctx.send(f'**{ign}**\n-------------')
+    for p in league.player_dat[ign]:
+        await ctx.send(f'{p}: {league.player_dat[ign][p]}')
+
 
 
 @bot.command()
@@ -110,15 +120,16 @@ async def lastgame(ctx, ign):
 async def history(ctx, ign):
     player = fm.Player(ign)
     await ctx.send('*GETTING GAMES...*')
-    stats, gavg = player.weekly_soloq_stats()
+    stats, gavg, role = player.weekly_soloq_stats()
+    await ctx.send(f'\n***AVERAGE: {round(gavg, 2)} | ROLE: {role}***')  # this is legit so fucking bugged
     t = 0
 
     for stat in stats:
         t += stat
         s = stats[stat]
-        await ctx.send(f'-----\n**{stat} POINTS**\n {s}')
-
-    await ctx.send(f'\n***AVERAGE {round(gavg, 2)}***')
+        await ctx.send(
+            f'-----\n**{s["score"]} POINTS**\n *{s["duration"]}*   **{s["kda"]}** on {s["champ"]}\n {s["csm"]} *cs/m*'
+            f'   {s["vision"]} *vision*   {s["*cc"]} *cc/k*   *{s["role"].lower()}*')
 
 
 @bot.command()
@@ -126,13 +137,10 @@ async def avg(ctx, ign):
     player = fm.Player(ign)
     await ctx.send("*GETTING GAMES...*")
     stats = player.avg_stats
-    for stat in stats:
-        if stat is not 'kda' and stat is not 'totals':
-            await ctx.send(f'**{stat}**: {round(stats[stat], 2)}')
-        elif stat is 'kda':
-            await ctx.send(f'**{stat}**: {stats[stat]}')
-        else:
-            await ctx.send(f'*totals: {stats[stat]}*')
+
+    await ctx.send(f'**games:** {stats["games"]}  |  **role:** {stats["role"]}\n'
+                   f'**ppg:** {round(stats["ppg"], 1)}   |  **kda:** {stats["kda"]} ({round(stats["kdad"], 2)})\n'
+                   f'csm: {round(stats["csm"], 2)}  |  vision:{round(stats["vision"], 1)}\n*totals: {stats["totals"]}*')
 
 
 @bot.command()
@@ -142,7 +150,10 @@ async def top2(ctx, ign, n_games=2):
     g_sum, g_avg, stats = player.get_top_games(n_games)
 
     for stat in stats:
-        await ctx.send(stat)
+        s = stat
+        await ctx.send(
+            f'-----\n**{s["score"]} POINTS**\n *{s["duration"]}*   **{s["kda"]}** on {s["champ"]}\n {s["csm"]} *cs/m*'
+            f'   {s["vision"]} *vision*   {s["*cc"]} *cc/k*   *{s["role"].lower()}*')
     await ctx.send(f'**POINTS: {round(g_sum, 1)}**')
 
 
@@ -178,16 +189,22 @@ async def release(ctx, ign, league_name='ROYALE COUNCIL'):
         await ctx.send(f'*points left:* {league.league_dat["teams"][team]["budget"]}')
 
 
+@bot.command()  # MAKE ANNOUNCEMENT FOR THIS!
+async def releaseall(ctx, league_name='ROYALE COUNCIL'):
+    team = str(ctx.author.id)
+    league = fm.League(league_name)
+    for player in league.league_dat['teams'][team]['players']:
+        league.remove_player_from_team(player, team)
+        await ctx.send('CLEARED')
+
+
 @bot.command()
-async def teamscore(ctx, user_id=None, league_name='ROYALE COUNCIL'):
-    if not user_id:
-        team = str(ctx.author.id)
-    else:
-        team = str(user_id)
+async def teamscore(ctx, league_name='ROYALE COUNCIL'):
+    team = str(ctx.author.id)
     league = fm.League(league_name)
     pts, savg, gl = league.get_rteam_ppw(team)
 
-    await ctx.send(f'***TEAM {ctx.author.name}***:\n**{pts} POINTS ({round(savg, 2)} SAVG)**')
+    await ctx.send(f'***TEAM {ctx.author.name}***:\n**{round(pts)} POINTS ({round(savg, 2)} SAVG)**')
     await ctx.send(f'-\n*games:*\n')
     for player in gl:
         await ctx.send(player)

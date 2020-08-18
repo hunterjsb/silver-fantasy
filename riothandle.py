@@ -1,9 +1,9 @@
 import requests
 import os
-import json
 from dotenv import load_dotenv
 import datetime
 import time
+from functools import wraps
 
 # RIOTAPI.PY REWRITE.
 # RIOT API HANDLER 2
@@ -30,10 +30,10 @@ CLASSES:
 def get_riot_token():
     load_dotenv()
     r_toke = os.getenv('RIOT_TOKEN')  # app API key
-    headers = {"X-Riot-Token": r_toke}
+    riot_headers = {"X-Riot-Token": r_toke}
     print('T0KEN L0ADED\n')
 
-    return headers
+    return riot_headers
 
 
 headers = get_riot_token()
@@ -57,6 +57,7 @@ def print_func(func):
 
 
 def except429(func):
+    @wraps(func)
     def except_wrapper(*args, **kwargs):
         funcy = func(*args, **kwargs)
         if type(funcy) is not int:
@@ -67,7 +68,9 @@ def except429(func):
             print('trying again in 100 seconds...')
             time.sleep(100)
             return func(*args, **kwargs)
-
+        elif funcy == 504:
+            print(f'CODE {funcy}')
+            return func(*args, **kwargs)
         else:
             print(f'CODE {funcy}')
             return funcy
@@ -109,6 +112,7 @@ class Summoner:
         sum_dat = requests.get(sum_dat_endpoint, headers=self.headers).json()
 
         # CALCULATE STATS FROM SOLOQ DATA
+        @except429
         def get_soloq_stats():
             self.rank = self.soloq['tier'] + ' ' + self.soloq['rank']
             self.wr = self.soloq['wins'] / (self.soloq['wins'] + self.soloq['losses'])
@@ -139,11 +143,11 @@ class Summoner:
     @property
     def soloq_lin_mmr(self):
         lin_mmr_dict = {'IRON IV': 0, 'IRON III': 250, 'IRON II': 500, 'IRON I': 750, 'BRONZE IV': 1000, 'BRONZE III':
-            1250, 'BRONZE II': 1500, 'BRONZE I': 1750, 'SILVER IV': 2000, 'SILVER III': 2250, 'SILVER II':
-                            2500, 'SILVER I': 2750, 'GOLD IV': 3000, 'GOLD III': 3250, 'GOLD II': 3500, 'GOLD I': 3750,
+                        1250, 'BRONZE II': 1500, 'BRONZE I': 1750, 'SILVER IV': 2000, 'SILVER III': 2250, 'SILVER II':
+                        2500, 'SILVER I': 2750, 'GOLD IV': 3000, 'GOLD III': 3250, 'GOLD II': 3500, 'GOLD I': 3750,
                         'PLATINUM IV': 4000, 'PLATINUM III': 4250, 'PLATINUM II': 4500, 'PLATINUM I': 4750,
-                        'DIAMOND IV': 5000, 'DIAMOND III': 5250, 'DIAMOND II': 5500, 'DIAMOND I': 5750, 'MASTER I': 6000,
-                        'GRANDMASTER I': 6250, 'CHALLENGER I': 6500}
+                        'DIAMOND IV': 5000, 'DIAMOND III': 5500, 'DIAMOND II': 6000, 'DIAMOND I': 6500, 'MASTER I':
+                        7000, 'GRANDMASTER I': 7500, 'CHALLENGER I': 8000}
 
         if type(self.rank) is str:
             return lin_mmr_dict[self.rank] + 2 * self.lp
@@ -153,6 +157,7 @@ class Summoner:
 
     @property
     @print_func
+    @except429
     def match_history(self):
         game_hist = requests.get(f"https://na1.api.riotgames.com/lol/match/v4/matchlists/by-account/{self.ids[1]}",
                                  headers=self.headers).json()
@@ -182,6 +187,7 @@ class Summoner:
     def avg_stats(self):
         n, t_kdad, t_k, t_d, t_a, t_csm, t_vision = 0, 0, 0, 0, 0, 0, 0
         t_points = 0
+        roles = []
 
         for game in self.yield_games():
             n += 1
@@ -190,18 +196,22 @@ class Summoner:
             t_k += k
             t_d += d
             t_a += a
-            t_kdad = (t_k + t_a) / t_d
+            t_kdad += (t_k + t_a) / t_d
             t_csm += game.get_csm(self.ign)
             t_vision += game.get_vision_score(self.ign)
 
+            roles.append(game.get_role(self.ign))
+
         totals = (n, t_points, t_k, t_d, t_a, t_csm, t_vision)
-        return {'games': n, 'ppg': t_points/n, 'kda': f'{round(t_k/n)}/{round(t_d/n)}/{round(t_a/n)}', 'csm': t_csm/n,
-                'vision': t_vision/n, 'kdad': t_kdad, 'totals': totals}
+        most_role = max(set(roles), key=roles.count)
+        return {'games': n, 'role': most_role, 'ppg': t_points/n, 'kda': f'{round(t_k/n)}/{round(t_d/n)}/{round(t_a/n)}'
+                , 'csm': t_csm/n, 'vision': t_vision/n, 'kdad': t_kdad/n, 'totals': totals}
 
     def weekly_soloq_stats(self):
         games = self.get_recent_soloq_games()
         gamestatlist = {}
         week_total = 0
+        roles = []
 
         for game in games:
             k, d, a = game.get_kda(self.ign)
@@ -210,6 +220,7 @@ class Summoner:
             stats = {
                 'score': score,
                 'champ': game.player_champ(self.ign),
+                'role': game.get_role(self.ign),
                 'date': game.game_time.strftime("%m/%d/%Y"),
                 'duration': game.game_duration_min,
                 'kda': f'{k}/{d}/{a}',
@@ -219,14 +230,16 @@ class Summoner:
             }
 
             gamestatlist[score] = stats
+            roles.append(game.get_role(self.ign))
 
         avg = week_total / len(games)
-        return gamestatlist, avg
+        role = max(set(roles), key=roles.count)
+        return gamestatlist, avg, role
 
     def get_top_games(self, n_games):
         top_games = []
         gsum = 0
-        gamestatlist, g_avg = self.weekly_soloq_stats()
+        gamestatlist, g_avg, role = self.weekly_soloq_stats()
         scores = sorted(list(gamestatlist.keys()), reverse=True)
 
         for i in range(n_games):
@@ -292,6 +305,10 @@ class Match:
             print('SUMMONER NOT FOUND!')
             return 404
 
+    def get_role(self, name):
+        timeline = self.get_participant(name)['timeline']
+        return timeline['role'] + ' ' + timeline['lane']
+
     # USED IN POINT BASE
     def get_kda(self, name, decimal=False):
 
@@ -352,7 +369,8 @@ class Match:
 
 def main():
     ed = Summoner('xân')
-    print(ed.weekly_soloq_stats())
+    g = ed.avg_stats
+    print(g)
 
 
 if __name__ == '__main__':

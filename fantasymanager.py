@@ -13,7 +13,7 @@ def recent(raw_timestamp_ms, date=False):
     else:
         time = datetime.datetime.fromtimestamp(raw_timestamp_ms // 1000)
 
-    week_ago = datetime.datetime.now() - datetime.timedelta(15)
+    week_ago = datetime.datetime.now() - datetime.timedelta(7)
     return time > week_ago
 
 
@@ -29,11 +29,24 @@ def sq_clean_games():
     # Using dictionary comprehension to find list
     for player in sq_games:
         delete = [key for key in sq_games[player] if not recent(sq_games[player][key]["date"], True)]
+
         for key in delete:
+            print('delete')
             del sq_games[player][key]
 
     sq_save()
-    print('DELETED:\n', delete)
+
+
+def sq_delete_empty_players():
+    delete = []
+
+    for player in sq_games:
+        if sq_games[player] == {}:
+            delete.append(player)
+
+    for player in delete:
+        del sq_games[player]
+    sq_save()
 
 
 def new_dr_league(name, budget):
@@ -80,6 +93,7 @@ class Player(Summoner):
     def weekly_soloq_stats(self):
         gamestatlist = {}
         week_total = 0
+        roles = []
 
         # CHECK TO SEE IF THE PLAYER IS IN SOLOQGAMES.JSON
         if self.ign in sq_games:
@@ -92,9 +106,10 @@ class Player(Summoner):
             if recent(game['timestamp']) and game['queue'] == 420:
                 if str(game['gameId']) in list(games.keys()):
                     print('game loaded')
-                    g = games[str(game['gameId'])]
+                    g = games[str(game['gameId'])]  # game id's are stored as strings for... whatever reason.
                     gamestatlist[g['score']] = g
                     week_total += g['score']
+                    roles.append(g['role'])
                 else:
                     game = Match(game['gameId'])
                     k, d, a = game.get_kda(self.ign)
@@ -105,6 +120,7 @@ class Player(Summoner):
                         'score': score,
                         'champ': game.player_champ(self.ign),
                         'date': game.game_time.strftime("%m/%d/%Y"),
+                        'role': game.get_role(self.ign),
                         'duration': game.game_duration_min,
                         'kda': f'{k}/{d}/{a}',
                         'csm': round(game.get_csm(self.ign), 2),
@@ -114,22 +130,29 @@ class Player(Summoner):
 
                     gamestatlist[score] = stats
                     games[game.id] = stats
+                    roles.append(game.get_role(self.ign))
 
         avg = week_total / len(games)
+        role = max(set(roles), key=roles.count)
+
         sq_games[self.ign] = games
         sq_save()
-        return gamestatlist, avg
+        return gamestatlist, avg, role
 
 
 class League:
     def __init__(self, name):
-        self.name = name
+        self.name = name.upper()
         self.league_dat, self.player_dat = self.load_league()
         if self.league_dat is not None:
             self.index = self.league_dat['index']
         else:
             self.index = None
             print('404 League not found')
+
+    @property
+    def is_royale(self):
+        return self.league_dat['royale']
 
     def load_league(self):
         with open('./json/silverfantasy.json') as fan_file:
@@ -174,6 +197,18 @@ class League:
     def master_player_list(self):
         for player in self.player_dat:
             yield player
+
+    # ADD A LEAGUE TO A PLAYERS LEAGUE LIST SO THAT THEY CAN BE DRAFTED TO IT IF ITS EXCLUSIVE
+    def whitelist(self, ign):
+        p = self.update_player(ign)
+        p.leagues.append(self.name)
+        self.save_league()
+
+    def whitelisted(self, ign):
+        if self.name in self.player_dat[ign]['leagues']:
+            return True
+        else:
+            return False
 
     def update_all(self, new_players=None):
         for player in self.master_player_list:
@@ -247,6 +282,7 @@ class League:
 
         self.save_league()
 
+    @property
     def ordered_players(self):
         # MAKE SORTED LIST OF DR COSTS
         pointlist = []
@@ -267,10 +303,9 @@ class League:
 
 
 def main():
-    players = ["xân", "black xan bible", "1deepturtle", "1deepgenz", "yasuomoe", "ipogoz", "drag0nham"]
-    for player in players:
-        ed = Player(player)
-        ed.weekly_soloq_stats()
+    me = Player("xân")
+    stats = me.avg_stats
+    print(stats)
 
 
 if __name__ == '__main__':
