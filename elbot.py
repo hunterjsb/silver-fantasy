@@ -96,7 +96,6 @@ async def profile(ctx, ign, leauge_name='ROYALE COUNCIL'):
         await ctx.send(f'{p}: {league.player_dat[ign][p]}')
 
 
-
 @bot.command()
 async def lastgame(ctx, ign):
     player = fm.Player(ign)
@@ -139,7 +138,7 @@ async def avg(ctx, ign):
     stats = player.avg_stats
 
     await ctx.send(f'**games:** {stats["games"]}  |  **role:** {stats["role"]}\n'
-                   f'**ppg:** {round(stats["ppg"], 1)}   |  **kda:** {stats["kda"]} ({round(stats["kdad"], 2)})\n'
+                   f'**ppg:** {round(stats["ppg"], 2)}   |  **kda:** {stats["kda"]} ({round(stats["kdad"], 2)})\n'
                    f'csm: {round(stats["csm"], 2)}  |  vision:{round(stats["vision"], 1)}\n*totals: {stats["totals"]}*')
 
 
@@ -165,6 +164,13 @@ async def register(ctx, league_name='ROYALE COUNCIL'):
     if str(team) not in league.league_dat['teams']:
         league.add_rteam(team, name)
         await ctx.send('TEAM ADDED')
+
+
+@bot.command()
+async def whitelist(ctx, ign, league_name='ROYALE COUNCIL'):
+    league = fm.League(league_name)
+    league.whitelist(ign)
+    await ctx.send(f'whitelisted {ign}')
 
 
 @bot.command()

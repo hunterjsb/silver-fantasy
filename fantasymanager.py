@@ -79,7 +79,6 @@ def new_dr_league(name, budget):
 class Player(Summoner):
     def __init__(self, ign):
         super().__init__(ign)
-        self.leagues = []
         self.wr_mod = self.calc_linpoints()
 
     def calc_linpoints(self):
@@ -185,7 +184,7 @@ class League:
         self.player_dat[ign] = {
             "rank": player.rank,
             "wr": (round(player.wr*10000)/100),
-            "leagues": player.leagues,
+            "leagues": self.player_dat[ign]['leagues'],
             "games": player.games,
             "wr mod": player.wr_mod,
             "stats": {}
@@ -200,12 +199,14 @@ class League:
 
     # ADD A LEAGUE TO A PLAYERS LEAGUE LIST SO THAT THEY CAN BE DRAFTED TO IT IF ITS EXCLUSIVE
     def whitelist(self, ign):
-        p = self.update_player(ign)
-        p.leagues.append(self.name)
+        self.update_player(ign)
+        self.player_dat[ign]["leagues"].append(self.name)
         self.save_league()
 
     def whitelisted(self, ign):
         if self.name in self.player_dat[ign]['leagues']:
+            return True
+        elif not self.league_dat['whitelisted']:
             return True
         else:
             return False
@@ -261,26 +262,35 @@ class League:
 
     def add_player_to_team(self, ign, team):
         player = self.update_player(ign)
-        self.league_dat['teams'][team]['players'][ign] = round(player.wr_mod)
+        w = self.whitelisted(ign)
+        if not w:
+            print(f'{ign} NOT WHITELISTED')
+            return 403
 
-        if self.league_dat['royale']:
+        elif self.league_dat['royale']:
             budget = self.league_dat['teams'][team]['budget']
             if budget >= player.wr_mod:
+                self.league_dat['teams'][team]['players'][ign] = round(player.wr_mod)
                 self.league_dat['teams'][team]['budget'] -= round(player.wr_mod)
                 self.save_league()
                 return self.league_dat['teams'][team]['budget']
             else:
                 print(player.wr_mod-budget, ' PTS TOO EXPENSIVE')
-                return 101
+                return 403
 
     def remove_player_from_team(self, ign, team):
-        pts = self.league_dat['teams'][team]['players'][ign]
-        del self.league_dat['teams'][team]['players'][ign]
+        if ign in self.league_dat['teams'][team]['players']:
+            pts = self.league_dat['teams'][team]['players'][ign]
+            del self.league_dat['teams'][team]['players'][ign]
 
-        if self.league_dat['royale']:
-            self.league_dat['teams'][team]['budget'] += pts
+            if self.league_dat['royale']:
+                self.league_dat['teams'][team]['budget'] += pts
 
-        self.save_league()
+            self.save_league()
+
+        else:
+            print('SUMMONER NOT ON TEAM')
+            return 404
 
     @property
     def ordered_players(self):
@@ -304,8 +314,9 @@ class League:
 
 def main():
     me = Player("xân")
-    stats = me.avg_stats
-    print(stats)
+    league = League("ROYALE COUNCIL")
+    team = "371034483836846090"
+    league.add_player_to_team("black xan bible", team)
 
 
 if __name__ == '__main__':

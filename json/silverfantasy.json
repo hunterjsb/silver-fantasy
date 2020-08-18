@@ -3,7 +3,7 @@
         {
             "name": "COUNCIL LEAGUE",
             "commissioner": "x\u00c3\u00a2n",
-            "whitelist": false,
+            "whitelisted": false,
             "index": 0,
             "season": 1,
             "benchPlayers": 1,
@@ -49,9 +49,15 @@
             "teams": {
                 "371034483836846090": {
                     "points": 0,
-                    "budget": 290,
+                    "budget": 5,
                     "owner": "x\u00c3\u00a2n",
-                    "players": {}
+                    "players": {
+                        "fent bars": 53,
+                        "black xan bible": 55,
+                        "1deepturtle": 58,
+                        "ipogoz": 60,
+                        "xtrader": 59
+                    }
                 },
                 "409135880960213002": {
                     "points": 0,
@@ -207,39 +213,43 @@
     ],
     "PLAYERS": {
         "black xan bible": {
-            "rank": "SILVER IV",
-            "wr": 49.09,
-            "leagues": [],
-            "games": 603,
-            "wr mod": 54.482733537519145,
-            "stats": {}
-        },
-        "x\u00e2n": {
             "rank": "SILVER III",
-            "wr": 48.29,
-            "leagues": [],
-            "games": 381,
-            "wr mod": 54.11687935034803,
-            "stats": {}
-        },
-        "ipogoz": {
-            "rank": "GOLD IV",
-            "wr": 51.05,
+            "wr": 49.18,
             "leagues": [
                 "ROYALE COUNCIL"
             ],
-            "games": 333,
-            "wr mod": 58.42383812010444,
+            "games": 612,
+            "wr mod": 54.869712990936556,
+            "stats": {}
+        },
+        "x\u00e2n": {
+            "rank": "SILVER IV",
+            "wr": 47.93,
+            "leagues": [
+                "ROYALE COUNCIL"
+            ],
+            "games": 386,
+            "wr mod": 53.5401376146789,
+            "stats": {}
+        },
+        "ipogoz": {
+            "rank": "GOLD III",
+            "wr": 52.03,
+            "leagues": [
+                "ROYALE COUNCIL"
+            ],
+            "games": 344,
+            "wr mod": 59.991649746192905,
             "stats": {}
         },
         "xtrader": {
             "rank": "PLATINUM II",
-            "wr": 47.76,
+            "wr": 47.29,
             "leagues": [
                 "ROYALE COUNCIL"
             ],
-            "games": 201,
-            "wr mod": 59.77217131474103,
+            "games": 203,
+            "wr mod": 59.216086956521735,
             "stats": {}
         },
         "snakebee16": {
@@ -302,7 +312,7 @@
             "rank": "PLATINUM II",
             "wr": 48.78,
             "leagues": [
-                "ROALE COUNCIL"
+                "ROYALE COUNCIL"
             ],
             "games": 328,
             "wr mod": 60.31679894179894,
@@ -329,11 +339,13 @@
             "stats": {}
         },
         "1deepturtle": {
-            "rank": "SILVER I",
-            "wr": 50.51,
-            "leagues": [],
-            "games": 1071,
-            "wr mod": 57.75063336306869,
+            "rank": "GOLD IV",
+            "wr": 50.7,
+            "leagues": [
+                "ROYALE COUNCIL"
+            ],
+            "games": 1079,
+            "wr mod": 58.34430469441984,
             "stats": {}
         },
         "darkshadow2015": {
@@ -490,10 +502,10 @@
         },
         "ssumdayday": {
             "rank": "CHALLENGER I",
-            "wr": 55.56,
+            "wr": 55.62,
             "leagues": [],
-            "games": 675,
-            "wr mod": 82.83241379310346,
+            "games": 676,
+            "wr mod": 82.99915977961433,
             "stats": {}
         },
         "t4ctical": {
