@@ -4,27 +4,10 @@ from dotenv import load_dotenv
 import datetime
 import time
 from functools import wraps
+import elbot
 
 # RIOTAPI.PY REWRITE.
 # RIOT API HANDLER 2
-
-"""STATIC FUNCS:
-- get_riot_token returns the readers for reaching riot api
-- get_champ loads the datadragon page and searches for a champ id, returns champ name
-
-CLASSES:
-- SUMMONER:
-    takes in summoner id
-    gets ranked data immediately
-    can look up match history and open a specific match
-    
-- MATCH
-    takes in match id
-    fetches the game json
-    
-- ActiveGame
-    takes in summoner
-"""
 
 
 def get_riot_token():
@@ -62,13 +45,15 @@ def except429(func):
         funcy = func(*args, **kwargs)
         if type(funcy) is not int:
             return funcy
+        else:
+            elbot.set_error(funcy)
 
-        elif funcy == 429:
+        if funcy == 429:
             print(f'CODE {funcy}')
-            print('trying again in 100 seconds...')
-            time.sleep(100)
+            print('trying again in 93 seconds...')
+            time.sleep(93)
             return func(*args, **kwargs)
-        elif funcy == 504:
+        elif funcy == 504 or 503:
             print(f'CODE {funcy}')
             return func(*args, **kwargs)
         else:
@@ -349,7 +334,7 @@ class Match:
         k, d, a = self.get_kda(name)
         csm = self.get_csm(name)
         vision = self.get_vision_score(name)
-        points = k - d + a/1.5 + 1.5*csm + vision/10
+        points = k - 0.8*d + 0.75*a + 0.75*csm + vision/8
         return round(points, 2)
 
     # USED IN CC POINTS

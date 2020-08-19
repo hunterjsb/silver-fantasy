@@ -5,12 +5,12 @@ from discord.ext import commands
 from dotenv import load_dotenv
 import json
 import riotapi
-import riothandle as rh
 import fantasymanager as fm
 
 load_dotenv()  # get .env file
 TOKEN = os.getenv('DISCORD_TOKEN')
 bot = commands.Bot(command_prefix='$')  # Bot is like discord.Client
+error = None
 
 
 # OPEN JSON OF USER DATA
@@ -52,6 +52,22 @@ def strike(user_name, category):  # add strike to 'strikes' in temp.json
         print('CULPRIT (new): \n ', culprit)
         save_dat()
     return culprit
+
+# HONESTLY JUST GONNA HAVE TO MAKE A CLASS TO HANDLE THIS
+async def handle_error(e):
+    bot_lane = bot.get_channel(710226878207754271)
+    print('aye')
+    if error == e:
+        await bot_lane.send('`ERROR 429: TRYING AGAIN IN 93s...`')
+    elif e == 504 or 503:
+        await bot_lane.send(f'`ERROR {error}: POTENTIAL PACKET LOSS`')
+
+def set_error(e):
+    handle_error(e)
+
+while type(error) is int:
+    print('finna handle...')
+    handle_error(error)
 
 
 @bot.event  # readyuup
@@ -101,12 +117,10 @@ async def lastgame(ctx, ign):
     player = fm.Player(ign)
     last_game = next(player.yield_games())
     p = last_game.get_participant(ign)
-    pc = rh.get_champ(p['championId'])
     ps = p['stats']
     ptl = p['timeline']
     print(p)
 
-    await ctx.send(f'**{pc} STATS:**')
     for i in ps:
         await ctx.send(f'{i}: {ps[i]}')
 
@@ -211,11 +225,17 @@ async def teamscore(ctx, league_name='ROYALE COUNCIL'):
     pts, savg, gl = league.get_rteam_ppw(team)
 
     await ctx.send(f'***TEAM {ctx.author.name}***:\n**{round(pts)} POINTS ({round(savg, 2)} SAVG)**')
-    await ctx.send(f'-\n*games:*\n')
+    await ctx.send(f'-----------------------\n*__games:__*')
     for player in gl:
-        await ctx.send(player)
+        await ctx.send(f'***{player}***')
         for game in gl[player]:
-            await ctx.send(game)
+            s = game
+            if 'score' in game:
+                await ctx.send(
+                    f'__{s["score"]} POINTS__  |   *{s["duration"]}*   {s["kda"]} on {s["champ"]}\n {s["csm"]} '
+                    f'*cs/m*   {s["vision"]} *vision*   {s["*cc"]} *cc/k*   *{s["role"].lower()}*')
+            else:
+                await ctx.send(f'**POINTS: {game["pts"]}  |   AVERAGE {game["avg"]}**\n----------------------')
 
 # COUNT XDs, @ALLs
 @bot.event  # on message!!!
@@ -298,4 +318,10 @@ async def on_command_error(ctx, error):
     if isinstance(error, commands.errors.CheckFailure):
         await ctx.send('You do not have the correct role for this command.')
 
-bot.run(TOKEN)
+
+def run():
+    bot.run(TOKEN)
+
+
+if __name__ == "__main__":
+    run()
