@@ -55,8 +55,8 @@
                         "fent bars": 53,
                         "black xan bible": 55,
                         "1deepturtle": 58,
-                        "ipogoz": 60,
-                        "xtrader": 59
+                        "xtrader": 59,
+                        "ipogoz": 60
                     }
                 },
                 "409135880960213002": {
@@ -154,9 +154,8 @@
                 "213709745964580874": {
                     "points": 0,
                     "owner": "LePogoZ",
-                    "budget": 0,
+                    "budget": 126,
                     "players": {
-                        "drag0nham": 47,
                         "1deepturtle": 57,
                         "x\u00e2n": 54,
                         "fent bars": 53
@@ -165,7 +164,7 @@
             }
         },
         {
-            "name": "PRO LEAGUE",
+            "name": "PRO",
             "commissioner": "x\u00e2n",
             "index": 2,
             "budget": 375,
@@ -175,25 +174,26 @@
                 "371034483836846090": {
                     "points": 0,
                     "owner": "xan",
-                    "budget": 21,
+                    "budget": 23,
                     "players": {
                         "ssumdayday": 83,
                         "t4ctical": 83,
-                        "x\u00e2n": 54,
-                        "doublelift": 76,
-                        "1deepturtle": 58
+                        "doublelift": 77,
+                        "black xan bible": 55,
+                        "x\u00e2n": 54
                     }
                 },
                 "213709745964580874": {
                     "points": 0,
                     "owner": "LePogoZ",
-                    "budget": 38,
+                    "budget": 13,
                     "players": {
                         "t4ctical": 83,
-                        "1deepturtle": 58,
                         "black xan bible": 54,
-                        "ssumdayday": 83,
-                        "\u00ff\u00e2\u0161\u00fa\u00f3": 59
+                        "\u00ff\u00e2\u0161\u00fa\u00f3": 59,
+                        "fatalfkid": 55,
+                        "ikindaesl": 57,
+                        "c\u00e4tzinsp\u00e4ze": 54
                     }
                 },
                 "300110170858717184": {
@@ -207,6 +207,19 @@
                         "1deepturtle": 58,
                         "black xan bible": 55
                     }
+                },
+                "0": {
+                    "points": 0,
+                    "owner": "ADMIN",
+                    "budget": 8921,
+                    "players": {
+                        "c9 zvennn": 87,
+                        "ssumdayday": 83,
+                        "t4ctical": 83,
+                        "1deepturtle": 58,
+                        "black xan bible": 55,
+                        "huhi": 80
+                    }
                 }
             }
         }
@@ -214,32 +227,32 @@
     "PLAYERS": {
         "black xan bible": {
             "rank": "SILVER III",
-            "wr": 49.18,
+            "wr": 49.35,
             "leagues": [
                 "ROYALE COUNCIL"
             ],
-            "games": 612,
-            "wr mod": 54.869712990936556,
+            "games": 616,
+            "wr mod": 55.1493993993994,
             "stats": {}
         },
         "x\u00e2n": {
             "rank": "SILVER IV",
-            "wr": 47.93,
+            "wr": 48.08,
             "leagues": [
                 "ROYALE COUNCIL"
             ],
-            "games": 386,
-            "wr mod": 53.5401376146789,
+            "games": 391,
+            "wr mod": 53.774319727891154,
             "stats": {}
         },
         "ipogoz": {
             "rank": "GOLD III",
-            "wr": 52.03,
+            "wr": 52.22,
             "leagues": [
                 "ROYALE COUNCIL"
             ],
-            "games": 344,
-            "wr mod": 59.991649746192905,
+            "games": 360,
+            "wr mod": 60.26121951219513,
             "stats": {}
         },
         "xtrader": {
@@ -550,10 +563,10 @@
         },
         "doublelift": {
             "rank": "CHALLENGER I",
-            "wr": 52.29,
+            "wr": 52.54,
             "leagues": [],
-            "games": 677,
-            "wr mod": 76.46204951856947,
+            "games": 689,
+            "wr mod": 77.0130649526387,
             "stats": {}
         },
         "liquid impact": {
@@ -586,6 +599,38 @@
             "leagues": [],
             "games": 291,
             "wr mod": 59.377903225806456,
+            "stats": {}
+        },
+        "huhi": {
+            "rank": "CHALLENGER I",
+            "wr": 55.13,
+            "leagues": [],
+            "games": 439,
+            "wr mod": 79.93622699386503,
+            "stats": {}
+        },
+        "fatalfkid": {
+            "rank": "SILVER IV",
+            "wr": 50.0,
+            "leagues": [],
+            "games": 122,
+            "wr mod": 55.3,
+            "stats": {}
+        },
+        "ikindaesl": {
+            "rank": "SILVER III",
+            "wr": 51.21,
+            "leagues": [],
+            "games": 535,
+            "wr mod": 56.736111111111114,
+            "stats": {}
+        },
+        "c\u00e4tzinsp\u00e4ze": {
+            "rank": "SILVER III",
+            "wr": 48.42,
+            "leagues": [],
+            "games": 444,
+            "wr mod": 54.207995951417004,
             "stats": {}
         }
     }

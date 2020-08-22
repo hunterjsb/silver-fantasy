@@ -20,6 +20,7 @@ def recent(raw_timestamp_ms, date=False):
 def sq_save():
     with open('./json/soloqgames.json', 'w') as f:
         json.dump(sq_games, f, indent=4)
+        print('*SQSAVE')
 
     global sq_file
     sq_file = open('./json/soloqgames.json')
@@ -176,15 +177,21 @@ class League:
         leagues = self.load_all_leagues()
         leagues[self.index] = self.league_dat
         data = {"LEAGUES": leagues, "PLAYERS": self.player_dat}
+        print('*LEAGUESAVE')
         with open('./json/silverfantasy.json', 'w') as outfile:
             json.dump(data, outfile, indent=4)
 
     def update_player(self, ign):
         player = Player(ign)
+        try:
+            leagues = self.player_dat[ign]['leagues']
+        except KeyError:
+            leagues = []
+
         self.player_dat[ign] = {
             "rank": player.rank,
             "wr": (round(player.wr*10000)/100),
-            "leagues": self.player_dat[ign]['leagues'],
+            "leagues": leagues,
             "games": player.games,
             "wr mod": player.wr_mod,
             "stats": {}
@@ -202,6 +209,15 @@ class League:
         self.update_player(ign)
         self.player_dat[ign]["leagues"].append(self.name)
         self.save_league()
+
+    def delist(self, ign):
+        for name in self.player_dat[ign]['leagues']:
+            if name == self.name:
+                self.player_dat[ign]["leagues"].remove(name)
+                return self.save_league()
+            else:
+                print('player not found')
+                return 404
 
     def whitelisted(self, ign):
         if self.name in self.player_dat[ign]['leagues']:
@@ -314,9 +330,8 @@ class League:
 
 def main():
     me = Player("xân")
-    league = League("ROYALE COUNCIL")
-    team = "371034483836846090"
-    league.add_player_to_team("black xan bible", team)
+    league = League("PRO")
+    league.add_player_to_team('huhi', "0")
 
 
 if __name__ == '__main__':

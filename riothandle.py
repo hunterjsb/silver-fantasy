@@ -4,7 +4,6 @@ from dotenv import load_dotenv
 import datetime
 import time
 from functools import wraps
-import elbot
 
 # RIOTAPI.PY REWRITE.
 # RIOT API HANDLER 2
@@ -46,7 +45,7 @@ def except429(func):
         if type(funcy) is not int:
             return funcy
         else:
-            elbot.set_error(funcy)
+            pass
 
         if funcy == 429:
             print(f'CODE {funcy}')

@@ -6,12 +6,11 @@ from dotenv import load_dotenv
 import json
 import riotapi
 import fantasymanager as fm
+import asyncio
 
 load_dotenv()  # get .env file
 TOKEN = os.getenv('DISCORD_TOKEN')
 bot = commands.Bot(command_prefix='$')  # Bot is like discord.Client
-error = None
-
 
 # OPEN JSON OF USER DATA
 with open('./json/temp.json') as j_file:  # get user data from local json file
@@ -53,21 +52,14 @@ def strike(user_name, category):  # add strike to 'strikes' in temp.json
         save_dat()
     return culprit
 
-# HONESTLY JUST GONNA HAVE TO MAKE A CLASS TO HANDLE THIS
+
 async def handle_error(e):
     bot_lane = bot.get_channel(710226878207754271)
     print('aye')
-    if error == e:
+    if e == 429:
         await bot_lane.send('`ERROR 429: TRYING AGAIN IN 93s...`')
     elif e == 504 or 503:
-        await bot_lane.send(f'`ERROR {error}: POTENTIAL PACKET LOSS`')
-
-def set_error(e):
-    handle_error(e)
-
-while type(error) is int:
-    print('finna handle...')
-    handle_error(error)
+        await bot_lane.send(f'`ERROR {e}: POTENTIAL PACKET LOSS`')
 
 
 @bot.event  # readyuup
@@ -188,6 +180,13 @@ async def whitelist(ctx, ign, league_name='ROYALE COUNCIL'):
 
 
 @bot.command()
+async def delist(ctx, ign, league_name='ROYALE COUNCIL'):
+    league = fm.League(league_name)
+    league.delist(ign)
+    await ctx.send(f'de-listed {ign}')
+
+
+@bot.command()
 async def draft(ctx, ign, league_name='ROYALE COUNCIL'):
     team = str(ctx.author.id)
     league = fm.League(league_name)
@@ -229,6 +228,7 @@ async def teamscore(ctx, league_name='ROYALE COUNCIL'):
     for player in gl:
         await ctx.send(f'***{player}***')
         for game in gl[player]:
+
             s = game
             if 'score' in game:
                 await ctx.send(
