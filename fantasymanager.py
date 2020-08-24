@@ -50,7 +50,7 @@ def sq_delete_empty_players():
     sq_save()
 
 
-def new_dr_league(name, budget):
+def new_dr_league(name, budget, whitelisted=False):
     with open('./json/silverfantasy.json') as fan_file:
         if League(name).index is None:
             sf_dat = json.load(fan_file)
@@ -59,9 +59,11 @@ def new_dr_league(name, budget):
             l_dat.append({
                 "name": name,
                 "commissioner": "xân",
+                "commisioned": datetime.datetime.now().date(),
                 "index": len(l_dat),
                 "budget": budget,
                 "royale": True,
+                "whitelisted": whitelisted,
                 "teams": {
 
                 }
@@ -113,7 +115,7 @@ class Player(Summoner):
                 else:
                     game = Match(game['gameId'])
                     k, d, a = game.get_kda(self.ign)
-                    score = game.calc_point_base(self.ign)
+                    score = game.calc_point_base(self.ign)  # here's where you would swap the point calc.
                     week_total += score
 
                     stats = {
@@ -131,6 +133,9 @@ class Player(Summoner):
                     gamestatlist[score] = stats
                     games[game.id] = stats
                     roles.append(game.get_role(self.ign))
+
+        if len(games) == 0:
+            return 404
 
         avg = week_total / len(games)
         role = max(set(roles), key=roles.count)
@@ -268,7 +273,13 @@ class League:
 
         for player in team["players"]:
             summoner = Player(player)
-            pts, avg, games = summoner.get_top_games(2)
+            resp = summoner.get_top_games(2)
+            if resp == 404:
+                pts, avg = 0, 0
+                games = [{}, {}]
+            else:
+                pts, avg, games = resp
+
             team_pts += pts
             sumavg += avg
             gamelist[player] = games
@@ -329,9 +340,8 @@ class League:
 
 
 def main():
-    me = Player("xân")
     league = League("PRO")
-    league.add_player_to_team('huhi', "0")
+    league.get_rteam_ppw("0")
 
 
 if __name__ == '__main__':

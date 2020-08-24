@@ -152,13 +152,19 @@ async def avg(ctx, ign):
 async def top2(ctx, ign, n_games=2):
     player = fm.Player(ign)
     await ctx.send('*GETTING GAMES...*')
-    g_sum, g_avg, stats = player.get_top_games(n_games)
+    resp = player.get_top_games(n_games)
+
+    if resp == 404:
+        await ctx.send('NO GAMES FOUND!')
+        g_sum, g_avg, stats = 0, 0, 0
+    else:
+        g_sum, g_avg, stats = resp
 
     for stat in stats:
         s = stat
         await ctx.send(
             f'-----\n**{s["score"]} POINTS**\n *{s["duration"]}*   **{s["kda"]}** on {s["champ"]}\n {s["csm"]} *cs/m*'
-            f'   {s["vision"]} *vision*   {s["*cc"]} *cc/k*   *{s["role"].lower()}*')
+            f'   {s["vision"]} *vision*   {s["*cc"]} **cc*   *{s["role"].lower()}*')
     await ctx.send(f'**POINTS: {round(g_sum, 1)}**')
 
 
@@ -218,9 +224,13 @@ async def releaseall(ctx, league_name='ROYALE COUNCIL'):
 
 
 @bot.command()
-async def teamscore(ctx, league_name='ROYALE COUNCIL'):
-    team = str(ctx.author.id)
+async def teamscore(ctx, league_name='ROYALE COUNCIL', team=None):
+    if not team:
+        team = str(ctx.author.id)
+    else:
+        team = team
     league = fm.League(league_name)
+
     pts, savg, gl = league.get_rteam_ppw(team)
 
     await ctx.send(f'***TEAM {ctx.author.name}***:\n**{round(pts)} POINTS ({round(savg, 2)} SAVG)**')
@@ -233,10 +243,11 @@ async def teamscore(ctx, league_name='ROYALE COUNCIL'):
             if 'score' in game:
                 await ctx.send(
                     f'__{s["score"]} POINTS__  |   *{s["duration"]}*   {s["kda"]} on {s["champ"]}\n {s["csm"]} '
-                    f'*cs/m*   {s["vision"]} *vision*   {s["*cc"]} *cc/k*   *{s["role"].lower()}*')
-            else:
+                    f'*cs/m*   {s["vision"]} *vision*   {s["*cc"]} **cc*   *{s["role"].lower()}*')
+            elif 'avg' in game:
                 await ctx.send(f'**POINTS: {game["pts"]}  |   AVERAGE {game["avg"]}**\n----------------------')
-
+            else:
+                await ctx.send('NO WEEKLY GAMES!')
 # COUNT XDs, @ALLs
 @bot.event  # on message!!!
 async def on_message(message):

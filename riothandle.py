@@ -223,9 +223,15 @@ class Summoner:
     def get_top_games(self, n_games):
         top_games = []
         gsum = 0
-        gamestatlist, g_avg, role = self.weekly_soloq_stats()
-        scores = sorted(list(gamestatlist.keys()), reverse=True)
 
+        resp = self.weekly_soloq_stats()
+        if resp == 404:
+            print('NO GAMES FOUND')
+            return 404
+        else:
+            gamestatlist, g_avg, role = resp
+
+        scores = sorted(list(gamestatlist.keys()), reverse=True)
         for i in range(n_games):
             score = scores[i]
             stats = gamestatlist[score]

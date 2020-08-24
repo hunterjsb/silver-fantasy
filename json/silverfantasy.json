@@ -211,14 +211,11 @@
                 "0": {
                     "points": 0,
                     "owner": "ADMIN",
-                    "budget": 8921,
+                    "budget": 8759,
                     "players": {
-                        "c9 zvennn": 87,
-                        "ssumdayday": 83,
-                        "t4ctical": 83,
-                        "1deepturtle": 58,
-                        "black xan bible": 55,
-                        "huhi": 80
+                        "x\u00e2n": 54,
+                        "fent bars": 53,
+                        "black xan bible": 55
                     }
                 }
             }
@@ -227,12 +224,12 @@
     "PLAYERS": {
         "black xan bible": {
             "rank": "SILVER III",
-            "wr": 49.35,
+            "wr": 49.52,
             "leagues": [
                 "ROYALE COUNCIL"
             ],
-            "games": 616,
-            "wr mod": 55.1493993993994,
+            "games": 620,
+            "wr mod": 55.42723880597015,
             "stats": {}
         },
         "x\u00e2n": {
