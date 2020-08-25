@@ -410,17 +410,6 @@
             "csm": 3.37,
             "vision": 0,
             "*cc": 0.0
-        },
-        "3538024344": {
-            "score": 10.37,
-            "champ": "Caitlyn",
-            "date": "08/17/2020",
-            "role": "DUO_CARRY BOTTOM",
-            "duration": "25:15",
-            "kda": "6/3/2",
-            "csm": 5.2,
-            "vision": 11,
-            "*cc": 1.47
         }
     },
     "c9 zven": {
@@ -546,83 +535,6 @@
             "csm": 4.15,
             "vision": 13,
             "*cc": 0.53
-        },
-        "3538860990": {
-            "score": -1.14,
-            "champ": "Annie",
-            "date": "08/17/2020",
-            "role": "DUO NONE",
-            "duration": "19:12",
-            "kda": "0/7/0",
-            "csm": 4.28,
-            "vision": 10,
-            "*cc": 0.0
-        },
-        "3538793096": {
-            "score": 12.64,
-            "champ": "Jax",
-            "date": "08/17/2020",
-            "role": "SOLO TOP",
-            "duration": "30:18",
-            "kda": "5/5/6",
-            "csm": 6.02,
-            "vision": 21,
-            "*cc": 0.88
-        },
-        "3538724950": {
-            "score": 6.59,
-            "champ": "Leona",
-            "date": "08/17/2020",
-            "role": "DUO_SUPPORT BOTTOM",
-            "duration": "31:19",
-            "kda": "2/7/9",
-            "csm": 0.75,
-            "vision": 23,
-            "*cc": 1.63
-        },
-        "3538688735": {
-            "score": 10.96,
-            "champ": "Brand",
-            "date": "08/17/2020",
-            "role": "DUO_SUPPORT BOTTOM",
-            "duration": "29:18",
-            "kda": "5/6/8",
-            "csm": 1.51,
-            "vision": 29,
-            "*cc": 2.4
-        },
-        "3538645003": {
-            "score": 9.93,
-            "champ": "Caitlyn",
-            "date": "08/17/2020",
-            "role": "SOLO BOTTOM",
-            "duration": "26:16",
-            "kda": "4/3/3",
-            "csm": 5.43,
-            "vision": 16,
-            "*cc": 0.88
-        },
-        "3538700174": {
-            "score": 10.11,
-            "champ": "Kayn",
-            "date": "08/17/2020",
-            "role": "DUO_SUPPORT NONE",
-            "duration": "16:09",
-            "kda": "2/1/5",
-            "csm": 4.55,
-            "vision": 14,
-            "*cc": 1.74
-        },
-        "3538024344": {
-            "score": 4.76,
-            "champ": "Shen",
-            "date": "08/17/2020",
-            "role": "DUO_SUPPORT BOTTOM",
-            "duration": "25:15",
-            "kda": "0/4/7",
-            "csm": 0.94,
-            "vision": 16,
-            "*cc": 1.1
         }
     },
     "purplebumblebeez": {
@@ -1089,17 +1001,6 @@
             "csm": 0.12,
             "vision": 21,
             "*cc": 2.86
-        },
-        "3538992535": {
-            "score": 30.48,
-            "champ": "Sett",
-            "date": "08/17/2020",
-            "role": "NONE JUNGLE",
-            "duration": "28:17",
-            "kda": "14/2/16",
-            "csm": 5.11,
-            "vision": 18,
-            "*cc": 17.03
         }
     },
     "damonte": {
@@ -1554,28 +1455,6 @@
             "csm": 7.22,
             "vision": 72,
             "*cc": 6.36
-        },
-        "3539048830": {
-            "score": 27.15,
-            "champ": "Ashe",
-            "date": "08/17/2020",
-            "role": "DUO_CARRY BOTTOM",
-            "duration": "23:14",
-            "kda": "6/1/14",
-            "csm": 9.93,
-            "vision": 32,
-            "*cc": 26.88
-        },
-        "3538992256": {
-            "score": 17.73,
-            "champ": "Ashe",
-            "date": "08/17/2020",
-            "role": "DUO_CARRY BOTTOM",
-            "duration": "34:20",
-            "kda": "1/2/6",
-            "csm": 8.94,
-            "vision": 57,
-            "*cc": 3.56
         }
     },
     "zweizwillinge": {
@@ -7242,7 +7121,5 @@
             "vision": 6,
             "*cc": 0.87
         }
-    },
-    "x\u00c3\u00a2n": {},
-    "fent bars": {}
+    }
 }

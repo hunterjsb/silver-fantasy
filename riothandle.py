@@ -78,6 +78,12 @@ class Summoner:
         if type(self.ids) is list:
             self.get_ranked()
 
+    def __repr__(self):
+        return self.ign
+
+    def __str__(self):
+        return self.ign
+
     # GET IDs FROM SUMMONER NAME, [0] is SUM ID [1] is ACCT ID [2] is PUUID
     @except429
     def get_sum_id(self):
@@ -247,6 +253,9 @@ class Match:
         self.headers = headers
         self.game = self.get_game()
 
+    def __repr__(self):
+        return f'DATE: {self.game_time} / LENGTH: {self.game_duration_min}\n{self.game["participantIdentities"]}'
+
     @except429
     @print_func
     def get_game(self):
@@ -359,7 +368,7 @@ class Match:
 
 def main():
     ed = Summoner('xân')
-    g = ed.avg_stats
+    g = next(ed.yield_games())
     print(g)
 
 

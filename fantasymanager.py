@@ -32,7 +32,7 @@ def sq_clean_games():
         delete = [key for key in sq_games[player] if not recent(sq_games[player][key]["date"], True)]
 
         for key in delete:
-            print('delete')
+            print('delete game')
             del sq_games[player][key]
 
     sq_save()
@@ -46,6 +46,7 @@ def sq_delete_empty_players():
             delete.append(player)
 
     for player in delete:
+        print(f'deleting {player}...')
         del sq_games[player]
     sq_save()
 
@@ -341,7 +342,6 @@ class League:
 
 def main():
     league = League("PRO")
-    league.get_rteam_ppw("0")
 
 
 if __name__ == '__main__':
