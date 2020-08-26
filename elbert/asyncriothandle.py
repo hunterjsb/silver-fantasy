@@ -1,10 +1,9 @@
 import asyncio
 import aiohttp
 from dotenv import load_dotenv
-import os
 
 load_dotenv()
-TOKEN = os.getenv('RIOT_TOKEN')
+TOKEN = os.getenv("TOKEN")  # WAIT IM NOT SURE IF THIS WORKS
 HEADERS = {"X-Riot-Token": TOKEN}
 
 
@@ -93,18 +92,16 @@ class AsyncRequester:
 
     def _add_request(self, req):
         self.requests.append(req)
-        AsyncRequester.t_req += 1
         self.c_req += 1
 
     def set_requests(self, reqs):
-        AsyncRequester.t_req += len(reqs)
         self.c_req = len(reqs)
         self.requests = reqs
 
-    @staticmethod
-    async def _make_request(endpoint, session):
+    async def _make_request(self, endpoint, session):
         async with session.get(endpoint, headers=HEADERS) as resp:
-            print(endpoint, ' | ', resp.status)
+            AsyncRequester.t_req += 1
+            print(AsyncRequester.t_req, ' | ', endpoint, ' | ', resp.status)
             return await resp.json()
 
     async def do(self):
@@ -117,7 +114,7 @@ class AsyncRequester:
                 tasks.append(task)
 
             responses = await asyncio.gather(*tasks)
-            self.c_req = 0
+            self.requests = []  # ADD THIS TO MASTER!
             return responses
 
     def run(self):
