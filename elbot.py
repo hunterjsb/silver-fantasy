@@ -6,11 +6,11 @@ from dotenv import load_dotenv
 import json
 import riotapi
 import fantasymanager as fm
-import asyncio
 
 load_dotenv()  # get .env file
 TOKEN = os.getenv('DISCORD_TOKEN')
 bot = commands.Bot(command_prefix='$')  # Bot is like discord.Client
+default_league = 'ROYALE COUNCIL'
 
 # OPEN JSON OF USER DATA
 with open('./json/temp.json') as j_file:  # get user data from local json file
@@ -25,7 +25,7 @@ def save_dat():  # for writing j_dat to local json file
         json.dump(j_dat, outfile, indent=4)
 
 
-def get_owners(league_name='ROYALE COUNCIL'):
+def get_owners(league_name=default_league):
     league = fm.League(league_name)
 
     for oid in league.league_dat['teams']:
@@ -53,22 +53,24 @@ def strike(user_name, category):  # add strike to 'strikes' in temp.json
     return culprit
 
 
-async def handle_error(e):
-    bot_lane = bot.get_channel(710226878207754271)
-    print('aye')
-    if e == 429:
-        await bot_lane.send('`ERROR 429: TRYING AGAIN IN 93s...`')
-    elif e == 504 or 503:
-        await bot_lane.send(f'`ERROR {e}: POTENTIAL PACKET LOSS`')
-
-
 @bot.event  # readyuup
 async def on_ready():
+    fm.sq_clean_games()
     print('- R E A D Y -')
 
 
 @bot.command()
-async def gto(ctx, league='ROYALE COUNCIL'):
+async def start(ctx, league=default_league):
+    league = fm.League(league)
+    lock_date = league.start_friday()
+
+    await ctx.send(f'**LEAGUE STARTED**\n`{league.name} LOCKS MIDNIGHT OF {lock_date}`\n`royale: {league.is_royale} | '
+                   f'budget: {league.league_dat["budget"]}\nwhitelist: {league.league_dat["whitelisted"]} | '
+                   f'commissioner: {league.league_dat["commissioner"]}`')
+
+
+@bot.command()
+async def gto(ctx, league=default_league):
     for owner, oid in get_owners(league):
         await ctx.send(owner)
 
@@ -86,7 +88,7 @@ async def clean(ctx):  # UOP
 
 # DRAFT ROYALE!
 @bot.command()
-async def standings(ctx, leauge_name='ROYALE COUNCIL'):
+async def standings(ctx, leauge_name=default_league):
     await ctx.send('***STANDINGS***')
     league = fm.League(leauge_name)
 
@@ -96,29 +98,12 @@ async def standings(ctx, leauge_name='ROYALE COUNCIL'):
 
 
 @bot.command()
-async def profile(ctx, ign, leauge_name='ROYALE COUNCIL'):
+async def profile(ctx, ign, leauge_name=default_league):
     league = fm.League(leauge_name)
 
     await ctx.send(f'**{ign}**\n-------------')
     for p in league.player_dat[ign]:
         await ctx.send(f'{p}: {league.player_dat[ign][p]}')
-
-
-@bot.command()
-async def lastgame(ctx, ign):
-    player = fm.Player(ign)
-    last_game = next(player.yield_games())
-    p = last_game.get_participant(ign)
-    ps = p['stats']
-    ptl = p['timeline']
-    print(p)
-
-    for i in ps:
-        await ctx.send(f'{i}: {ps[i]}')
-
-    await ctx.send(f'**TIMELINE:**')
-    for j in ptl:
-        await ctx.send(f'{j}: {ptl[j]}')
 
 
 @bot.command()
@@ -169,7 +154,7 @@ async def top2(ctx, ign, n_games=2):
 
 
 @bot.command()
-async def register(ctx, league_name='ROYALE COUNCIL'):
+async def register(ctx, league_name=default_league):
     team = ctx.author.id
     name = ctx.author.name
     league = fm.League(league_name)
@@ -179,32 +164,35 @@ async def register(ctx, league_name='ROYALE COUNCIL'):
 
 
 @bot.command()
-async def whitelist(ctx, ign, league_name='ROYALE COUNCIL'):
+async def whitelist(ctx, ign, league_name=default_league):
     league = fm.League(league_name)
     league.whitelist(ign)
     await ctx.send(f'whitelisted {ign}')
 
 
 @bot.command()
-async def delist(ctx, ign, league_name='ROYALE COUNCIL'):
+async def delist(ctx, ign, league_name=default_league):
     league = fm.League(league_name)
     league.delist(ign)
     await ctx.send(f'de-listed {ign}')
 
 
 @bot.command()
-async def draft(ctx, ign, league_name='ROYALE COUNCIL'):
+async def draft(ctx, ign, league_name=default_league):
     team = str(ctx.author.id)
     league = fm.League(league_name)
 
     if ign not in league.league_dat['teams'][team]['players']:
-        league.add_player_to_team(ign.lower(), team)
+        resp = league.add_player_to_team(ign.lower(), team)
         await ctx.send(f'*team:* {league.league_dat["teams"][team]["players"]}')
         await ctx.send(f'*points left:* {league.league_dat["teams"][team]["budget"]}')
 
+        if isinstance(resp, str):
+            await ctx.send(f'*ERROR {resp}*')
+
 
 @bot.command()
-async def release(ctx, ign, league_name='ROYALE COUNCIL'):
+async def release(ctx, ign, league_name=default_league):
     team = str(ctx.author.id)
     league = fm.League(league_name)
 
@@ -214,17 +202,8 @@ async def release(ctx, ign, league_name='ROYALE COUNCIL'):
         await ctx.send(f'*points left:* {league.league_dat["teams"][team]["budget"]}')
 
 
-@bot.command()  # MAKE ANNOUNCEMENT FOR THIS!
-async def releaseall(ctx, league_name='ROYALE COUNCIL'):
-    team = str(ctx.author.id)
-    league = fm.League(league_name)
-    for player in league.league_dat['teams'][team]['players']:
-        league.remove_player_from_team(player, team)
-        await ctx.send('CLEARED')
-
-
 @bot.command()
-async def teamscore(ctx, league_name='ROYALE COUNCIL', team=None):
+async def teamscore(ctx, league_name=default_league, team=None):
     if not team:
         team = str(ctx.author.id)
     else:

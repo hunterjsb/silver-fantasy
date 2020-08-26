@@ -27,7 +27,17 @@ def sq_save():
 
 
 def sq_clean_games():
-    # Using dictionary comprehension to find list
+    def sq_delete_empty_players():  # call this at the end
+        _delete = []
+
+        for _player in sq_games:
+            if sq_games[_player] == {}:
+                delete.append(_player)
+
+        for _player in delete:
+            print(f'deleting {_player}...')
+            del sq_games[_player]
+
     for player in sq_games:
         delete = [key for key in sq_games[player] if not recent(sq_games[player][key]["date"], True)]
 
@@ -35,23 +45,13 @@ def sq_clean_games():
             print('delete game')
             del sq_games[player][key]
 
-    sq_save()
-
-
-def sq_delete_empty_players():
-    delete = []
-
-    for player in sq_games:
-        if sq_games[player] == {}:
-            delete.append(player)
-
-    for player in delete:
-        print(f'deleting {player}...')
-        del sq_games[player]
+    sq_delete_empty_players()
     sq_save()
 
 
 def new_dr_league(name, budget, whitelisted=False):
+    now = datetime.datetime.now().date()
+
     with open('./json/silverfantasy.json') as fan_file:
         if League(name).index is None:
             sf_dat = json.load(fan_file)
@@ -60,7 +60,8 @@ def new_dr_league(name, budget, whitelisted=False):
             l_dat.append({
                 "name": name,
                 "commissioner": "xân",
-                "commisioned": datetime.datetime.now().date(),
+                "start": now.strftime('%m/%d/%Y'),
+                "updated": now.strftime('%m/%d/%Y'),
                 "index": len(l_dat),
                 "budget": budget,
                 "royale": True,
@@ -150,6 +151,8 @@ class League:
     def __init__(self, name):
         self.name = name.upper()
         self.league_dat, self.player_dat = self.load_league()
+        self.updating = False
+
         if self.league_dat is not None:
             self.index = self.league_dat['index']
         else:
@@ -255,6 +258,9 @@ class League:
         self.save_league()
 
     def add_rteam(self, team, name):
+        if self.locked:
+            return 403
+
         teams = self.league_dat["teams"]
         teams[team] = {
             'points': 0,
@@ -289,11 +295,13 @@ class League:
         return team_pts, sumavg, gamelist
 
     def add_player_to_team(self, ign, team):
+        if self.locked:
+            return f'403: TEAMS LOCKED IN'
+
         player = self.update_player(ign)
         w = self.whitelisted(ign)
         if not w:
-            print(f'{ign} NOT WHITELISTED')
-            return 403
+            return f'403: {ign} NOT WHITELISTED'
 
         elif self.league_dat['royale']:
             budget = self.league_dat['teams'][team]['budget']
@@ -303,10 +311,12 @@ class League:
                 self.save_league()
                 return self.league_dat['teams'][team]['budget']
             else:
-                print(player.wr_mod-budget, ' PTS TOO EXPENSIVE')
-                return 403
+                return f'400: {round(player.wr_mod-budget, 2)}  PTS TOO EXPENSIVE'
 
     def remove_player_from_team(self, ign, team):
+        if self.locked:
+            return 403
+
         if ign in self.league_dat['teams'][team]['players']:
             pts = self.league_dat['teams'][team]['players'][ign]
             del self.league_dat['teams'][team]['players'][ign]
@@ -339,9 +349,37 @@ class League:
                 elif i >= len(self.player_dat)-1:
                     return zip(op_list, spointlist)
 
+    @property
+    def start_date(self):
+        return datetime.datetime.strptime(self.league_dat['start'], '%m/%d/%Y')
+
+    @property
+    def lock_at(self):
+        lock_date = datetime.datetime.strptime(self.league_dat['lock@'], '%m/%d/%Y')
+        return datetime.datetime.combine(lock_date.date(), datetime.time(hour=11, minute=59, second=59))
+
+    @property
+    def unlock_at(self):
+        return self.lock_at + datetime.timedelta(6)
+
+    @property
+    def locked(self):
+        now = datetime.datetime.now()
+        oned = self.lock_at + datetime.timedelta(1)
+        return now < oned
+
+    def start_friday(self):
+        today = datetime.datetime.today()
+        friday = today + datetime.timedelta((4 - today.weekday()) % 7)
+        self.league_dat['start'] = friday.strftime('%m/%d/%Y')
+        self.save_league()
+
+        return friday.date()
+
 
 def main():
-    league = League("PRO")
+    xfl = League("ROYALE COUNCIL")
+    print(xfl.unlock_at)
 
 
 if __name__ == '__main__':

@@ -1,48 +1,9 @@
 {
     "LEAGUES": [
         {
-            "name": "COUNCIL LEAGUE",
-            "commissioner": "x\u00c3\u00a2n",
-            "whitelisted": false,
-            "index": 0,
-            "season": 1,
-            "benchPlayers": 1,
-            "royale": false,
-            "teams": {
-                "team xan": {
-                    "black xan bible": 76.89706066291431,
-                    "x\u00e2n": 73.06923076923077,
-                    "xtrader": 125.91176470588236,
-                    "snakebee16": 1.876756756756757,
-                    "micheal nguyen": 157.14285714285717
-                },
-                "team blk": {
-                    "fent bars": 68.22972972972974,
-                    "yasheo": 127.45098039215686,
-                    "jhonny blaze": 56.105,
-                    "jusyithings": 156.4,
-                    "stinny": 118.243178807947
-                },
-                "team drk": {
-                    "durkledingus": 156.25,
-                    "purplebumblebeez": 107.70833333333333,
-                    "b\u00e9p": 133.21875,
-                    "drag0nham": 15.484848484848484,
-                    "xxda1hpwarriorxx": 54.23728813559322
-                },
-                "team pog": {
-                    "kronova": 148.15902140672782,
-                    "nkjukko": 64.50945273631841,
-                    "ipogoz": 105.02798982188295,
-                    "fent bars": 68.22972972972974,
-                    "1deepturtle": 109.81293319042516
-                }
-            }
-        },
-        {
             "name": "ROYALE COUNCIL",
             "commissioner": "x\u00e2n",
-            "index": 1,
+            "index": 0,
             "budget": 290,
             "royale": true,
             "whitelisted": true,
@@ -161,12 +122,14 @@
                         "fent bars": 53
                     }
                 }
-            }
+            },
+            "start": "08/28/2020",
+            "lock@": "08/28/2020"
         },
         {
             "name": "PRO",
             "commissioner": "x\u00e2n",
-            "index": 2,
+            "index": 1,
             "budget": 375,
             "royale": true,
             "whitelisted": false,
@@ -174,13 +137,13 @@
                 "371034483836846090": {
                     "points": 0,
                     "owner": "xan",
-                    "budget": 23,
+                    "budget": 46,
                     "players": {
                         "ssumdayday": 83,
-                        "t4ctical": 83,
                         "doublelift": 77,
                         "black xan bible": 55,
-                        "x\u00e2n": 54
+                        "x\u00e2n": 54,
+                        "ipogoz": 60
                     }
                 },
                 "213709745964580874": {
@@ -218,7 +181,9 @@
                         "black xan bible": 55
                     }
                 }
-            }
+            },
+            "start": "08/28/2020",
+            "lock@": "08/28/2020"
         }
     ],
     "PLAYERS": {
@@ -244,12 +209,12 @@
         },
         "ipogoz": {
             "rank": "GOLD III",
-            "wr": 52.22,
+            "wr": 52.21,
             "leagues": [
                 "ROYALE COUNCIL"
             ],
-            "games": 360,
-            "wr mod": 60.26121951219513,
+            "games": 362,
+            "wr mod": 60.256747572815534,
             "stats": {}
         },
         "xtrader": {
