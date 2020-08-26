@@ -34,7 +34,7 @@ def sq_clean_games():
             if sq_games[_player] == {}:
                 delete.append(_player)
 
-        for _player in delete:
+        for _player in _delete:
             print(f'deleting {_player}...')
             del sq_games[_player]
 
@@ -61,7 +61,7 @@ def new_dr_league(name, budget, whitelisted=False):
                 "name": name,
                 "commissioner": "xân",
                 "start": now.strftime('%m/%d/%Y'),
-                "updated": now.strftime('%m/%d/%Y'),
+                "lock@": now.strftime('%m/%d/%Y'),
                 "index": len(l_dat),
                 "budget": budget,
                 "royale": True,
@@ -379,7 +379,7 @@ class League:
 
 def main():
     xfl = League("ROYALE COUNCIL")
-    print(xfl.unlock_at)
+    sq_clean_games()
 
 
 if __name__ == '__main__':
