@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 import os
 
 load_dotenv()
-TOKEN = os.getenv("TOKEN")  # WAIT IM NOT SURE IF THIS WORKS
+TOKEN = os.getenv("RIOT_TOKEN")  # WAIT IM NOT SURE IF THIS WORKS
 HEADERS = {"X-Riot-Token": TOKEN}
 
 
