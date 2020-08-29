@@ -19,6 +19,7 @@ class AsyncRequester:
         self.region = 'na1'
 
     def __set_name__(self, owner, name):
+        """sets name"""
         self.name = name
 
     def __iter__(self):
@@ -46,12 +47,12 @@ class AsyncRequester:
         return self.requests == reqs
 
     def __add__(self, reqs):
-        """returns new AsyncRequester with both sets of requests combined
-        ex: if list1 has a, b, c and list2 has a, e... list1 + list2 = a, b, c, a, e"""
+        """returns new AsyncRequester with both sets of requests combined... dupes removed!
+        ex: if list1 has a, b, c and list2 has a, e... list1 + list2 = a, b, c, e"""
         new_reqs = self.requests + reqs.requests
         new_ar = AsyncRequester()
         new_ar.set_requests(new_reqs)
-        return new_ar
+        return new_ar.__floor__()
 
     def __sub__(self, reqs):
         """returns new AsyncRequester. the requests are the uncommon elements of both lists.
@@ -66,30 +67,39 @@ class AsyncRequester:
 
     def __truediv__(self, reqs):
         """returns new AsyncRequester. the requests are the uncommon elements of the first list.
-        ex: if list1 has a, b, c and list2 has a, e... list1 / list2 = b, c,
-        ex: if list1 has a, a, b, c, c and list2 has a, e... list1 / list2 = b, c, c
+        ex: if list1 has a, b, c and list2 has a, e... list1 / list2 = b, c
+        ex: if list1 has a, a, b, c, c and list2 has a, e... list1 / list2 = b, c
         ex: if list1 has a, e and list2 has a, b, c... list1 / list2 = e"""
-        new_reqs = []
         new_ar = AsyncRequester()
-
-        for _ in self.requests:
-            if _ not in reqs:
-                new_reqs.append(_)
+        new_reqs = list(set(self.requests) - set(reqs.requests))
 
         new_ar.set_requests(new_reqs)
         return new_ar
 
-    def __and__(self, reqs):
+    def __mul__(self, reqs):
         """return common elements without copies.
         ex: if list1 has a, b, c and list2 has a, e... list1 & list2 = a"""
-        return self - (self / reqs)
+        new_ar = AsyncRequester()
+
+        new_reqs = set(self.requests) & set(reqs.requests)
+        new_ar.set_requests(list(new_reqs))
+        return new_ar
 
     def __floor__(self):
         """removes duplicates from list"""
-        return list(dict.fromkeys(self.requests))
+        self.requests = list(dict.fromkeys(self.requests))
+        self.c_req = len(self.requests)
+        return self
 
     def __repr__(self):
         return f'{type(self)}\n{self.c_req} REQUESTS: {self.requests}'
+
+    def __neg__(self):
+        """returns reversed requests list"""
+        new_ar = AsyncRequester()
+        new_ar.set_requests(self.requests)
+        new_ar.requests.reverse()
+        return new_ar
 
     def _add_request(self, req):
         self.requests.append(req)
@@ -102,12 +112,13 @@ class AsyncRequester:
     async def _make_request(self, endpoint, session):
         async with session.get(endpoint, headers=HEADERS) as resp:
             AsyncRequester.t_req += 1
+            self.c_req -= 1
             print(AsyncRequester.t_req, ' | ', endpoint, ' | ', resp.status)
             return await resp.json()
 
-    async def do(self):
+    async def _gather_requests(self):
         tasks = []
-        print(f'total requests: {AsyncRequester.t_req} ({self.c_req} new)')
+        print(f'requests made: {AsyncRequester.t_req} ({self.c_req} pending)')
 
         async with aiohttp.ClientSession() as session:
             for req in self.requests:
@@ -115,12 +126,12 @@ class AsyncRequester:
                 tasks.append(task)
 
             responses = await asyncio.gather(*tasks)
-            self.requests = []  # ADD THIS TO MASTER!
+            self.requests = []
             return responses
 
     def run(self):
         loop = asyncio.get_event_loop()
-        return loop.run_until_complete(self.do())
+        return loop.run_until_complete(self._gather_requests())
 
     def sum_id(self, ign):
         assert isinstance(ign, str)
@@ -138,6 +149,9 @@ class AsyncRequester:
         assert isinstance(m_id, int)
         self._add_request(f'https://{self.region}.api.riotgames.com/lol/match/v4/matches/{m_id}')
 
+    def dummy(self, name):
+        self._add_request(name)
+
 
 if __name__ == '__main__':
     ar = AsyncRequester()
@@ -151,5 +165,5 @@ if __name__ == '__main__':
     ar2.sum_id('ipogoz')
     ar2.sum_id('yasuomoe')
 
-    ar3 = ar & ar2
-    print(ar.__floor__())
+    ar3 = (ar + ar2) / (ar - ar2)
+    print(ar3)
