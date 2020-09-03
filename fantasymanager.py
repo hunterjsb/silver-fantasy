@@ -17,6 +17,16 @@ def recent(raw_timestamp_ms, date=False):
     return time > week_ago
 
 
+def update_pts(name):
+    for player in sq_games:
+        if player == name:
+            for game in sq_games[player]:
+                new_pts = Match(game).calc_point_base(name)
+                sq_games[player][game]['score'] = new_pts
+            print(f'UPDATED {name}!\n')
+            sq_save()
+
+
 def sq_save():
     with open('./json/soloqgames.json', 'w') as f:
         json.dump(sq_games, f, indent=4)
@@ -27,17 +37,6 @@ def sq_save():
 
 
 def sq_clean_games():
-    def sq_delete_empty_players():  # call this at the end
-        _delete = []
-
-        for _player in sq_games:
-            if sq_games[_player] == {}:
-                delete.append(_player)
-
-        for _player in _delete:
-            print(f'deleting {_player}...')
-            del sq_games[_player]
-
     for player in sq_games:
         delete = [key for key in sq_games[player] if not recent(sq_games[player][key]["date"], True)]
 
@@ -47,6 +46,18 @@ def sq_clean_games():
 
     sq_delete_empty_players()
     sq_save()
+
+
+def sq_delete_empty_players():  # call this at the end
+    _delete = []
+
+    for _player in sq_games:
+        if sq_games[_player] == {}:
+            _delete.append(_player)
+
+    for _player in _delete:
+        print(f'deleting {_player}...')
+        del sq_games[_player]
 
 
 def new_dr_league(name, budget, whitelisted=False):
@@ -127,6 +138,7 @@ class Player(Summoner):
                         'role': game.get_role(self.ign),
                         'duration': game.game_duration_min,
                         'kda': f'{k}/{d}/{a}',
+                        'kp': game.get_kp(self.ign),
                         'csm': round(game.get_csm(self.ign), 2),
                         'vision': game.get_vision_score(self.ign),
                         '*cc': round(game.get_cc(self.ign), 2)
@@ -356,7 +368,7 @@ class League:
     @property
     def lock_at(self):
         lock_date = datetime.datetime.strptime(self.league_dat['lock@'], '%m/%d/%Y')
-        return datetime.datetime.combine(lock_date.date(), datetime.time(hour=11, minute=59, second=59))
+        return datetime.datetime.combine(lock_date.date(), datetime.time(hour=23, minute=59, second=59))
 
     @property
     def unlock_at(self):
@@ -365,12 +377,11 @@ class League:
     @property
     def locked(self):
         now = datetime.datetime.now()
-        oned = self.lock_at + datetime.timedelta(1)
-        return now < oned
+        return now > self.lock_at
 
     def start_friday(self):
         today = datetime.datetime.today()
-        friday = today + datetime.timedelta((4 - today.weekday()) % 7)
+        friday = today + datetime.timedelta((6 - today.weekday()) % 7)  # CHANGE 6 (SUN) BACK TO 4 (FRI)
         self.league_dat['start'] = friday.strftime('%m/%d/%Y')
         self.save_league()
 
@@ -378,8 +389,9 @@ class League:
 
 
 def main():
-    xfl = League("ROYALE COUNCIL")
-    sq_clean_games()
+    xfl = League("XFL")
+    for player in xfl.master_player_list:
+        update_pts(player)
 
 
 if __name__ == '__main__':

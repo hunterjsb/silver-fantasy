@@ -12,10 +12,15 @@ class AsyncRequester:
     """class used to both create the API request URL and asynchronously send it to riot"""
     t_req = 0
 
-    def __init__(self):
-        self.requests = []
+    def __init__(self, init_req=None):
+        if init_req:
+            self.c_req = len(init_req)
+            self.set_requests(init_req)
+        else:
+            self.requests = []
+            self.c_req = 0
+
         self.error = None  # not even used
-        self.c_req = 0
         self.region = 'na1'
 
     def __set_name__(self, owner, name):
@@ -116,11 +121,12 @@ class AsyncRequester:
             print(AsyncRequester.t_req, ' | ', endpoint, ' | ', resp.status)
             return await resp.json()
 
-    async def _gather_requests(self):
+    async def _gather_requests(self, delay=None):
         tasks = []
         print(f'requests made: {AsyncRequester.t_req} ({self.c_req} pending)')
 
         async with aiohttp.ClientSession() as session:
+            i = 0
             for req in self.requests:
                 task = asyncio.ensure_future(self._make_request(req, session))
                 tasks.append(task)

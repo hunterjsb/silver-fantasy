@@ -238,6 +238,9 @@ class Summoner:
             gamestatlist, g_avg, role = resp
 
         scores = sorted(list(gamestatlist.keys()), reverse=True)
+        if len(scores) < n_games:
+            n_games = len(scores)
+
         for i in range(n_games):
             score = scores[i]
             stats = gamestatlist[score]
@@ -298,11 +301,29 @@ class Match:
                 game = self.game['participants'][pid - 1]
                 game['name'] = name
                 return game
-        else:
-            print(self.game['participantIdentities'])
-            print(self.game['participants'])
-            print('SUMMONER NOT FOUND!')
-            return 404
+
+    def get_player_team(self, name):
+        sumr = self.get_participant(name)
+        return sumr["teamId"]
+
+    def get_team_kda(self, team: int):
+        tk, td, ta = 0, 0, 0
+
+        for sumr in self.game["participants"]:
+            if sumr["teamId"] == team:
+                tk += sumr["stats"]["kills"]
+                td += sumr["stats"]["deaths"]
+                ta += sumr["stats"]["assists"]
+
+        return tk, td, ta
+
+    def get_kp(self, name):
+        k, d, a = self.get_kda(name)
+        tk, td, ta = self.get_team_kda(self.get_player_team(name))
+        if tk == 0:
+            tk = 1
+
+        return (k+a)/tk
 
     def get_role(self, name):
         timeline = self.get_participant(name)['timeline']
@@ -321,7 +342,7 @@ class Match:
         if decimal and deaths > 0:
             kda = (kills + assists) / deaths
         elif decimal:
-            kda = kills + assists
+            kda = 2*(kills + assists)
 
         # RETURN KDA TUPLE
         else:
@@ -345,10 +366,13 @@ class Match:
 
     # MFKING POINT BASE
     def calc_point_base(self, name):
+        kda = self.get_kda(name, decimal=True)
         k, d, a = self.get_kda(name)
+        kp = self.get_kp(name)
         csm = self.get_csm(name)
-        vision = self.get_vision_score(name)
-        points = k - 0.8*d + 0.75*a + 0.75*csm + vision/8
+        vpm = self.get_vision_score(name)/(self.game_duration/60)
+        points = kda * (kp / 5 + .9) + 0.75*csm + 2*vpm
+
         return round(points, 2)
 
     # USED IN CC POINTS
@@ -367,9 +391,10 @@ class Match:
 
 
 def main():
-    ed = Summoner('xân')
-    g = next(ed.yield_games())
-    print(g)
+    ed = Summoner('purplebumblebeez')
+    for g in ed.yield_games():
+        pts = g.calc_point_base(ed.ign)
+        print(f'{round(pts, 2)} POINTS!\n')
 
 
 if __name__ == '__main__':

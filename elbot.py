@@ -10,7 +10,7 @@ import fantasymanager as fm
 load_dotenv()  # get .env file
 TOKEN = os.getenv('DISCORD_TOKEN')
 bot = commands.Bot(command_prefix='$')  # Bot is like discord.Client
-default_league = 'ROYALE COUNCIL'
+default_league = 'XFL'
 
 # OPEN JSON OF USER DATA
 with open('./json/temp.json') as j_file:  # get user data from local json file
@@ -93,7 +93,7 @@ async def standings(ctx, leauge_name=default_league):
     league = fm.League(leauge_name)
 
     for player, pts in league.ordered_players:
-        if pts > 0 and league.whitelisted(player):
+        if league.whitelisted(player):
             await ctx.send(f'{player}: {round(pts)}')
 
 
@@ -119,7 +119,7 @@ async def history(ctx, ign):
         s = stats[stat]
         await ctx.send(
             f'-----\n**{s["score"]} POINTS**\n *{s["duration"]}*   **{s["kda"]}** on {s["champ"]}\n {s["csm"]} *cs/m*'
-            f'   {s["vision"]} *vision*   {s["*cc"]} *cc/k*   *{s["role"].lower()}*')
+            f'     {round(s["kp"]*100, 2)} *%kp*     {s["vision"]} *vision*')
 
 
 @bot.command()
@@ -147,9 +147,10 @@ async def top2(ctx, ign, n_games=2):
 
     for stat in stats:
         s = stat
+        rkp = round(s["kp"]*100, 2)
         await ctx.send(
-            f'-----\n**{s["score"]} POINTS**\n *{s["duration"]}*   **{s["kda"]}** on {s["champ"]}\n {s["csm"]} *cs/m*'
-            f'   {s["vision"]} *vision*   {s["*cc"]} **cc*   *{s["role"].lower()}*')
+            f'-----\n**{s["score"]} POINTS**\n *{s["duration"]}*   **{s["kda"]}** on {s["champ"]}\n {rkp} *%kp*    '
+            f'{s["csm"]} *cs/m*   {s["vision"]} *vision* *{s["role"].lower()}*')
     await ctx.send(f'**POINTS: {round(g_sum, 1)}**')
 
 
@@ -188,7 +189,7 @@ async def draft(ctx, ign, league_name=default_league):
         await ctx.send(f'*points left:* {league.league_dat["teams"][team]["budget"]}')
 
         if isinstance(resp, str):
-            await ctx.send(f'*ERROR {resp}*')
+            await ctx.send(f'`ERROR {resp}`')
 
 
 @bot.command()
@@ -197,8 +198,10 @@ async def release(ctx, ign, league_name=default_league):
     league = fm.League(league_name)
 
     if ign in league.league_dat['teams'][team]['players']:
-        league.remove_player_from_team(ign, team)
+        resp = league.remove_player_from_team(ign, team)
         await ctx.send(f'*team:* {league.league_dat["teams"][team]["players"]}')
+        if isinstance(resp, int):
+            await ctx.send(f'`ERROR {resp}`: TEAMS LOCKED IN')
         await ctx.send(f'*points left:* {league.league_dat["teams"][team]["budget"]}')
 
 
@@ -208,21 +211,21 @@ async def teamscore(ctx, league_name=default_league, team=None):
         team = str(ctx.author.id)
     else:
         team = team
-    league = fm.League(league_name)
 
+    league = fm.League(league_name)
+    team_owner = league.league_dat["teams"][team]["owner"]
     pts, savg, gl = league.get_rteam_ppw(team)
 
-    await ctx.send(f'***TEAM {ctx.author.name}***:\n**{round(pts)} POINTS ({round(savg, 2)} SAVG)**')
+    await ctx.send(f'***TEAM {team_owner}***:\n**{round(pts)} POINTS ({round(savg, 2)} SAVG)**')
     await ctx.send(f'-----------------------\n*__games:__*')
     for player in gl:
         await ctx.send(f'***{player}***')
         for game in gl[player]:
-
             s = game
             if 'score' in game:
                 await ctx.send(
                     f'__{s["score"]} POINTS__  |   *{s["duration"]}*   {s["kda"]} on {s["champ"]}\n {s["csm"]} '
-                    f'*cs/m*   {s["vision"]} *vision*   {s["*cc"]} **cc*   *{s["role"].lower()}*')
+                    f'*cs/m*   {s["vision"]} *vision*   {round(s["kp"]*100, 2)} *%kp*   *{s["role"].lower()}*')
             elif 'avg' in game:
                 await ctx.send(f'**POINTS: {game["pts"]}  |   AVERAGE {game["avg"]}**\n----------------------')
             else:
