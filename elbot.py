@@ -53,6 +53,9 @@ def strike(user_name, category):  # add strike to 'strikes' in temp.json
     return culprit
 
 
+##########################################################################################################
+
+
 @bot.event  # readyuup
 async def on_ready():
     fm.sq_clean_games()
@@ -85,6 +88,8 @@ async def clean(ctx):  # UOP
             await message.delete()
             delete_count += 1
     await ctx.message.channel.send(f'deleted {delete_count} messages')
+
+################################################################################################################
 
 # DRAFT ROYALE!
 @bot.command()
@@ -153,6 +158,7 @@ async def top2(ctx, ign, n_games=2):
             f'{s["csm"]} *cs/m*   {s["vision"]} *vision* *{s["role"].lower()}*')
     await ctx.send(f'**POINTS: {round(g_sum, 1)}**')
 
+#####################################################################################################################
 
 @bot.command()
 async def register(ctx, league_name=default_league):
@@ -230,6 +236,19 @@ async def teamscore(ctx, league_name=default_league, team=None):
                 await ctx.send(f'**POINTS: {game["pts"]}  |   AVERAGE {game["avg"]}**\n----------------------')
             else:
                 await ctx.send('NO WEEKLY GAMES!')
+
+
+@bot.command()
+async def dm_all(ctx, l_n=default_league):
+    league = fm.League(l_n)
+    for t in league.league_dat['teams']:
+        user = bot.get_user(int(t))
+        await user.send(f'`HELLO {user.name}, DO NOT BE AFRAID`\nthis is simply a test post for **silver fantasy**.'
+                        f'points will be calculated tomorrow morning, and teams will unlock then. you will have the'
+                        f'weekend to draft your team __but teams lock sunday night__ so draft your team before then.')
+
+#####################################################################################################################
+
 # COUNT XDs, @ALLs
 @bot.event  # on message!!!
 async def on_message(message):

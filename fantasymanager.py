@@ -306,6 +306,15 @@ class League:
 
         return team_pts, sumavg, gamelist
 
+    def score_all_teams(self):
+        teams = []
+
+        for team in self.league_dat["teams"]:
+            teams.append(self.get_rteam_ppw(team))
+        teams = sorted(teams, key=lambda x: x[0])
+
+        return teams
+
     def add_player_to_team(self, ign, team):
         if self.locked:
             return f'403: TEAMS LOCKED IN'
@@ -382,7 +391,7 @@ class League:
     def start_friday(self):
         today = datetime.datetime.today()
         friday = today + datetime.timedelta((6 - today.weekday()) % 7)  # CHANGE 6 (SUN) BACK TO 4 (FRI)
-        self.league_dat['start'] = friday.strftime('%m/%d/%Y')
+        self.league_dat['lock@'] = friday.strftime('%m/%d/%Y')
         self.save_league()
 
         return friday.date()
@@ -390,8 +399,11 @@ class League:
 
 def main():
     xfl = League("XFL")
-    for player in xfl.master_player_list:
-        update_pts(player)
+    phew = xfl.score_all_teams()
+    for p in phew:
+        print(p)
+    # for player in xfl.master_player_list:
+    #     update_pts(player)
 
 
 if __name__ == '__main__':

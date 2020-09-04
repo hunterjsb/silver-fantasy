@@ -97,6 +97,7 @@ class Summoner:
         return [ids['id'], ids['accountId'], ids['puuid']]  # ID, ACCT ID, PUUID
 
     # GET RANKED DATA FOR A SUMMONER, SOLOQ AND FLEX RANKS + WRS
+    @except429  # UNTESTED
     def get_ranked(self):
         sum_dat_endpoint = f'https://na1.api.riotgames.com/lol/league/v4/entries/by-summoner/{self.ids[0]}'
         sum_dat = requests.get(sum_dat_endpoint, headers=self.headers).json()
@@ -111,7 +112,7 @@ class Summoner:
 
         # PARSE RANKED DATA
         if not sum_dat:
-            print('NOT SUM DAT')
+            print('NOT SUM DAT', sum_dat, '***********')
             return
         elif sum_dat[0]['queueType'] == 'RANKED_SOLO_5x5' and len(sum_dat) == 1:
             self.soloq = sum_dat[0]
@@ -186,16 +187,16 @@ class Summoner:
             t_k += k
             t_d += d
             t_a += a
-            t_kdad += (t_k + t_a) / t_d
             t_csm += game.get_csm(self.ign)
             t_vision += game.get_vision_score(self.ign)
 
             roles.append(game.get_role(self.ign))
 
         totals = (n, t_points, t_k, t_d, t_a, t_csm, t_vision)
+        t_kdad = (t_k + t_a) / t_d
         most_role = max(set(roles), key=roles.count)
         return {'games': n, 'role': most_role, 'ppg': t_points/n, 'kda': f'{round(t_k/n)}/{round(t_d/n)}/{round(t_a/n)}'
-                , 'csm': t_csm/n, 'vision': t_vision/n, 'kdad': t_kdad/n, 'totals': totals}
+                , 'csm': t_csm/n, 'vision': t_vision/n, 'kdad': t_kdad, 'totals': totals}
 
     def weekly_soloq_stats(self):
         games = self.get_recent_soloq_games()
@@ -342,7 +343,7 @@ class Match:
         if decimal and deaths > 0:
             kda = (kills + assists) / deaths
         elif decimal:
-            kda = 2*(kills + assists)
+            kda = 1.1*(kills + assists)
 
         # RETURN KDA TUPLE
         else:
@@ -366,12 +367,15 @@ class Match:
 
     # MFKING POINT BASE
     def calc_point_base(self, name):
-        kda = self.get_kda(name, decimal=True)
         k, d, a = self.get_kda(name)
+        kda = self.get_kda(name, decimal=True)
         kp = self.get_kp(name)
         csm = self.get_csm(name)
         vpm = self.get_vision_score(name)/(self.game_duration/60)
-        points = kda * (kp / 5 + .9) + 0.75*csm + 2*vpm
+
+        k_pts = kda*kp
+        points = (k + .75*a - d)*(0.9 + kp/5) + csm + 3*vpm
+        print(f'{k} / {d} / {a} ... {round(points, 3)}\ncs {round(csm, 3)} | v {round(vpm, 3)} | kp {round(kp, 3)}')
 
         return round(points, 2)
 
@@ -391,10 +395,11 @@ class Match:
 
 
 def main():
-    ed = Summoner('purplebumblebeez')
-    for g in ed.yield_games():
-        pts = g.calc_point_base(ed.ign)
-        print(f'{round(pts, 2)} POINTS!\n')
+    for sumr in ['xân', 'purplebumblebeez', 'black xan bible', 'ipogoz', 'xtrader', 'squackythebird']:
+        ed = Summoner(sumr)
+        tg = ed.get_top_games(5)
+        print(tg[0], tg[1])
+        for i in tg[2]: print(i)
 
 
 if __name__ == '__main__':
