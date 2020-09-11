@@ -30,14 +30,6 @@ def get_champ(champ_id):
             return champ
 
 
-def print_func(func):
-    def wrapper(*args, **kwargs):
-        f = func(*args, **kwargs)
-        print(f'called {func.__name__}')
-        return f
-    return wrapper
-
-
 def except429(func):
     @wraps(func)
     def except_wrapper(*args, **kwargs):
@@ -93,11 +85,12 @@ class Summoner:
             print('COULDNT GET IDs')
             return id_ip.status_code
         else:
+            print('got ID')
             ids = id_ip.json()
         return [ids['id'], ids['accountId'], ids['puuid']]  # ID, ACCT ID, PUUID
 
     # GET RANKED DATA FOR A SUMMONER, SOLOQ AND FLEX RANKS + WRS
-    @except429  # UNTESTED
+    @except429
     def get_ranked(self):
         sum_dat_endpoint = f'https://na1.api.riotgames.com/lol/league/v4/entries/by-summoner/{self.ids[0]}'
         sum_dat = requests.get(sum_dat_endpoint, headers=self.headers).json()
@@ -147,9 +140,9 @@ class Summoner:
             return None
 
     @property
-    @print_func
     @except429
     def match_history(self):
+        print(f"getting match history for {self.ign}...")
         game_hist = requests.get(f"https://na1.api.riotgames.com/lol/match/v4/matchlists/by-account/{self.ids[1]}",
                                  headers=self.headers).json()
         return game_hist
@@ -165,9 +158,8 @@ class Summoner:
         matches = []
         for match in self.yield_games(420):
             now = datetime.datetime.now()
-            week_ago = now - datetime.timedelta(days=days)
-            time_diff = match.game_time - week_ago
-            if time_diff.days > -1 and len(matches) < limit:  # BC APPARENTLY WHEN ITS OVER 57 THE SHIT CRASHES
+            week_ago = now.date() - datetime.timedelta(days=days)
+            if week_ago <= match.game_time and len(matches) < limit:  # BC APPARENTLY WHEN ITS OVER 57 THE SHIT CRASHES
                 # print(len(matches), ' ', matches)
                 matches.append(match)
             else:
@@ -256,14 +248,13 @@ class Match:
         self.id = match_id
         self.headers = headers
         self.game = self.get_game()
+        print(f'got game at {self.game_time}')
 
     def __repr__(self):
         return f'DATE: {self.game_time} / LENGTH: {self.game_duration_min}\n{self.game["participantIdentities"]}'
 
     @except429
-    @print_func
     def get_game(self):
-        # print('GET_GAME')
         game = requests.get(f'https://na1.api.riotgames.com/lol/match/v4/matches/{self.id}', headers=self.headers)
         if game.status_code == 200:
             game = game.json()
@@ -368,14 +359,10 @@ class Match:
     # MFKING POINT BASE
     def calc_point_base(self, name):
         k, d, a = self.get_kda(name)
-        kda = self.get_kda(name, decimal=True)
         kp = self.get_kp(name)
         csm = self.get_csm(name)
         vpm = self.get_vision_score(name)/(self.game_duration/60)
-
-        k_pts = kda*kp
         points = (k + .75*a - d)*(0.9 + kp/5) + csm + 3*vpm
-        print(f'{k} / {d} / {a} ... {round(points, 3)}\ncs {round(csm, 3)} | v {round(vpm, 3)} | kp {round(kp, 3)}')
 
         return round(points, 2)
 
@@ -395,11 +382,10 @@ class Match:
 
 
 def main():
-    for sumr in ['xân', 'purplebumblebeez', 'black xan bible', 'ipogoz', 'xtrader', 'squackythebird']:
-        ed = Summoner(sumr)
-        tg = ed.get_top_games(5)
-        print(tg[0], tg[1])
-        for i in tg[2]: print(i)
+    now = datetime.datetime.now()
+    week_ago = now.date() - datetime.timedelta(days=7)
+    a = datetime.date(2020, 9, 5)
+    print(week_ago < a)
 
 
 if __name__ == '__main__':

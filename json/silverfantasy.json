@@ -9,31 +9,31 @@
             "whitelisted": true,
             "teams": {
                 "371034483836846090": {
-                    "points": 0,
-                    "budget": 4,
+                    "points": 255.2,
+                    "budget": 16,
                     "owner": "x\u00c3\u00a2n",
                     "players": {
                         "black xan bible": 55,
-                        "1deepturtle": 58,
                         "xtrader": 59,
-                        "ipogoz": 60,
-                        "x\u00e2n": 54
+                        "squackythebird": 61,
+                        "snakebee16": 46,
+                        "fent bars": 53
                     }
                 },
                 "409135880960213002": {
-                    "points": 0,
-                    "budget": 4,
+                    "points": 222.62,
+                    "budget": 6,
                     "owner": "ed",
                     "players": {
                         "x\u00e2n": 54,
                         "purplebumblebeez": 58,
-                        "durkledingus": 63,
                         "black xan bible": 56,
-                        "1deepgenz": 55
+                        "1deepgenz": 55,
+                        "ipogoz": 61
                     }
                 },
                 "434766902221340682": {
-                    "points": 0,
+                    "points": 101.82000000000001,
                     "budget": 0,
                     "owner": "yasuomoe",
                     "players": {
@@ -45,19 +45,19 @@
                     }
                 },
                 "300110170858717184": {
-                    "points": 0,
+                    "points": 261.45,
                     "owner": "DurkleDingus",
-                    "budget": 6,
+                    "budget": 2,
                     "players": {
                         "xtrader": 58,
-                        "ipogoz": 59,
-                        "1deepturtle": 58,
                         "black xan bible": 55,
+                        "squackythebird": 61,
+                        "purplebumblebeez": 60,
                         "x\u00e2n": 54
                     }
                 },
                 "264422225711464448": {
-                    "points": 0,
+                    "points": 144.36,
                     "owner": "Jukko",
                     "budget": 0,
                     "players": {
@@ -69,7 +69,7 @@
                     }
                 },
                 "408704037358272535": {
-                    "points": 0,
+                    "points": 91.08,
                     "owner": "drag0nham",
                     "budget": 2,
                     "players": {
@@ -81,7 +81,7 @@
                     }
                 },
                 "199962540275400704": {
-                    "points": 0,
+                    "points": 50.3,
                     "owner": "BobbyZlich",
                     "budget": 73,
                     "players": {
@@ -92,18 +92,19 @@
                     }
                 },
                 "178942452034568192": {
-                    "points": 0,
+                    "points": 242.83,
                     "owner": "xtrader",
-                    "budget": 29,
+                    "budget": 1,
                     "players": {
-                        "nounfirecrow": 73,
-                        "ahhhaustin": 57,
-                        "i am dogunyun": 73,
-                        "xtrader": 58
+                        "xtrader": 58,
+                        "yasheo": 63,
+                        "bobbyzlich": 53,
+                        "black xan bible": 54,
+                        "squackythebird": 61
                     }
                 },
                 "460129267775176715": {
-                    "points": 0,
+                    "points": 95.29999999999998,
                     "owner": "Alex Figs \u30c4",
                     "budget": 7,
                     "players": {
@@ -115,7 +116,7 @@
                     }
                 },
                 "213709745964580874": {
-                    "points": 0,
+                    "points": 136.07,
                     "owner": "LePogoZ",
                     "budget": 126,
                     "players": {
@@ -126,7 +127,7 @@
                 }
             },
             "start": "08/30/2020",
-            "lock@": "09/06/2020"
+            "lock@": "09/13/2020"
         },
         {
             "name": "PRO",
@@ -137,7 +138,7 @@
             "whitelisted": false,
             "teams": {
                 "371034483836846090": {
-                    "points": 0,
+                    "points": 185.80999999999997,
                     "owner": "xan",
                     "budget": 46,
                     "players": {
@@ -149,7 +150,7 @@
                     }
                 },
                 "213709745964580874": {
-                    "points": 0,
+                    "points": 234.45000000000002,
                     "owner": "LePogoZ",
                     "budget": 13,
                     "players": {
@@ -162,7 +163,7 @@
                     }
                 },
                 "300110170858717184": {
-                    "points": 0,
+                    "points": 129.60000000000002,
                     "owner": "DurkleDingus",
                     "budget": 9,
                     "players": {
@@ -173,18 +174,8 @@
                         "black xan bible": 55
                     }
                 },
-                "0": {
-                    "points": 0,
-                    "owner": "ADMIN",
-                    "budget": 8759,
-                    "players": {
-                        "x\u00e2n": 54,
-                        "fent bars": 53,
-                        "black xan bible": 55
-                    }
-                },
                 "178942452034568192": {
-                    "points": 0,
+                    "points": 63.269999999999996,
                     "owner": "xtrader",
                     "budget": 309,
                     "players": {
@@ -199,32 +190,32 @@
     "PLAYERS": {
         "black xan bible": {
             "rank": "SILVER IV",
-            "wr": 49.46,
+            "wr": 49.12,
             "leagues": [
                 "XFL"
             ],
-            "games": 651,
-            "wr mod": 55.00071326676177,
+            "games": 680,
+            "wr mod": 54.47808219178082,
             "stats": {}
         },
         "x\u00e2n": {
-            "rank": "SILVER III",
-            "wr": 48.12,
+            "rank": "SILVER IV",
+            "wr": 47.82,
             "leagues": [
                 "XFL"
             ],
-            "games": 399,
-            "wr mod": 54.03962138084632,
+            "games": 412,
+            "wr mod": 53.42694805194805,
             "stats": {}
         },
         "ipogoz": {
             "rank": "GOLD III",
-            "wr": 52.21,
+            "wr": 52.36,
             "leagues": [
                 "XFL"
             ],
-            "games": 362,
-            "wr mod": 60.256747572815534,
+            "games": 382,
+            "wr mod": 60.528333333333336,
             "stats": {}
         },
         "xtrader": {
@@ -239,18 +230,19 @@
         },
         "snakebee16": {
             "rank": "IRON IV",
-            "wr": 45.5,
+            "wr": 45.18,
             "leagues": [
                 "XFL"
             ],
-            "games": 189,
-            "wr mod": 46.76851464435146,
+            "games": 197,
+            "wr mod": 46.35884615384615,
             "stats": {}
         },
         "durkledingus": {
             "rank": "GOLD I",
             "wr": 57.69,
             "leagues": [
+                "XFL",
                 "XFL"
             ],
             "games": 26,
@@ -259,10 +251,12 @@
         },
         "purplebumblebeez": {
             "rank": "GOLD II",
-            "wr": 44.44,
-            "leagues": [],
-            "games": 27,
-            "wr mod": 56.92194805194805,
+            "wr": 51.52,
+            "leagues": [
+                "XFL"
+            ],
+            "games": 33,
+            "wr mod": 59.852409638554214,
             "stats": {}
         },
         "b\u00e9p": {
@@ -314,13 +308,13 @@
             "stats": {}
         },
         "fent bars": {
-            "rank": "SILVER III",
-            "wr": 45.95,
+            "rank": "SILVER II",
+            "wr": 45.69,
             "leagues": [
                 "XFL"
             ],
-            "games": 185,
-            "wr mod": 52.933510638297875,
+            "games": 197,
+            "wr mod": 52.8987044534413,
             "stats": {}
         },
         "1deepturtle": {
@@ -353,13 +347,13 @@
         },
         "yasheo": {
             "rank": "GOLD III",
-            "wr": 57.14,
+            "wr": 57.32,
             "leagues": [
                 "ROYALE COUNCIL",
                 "XFL"
             ],
-            "games": 77,
-            "wr mod": 62.61070866141732,
+            "games": 82,
+            "wr mod": 62.99045454545455,
             "stats": {}
         },
         "jhonny blaze": {
@@ -430,12 +424,12 @@
         },
         "bobbyzlich": {
             "rank": "SILVER IV",
-            "wr": 45.88,
+            "wr": 46.07,
             "leagues": [
                 "XFL"
             ],
-            "games": 85,
-            "wr mod": 52.51240740740741,
+            "games": 89,
+            "wr mod": 52.63201438848921,
             "stats": {}
         },
         "u\u00f1orthodox": {
@@ -450,10 +444,12 @@
         },
         "ahhhaustin": {
             "rank": "PLATINUM III",
-            "wr": 46.73,
-            "leagues": [],
-            "games": 199,
-            "wr mod": 58.514558232931726,
+            "wr": 46.72,
+            "leagues": [
+                "XFL"
+            ],
+            "games": 244,
+            "wr mod": 58.24391156462586,
             "stats": {}
         },
         "buzzlightyear99": {
@@ -609,13 +605,13 @@
             "stats": {}
         },
         "anime titte": {
-            "rank": null,
-            "wr": 0.0,
+            "rank": "BRONZE III",
+            "wr": 30.0,
             "leagues": [
                 "XFL"
             ],
-            "games": 0,
-            "wr mod": 0,
+            "games": 10,
+            "wr mod": 50.10166666666667,
             "stats": {}
         },
         "fov\u00ecac": {
@@ -629,9 +625,7 @@
         "chillguy": {
             "rank": null,
             "wr": 0.0,
-            "leagues": [
-                "XFL"
-            ],
+            "leagues": [],
             "games": 0,
             "wr mod": 0,
             "stats": {}
@@ -642,6 +636,16 @@
             "leagues": [],
             "games": 83,
             "wr mod": 73.97413533834586,
+            "stats": {}
+        },
+        "squackythebird": {
+            "rank": "GOLD III",
+            "wr": 53.2,
+            "leagues": [
+                "XFL"
+            ],
+            "games": 203,
+            "wr mod": 61.19416996047431,
             "stats": {}
         }
     }

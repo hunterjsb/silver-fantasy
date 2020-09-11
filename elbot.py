@@ -75,7 +75,7 @@ async def start(ctx, league=default_league):
 @bot.command()
 async def gto(ctx, league=default_league):
     for owner, oid in get_owners(league):
-        await ctx.send(owner)
+        await ctx.send(f'{owner} | {oid}')
 
 
 # DELETE MESSAGES IN A CHANNEL
@@ -143,6 +143,7 @@ async def top2(ctx, ign, n_games=2):
     player = fm.Player(ign)
     await ctx.send('*GETTING GAMES...*')
     resp = player.get_top_games(n_games)
+    pasta = ''
 
     if resp == 404:
         await ctx.send('NO GAMES FOUND!')
@@ -153,12 +154,35 @@ async def top2(ctx, ign, n_games=2):
     for stat in stats:
         s = stat
         rkp = round(s["kp"]*100, 2)
-        await ctx.send(
-            f'-----\n**{s["score"]} POINTS**\n *{s["duration"]}*   **{s["kda"]}** on {s["champ"]}\n {rkp} *%kp*    '
-            f'{s["csm"]} *cs/m*   {s["vision"]} *vision* *{s["role"].lower()}*')
+        pasta += f'-----\n**{s["score"]} POINTS**\n *{s["duration"]}*   **{s["kda"]}** on {s["champ"]}\n {rkp} *%kp*    '
+        f'{s["csm"]} *cs/m*   {s["vision"]} *vision* *{s["role"].lower()}*'
+
+    await ctx.send(pasta)
     await ctx.send(f'**POINTS: {round(g_sum, 1)}**')
 
+
+@bot.command()  # only works in the XFL
+async def drafted(ctx):
+    league = fm.League(default_league)
+    n_drafts = {}
+
+    for team in league.league_dat["teams"]:
+        for player in league.league_dat["teams"][team]["players"]:
+            if player in n_drafts:
+                n_drafts[player] += 1
+            else:
+                n_drafts[player] = 1
+
+    n_drafts = sorted(n_drafts.items(), key=lambda x: x[1], reverse=True)
+
+    pasta = ''
+    for player, pts in n_drafts:
+        pasta = pasta + f'\n**{player}**: `{pts}`'
+    await ctx.send(pasta)
+
+
 #####################################################################################################################
+
 
 @bot.command()
 async def register(ctx, league_name=default_league):
@@ -199,7 +223,7 @@ async def draft(ctx, ign, league_name=default_league):
 
 
 @bot.command()
-async def release(ctx, ign, league_name=default_league):
+async def drop(ctx, ign, league_name=default_league):
     team = str(ctx.author.id)
     league = fm.League(league_name)
 
@@ -239,13 +263,39 @@ async def teamscore(ctx, league_name=default_league, team=None):
 
 
 @bot.command()
-async def dm_all(ctx, l_n=default_league):
+async def dm_all_owners(ctx, l_n=default_league):
     league = fm.League(l_n)
     for t in league.league_dat['teams']:
         user = bot.get_user(int(t))
         await user.send(f'`HELLO {user.name}, DO NOT BE AFRAID`\nthis is simply a test post for **silver fantasy**.'
                         f'points will be calculated tomorrow morning, and teams will unlock then. you will have the'
                         f'weekend to draft your team __but teams lock sunday night__ so draft your team before then.')
+
+
+@bot.command()
+async def leaguescore(ctx, league=default_league):
+    league = fm.League(default_league)
+    await ctx.send(f'__SCORING ALL TEAMS IN `{league.name}`__\n*this might take a minute...*')
+
+    teams = league.score_all_teams()
+    for tid, score in teams:
+        user = bot.get_user(int(tid))
+        await ctx.send(f'{user.name}: {score}')
+
+
+@bot.command()
+async def localrank(ctx, league_name=default_league):
+    league = fm.League(league_name)
+    ranks = []
+
+    for team_n in league.league_dat["teams"]:
+        team = league.league_dat["teams"][team_n]
+        ranks.append((team_n, team["points"], [x for x in team["players"]]))
+
+    ranks = sorted(ranks, key=lambda x: x[1], reverse=True)
+    for n, pts, players in ranks:
+        user = bot.get_user(int(n))
+        await ctx.send(f'__**TEAM {user.name}**__:  `{pts}` __**POINTS**__\nROSTER: {players}')
 
 #####################################################################################################################
 

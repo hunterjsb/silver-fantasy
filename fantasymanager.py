@@ -2,8 +2,14 @@ from riothandle import Summoner, Match
 import json
 import datetime
 
-sq_file = open('./json/soloqgames.json')
-sq_games = json.load(sq_file)
+
+def _sq_open():  # this is called on sq_save, which is called by elbert on_ready
+    global sq_file, sq_games
+    with open('./json/soloqgames.json') as sq_file:
+        sq_games = json.load(sq_file)
+
+
+_sq_open()
 
 
 def recent(raw_timestamp_ms, date=False):
@@ -13,8 +19,8 @@ def recent(raw_timestamp_ms, date=False):
     else:
         time = datetime.datetime.fromtimestamp(raw_timestamp_ms // 1000)
 
-    week_ago = datetime.datetime.now() - datetime.timedelta(7)
-    return time > week_ago
+    week_ago = datetime.datetime.now() - datetime.timedelta(7)  # changed to 8 bc line up with get_recent_soloq_games
+    return time.date() >= week_ago.date()
 
 
 def update_pts(name):
@@ -32,8 +38,7 @@ def sq_save():
         json.dump(sq_games, f, indent=4)
         print('*SQSAVE')
 
-    global sq_file
-    sq_file = open('./json/soloqgames.json')
+    _sq_open()
 
 
 def sq_clean_games():
@@ -41,7 +46,7 @@ def sq_clean_games():
         delete = [key for key in sq_games[player] if not recent(sq_games[player][key]["date"], True)]
 
         for key in delete:
-            print('delete game')
+            print(f'delete game {key} on {sq_games[player][key]["date"]}')
             del sq_games[player][key]
 
     sq_delete_empty_players()
@@ -117,42 +122,46 @@ class Player(Summoner):
             sq_games[self.ign] = {}
             games = {}
 
-        for game in self.match_history['matches']:
-            if recent(game['timestamp']) and game['queue'] == 420:
-                if str(game['gameId']) in list(games.keys()):
-                    print('game loaded')
-                    g = games[str(game['gameId'])]  # game id's are stored as strings for... whatever reason.
-                    gamestatlist[g['score']] = g
-                    week_total += g['score']
-                    roles.append(g['role'])
-                else:
-                    game = Match(game['gameId'])
-                    k, d, a = game.get_kda(self.ign)
-                    score = game.calc_point_base(self.ign)  # here's where you would swap the point calc.
-                    week_total += score
+        try:
+            for game in self.match_history['matches']:
+                if recent(game['timestamp']) and game['queue'] == 420:
+                    if str(game['gameId']) in list(games.keys()):
+                        print('game loaded')
+                        g = games[str(game['gameId'])]  # game id's are stored as strings for... whatever reason.
+                        gamestatlist[g['score']] = g
+                        week_total += g['score']
+                        roles.append(g['role'])
+                    else:
+                        game = Match(game['gameId'])
+                        k, d, a = game.get_kda(self.ign)
+                        score = game.calc_point_base(self.ign)  # here's where you would swap the point calc.
+                        week_total += score
 
-                    stats = {
-                        'score': score,
-                        'champ': game.player_champ(self.ign),
-                        'date': game.game_time.strftime("%m/%d/%Y"),
-                        'role': game.get_role(self.ign),
-                        'duration': game.game_duration_min,
-                        'kda': f'{k}/{d}/{a}',
-                        'kp': game.get_kp(self.ign),
-                        'csm': round(game.get_csm(self.ign), 2),
-                        'vision': game.get_vision_score(self.ign),
-                        '*cc': round(game.get_cc(self.ign), 2)
-                    }
+                        stats = {
+                            'score': score,
+                            'champ': game.player_champ(self.ign),
+                            'date': game.game_time.strftime("%m/%d/%Y"),
+                            'role': game.get_role(self.ign),
+                            'duration': game.game_duration_min,
+                            'kda': f'{k}/{d}/{a}',
+                            'kp': game.get_kp(self.ign),
+                            'csm': round(game.get_csm(self.ign), 2),
+                            'vision': game.get_vision_score(self.ign),
+                            '*cc': round(game.get_cc(self.ign), 2)
+                        }
 
-                    gamestatlist[score] = stats
-                    games[game.id] = stats
-                    roles.append(game.get_role(self.ign))
+                        gamestatlist[score] = stats
+                        games[game.id] = stats
+                        roles.append(game.get_role(self.ign))
+        except KeyError:
+            print(self.match_history)
+            return 404
 
         if len(games) == 0:
             return 404
 
         avg = week_total / len(games)
-        role = max(set(roles), key=roles.count)
+        role = max(set(roles), key=roles.count) if roles else None
 
         sq_games[self.ign] = games
         sq_save()
@@ -163,7 +172,6 @@ class League:
     def __init__(self, name):
         self.name = name.upper()
         self.league_dat, self.player_dat = self.load_league()
-        self.updating = False
 
         if self.league_dat is not None:
             self.index = self.league_dat['index']
@@ -248,6 +256,7 @@ class League:
         else:
             return False
 
+    # NOT USED IN ANY OTHER FUNCTIONS RN (aka a TOOL)
     def update_all(self, new_players=None):
         for player in self.master_player_list:
             print(f'{player} updated!')
@@ -284,8 +293,8 @@ class League:
         self.save_league()
         return team
 
-    def get_rteam_ppw(self, team):
-        team = self.league_dat["teams"][team]
+    def get_rteam_ppw(self, team_n):
+        team = self.league_dat["teams"][team_n]
         team_pts = 0
         sumavg = 0
         gamelist = {}
@@ -304,14 +313,19 @@ class League:
             gamelist[player] = games
             gamelist[player].append({'avg': round(avg, 1), 'pts': round(pts, 1)})
 
+        self.league_dat["teams"][team_n]["points"] = team_pts
+        self.save_league()
         return team_pts, sumavg, gamelist
 
     def score_all_teams(self):
         teams = []
 
         for team in self.league_dat["teams"]:
-            teams.append(self.get_rteam_ppw(team))
-        teams = sorted(teams, key=lambda x: x[0])
+            team_pts, sumavg, gamelist = self.get_rteam_ppw(team)
+            teams.append((team, team_pts))
+
+        teams = sorted(teams, key=lambda x: x[1], reverse=True)
+        print('SORTED TEAMS:  ', teams)
 
         return teams
 
@@ -398,12 +412,11 @@ class League:
 
 
 def main():
-    xfl = League("XFL")
-    phew = xfl.score_all_teams()
-    for p in phew:
-        print(p)
-    # for player in xfl.master_player_list:
-    #     update_pts(player)
+    xfl = League("PRO")
+    ed = Player("black xan bible")
+    tt = xfl.score_all_teams()
+    for i in tt:
+        print(i)
 
 
 if __name__ == '__main__':

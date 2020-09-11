@@ -2,8 +2,8 @@
     "strikes": [
         {
             "name": "xan",
-            "xds": 33,
-            "@everyones": 7
+            "xds": 38,
+            "@everyones": 8
         },
         {
             "name": "Your Friendly Neighborhood PogoZ",
@@ -17,13 +17,13 @@
         },
         {
             "name": "LePogoZ",
-            "xds": 11,
+            "xds": 20,
             "@everyones": 0
         },
         {
             "name": "skt bender",
-            "xds": 10,
-            "@everyones": 1
+            "xds": 11,
+            "@everyones": 2
         },
         {
             "name": "Romeo",
@@ -32,7 +32,7 @@
         },
         {
             "name": "DurkleDingus",
-            "xds": 5,
+            "xds": 8,
             "@everyones": 0
         }
     ],
