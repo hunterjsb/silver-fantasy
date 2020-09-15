@@ -395,7 +395,7 @@ class League:
 
     @property
     def unlock_at(self):
-        return self.lock_at + datetime.timedelta(6)
+        return self.lock_at + datetime.timedelta(5)
 
     @property
     def locked(self):
@@ -404,7 +404,7 @@ class League:
 
     def start_friday(self):
         today = datetime.datetime.today()
-        friday = today + datetime.timedelta((6 - today.weekday()) % 7)  # CHANGE 6 (SUN) BACK TO 4 (FRI)
+        friday = today + datetime.timedelta((6 - today.weekday()) % 7)  # ITS ACTUALLY SUNDAY LMAO
         self.league_dat['lock@'] = friday.strftime('%m/%d/%Y')
         self.save_league()
 
@@ -412,11 +412,8 @@ class League:
 
 
 def main():
-    xfl = League("PRO")
-    ed = Player("black xan bible")
-    tt = xfl.score_all_teams()
-    for i in tt:
-        print(i)
+    xfl = League("XFL")
+    print(xfl.unlock_at)
 
 
 if __name__ == '__main__':

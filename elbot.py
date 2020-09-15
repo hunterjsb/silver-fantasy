@@ -4,7 +4,6 @@ import discord
 from discord.ext import commands
 from dotenv import load_dotenv
 import json
-import riotapi
 import fantasymanager as fm
 
 load_dotenv()  # get .env file
@@ -59,6 +58,7 @@ def strike(user_name, category):  # add strike to 'strikes' in temp.json
 @bot.event  # readyuup
 async def on_ready():
     fm.sq_clean_games()
+    await bot.change_presence(activity=discord.Game(name=f'read #documentation in XFL to start'))
     print('- R E A D Y -')
 
 
@@ -154,8 +154,8 @@ async def top2(ctx, ign, n_games=2):
     for stat in stats:
         s = stat
         rkp = round(s["kp"]*100, 2)
-        pasta += f'-----\n**{s["score"]} POINTS**\n *{s["duration"]}*   **{s["kda"]}** on {s["champ"]}\n {rkp} *%kp*    '
-        f'{s["csm"]} *cs/m*   {s["vision"]} *vision* *{s["role"].lower()}*'
+        pasta += f'-----\n**{s["score"]} POINTS**\n *{s["duration"]}*   **{s["kda"]}** on {s["champ"]}\n {rkp} *%kp*   '
+        pasta += f'{s["csm"]} *cs/m*   {s["vision"]} *vision* *{s["role"].lower()}*\n'
 
     await ctx.send(pasta)
     await ctx.send(f'**POINTS: {round(g_sum, 1)}**')
@@ -263,18 +263,18 @@ async def teamscore(ctx, league_name=default_league, team=None):
 
 
 @bot.command()
-async def dm_all_owners(ctx, l_n=default_league):
+async def dm_all_owners(l_n=default_league):
     league = fm.League(l_n)
     for t in league.league_dat['teams']:
         user = bot.get_user(int(t))
         await user.send(f'`HELLO {user.name}, DO NOT BE AFRAID`\nthis is simply a test post for **silver fantasy**.'
-                        f'points will be calculated tomorrow morning, and teams will unlock then. you will have the'
-                        f'weekend to draft your team __but teams lock sunday night__ so draft your team before then.')
+                        f' points will be calculated tomorrow morning, and teams will unlock then. you will have the'
+                        f' weekend to draft your team but teams lock __sunday night__ so draft your team before then.')
 
 
 @bot.command()
 async def leaguescore(ctx, league=default_league):
-    league = fm.League(default_league)
+    league = fm.League(league)
     await ctx.send(f'__SCORING ALL TEAMS IN `{league.name}`__\n*this might take a minute...*')
 
     teams = league.score_all_teams()
@@ -333,45 +333,6 @@ async def on_voice_state_update(user, before, after):
     # AFK
     if after.afk and not before.afk:
         await stream_channel.send(f'*{user} is taking an ed nap*')
-
-
-# CREATE VOTE MSG
-@bot.command()  # uo quadra/penta invoke
-async def vote(ctx, text='PENTA?'):
-    uo_pentas = bot.get_channel(688561224891236451)  # get channel to post to
-    author = ctx.message.author.name
-    await uo_pentas.send(f'**{author} HAS STARTED A VOTE!**')
-    msg = await uo_pentas.send(text)
-    emojis = [bot.get_emoji(537877317339447298), bot.get_emoji(537877317075337226)]  # pre set emojis
-    for emoji in emojis:  # add emojis
-        await msg.add_reaction(emoji)
-
-# LOOK UP SOLOQ GAME
-@bot.command()  # look up game
-async def lookup(ctx, summoner):
-    await ctx.send("**GETTING GAME FOR {}...**".format(summoner))
-    matchups = riotapi.get_game(summoner)
-    if type(matchups) == str:
-        await ctx.send(matchups)
-    else:
-        await ctx.send(matchups[100])
-        await ctx.send(matchups[200])
-        await ctx.send(matchups['mmrs'])
-
-
-# VOTE COUNTER
-@bot.event
-async def on_raw_reaction_add(payload):  # count votes
-    if payload.channel_id == 677685580141690881:  # if you vote in uo-pentas
-        reaction, user = await bot.wait_for('reaction_add')
-        channel = reaction.message.channel
-
-        if reaction.count < 4 and channel.id == 677685580141690881:  # announce vote on <4 votes in uo-pentas
-            await channel.send(f'{user} has voted {reaction}')
-
-        elif reaction.count == 4:  # end at 4 votes of any kind
-            await channel.send(f'{user} has closed the voting! \n the result is: {reaction}')
-            await reaction.message.delete()
 
 
 # BAD COMMAND
