@@ -65,6 +65,7 @@ class Summoner:
         self.lp = 0
         self.games = 0
         self.wr = 0
+        self.icon = None
         self.ids = self.get_sum_id()
 
         if type(self.ids) is list:
@@ -87,6 +88,7 @@ class Summoner:
         else:
             print('got ID')
             ids = id_ip.json()
+            self.icon = ids["profileIconId"]
         return [ids['id'], ids['accountId'], ids['puuid']]  # ID, ACCT ID, PUUID
 
     # GET RANKED DATA FOR A SUMMONER, SOLOQ AND FLEX RANKS + WRS

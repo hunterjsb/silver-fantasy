@@ -143,7 +143,6 @@ async def top2(ctx, ign, n_games=2):
     player = fm.Player(ign)
     await ctx.send('*GETTING GAMES...*')
     resp = player.get_top_games(n_games)
-    pasta = ''
 
     if resp == 404:
         await ctx.send('NO GAMES FOUND!')
@@ -151,14 +150,25 @@ async def top2(ctx, ign, n_games=2):
     else:
         g_sum, g_avg, stats = resp
 
-    for stat in stats:
-        s = stat
-        rkp = round(s["kp"]*100, 2)
-        pasta += f'-----\n**{s["score"]} POINTS**\n *{s["duration"]}*   **{s["kda"]}** on {s["champ"]}\n {rkp} *%kp*   '
-        pasta += f'{s["csm"]} *cs/m*   {s["vision"]} *vision* *{s["role"].lower()}*\n'
+    pasta = discord.Embed(
+        title=f"Top Two Games for `{ign}`",
+        color=discord.Color(int('DAB420', 16)),
+        description=f'**{g_sum}** pts  *({round(g_avg, 1)} avg)*'
+    )
+    pasta.set_thumbnail(url=f'http://ddragon.leagueoflegends.com/cdn/10.18.1/img/profileicon/{player.icon}.png')
 
-    await ctx.send(pasta)
-    await ctx.send(f'**POINTS: {round(g_sum, 1)}**')
+    i = 1  # just to count which game youre on
+    for game in stats:  # append all the fields to the embed
+        pasta.add_field(name=f'`GAME {i}`', value='+-+-+-+-+-+-+-+-+-++-+-+-+-+-+-+-+-+-+', inline=False)
+        game['kp'] = round(100*game['kp'], 2)  # times then round bc is less than 1
+        del game['*cc']  # fuck this stat
+
+        i += 1
+        for stat in game:
+            rounded_stat = game[stat] if type(game[stat]) is not int else round(game[stat], 2)  # round normal nums
+            pasta.add_field(name=stat, value=rounded_stat)
+
+    await ctx.send(embed=pasta)
 
 
 @bot.command()  # only works in the XFL
@@ -296,6 +306,18 @@ async def localrank(ctx, league_name=default_league):
     for n, pts, players in ranks:
         user = bot.get_user(int(n))
         await ctx.send(f'__**TEAM {user.name}**__:  `{pts}` __**POINTS**__\nROSTER: {players}')
+
+#####################################################################################################################
+
+embed = discord.Embed(
+    title=f'**attention:** elbert reigns supreme',
+    color=discord.Color(int('DAB420', 16))
+)
+
+
+@bot.command()
+async def initiate_overtake(ctx):
+    await ctx.send(embed=embed)
 
 #####################################################################################################################
 

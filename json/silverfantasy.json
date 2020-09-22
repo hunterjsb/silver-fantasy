@@ -9,19 +9,19 @@
             "whitelisted": true,
             "teams": {
                 "371034483836846090": {
-                    "points": 236.71,
-                    "budget": 16,
+                    "points": 260.58,
+                    "budget": 12,
                     "owner": "x\u00c3\u00a2n",
                     "players": {
                         "black xan bible": 55,
                         "xtrader": 59,
-                        "squackythebird": 61,
-                        "snakebee16": 46,
-                        "fent bars": 53
+                        "fent bars": 53,
+                        "x\u00e2n": 55,
+                        "stinny": 56
                     }
                 },
                 "409135880960213002": {
-                    "points": 231.63,
+                    "points": 223.79000000000002,
                     "budget": 6,
                     "owner": "ed",
                     "players": {
@@ -33,7 +33,7 @@
                     }
                 },
                 "434766902221340682": {
-                    "points": 175.06,
+                    "points": 207.64999999999998,
                     "budget": 8,
                     "owner": "yasuomoe",
                     "players": {
@@ -45,7 +45,7 @@
                     }
                 },
                 "300110170858717184": {
-                    "points": 241.48000000000002,
+                    "points": 224.06,
                     "owner": "DurkleDingus",
                     "budget": 0,
                     "players": {
@@ -57,7 +57,7 @@
                     }
                 },
                 "264422225711464448": {
-                    "points": 110.19999999999999,
+                    "points": 95.59,
                     "owner": "Jukko",
                     "budget": 0,
                     "players": {
@@ -69,7 +69,7 @@
                     }
                 },
                 "408704037358272535": {
-                    "points": 144.91,
+                    "points": 256.48,
                     "owner": "drag0nham",
                     "budget": 10,
                     "players": {
@@ -81,7 +81,7 @@
                     }
                 },
                 "199962540275400704": {
-                    "points": 246.04,
+                    "points": 161.45999999999998,
                     "owner": "BobbyZlich",
                     "budget": 2,
                     "players": {
@@ -93,7 +93,7 @@
                     }
                 },
                 "178942452034568192": {
-                    "points": 250.09000000000003,
+                    "points": 170.54000000000002,
                     "owner": "xtrader",
                     "budget": 6,
                     "players": {
@@ -105,7 +105,7 @@
                     }
                 },
                 "460129267775176715": {
-                    "points": 164.08999999999997,
+                    "points": 190.18,
                     "owner": "Alex Figs \u30c4",
                     "budget": 7,
                     "players": {
@@ -117,7 +117,7 @@
                     }
                 },
                 "213709745964580874": {
-                    "points": 137.13,
+                    "points": 163.29,
                     "owner": "LePogoZ",
                     "budget": 126,
                     "players": {
@@ -128,7 +128,7 @@
                 }
             },
             "start": "08/30/2020",
-            "lock@": "09/13/2020"
+            "lock@": "09/27/2020"
         },
         {
             "name": "PRO",
@@ -201,12 +201,12 @@
         },
         "x\u00e2n": {
             "rank": "SILVER III",
-            "wr": 48.09,
+            "wr": 48.58,
             "leagues": [
                 "XFL"
             ],
-            "games": 418,
-            "wr mod": 53.92059829059829,
+            "games": 422,
+            "wr mod": 54.728813559322035,
             "stats": {}
         },
         "ipogoz": {
@@ -374,13 +374,13 @@
             "stats": {}
         },
         "stinny": {
-            "rank": "GOLD III",
-            "wr": 49.11,
+            "rank": "GOLD IV",
+            "wr": 48.58,
             "leagues": [
                 "XFL"
             ],
-            "games": 894,
-            "wr mod": 57.36254237288136,
+            "games": 949,
+            "wr mod": 56.41364864864865,
             "stats": {}
         },
         "graynote": {

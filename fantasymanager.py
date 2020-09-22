@@ -400,7 +400,8 @@ class League:
     @property
     def locked(self):
         now = datetime.datetime.now()
-        return now > self.lock_at
+        return False
+        # return now > self.lock_at
 
     def start_friday(self):
         today = datetime.datetime.today()
