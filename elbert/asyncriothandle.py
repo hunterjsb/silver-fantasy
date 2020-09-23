@@ -1,11 +1,10 @@
 import asyncio
 import aiohttp
-from dotenv import load_dotenv
 import os
 
-load_dotenv()
-TOKEN = os.getenv("RIOT_TOKEN")  # WAIT IM NOT SURE IF THIS WORKS
-HEADERS = {"X-Riot-Token": TOKEN}
+# load_dotenv()
+# TOKEN = os.getenv("RIOT_TOKEN")  # WAIT IM NOT SURE IF THIS WORKS
+HEADERS = {"X-Riot-Token": "RGAPI-9ac67d68-c7fc-4185-a79a-9c1897985cde"}
 
 
 class AsyncRequester:
@@ -106,6 +105,10 @@ class AsyncRequester:
         new_ar.requests.reverse()
         return new_ar
 
+    def __mod__(self, size: int):
+        chunks = [self.requests[x:x+size] for x in range(0, len(self.requests), size)]
+        return chunks
+
     def _add_request(self, req):
         self.requests.append(req)
         self.c_req += 1
@@ -115,11 +118,11 @@ class AsyncRequester:
         self.requests = reqs
 
     async def _make_request(self, endpoint, session):
-        async with session.get(endpoint, headers=HEADERS) as resp:
+        async with session.get(endpoint, headers=HEADERS) as s_resp:
             AsyncRequester.t_req += 1
             self.c_req -= 1
-            print(AsyncRequester.t_req, ' | ', endpoint, ' | ', resp.status)
-            return await resp.json()
+            print(AsyncRequester.t_req, ' | ', endpoint, ' | ', s_resp.status)
+            return await s_resp.json()
 
     async def _gather_requests(self, delay=None):
         tasks = []
@@ -139,20 +142,16 @@ class AsyncRequester:
         loop = asyncio.get_event_loop()
         return loop.run_until_complete(self._gather_requests())
 
-    def sum_id(self, ign):
-        assert isinstance(ign, str)
+    def sum_dat(self, ign: str):
         self._add_request(f'https://{self.region}.api.riotgames.com/lol/summoner/v4/summoners/by-name/{ign}')
 
-    def ranked(self, s_id):
-        assert isinstance(s_id, int)
+    def ranked(self, s_id: int):
         self._add_request(f'https://{self.region}.api.riotgames.com/lol/league/v4/entries/by-summoner/{s_id}')
 
-    def match_history(self, s_id):
-        assert isinstance(s_id, str)
+    def match_history(self, s_id: str):
         self._add_request(f"https://{self.region}.api.riotgames.com/lol/match/v4/matchlists/by-account/{s_id}")
 
-    def match(self, m_id):
-        assert isinstance(m_id, int)
+    def match(self, m_id: int):
         self._add_request(f'https://{self.region}.api.riotgames.com/lol/match/v4/matches/{m_id}')
 
     def dummy(self, name):
@@ -161,15 +160,8 @@ class AsyncRequester:
 
 if __name__ == '__main__':
     ar = AsyncRequester()
-    ar.sum_id('ipogoz')
-    ar.sum_id('ipogoz')
-    ar.sum_id('durkledingus')
-    ar.sum_id('black xan bible')
-    ar.sum_id('black xan bible')
+    ar.sum_dat('ipogoz')
+    ar.sum_dat('black xan bible')
+    resp = ar.run()
 
-    ar2 = AsyncRequester()
-    ar2.sum_id('ipogoz')
-    ar2.sum_id('yasuomoe')
-
-    ar3 = (ar + ar2) / (ar - ar2)
-    print(ar3)
+    print(resp[0])

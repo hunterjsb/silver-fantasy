@@ -233,6 +233,16 @@ class League:
         for player in self.player_dat:
             yield player
 
+    def add_player_property(self, key, value):
+        for player in self.master_player_list:
+
+            if 'id' not in self.player_dat[player]['dat']:
+                summoner = Player(player)
+                if summoner.ids:
+                    self.player_dat[player]['dat']['id'] = summoner.ids[0]
+                    print(f'added {summoner.ids[0]} to {player}')
+        self.save_league()
+
     # ADD A LEAGUE TO A PLAYERS LEAGUE LIST SO THAT THEY CAN BE DRAFTED TO IT IF ITS EXCLUSIVE
     def whitelist(self, ign):
         self.update_player(ign)
@@ -414,7 +424,7 @@ class League:
 
 def main():
     xfl = League("XFL")
-    print(xfl.unlock_at)
+    xfl.add_player_property('dat', {})
 
 
 if __name__ == '__main__':
