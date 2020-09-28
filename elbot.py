@@ -89,7 +89,17 @@ async def clean(ctx):  # UOP
             delete_count += 1
     await ctx.message.channel.send(f'deleted {delete_count} messages')
 
+
+@bot.command()
+async def pa(ctx, author=None):
+    author = ctx.author if not author else author
+    pasta = discord.Embed(title=author.name, description=author.display_name)
+    pasta.set_thumbnail(url=author.avatar_url)
+    await ctx.send(embed=pasta)
+
+
 ################################################################################################################
+
 
 # DRAFT ROYALE!
 @bot.command()
@@ -159,7 +169,7 @@ async def top2(ctx, ign, n_games=2):
 
     i = 1  # just to count which game youre on
     for game in stats:  # append all the fields to the embed
-        pasta.add_field(name=f'`GAME {i}`', value='+-+-+-+-+-+-+-+-+-++-+-+-+-+-+-+-+-+-+', inline=False)
+        pasta.add_field(name=f'`\nGAME {i}`', value='+-+-+-+-+-+-+-+-+-++-+-+-+-+-+-+-+-+-+', inline=False)
         game['kp'] = round(100*game['kp'], 2)  # times then round bc is less than 1
         del game['*cc']  # fuck this stat
 
@@ -288,9 +298,17 @@ async def leaguescore(ctx, league=default_league):
     await ctx.send(f'__SCORING ALL TEAMS IN `{league.name}`__\n*this might take a minute...*')
 
     teams = league.score_all_teams()
+    pasta = discord.Embed(color=discord.Color(int("DAB420", 16)), title="RANKINGS",
+                          description=f"*for the {league.name}*")
+    i = 0
     for tid, score in teams:
+        i += 1
         user = bot.get_user(int(tid))
-        await ctx.send(f'{user.name}: {score}')
+        pasta.add_field(name=user.name, value=f"{i} | {round(score, 1)} pts", inline=False)
+        if i == 1:
+            pasta.set_thumbnail(url=user.avatar_url)  # is this broken...?
+
+    await ctx.send(embed=pasta)
 
 
 @bot.command()
@@ -300,26 +318,35 @@ async def localrank(ctx, league_name=default_league):
 
     for team_n in league.league_dat["teams"]:
         team = league.league_dat["teams"][team_n]
-        ranks.append((team_n, team["points"], [x for x in team["players"]]))
-
+        ranks.append((team_n, team["points"], [x for x in team["players"]]))  # append tuple - name, pts, roster
     ranks = sorted(ranks, key=lambda x: x[1], reverse=True)
+
+    i = 0
     for n, pts, players in ranks:
+        i += 1
         user = bot.get_user(int(n))
-        await ctx.send(f'__**TEAM {user.name}**__:  `{pts}` __**POINTS**__\nROSTER: {players}')
+        pasta = discord.Embed(color=discord.Color(int("DAB420", 16)), title=f"TEAM {user.name}",
+                              description=f'*RANK {i} | `{round(pts, 1)}` pts*')
+        for player in players:
+            scores = league.score_local(player)
+            n_games = len(scores)
+
+            if n_games < 1:
+                pass
+            elif n_games == 1:
+                g1 = scores[0]
+                pasta.add_field(name=f'{player}', value=f"`{g1[1]}` | {g1[3]} on {g1[2]}")
+            else:
+                g1, g2 = scores[:2]
+                print(g1, g2)
+                pasta.add_field(name=f'{player}', value=f"1: `{g1[1]}` | {g1[3]} on {g1[2]}\n"
+                                                        f"2: `{g2[1]}` | {g2[3]} on {g2[2]}")
+
+        pasta.set_thumbnail(url=user.avatar_url)
+        await ctx.send(embed=pasta)
 
 #####################################################################################################################
 
-embed = discord.Embed(
-    title=f'**attention:** elbert reigns supreme',
-    color=discord.Color(int('DAB420', 16))
-)
-
-
-@bot.command()
-async def initiate_overtake(ctx):
-    await ctx.send(embed=embed)
-
-#####################################################################################################################
 
 # COUNT XDs, @ALLs
 @bot.event  # on message!!!

@@ -9,19 +9,19 @@
             "whitelisted": true,
             "teams": {
                 "371034483836846090": {
-                    "points": 248.44,
-                    "budget": 12,
+                    "points": 145.33,
+                    "budget": 13,
                     "owner": "x\u00c3\u00a2n",
                     "players": {
                         "black xan bible": 55,
-                        "xtrader": 59,
                         "fent bars": 53,
                         "x\u00e2n": 55,
-                        "stinny": 56
+                        "stinny": 56,
+                        "1deepturtle": 58
                     }
                 },
                 "409135880960213002": {
-                    "points": 146.44,
+                    "points": 137.5,
                     "budget": 6,
                     "owner": "ed",
                     "players": {
@@ -33,7 +33,7 @@
                     }
                 },
                 "434766902221340682": {
-                    "points": 195.51,
+                    "points": 83.49000000000001,
                     "budget": 8,
                     "owner": "yasuomoe",
                     "players": {
@@ -45,7 +45,7 @@
                     }
                 },
                 "300110170858717184": {
-                    "points": 263.69,
+                    "points": 156.1,
                     "owner": "DurkleDingus",
                     "budget": 6,
                     "players": {
@@ -57,7 +57,7 @@
                     }
                 },
                 "264422225711464448": {
-                    "points": 75.32,
+                    "points": 21.63,
                     "owner": "Jukko",
                     "budget": 0,
                     "players": {
@@ -69,7 +69,7 @@
                     }
                 },
                 "408704037358272535": {
-                    "points": 243.26000000000002,
+                    "points": 123.9,
                     "owner": "drag0nham",
                     "budget": 10,
                     "players": {
@@ -81,7 +81,7 @@
                     }
                 },
                 "199962540275400704": {
-                    "points": 104.92,
+                    "points": 10.77,
                     "owner": "BobbyZlich",
                     "budget": 2,
                     "players": {
@@ -93,7 +93,7 @@
                     }
                 },
                 "178942452034568192": {
-                    "points": 143.83999999999997,
+                    "points": 59.95,
                     "owner": "xtrader",
                     "budget": 6,
                     "players": {
@@ -105,19 +105,19 @@
                     }
                 },
                 "460129267775176715": {
-                    "points": 169.90000000000003,
+                    "points": 120.1,
                     "owner": "Alex Figs \u30c4",
-                    "budget": 7,
+                    "budget": 11,
                     "players": {
                         "1deepgenz": 54,
                         "1deepturtle": 57,
                         "u\u00f1orthodox": 52,
                         "x\u00e2n": 54,
-                        "ipogoz": 66
+                        "durkledingus": 62
                     }
                 },
                 "213709745964580874": {
-                    "points": 163.29,
+                    "points": 61.839999999999996,
                     "owner": "LePogoZ",
                     "budget": 126,
                     "players": {
@@ -128,7 +128,7 @@
                 }
             },
             "start": "08/30/2020",
-            "lock@": "09/27/2020"
+            "lock@": "09/25/2020"
         },
         {
             "name": "PRO",
@@ -196,34 +196,40 @@
                 "puuid": "6dQbPPIVLepkQoExbOm6kviRz_VvsQfKLzCTfkyrFTd_JB4eI_uQRMO82Ban95VBkNgCc0VZLKG3KA",
                 "name": "black xan bible",
                 "profileIconId": 4655,
-                "revisionDate": 1600738281000,
-                "summonerLevel": 306
+                "revisionDate": 1601092831000,
+                "summonerLevel": 308
             },
             "rank": "SILVER II",
-            "inactive": false
-        },
-        "x\u00e2n": {
-            "rank": "SILVER III",
-            "wr": 48.58,
+            "inactive": false,
+            "wr": 50.07,
+            "games": 721,
             "leagues": [
                 "XFL"
             ],
-            "games": 422,
-            "wr mod": 54.728813559322035,
+            "wr mod": 56.31
+        },
+        "x\u00e2n": {
+            "rank": "SILVER III",
+            "wr": 48.83,
+            "leagues": [
+                "XFL"
+            ],
+            "games": 426,
+            "wr mod": 54.57,
             "dat": {
                 "id": "5WCVixd8vtY9I0x_7mXNt1kpLIZFkzt4N6unnTc0ir1eYNc",
                 "accountId": "SCXS0NPDLdjum2HXlWaLAHUPeqZy83DReWAkTEpnVTyg7mE",
                 "puuid": "87h358P9T8ESwzZ8r3MSsJwZpDDUqMpqrsk_JaKYQGHuPukxZiUVyQSBWFvLmmerqtUmPvSJfKVj7w",
                 "name": "x\u00e2n",
                 "profileIconId": 502,
-                "revisionDate": 1600041199000,
-                "summonerLevel": 282
+                "revisionDate": 1600928420000,
+                "summonerLevel": 283
             },
             "inactive": false
         },
         "ipogoz": {
             "rank": "GOLD IV",
-            "wr": 52.07,
+            "wr": 51.52,
             "leagues": [
                 "XFL"
             ],
@@ -236,7 +242,7 @@
                 "name": "iPogoZ",
                 "profileIconId": 4312,
                 "revisionDate": 1600634622000,
-                "summonerLevel": 426
+                "summonerLevel": 427
             },
             "inactive": false
         },
@@ -249,7 +255,13 @@
             "games": 245,
             "wr mod": 59.57559322033898,
             "dat": {
-                "id": "wcmG8znTSXBpNVmCo7czIUqeQVNvwu-rWVlajaildcyml5Y"
+                "id": "wcmG8znTSXBpNVmCo7czIUqeQVNvwu-rWVlajaildcyml5Y",
+                "accountId": "57XtPHkwOCB37BluWB-ud-R540nfoLwuRLf67CSLGmYpVlc",
+                "puuid": "LjsqJlaSzaGebOrojSainzEFpBHxzWYjBIARAcBvghVtklM0JzQKQ8ic7IDTgTXW6JCSg8innxo9iA",
+                "name": "xtrader",
+                "profileIconId": 3367,
+                "revisionDate": 1600949285000,
+                "summonerLevel": 259
             }
         },
         "snakebee16": {
@@ -279,16 +291,7 @@
             ],
             "games": 26,
             "wr mod": 62.00657894736842,
-            "dat": {
-                "id": "mbqvzr5_bxmcrGnGCzyt77EY-TNqP1C8hNh3iOr3ujgiQeAL",
-                "accountId": "PONGqu1k1H675hrpsa0jrElK_S34TtgbyNinNE7LVjfCnrEZ_fDfRtY_",
-                "puuid": "_84oESNbS5HZLSoqQzgvYYshFhVguKUtwy5ZqceNSi6_Zu4q9JQwf1DVUiQwW5OkPg5Ip6z1kif-ZA",
-                "name": "DurkleDingus",
-                "profileIconId": 4353,
-                "revisionDate": 1597196632000,
-                "summonerLevel": 78
-            },
-            "inactive": false
+            "stats": {}
         },
         "purplebumblebeez": {
             "rank": "GOLD I",
@@ -409,14 +412,22 @@
             "inactive": false
         },
         "1deepturtle": {
+            "rank": "GOLD IV",
+            "wr": 50.61,
+            "leagues": [
+                "XFL"
+            ],
+            "games": 1223,
+            "wr mod": 58.19915946582876,
+            "stats": {},
             "dat": {
                 "id": "V6YfF68BOhAw9QNHTomGVgpf_bTQaw_a5lLwQMqPr70wIKA",
                 "accountId": "yosljBbJlYNqKgnx71k2fRLas0KrO3SemwufwTHHSCh8QQ",
                 "puuid": "xSiPfUC-yrrg1pKcnhaBMuif-P0vXqNxJWsk33NAvlabCu-xXNXwz3uD9CHHbUIvzGUDgMa4-SbYow",
                 "name": "1DeepTurtle",
                 "profileIconId": 4657,
-                "revisionDate": 1600630638000,
-                "summonerLevel": 393
+                "revisionDate": 1601058967000,
+                "summonerLevel": 394
             }
         },
         "darkshadow2015": {
@@ -481,8 +492,8 @@
                 "puuid": "rpb0A5EZha_rhjP_dubiBGjw07S19GyAY8BP081a9qe3bD4vYRKA52Eu1J9rX83cFyxtyfTSsjB2EQ",
                 "name": "Stinny",
                 "profileIconId": 4090,
-                "revisionDate": 1600756648000,
-                "summonerLevel": 376
+                "revisionDate": 1600961096000,
+                "summonerLevel": 377
             }
         },
         "graynote": {
@@ -528,7 +539,7 @@
                 "puuid": "Fj3t8TiO5GwgfAMe80FuK3RDYobLQngb5R6I6LjzAsxAEk-29lDFZvo_bgRssM21DeeeJIp-wxRlgA",
                 "name": "1DeepGenZ",
                 "profileIconId": 4116,
-                "revisionDate": 1600137913000,
+                "revisionDate": 1600839140000,
                 "summonerLevel": 246
             }
         },
@@ -675,16 +686,6 @@
                 "id": "kXKVOu-_t3KX0J_tPO0oRr48WLO9MzM1KpFLT9I-7EBW3ZE"
             }
         },
-        "doublelift": {
-            "rank": "CHALLENGER I",
-            "wr": 52.54,
-            "leagues": [],
-            "games": 689,
-            "wr mod": 77.0130649526387,
-            "dat": {
-                "id": "oYpmJAiJXD2xAE1kQGLytVtd0hrYw1jCO3cqyc4aISqkcZg"
-            }
-        },
         "liquid impact": {
             "rank": "CHALLENGER I",
             "wr": 54.66,
@@ -703,16 +704,6 @@
             "wr mod": 59.377903225806456,
             "dat": {
                 "id": "b5z5uL8p16KY8Kcmbf3WtEM3bXxOpr-ckHHpUMBWDHREZ5M"
-            }
-        },
-        "huhi": {
-            "rank": "CHALLENGER I",
-            "wr": 55.13,
-            "leagues": [],
-            "games": 439,
-            "wr mod": 79.93622699386503,
-            "dat": {
-                "id": "aV0O_mNDSE-FK2l4uKY6QbXqnO4huXayB4avn43PDy3wLaY"
             }
         },
         "fatalfkid": {
@@ -776,7 +767,13 @@
             "games": 15,
             "wr mod": 58.34423076923077,
             "dat": {
-                "id": "fbcMxLhE5hWKCOwStS4L-P2yyzLUPV-kCcMAU7JXaENfEuQ"
+                "id": "fbcMxLhE5hWKCOwStS4L-P2yyzLUPV-kCcMAU7JXaENfEuQ",
+                "accountId": "8YcU9ryqK9J0Vi_2FLJ4EWLPeeIcHjDPtxqdbfspCsCMsA",
+                "puuid": "qbkRYFoDMDVYBCBNHsOzI6wri9oDgzek9VRP9NZRTS8lsPpfF1ugvMSV5zMOM2QeSNJi_co8ZJlCUQ",
+                "name": "Chillguy",
+                "profileIconId": 1301,
+                "revisionDate": 1600308864000,
+                "summonerLevel": 41
             }
         },
         "i am dogunyun": {
@@ -828,31 +825,52 @@
             "rank": "GOLD IV",
             "inactive": false
         },
-        "john5un": {
+        "doublelift": {
             "dat": {
-                "id": "JcFAL1bQ7BDBI6Ype5YTTOhYa9VuQBgKIx6v2PMZqalqRSg",
-                "accountId": "Cosaeoo7NKv4dUE1tiOgYoJ7P4jP22kLtDMoYhgzukEt1Q",
-                "puuid": "U0n9A6gd0HxXC_gsmTe_c60PJOokppdTvBOCzb1kQptYWasWTb6wqPmC91IRIqx4n89J5ANjCgAaIA",
-                "name": "John5un",
-                "profileIconId": 4635,
-                "revisionDate": 1600812043000,
-                "summonerLevel": 271
+                "id": "oYpmJAiJXD2xAE1kQGLytVtd0hrYw1jCO3cqyc4aISqkcZg",
+                "accountId": "1IRYlV15D2ct2jyLUcgmtTizXTYBXLrGSQhoc12U6pGoqQ",
+                "puuid": "6J792Y5b5T_z-Y9iWn9C8ebYGw8PVoU8YOcSTnfUFwvYg5KuekyKAUy8HqEhhRlt_xWKK260fyDv7w",
+                "name": "Doublelift",
+                "profileIconId": 4568,
+                "revisionDate": 1599373000000,
+                "summonerLevel": 207
             },
-            "rank": "CHALLENGER I",
-            "inactive": false
+            "rank": "DIAMOND I",
+            "inactive": false,
+            "wr": 52.32
         },
-        "adrian jaxbuffs": {
+        "huhi": {
             "dat": {
-                "id": "C7HeMyeVctHRfYZT3foYwrfCqCjrm6I9kXkfgUihiGROvFeM",
-                "accountId": "RxMToUgC_EkXx4yYIV8f19jWWcaj5mmNCK8XPMd0dbHeYUwfFLK-ouxD",
-                "puuid": "leUS1z876DFBG8czHdnJdQUWeyL6ywWMjSA4_CfilmsaiUKtrXpTGCKDPf1Vj4NUsGnNUEIg4-KX3Q",
-                "name": "Adrian jaxbuffs",
+                "id": "aV0O_mNDSE-FK2l4uKY6QbXqnO4huXayB4avn43PDy3wLaY",
+                "accountId": "ft3Aw9afLb9ZLpKKeNBrQBrYhsP7LdF2OC_8EXRbuHDosTc",
+                "puuid": "5pj4gqGkY9sLtKWLqDKIVN-s5mfTln6hItLZeJkbY8kqMLy-xHNhAw2a888jEQF8TwiK_qK7_Xo1Sw",
+                "name": "huhi",
+                "profileIconId": 4568,
+                "revisionDate": 1601004921000,
+                "summonerLevel": 221
+            }
+        },
+        "almostanantag": {
+            "dat": {
+                "id": "6W5QyBuCihcnCeI7gCkYuC1eAfRXPwsyUqTpwAzR7jXlsF9G",
+                "accountId": "yDbz2i_eZpgOpZQkMkaecDrs6wvIoCzKrpmzPr4IJNgTAiAn_NGG-KcW",
+                "puuid": "VS7Yz8t96akekyFJhlDKM3KMdLSck-pfOOXKqLIZtwjo-R7lqK29G_0UgtDc5C-DwqZSB9sMQbMydw",
+                "name": "almostanantag",
                 "profileIconId": 3546,
-                "revisionDate": 1599851637000,
-                "summonerLevel": 54
-            },
-            "rank": "CHALLENGER I",
-            "inactive": false
+                "revisionDate": 1594018770000,
+                "summonerLevel": 17
+            }
+        },
+        "  o": {
+            "dat": {
+                "id": "IIldITxrwlpqrsREe3h0g9cGh2HJn7isV2CMdmaX4uV9AyA",
+                "accountId": "gnzsx7D8DW3Lce9oVTcVJBiUzWS3-cP82p2QaPwFmEyyihd_zX0wDGxc",
+                "puuid": "fQs6ipBSNLXt-DhQMCbD7QkrAybWYW3P4gmdAvgYIOHc_vkMIe08U8oR9Ps38D-Dx88A4WjjM3Br4A",
+                "name": "  O",
+                "profileIconId": 3546,
+                "revisionDate": 1530342868000,
+                "summonerLevel": 2
+            }
         }
     }
 }

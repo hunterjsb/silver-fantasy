@@ -7,6 +7,18 @@ import os
 HEADERS = {"X-Riot-Token": "RGAPI-9ac67d68-c7fc-4185-a79a-9c1897985cde"}
 
 
+# COLORS! for console printing
+class BColors:
+    HEADER = '\033[95m'
+    OKBLUE = '\033[94m'
+    OKGREEN = '\033[92m'
+    WARNING = '\033[93m'
+    FAIL = '\033[91m'
+    ENDC = '\033[0m'
+    BOLD = '\033[1m'
+    UNDERLINE = '\033[4m'
+
+
 class AsyncRequester:
     """class used to both create the API request URL and asynchronously send it to riot"""
     t_req = 0
@@ -22,73 +34,6 @@ class AsyncRequester:
         self.error = None  # not even used
         self.region = 'na1'
 
-    def __set_name__(self, owner, name):
-        """sets name"""
-        self.name = name
-
-    def __iter__(self):
-        """"return iterable of request URL's"""
-        return iter(self.requests)
-
-    def __lt__(self, val):
-        """less than compare number of requests between two AsyncRequester's or an integer"""
-        return self.c_req < val
-
-    def __le__(self, val):
-        """less than or equal to compare number of requests between two AsyncRequester's or an integer"""
-        return self.c_req <= val
-
-    def __gt__(self, val):
-        """greater than compare number of requests between two AsyncRequester's or an integer"""
-        return self.c_req > val
-
-    def __ge__(self, val):
-        """greater than or equal to compare number of requests between two AsyncRequester's or an integer"""
-        return self.c_req >= val
-
-    def __eq__(self, reqs):
-        """check if two request queries are equal"""
-        return self.requests == reqs
-
-    def __add__(self, reqs):
-        """returns new AsyncRequester with both sets of requests combined... dupes removed!
-        ex: if list1 has a, b, c and list2 has a, e... list1 + list2 = a, b, c, e"""
-        new_reqs = self.requests + reqs.requests
-        new_ar = AsyncRequester()
-        new_ar.set_requests(new_reqs)
-        return new_ar.__floor__()
-
-    def __sub__(self, reqs):
-        """returns new AsyncRequester. the requests are the uncommon elements of both lists.
-        ex: if list1 has a, b, c and list2 has a, e... list1 - list2 = b, c, e
-        ex: if list1 has a, a, b, c, c and list2 has a, e... list1 - list2 = b, c, e
-        ex: if list1 has a, e and list2 has a, b, c... list1 - list2 = e, b, c"""
-        new_ar = AsyncRequester()
-
-        new_reqs = list(list(set(self.requests) - set(reqs)) + list(set(reqs) - set(self.requests)))
-        new_ar.set_requests(new_reqs)
-        return new_ar
-
-    def __truediv__(self, reqs):
-        """returns new AsyncRequester. the requests are the uncommon elements of the first list.
-        ex: if list1 has a, b, c and list2 has a, e... list1 / list2 = b, c
-        ex: if list1 has a, a, b, c, c and list2 has a, e... list1 / list2 = b, c
-        ex: if list1 has a, e and list2 has a, b, c... list1 / list2 = e"""
-        new_ar = AsyncRequester()
-        new_reqs = list(set(self.requests) - set(reqs.requests))
-
-        new_ar.set_requests(new_reqs)
-        return new_ar
-
-    def __mul__(self, reqs):
-        """return common elements without copies.
-        ex: if list1 has a, b, c and list2 has a, e... list1 & list2 = a"""
-        new_ar = AsyncRequester()
-
-        new_reqs = set(self.requests) & set(reqs.requests)
-        new_ar.set_requests(list(new_reqs))
-        return new_ar
-
     def __floor__(self):
         """removes duplicates from list"""
         self.requests = list(dict.fromkeys(self.requests))
@@ -97,13 +42,6 @@ class AsyncRequester:
 
     def __repr__(self):
         return f'{type(self)}\n{self.c_req} REQUESTS: {self.requests}'
-
-    def __neg__(self):
-        """returns reversed requests list"""
-        new_ar = AsyncRequester()
-        new_ar.set_requests(self.requests)
-        new_ar.requests.reverse()
-        return new_ar
 
     def __mod__(self, size: int):
         chunks = [self.requests[x:x+size] for x in range(0, len(self.requests), size)]
@@ -117,19 +55,33 @@ class AsyncRequester:
         self.c_req = len(reqs)
         self.requests = reqs
 
+    @staticmethod
+    def _add_queries(endpoint: str, queries: dict):
+        i = 0
+        for k, v in queries.items():
+            i += 1
+            c = "?" if i < 2 else "&"
+            endpoint += f"{c}{k}={v}"
+
+        return endpoint
+
     async def _make_request(self, endpoint, session):
         async with session.get(endpoint, headers=HEADERS) as s_resp:
             AsyncRequester.t_req += 1
             self.c_req -= 1
-            print(AsyncRequester.t_req, ' | ', endpoint, ' | ', s_resp.status)
+
+            status = s_resp.status
+            color = BColors.OKGREEN if status == 200 else BColors.FAIL
+            print(f'{color}{AsyncRequester().t_req}{BColors.ENDC} | {BColors.UNDERLINE}{endpoint}{BColors.ENDC} | '
+                  f'{color}{s_resp.status}{BColors.ENDC}')
+            # print(AsyncRequester.t_req, ' | ', endpoint, ' | ', s_resp.status)
             return await s_resp.json()
 
-    async def _gather_requests(self, delay=None):
+    async def _gather_requests(self):
         tasks = []
-        print(f'requests made: {AsyncRequester.t_req} ({self.c_req} pending)')
+        print(f'{BColors.HEADER}requests made: {AsyncRequester.t_req} ({self.c_req} pending{BColors.ENDC})')
 
         async with aiohttp.ClientSession() as session:
-            i = 0
             for req in self.requests:
                 task = asyncio.ensure_future(self._make_request(req, session))
                 tasks.append(task)
@@ -148,8 +100,12 @@ class AsyncRequester:
     def ranked(self, s_id: int):
         self._add_request(f'https://{self.region}.api.riotgames.com/lol/league/v4/entries/by-summoner/{s_id}')
 
-    def match_history(self, s_id: str):
-        self._add_request(f"https://{self.region}.api.riotgames.com/lol/match/v4/matchlists/by-account/{s_id}")
+    def match_history(self, s_id: str, queries=None):
+        endpoint = f"https://{self.region}.api.riotgames.com/lol/match/v4/matchlists/by-account/{s_id}"
+        if queries:
+            endpoint = self._add_queries(endpoint, queries)
+        
+        self._add_request(endpoint)
 
     def match(self, m_id: int):
         self._add_request(f'https://{self.region}.api.riotgames.com/lol/match/v4/matches/{m_id}')

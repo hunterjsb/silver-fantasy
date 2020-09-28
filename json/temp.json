@@ -2,7 +2,7 @@
     "strikes": [
         {
             "name": "xan",
-            "xds": 41,
+            "xds": 42,
             "@everyones": 10
         },
         {
@@ -17,13 +17,13 @@
         },
         {
             "name": "LePogoZ",
-            "xds": 20,
+            "xds": 21,
             "@everyones": 0
         },
         {
             "name": "skt bender",
             "xds": 11,
-            "@everyones": 4
+            "@everyones": 5
         },
         {
             "name": "Romeo",
@@ -32,8 +32,13 @@
         },
         {
             "name": "DurkleDingus",
-            "xds": 8,
+            "xds": 10,
             "@everyones": 0
+        },
+        {
+            "name": "Figs \u30c4",
+            "xds": 2,
+            "@everyones": 1
         }
     ],
     "data": {}

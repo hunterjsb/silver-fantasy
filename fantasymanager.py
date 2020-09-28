@@ -12,15 +12,17 @@ def _sq_open():  # this is called on sq_save, which is called by elbert on_ready
 _sq_open()
 
 
-def recent(raw_timestamp_ms, date=False):
+def recent(raw_timestamp_ms, date=False, last=True):
 
     if date:
         time = datetime.datetime.strptime(raw_timestamp_ms, "%m/%d/%Y")
     else:
         time = datetime.datetime.fromtimestamp(raw_timestamp_ms // 1000)
 
-    week_ago = datetime.datetime.now() - datetime.timedelta(7)  # changed to 8 bc line up with get_recent_soloq_games
-    return time.date() >= week_ago.date()
+    today = datetime.datetime.today()
+    n = 7 if last else 0
+    friday = today + datetime.timedelta((4 - today.weekday()) % 7) - datetime.timedelta(n)
+    return time.date() >= friday.date()
 
 
 def update_pts(name):
@@ -233,15 +235,16 @@ class League:
         for player in self.player_dat:
             yield player
 
-    def add_player_property(self, key, value):
-        for player in self.master_player_list:
+    def score_local(self, player):
+        score_tups = []
 
-            if 'id' not in self.player_dat[player]['dat']:
-                summoner = Player(player)
-                if summoner.ids:
-                    self.player_dat[player]['dat']['id'] = summoner.ids[0]
-                    print(f'added {summoner.ids[0]} to {player}')
-        self.save_league()
+        if player in (self.player_dat and sq_games):
+            player_games = sq_games[player]
+            for gid, game in player_games.items():
+                score_tups.append((gid, game["score"], game["champ"], game["kda"]))
+
+        score_tups = sorted(score_tups, key=lambda x: x[1], reverse=True)
+        return score_tups
 
     # ADD A LEAGUE TO A PLAYERS LEAGUE LIST SO THAT THEY CAN BE DRAFTED TO IT IF ITS EXCLUSIVE
     def whitelist(self, ign):
@@ -415,7 +418,7 @@ class League:
 
     def start_friday(self):
         today = datetime.datetime.today()
-        friday = today + datetime.timedelta((6 - today.weekday()) % 7)  # ITS ACTUALLY SUNDAY LMAO
+        friday = today + datetime.timedelta((4 - today.weekday()) % 7)  # ITS ACTUALLY SUNDAY LMAO
         self.league_dat['lock@'] = friday.strftime('%m/%d/%Y')
         self.save_league()
 
@@ -424,7 +427,7 @@ class League:
 
 def main():
     xfl = League("XFL")
-    xfl.add_player_property('dat', {})
+    print(xfl.score_local("xân"))
 
 
 if __name__ == '__main__':
