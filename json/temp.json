@@ -2,7 +2,7 @@
     "strikes": [
         {
             "name": "xan",
-            "xds": 42,
+            "xds": 44,
             "@everyones": 10
         },
         {
@@ -17,7 +17,7 @@
         },
         {
             "name": "LePogoZ",
-            "xds": 21,
+            "xds": 22,
             "@everyones": 0
         },
         {
@@ -37,8 +37,13 @@
         },
         {
             "name": "Figs \u30c4",
-            "xds": 2,
+            "xds": 3,
             "@everyones": 1
+        },
+        {
+            "name": "lazarus",
+            "xds": 0,
+            "@everyones": 0
         }
     ],
     "data": {}

@@ -143,6 +143,42 @@
             "csm": 1.32,
             "vision": 28,
             "*cc": 2.45
+        },
+        "3596234525": {
+            "score": 1.75,
+            "champ": "Ashe",
+            "date": "09/29/2020",
+            "role": "DUO_CARRY BOTTOM",
+            "duration": "27:16",
+            "kda": "2/10/5",
+            "kp": 0.2916666666666667,
+            "csm": 5.38,
+            "vision": 4,
+            "*cc": 0.9
+        },
+        "3596178842": {
+            "score": 25.35,
+            "champ": "Yuumi",
+            "date": "09/29/2020",
+            "role": "DUO_SUPPORT BOTTOM",
+            "duration": "38:23",
+            "kda": "2/3/32",
+            "kp": 0.6538461538461539,
+            "csm": 0.1,
+            "vision": 20,
+            "*cc": 10.18
+        },
+        "3596144974": {
+            "score": -1.32,
+            "champ": "Alistar",
+            "date": "09/29/2020",
+            "role": "DUO_SUPPORT NONE",
+            "duration": "15:09",
+            "kda": "0/4/1",
+            "kp": 0.2,
+            "csm": 0.96,
+            "vision": 4,
+            "*cc": 0.24
         }
     },
     "1deepturtle": {
@@ -205,6 +241,42 @@
             "csm": 3.6,
             "vision": 0,
             "*cc": 0.0
+        },
+        "3596873965": {
+            "score": 6.47,
+            "champ": "Sett",
+            "date": "09/29/2020",
+            "role": "NONE JUNGLE",
+            "duration": "23:14",
+            "kda": "4/3/3",
+            "kp": 0.5,
+            "csm": 1.19,
+            "vision": 16,
+            "*cc": 1.68
+        },
+        "3596809619": {
+            "score": 14.02,
+            "champ": "Draven",
+            "date": "09/29/2020",
+            "role": "DUO_CARRY BOTTOM",
+            "duration": "20:12",
+            "kda": "7/5/5",
+            "kp": 0.5,
+            "csm": 7.1,
+            "vision": 8,
+            "*cc": 1.17
+        },
+        "3596821729": {
+            "score": 15.15,
+            "champ": "Jax",
+            "date": "09/29/2020",
+            "role": "DUO_CARRY BOTTOM",
+            "duration": "34:21",
+            "kda": "18/12/4",
+            "kp": 0.41509433962264153,
+            "csm": 5.01,
+            "vision": 15,
+            "*cc": 1.63
         }
     },
     "u\u00f1orthodox": {
@@ -369,6 +441,42 @@
             "csm": 3.14,
             "vision": 20,
             "*cc": 2.14
+        },
+        "3597004546": {
+            "score": 20.22,
+            "champ": "Thresh",
+            "date": "09/29/2020",
+            "role": "DUO_SUPPORT BOTTOM",
+            "duration": "43:26",
+            "kda": "8/10/17",
+            "kp": 0.7142857142857143,
+            "csm": 1.44,
+            "vision": 110,
+            "*cc": 4.53
+        },
+        "3597064058": {
+            "score": 40.73,
+            "champ": "JarvanIV",
+            "date": "09/29/2020",
+            "role": "NONE JUNGLE",
+            "duration": "29:17",
+            "kda": "18/4/20",
+            "kp": 0.8085106382978723,
+            "csm": 5.61,
+            "vision": 42,
+            "*cc": 12.42
+        },
+        "3597556435": {
+            "score": 7.63,
+            "champ": "Amumu",
+            "date": "09/30/2020",
+            "role": "NONE JUNGLE",
+            "duration": "24:15",
+            "kda": "3/8/7",
+            "kp": 0.5555555555555556,
+            "csm": 4.85,
+            "vision": 21,
+            "*cc": 1.96
         }
     },
     "stinny": {
@@ -491,6 +599,30 @@
             "csm": 3.9,
             "vision": 15,
             "*cc": 0.68
+        },
+        "3597413429": {
+            "score": 17.53,
+            "champ": null,
+            "date": "09/30/2020",
+            "role": "NONE JUNGLE",
+            "duration": "35:21",
+            "kda": "7/4/8",
+            "kp": 0.40540540540540543,
+            "csm": 6.42,
+            "vision": 27,
+            "*cc": 1.69
+        },
+        "3597323761": {
+            "score": 11.15,
+            "champ": "Ornn",
+            "date": "09/30/2020",
+            "role": "SOLO TOP",
+            "duration": "36:22",
+            "kda": "9/8/4",
+            "kp": 0.37142857142857144,
+            "csm": 5.53,
+            "vision": 21,
+            "*cc": 2.13
         }
     },
     "xtrader": {
@@ -506,5 +638,378 @@
             "vision": 16,
             "*cc": 0.63
         }
-    }
+    },
+    "bobbyzlich": {
+        "3595010805": {
+            "score": 6.5,
+            "champ": "Gangplank",
+            "date": "09/28/2020",
+            "role": "SOLO TOP",
+            "duration": "27:16",
+            "kda": "2/5/4",
+            "kp": 0.375,
+            "csm": 6.17,
+            "vision": 3,
+            "*cc": 0.44
+        }
+    },
+    "purplebumblebeez": {
+        "3596399580": {
+            "score": 15.65,
+            "champ": "Blitzcrank",
+            "date": "09/29/2020",
+            "role": "DUO_SUPPORT BOTTOM",
+            "duration": "30:18",
+            "kda": "2/5/13",
+            "kp": 0.45454545454545453,
+            "csm": 1.47,
+            "vision": 75,
+            "*cc": 2.3
+        }
+    },
+    "pooplol": {
+        "3596028543": {
+            "score": 16.42,
+            "champ": "Nunu",
+            "date": "09/28/2020",
+            "role": "NONE JUNGLE",
+            "duration": "25:15",
+            "kda": "3/1/8",
+            "kp": 0.5,
+            "csm": 5.44,
+            "vision": 25,
+            "*cc": 9.18
+        },
+        "3595991903": {
+            "score": 14.27,
+            "champ": "Nunu",
+            "date": "09/28/2020",
+            "role": "DUO_SUPPORT NONE",
+            "duration": "15:09",
+            "kda": "2/0/4",
+            "kp": 0.375,
+            "csm": 5.8,
+            "vision": 19,
+            "*cc": 3.33
+        },
+        "3595985472": {
+            "score": 12.61,
+            "champ": "Nunu",
+            "date": "09/28/2020",
+            "role": "DUO_SUPPORT NONE",
+            "duration": "18:11",
+            "kda": "2/1/5",
+            "kp": 0.4666666666666667,
+            "csm": 5.57,
+            "vision": 14,
+            "*cc": 5.41
+        },
+        "3595898971": {
+            "score": 6.26,
+            "champ": "Nunu",
+            "date": "09/28/2020",
+            "role": "NONE JUNGLE",
+            "duration": "30:18",
+            "kda": "1/5/3",
+            "kp": 0.26666666666666666,
+            "csm": 5.64,
+            "vision": 23,
+            "*cc": 0.53
+        },
+        "3595808006": {
+            "score": 23.73,
+            "champ": "Khazix",
+            "date": "09/28/2020",
+            "role": "NONE JUNGLE",
+            "duration": "33:20",
+            "kda": "12/5/10",
+            "kp": 0.4583333333333333,
+            "csm": 6.11,
+            "vision": 36,
+            "*cc": 1.32
+        },
+        "3595821278": {
+            "score": 17.54,
+            "champ": "Khazix",
+            "date": "09/28/2020",
+            "role": "DUO_SUPPORT NONE",
+            "duration": "19:12",
+            "kda": "8/2/3",
+            "kp": 0.55,
+            "csm": 6.19,
+            "vision": 20,
+            "*cc": 1.11
+        },
+        "3595547834": {
+            "score": 26.7,
+            "champ": "Nunu",
+            "date": "09/28/2020",
+            "role": "NONE JUNGLE",
+            "duration": "31:18",
+            "kda": "4/3/20",
+            "kp": 0.7741935483870968,
+            "csm": 6.16,
+            "vision": 38,
+            "*cc": 6.16
+        },
+        "3595354582": {
+            "score": 8.8,
+            "champ": "Khazix",
+            "date": "09/28/2020",
+            "role": "NONE JUNGLE",
+            "duration": "24:14",
+            "kda": "2/4/3",
+            "kp": 0.35714285714285715,
+            "csm": 6.1,
+            "vision": 20,
+            "*cc": 0.26
+        },
+        "3595310095": {
+            "score": 13.42,
+            "champ": "Nunu",
+            "date": "09/28/2020",
+            "role": "NONE JUNGLE",
+            "duration": "33:20",
+            "kda": "3/8/15",
+            "kp": 0.45,
+            "csm": 4.53,
+            "vision": 30,
+            "*cc": 1.96
+        },
+        "3592948502": {
+            "score": 26.0,
+            "champ": "Khazix",
+            "date": "09/26/2020",
+            "role": "NONE JUNGLE",
+            "duration": "23:14",
+            "kda": "16/3/6",
+            "kp": 0.5789473684210527,
+            "csm": 5.81,
+            "vision": 19,
+            "*cc": 1.24
+        },
+        "3592776113": {
+            "score": 13.95,
+            "champ": "Nunu",
+            "date": "09/26/2020",
+            "role": "NONE JUNGLE",
+            "duration": "32:19",
+            "kda": "4/4/10",
+            "kp": 0.6666666666666666,
+            "csm": 4.64,
+            "vision": 17,
+            "*cc": 6.77
+        },
+        "3592770802": {
+            "score": 25.14,
+            "champ": "Nunu",
+            "date": "09/26/2020",
+            "role": "NONE JUNGLE",
+            "duration": "27:16",
+            "kda": "11/4/14",
+            "kp": 0.6756756756756757,
+            "csm": 4.5,
+            "vision": 23,
+            "*cc": 9.83
+        },
+        "3592666372": {
+            "score": 12.51,
+            "champ": "Nunu",
+            "date": "09/26/2020",
+            "role": "NONE JUNGLE",
+            "duration": "20:12",
+            "kda": "4/4/6",
+            "kp": 0.5263157894736842,
+            "csm": 4.94,
+            "vision": 21,
+            "*cc": 2.18
+        },
+        "3592680461": {
+            "score": 22.52,
+            "champ": "Nunu",
+            "date": "09/26/2020",
+            "role": "NONE JUNGLE",
+            "duration": "27:16",
+            "kda": "5/3/16",
+            "kp": 0.6,
+            "csm": 5.43,
+            "vision": 26,
+            "*cc": 7.05
+        },
+        "3592616319": {
+            "score": 14.76,
+            "champ": "Pantheon",
+            "date": "09/26/2020",
+            "role": "DUO_SUPPORT BOTTOM",
+            "duration": "23:14",
+            "kda": "7/7/8",
+            "kp": 0.6818181818181818,
+            "csm": 1.42,
+            "vision": 55,
+            "*cc": 1.85
+        },
+        "3591589890": {
+            "score": 17.33,
+            "champ": "Nunu",
+            "date": "09/25/2020",
+            "role": "NONE JUNGLE",
+            "duration": "26:16",
+            "kda": "6/4/10",
+            "kp": 0.5161290322580645,
+            "csm": 5.66,
+            "vision": 19,
+            "*cc": 4.05
+        },
+        "3591572788": {
+            "score": 22.74,
+            "champ": "Nunu",
+            "date": "09/25/2020",
+            "role": "NONE JUNGLE",
+            "duration": "21:12",
+            "kda": "8/2/10",
+            "kp": 0.6666666666666666,
+            "csm": 5.53,
+            "vision": 23,
+            "*cc": 12.33
+        },
+        "3591450437": {
+            "score": 9.75,
+            "champ": "Khazix",
+            "date": "09/25/2020",
+            "role": "NONE JUNGLE",
+            "duration": "27:16",
+            "kda": "3/5/6",
+            "kp": 0.5625,
+            "csm": 5.12,
+            "vision": 19,
+            "*cc": 0.46
+        },
+        "3591375363": {
+            "score": 11.15,
+            "champ": "Nunu",
+            "date": "09/25/2020",
+            "role": "NONE JUNGLE",
+            "duration": "28:17",
+            "kda": "1/6/11",
+            "kp": 0.5454545454545454,
+            "csm": 4.42,
+            "vision": 33,
+            "*cc": 1.95
+        },
+        "3591349005": {
+            "score": 18.72,
+            "champ": "Nunu",
+            "date": "09/25/2020",
+            "role": "NONE JUNGLE",
+            "duration": "32:19",
+            "kda": "6/9/18",
+            "kp": 0.7741935483870968,
+            "csm": 4.4,
+            "vision": 35,
+            "*cc": 3.47
+        },
+        "3591314984": {
+            "score": 17.83,
+            "champ": "Khazix",
+            "date": "09/25/2020",
+            "role": "NONE JUNGLE",
+            "duration": "23:14",
+            "kda": "8/1/2",
+            "kp": 0.45454545454545453,
+            "csm": 6.49,
+            "vision": 23,
+            "*cc": 2.11
+        },
+        "3597006099": {
+            "score": 20.95,
+            "champ": "Nunu",
+            "date": "09/29/2020",
+            "role": "NONE JUNGLE",
+            "duration": "37:22",
+            "kda": "3/9/27",
+            "kp": 0.6976744186046512,
+            "csm": 3.6,
+            "vision": 32,
+            "*cc": 3.44
+        },
+        "3596990327": {
+            "score": 11.32,
+            "champ": "Nunu",
+            "date": "09/29/2020",
+            "role": "NONE JUNGLE",
+            "duration": "27:16",
+            "kda": "2/7/11",
+            "kp": 0.65,
+            "csm": 4.94,
+            "vision": 28,
+            "*cc": 1.54
+        },
+        "3596925582": {
+            "score": 14.14,
+            "champ": "Nunu",
+            "date": "09/29/2020",
+            "role": "DUO_SUPPORT NONE",
+            "duration": "19:11",
+            "kda": "2/1/6",
+            "kp": 0.4444444444444444,
+            "csm": 6.06,
+            "vision": 17,
+            "*cc": 4.97
+        },
+        "3596888878": {
+            "score": 18.52,
+            "champ": "Nunu",
+            "date": "09/29/2020",
+            "role": "NONE JUNGLE",
+            "duration": "30:18",
+            "kda": "2/3/16",
+            "kp": 0.5294117647058824,
+            "csm": 5.06,
+            "vision": 24,
+            "*cc": 4.79
+        },
+        "3596864719": {
+            "score": 17.5,
+            "champ": "Graves",
+            "date": "09/29/2020",
+            "role": "NONE JUNGLE",
+            "duration": "20:12",
+            "kda": "3/2/8",
+            "kp": 0.4230769230769231,
+            "csm": 7.79,
+            "vision": 19,
+            "*cc": 2.18
+        }
+    },
+    "drag0nham": {
+        "3595100654": {
+            "score": 11.7,
+            "champ": "Janna",
+            "date": "09/28/2020",
+            "role": "DUO_SUPPORT BOTTOM",
+            "duration": "39:23",
+            "kda": "2/10/19",
+            "kp": 0.4772727272727273,
+            "csm": 0.91,
+            "vision": 60,
+            "*cc": 3.14
+        }
+    },
+    "ipogoz": {},
+    "yasuomoe": {},
+    "graynote": {
+        "3597122826": {
+            "score": 26.61,
+            "champ": "Ekko",
+            "date": "09/29/2020",
+            "role": "NONE JUNGLE",
+            "duration": "27:16",
+            "kda": "7/0/10",
+            "kp": 0.6296296296296297,
+            "csm": 7.31,
+            "vision": 41,
+            "*cc": 6.06
+        }
+    },
+    "chillguy": {}
 }

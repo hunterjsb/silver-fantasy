@@ -4,6 +4,8 @@ from dotenv import load_dotenv
 import datetime
 import time
 from functools import wraps
+import json
+
 
 # RIOTAPI.PY REWRITE.
 # RIOT API HANDLER 2
@@ -19,6 +21,8 @@ def get_riot_token():
 
 
 headers = get_riot_token()
+with open('./json/silverfantasy.json') as f:
+    sf_json = json.load(f)
 
 
 def get_champ(champ_id):
@@ -66,9 +70,12 @@ class Summoner:
         self.games = 0
         self.wr = 0
         self.icon = None
-        self.ids = self.get_sum_id()
+        self.ids = self.get_sum_id() if ign not in sf_json["PLAYERS"] else (
+            sf_json["PLAYERS"][ign]['dat']['id'],
+            sf_json["PLAYERS"][ign]['dat']['accountId'],
+            sf_json["PLAYERS"][ign]['dat']['puuid'])
 
-        if type(self.ids) is list:
+        if type(self.ids) is list or tuple:
             self.get_ranked()
 
     def __repr__(self):
@@ -79,7 +86,14 @@ class Summoner:
 
     # GET IDs FROM SUMMONER NAME, [0] is SUM ID [1] is ACCT ID [2] is PUUID
     @except429
-    def get_sum_id(self):
+    def get_sum_id(self, ret_all=False):
+        if self.ign in sf_json and ret_all:
+            ids = sf_json["PLAYERS"][self.ign]['dat']
+            return ids
+        elif self.ign in sf_json:
+            ids = sf_json["PLAYERS"][self.ign]['dat']
+            return [ids['id'], ids['accountId'], ids['puuid']]
+
         name_endpoint = f'https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-name/{self.ign}'
         id_ip = requests.get(name_endpoint, headers=self.headers)
         if id_ip.status_code is not 200:
@@ -89,7 +103,11 @@ class Summoner:
             print('got ID')
             ids = id_ip.json()
             self.icon = ids["profileIconId"]
-        return [ids['id'], ids['accountId'], ids['puuid']]  # ID, ACCT ID, PUUID
+
+        if ret_all:
+            return ids
+        else:
+            return [ids['id'], ids['accountId'], ids['puuid']]  # ID, ACCT ID, PUUID
 
     # GET RANKED DATA FOR A SUMMONER, SOLOQ AND FLEX RANKS + WRS
     @except429
@@ -113,6 +131,7 @@ class Summoner:
             self.soloq = sum_dat[0]
             get_soloq_stats()
         elif sum_dat[0]['queueType'] == 'RANKED_FLEX_SR' and len(sum_dat) == 1:
+            print(f'{sum_dat}')
             self.flex = sum_dat[0]
         elif sum_dat[1]['queueType'] == 'RANKED_SOLO_5x5':
             self.soloq = sum_dat[1]
@@ -129,11 +148,11 @@ class Summoner:
     @property
     def soloq_lin_mmr(self):
         lin_mmr_dict = {'IRON IV': 0, 'IRON III': 250, 'IRON II': 500, 'IRON I': 750, 'BRONZE IV': 1000, 'BRONZE III':
-                        1250, 'BRONZE II': 1500, 'BRONZE I': 1750, 'SILVER IV': 2000, 'SILVER III': 2250, 'SILVER II':
-                        2500, 'SILVER I': 2750, 'GOLD IV': 3000, 'GOLD III': 3250, 'GOLD II': 3500, 'GOLD I': 3750,
+            1250, 'BRONZE II': 1500, 'BRONZE I': 1750, 'SILVER IV': 2000, 'SILVER III': 2250, 'SILVER II':
+                            2500, 'SILVER I': 2750, 'GOLD IV': 3000, 'GOLD III': 3250, 'GOLD II': 3500, 'GOLD I': 3750,
                         'PLATINUM IV': 4000, 'PLATINUM III': 4250, 'PLATINUM II': 4500, 'PLATINUM I': 4750,
                         'DIAMOND IV': 5000, 'DIAMOND III': 5500, 'DIAMOND II': 6000, 'DIAMOND I': 6500, 'MASTER I':
-                        7000, 'GRANDMASTER I': 7500, 'CHALLENGER I': 8000}
+                            7000, 'GRANDMASTER I': 7500, 'CHALLENGER I': 8000}
 
         if type(self.rank) is str:
             return lin_mmr_dict[self.rank] + 2 * self.lp
@@ -153,7 +172,7 @@ class Summoner:
         for match in self.match_history['matches']:
             if match['queue'] == queue_type:
                 soloq_match = Match(match['gameId'])
-                if soloq_match.game_duration > 15*60:  # 15 min
+                if soloq_match.game_duration > 15 * 60:  # 15 min
                     yield soloq_match
 
     def get_recent_soloq_games(self, days=7, limit=57):
@@ -189,8 +208,9 @@ class Summoner:
         totals = (n, t_points, t_k, t_d, t_a, t_csm, t_vision)
         t_kdad = (t_k + t_a) / t_d
         most_role = max(set(roles), key=roles.count)
-        return {'games': n, 'role': most_role, 'ppg': t_points/n, 'kda': f'{round(t_k/n)}/{round(t_d/n)}/{round(t_a/n)}'
-                , 'csm': t_csm/n, 'vision': t_vision/n, 'kdad': t_kdad, 'totals': totals}
+        return {'games': n, 'role': most_role, 'ppg': t_points / n,
+                'kda': f'{round(t_k / n)}/{round(t_d / n)}/{round(t_a / n)}'
+            , 'csm': t_csm / n, 'vision': t_vision / n, 'kdad': t_kdad, 'totals': totals}
 
     def weekly_soloq_stats(self):
         games = self.get_recent_soloq_games()
@@ -317,7 +337,7 @@ class Match:
         if tk == 0:
             tk = 1
 
-        return (k+a)/tk
+        return (k + a) / tk
 
     def get_role(self, name):
         timeline = self.get_participant(name)['timeline']
@@ -336,7 +356,7 @@ class Match:
         if decimal and deaths > 0:
             kda = (kills + assists) / deaths
         elif decimal:
-            kda = 1.1*(kills + assists)
+            kda = 1.1 * (kills + assists)
 
         # RETURN KDA TUPLE
         else:
@@ -356,15 +376,15 @@ class Match:
     # USED IN POINT BASE
     def get_csm(self, name):
         cs = self.get_cs(name)
-        return cs/(self.game_duration/60)
+        return cs / (self.game_duration / 60)
 
     # MFKING POINT BASE
     def calc_point_base(self, name):
         k, d, a = self.get_kda(name)
         kp = self.get_kp(name)
         csm = self.get_csm(name)
-        vpm = self.get_vision_score(name)/(self.game_duration/60)
-        points = (k + .75*a - d)*(0.9 + kp/5) + csm + 3*vpm
+        vpm = self.get_vision_score(name) / (self.game_duration / 60)
+        points = (k + .75 * a - d) * (0.9 + kp / 5) + csm + 3 * vpm
 
         return round(points, 2)
 
@@ -374,7 +394,7 @@ class Match:
         cc = stats["timeCCingOthers"]
         kda = self.get_kda(name, True)
 
-        ccp = (kda/(self.game_duration/60)) * cc
+        ccp = (kda / (self.game_duration / 60)) * cc
         return ccp
 
     # LOOK UP CHAMP NAME OF PLAYER IN GAME

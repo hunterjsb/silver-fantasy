@@ -1,6 +1,7 @@
 from riothandle import Summoner, Match
 import json
 import datetime
+from elbert.updater import Updater
 
 
 def _sq_open():  # this is called on sq_save, which is called by elbert on_ready
@@ -10,10 +11,10 @@ def _sq_open():  # this is called on sq_save, which is called by elbert on_ready
 
 
 _sq_open()
+# ^ open the soloq games... called a bunch. below i open sf just for id reference. all other sf ops are in class League
 
 
 def recent(raw_timestamp_ms, date=False, last=True):
-
     if date:
         time = datetime.datetime.strptime(raw_timestamp_ms, "%m/%d/%Y")
     else:
@@ -108,7 +109,7 @@ class Player(Summoner):
         if not self.rank:
             points = 0
         else:
-            points = 50 + (self.games/(self.games+50))*((self.wr*100)-50) + (self.soloq_lin_mmr/400)
+            points = 50 + (self.games / (self.games + 50)) * ((self.wr * 100) - 50) + (self.soloq_lin_mmr / 400)
 
         return points
 
@@ -214,18 +215,20 @@ class League:
 
     def update_player(self, ign):
         player = Player(ign)
+
         try:
             leagues = self.player_dat[ign]['leagues']
         except KeyError:
             leagues = []
 
+        dat = player.get_sum_id(ret_all=True)
         self.player_dat[ign] = {
             "rank": player.rank,
-            "wr": (round(player.wr*10000)/100),
+            "wr": (round(player.wr * 10000) / 100),
             "leagues": leagues,
             "games": player.games,
             "wr mod": player.wr_mod,
-            "stats": {}
+            "dat": dat
         }
 
         return player
@@ -359,7 +362,7 @@ class League:
                 self.save_league()
                 return self.league_dat['teams'][team]['budget']
             else:
-                return f'400: {round(player.wr_mod-budget, 2)}  PTS TOO EXPENSIVE'
+                return f'400: {round(player.wr_mod - budget, 2)}  PTS TOO EXPENSIVE'
 
     def remove_player_from_team(self, ign, team):
         if self.locked:
@@ -378,24 +381,18 @@ class League:
             print('SUMMONER NOT ON TEAM')
             return 404
 
-    @property
     def ordered_players(self):
         # MAKE SORTED LIST OF DR COSTS
         pointlist = []
         for player in self.player_dat:
-            (pointlist.append(self.player_dat[player]['wr mod']))
-        spointlist = sorted(pointlist, reverse=True)
+            if 'wr mod' not in self.player_dat[player]:
+                summoner = Player(player)
+                self.player_dat[player]['wr mod'] = summoner.calc_linpoints()
 
-        # MATCH WRS THEN RETURN PLAYER LIST!
-        i = 0
-        op_list = []
-        while i < len(self.player_dat):
-            for player in self.master_player_list:
-                if self.player_dat[player]['wr mod'] == spointlist[i]:
-                    op_list.append(player)
-                    i = i+1
-                elif i >= len(self.player_dat)-1:
-                    return zip(op_list, spointlist)
+            pointlist.append((player, self.player_dat[player]['wr mod']))
+        spointlist = sorted(pointlist, key=lambda x: x[1], reverse=True)
+
+        return spointlist
 
     @property
     def start_date(self):
@@ -413,8 +410,8 @@ class League:
     @property
     def locked(self):
         now = datetime.datetime.now()
-        return False
-        # return now > self.lock_at
+        # return False
+        return now > self.lock_at
 
     def start_friday(self):
         today = datetime.datetime.today()
@@ -427,7 +424,7 @@ class League:
 
 def main():
     xfl = League("XFL")
-    print(xfl.score_local("xân"))
+    xfl.update_player("durkledingus")
 
 
 if __name__ == '__main__':

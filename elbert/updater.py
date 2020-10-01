@@ -132,6 +132,7 @@ class Updater:
                     c_player["games"] = n
                     c_player["leagues"] = [] if "leagues" not in c_player else c_player["leagues"]
                     c_player["wr mod"] = round(cost, 2)
+                    c_player["lp"] = player['lp']
 
         self.save(league=True)
         return resp
@@ -189,5 +190,4 @@ if __name__ == "__main__":
     #u.run()
 
     u = Updater('ranked')
-    print(u.update_matches(["black xan bible", "xân", "almostanantag", "huhi", "doublelift", "ipogoz",
-                            "durkledingus", "1deepgenz", "1deepturtle", "stinny", "xtrader", "chillguy", "o"]))
+    print(u.update_ranked(["uñorthodox"]))

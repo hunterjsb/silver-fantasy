@@ -74,8 +74,12 @@ async def start(ctx, league=default_league):
 
 @bot.command()
 async def gto(ctx, league=default_league):
+    pasta = ''
     for owner, oid in get_owners(league):
-        await ctx.send(f'{owner} | {oid}')
+        user = bot.get_user(int(oid))
+        print(user.mention)
+        pasta += user.mention + f'{owner} '
+    await ctx.send(pasta)
 
 
 # DELETE MESSAGES IN A CHANNEL
@@ -103,13 +107,15 @@ async def pa(ctx, author=None):
 
 # DRAFT ROYALE!
 @bot.command()
-async def standings(ctx, leauge_name=default_league):
-    await ctx.send('***STANDINGS***')
-    league = fm.League(leauge_name)
+async def standings(ctx, league_name=default_league):
+    league = fm.League(league_name)
+    spointlist = league.ordered_players()
 
-    for player, pts in league.ordered_players:
+    i = 0
+    for player, pts in spointlist:
         if league.whitelisted(player):
-            await ctx.send(f'{player}: {round(pts)}')
+            i += 1
+            await ctx.send(f"RANK {i} | **{player}** @ `{round(pts, 1)}`")
 
 
 @bot.command()
@@ -306,14 +312,14 @@ async def leaguescore(ctx, league=default_league):
         user = bot.get_user(int(tid))
         pasta.add_field(name=user.name, value=f"{i} | {round(score, 1)} pts", inline=False)
         if i == 1:
-            pasta.set_thumbnail(url=user.avatar_url)  # is this broken...?
+            pasta.set_thumbnail(url=user.avatar_url)  # is this broken...? something is.
 
     await ctx.send(embed=pasta)
 
 
 @bot.command()
-async def localrank(ctx, league_name=default_league):
-    league = fm.League(league_name)
+async def rank(ctx, stats=False):
+    league = fm.League(default_league)
     ranks = []
 
     for team_n in league.league_dat["teams"]:
@@ -321,29 +327,43 @@ async def localrank(ctx, league_name=default_league):
         ranks.append((team_n, team["points"], [x for x in team["players"]]))  # append tuple - name, pts, roster
     ranks = sorted(ranks, key=lambda x: x[1], reverse=True)
 
-    i = 0
-    for n, pts, players in ranks:
-        i += 1
-        user = bot.get_user(int(n))
-        pasta = discord.Embed(color=discord.Color(int("DAB420", 16)), title=f"TEAM {user.name}",
-                              description=f'*RANK {i} | `{round(pts, 1)}` pts*')
-        for player in players:
-            scores = league.score_local(player)
-            n_games = len(scores)
+    if stats:
+        i = 0
+        for n, pts, players in ranks:
+            i += 1
+            user = bot.get_user(int(n))
+            pasta = discord.Embed(color=discord.Color(int("DAB420", 16)), title=f"TEAM {user.name}",
+                                  description=f'*RANK `{i}` | `{round(pts, 1)}` pts*')
+            for player in players:
+                scores = league.score_local(player)
+                n_games = len(scores)
 
-            if n_games < 1:
-                pass
-            elif n_games == 1:
-                g1 = scores[0]
-                pasta.add_field(name=f'{player}', value=f"`{g1[1]}` | {g1[3]} on {g1[2]}")
-            else:
-                g1, g2 = scores[:2]
-                print(g1, g2)
-                pasta.add_field(name=f'{player}', value=f"1: `{g1[1]}` | {g1[3]} on {g1[2]}\n"
-                                                        f"2: `{g2[1]}` | {g2[3]} on {g2[2]}")
+                if n_games < 1:
+                    pasta.add_field(name=player, value="NO GAMES / 0 PTS!", inline=False)
+                elif n_games == 1:
+                    g1 = scores[0]
+                    pasta.add_field(name=f'{player} | {g1[1]}', value=f"`{g1[1]}` | {g1[3]} on {g1[2]}", inline=False)
+                else:
+                    g1, g2 = scores[:2]
+                    score = g1[1] + g2[1]
+                    pasta.add_field(name=f'{player} | {score}', value=f"1: `{g1[1]}` | {g1[3]} on {g1[2]}\n"
+                                                                      f"2: `{g2[1]}` | {g2[3]} on {g2[2]}", inline=False)
 
-        pasta.set_thumbnail(url=user.avatar_url)
+            pasta.set_thumbnail(url=user.avatar_url)
+            await ctx.send(embed=pasta)
+
+    else:
+        pasta = discord.Embed(color=discord.Color(int("DAB420", 16)), title="RANKINGS",
+                              description=f"*for the {league.name}*")
+        i = 0
+        for n, pts, players in ranks:
+            i += 1
+            user = bot.get_user(int(n))
+            pasta.add_field(name=user.name, value=f"{i} | {round(pts, 1)} pts", inline=False)
+            if i == 1:
+                pasta.set_thumbnail(url=user.avatar_url)  # is this broken...?
         await ctx.send(embed=pasta)
+
 
 #####################################################################################################################
 
@@ -357,6 +377,7 @@ async def on_message(message):
 
     # STRIKE FOR @EVERYONE
     if message.mention_everyone:  # everyone counter
+        print(content)
         await channel.send(f'{message.author.name} you dumb fuck')
         strike(message.author.name, '@everyones')
         return
