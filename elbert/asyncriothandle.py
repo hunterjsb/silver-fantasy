@@ -1,6 +1,5 @@
 import asyncio
 import aiohttp
-import os
 
 # load_dotenv()
 # TOKEN = os.getenv("RIOT_TOKEN")  # WAIT IM NOT SURE IF THIS WORKS
@@ -31,8 +30,8 @@ class AsyncRequester:
             self.requests = []
             self.c_req = 0
 
-        self.error = None  # not even used
         self.region = 'na1'
+        self.erred = {}  # enter 429'd hoes here - url: error. does not reset automatically.
 
     def __floor__(self):
         """removes duplicates from list"""
@@ -71,6 +70,8 @@ class AsyncRequester:
             self.c_req -= 1
 
             status = s_resp.status
+            if status != 200:  # log the error
+                self.erred[endpoint] = status
             color = BColors.OKGREEN if status == 200 else BColors.FAIL
             print(f'{color}{AsyncRequester().t_req}{BColors.ENDC} | {BColors.UNDERLINE}{endpoint}{BColors.ENDC} | '
                   f'{color}{s_resp.status}{BColors.ENDC}')
@@ -116,8 +117,14 @@ class AsyncRequester:
 
 if __name__ == '__main__':
     ar = AsyncRequester()
-    ar.sum_dat('ipogoz')
     ar.sum_dat('black xan bible')
     resp = ar.run()
+    ids = resp[0]
 
-    print(resp[0])
+    ar.match_history(ids['accountId'], queries={"queue": 420})
+    resp = ar.run()
+
+    for match in resp[0]["matches"][:38]:
+        ar.match(match["gameId"])
+    resp = ar.run()
+    print(ar.erred)

@@ -273,24 +273,13 @@ class League:
             return False
 
     # NOT USED IN ANY OTHER FUNCTIONS RN (aka a TOOL)
-    def update_all(self, new_players=None):
-        for player in self.master_player_list:
-            print(f'{player} updated!')
-            self.update_player(player)
-
-        # ADD NEW PLAYER(S). TAKES LIST OF STRs OR STR
-        if new_players is not None:
-            if type(new_players) is str and new_players not in self.master_player_list:
-                self.update_player(new_players)
-            elif type(new_players) is list:
-                for player in new_players:
-                    if player not in self.master_player_list:
-                        print(f'{player} registered!')
-                        self.update_player(player)
-                    elif player in self.master_player_list:
-                        print(f'{player} already registered')
-            elif new_players in self.master_player_list:
-                print(f'{new_players} already registered')
+    def update_player_teamlist(self):
+        for team_id, team in self.league_dat['teams'].items():
+            for player in team['players']:
+                pasta = self.name + ':' + team_id
+                if pasta not in self.player_dat[player]['teams']:
+                    self.player_dat[player]['teams'].append(pasta)
+                    print(pasta)
 
         self.save_league()
 
@@ -424,7 +413,7 @@ class League:
 
 def main():
     xfl = League("XFL")
-    xfl.update_player("durkledingus")
+    xfl.update_player_teamlist()
 
 
 if __name__ == '__main__':

@@ -207,7 +207,14 @@
                 "XFL"
             ],
             "wr mod": 56.31,
-            "teams": [],
+            "teams": [
+                "XFL:371034483836846090",
+                "XFL:409135880960213002",
+                "XFL:434766902221340682",
+                "XFL:300110170858717184",
+                "XFL:408704037358272535",
+                "XFL:178942452034568192"
+            ],
             "lp": 0
         },
         "x\u00e2n": {
@@ -229,7 +236,14 @@
                 "summonerLevel": 283
             },
             "inactive": false,
-            "teams": [],
+            "teams": [
+                "XFL:371034483836846090",
+                "XFL:409135880960213002",
+                "XFL:300110170858717184",
+                "XFL:408704037358272535",
+                "XFL:460129267775176715",
+                "XFL:213709745964580874"
+            ],
             "lp": 0
         },
         "ipogoz": {
@@ -250,7 +264,12 @@
                 "summonerLevel": 427
             },
             "inactive": false,
-            "teams": [],
+            "teams": [
+                "XFL:409135880960213002",
+                "XFL:264422225711464448",
+                "XFL:408704037358272535",
+                "XFL:199962540275400704"
+            ],
             "lp": 0
         },
         "snakebee16": {
@@ -368,7 +387,9 @@
             "games": 86,
             "leagues": [],
             "wr mod": 53.53,
-            "teams": [],
+            "teams": [
+                "XFL:408704037358272535"
+            ],
             "lp": 0
         },
         "1deepturtle": {
@@ -389,7 +410,11 @@
                 "revisionDate": 1601058967000,
                 "summonerLevel": 394
             },
-            "teams": [],
+            "teams": [
+                "XFL:300110170858717184",
+                "XFL:460129267775176715",
+                "XFL:213709745964580874"
+            ],
             "lp": 0
         },
         "darkshadow2015": {
@@ -415,7 +440,9 @@
             "dat": {
                 "id": "C1VsxlMYY8_Qrw02atDoeXCVsMxZ0kPSyTeAqFjpuyFwsdc"
             },
-            "teams": [],
+            "teams": [
+                "XFL:264422225711464448"
+            ],
             "lp": 0
         },
         "jhonny blaze": {
@@ -458,7 +485,12 @@
             "games": 969,
             "leagues": [],
             "wr mod": 55.98,
-            "teams": [],
+            "teams": [
+                "XFL:371034483836846090",
+                "XFL:434766902221340682",
+                "XFL:300110170858717184",
+                "XFL:408704037358272535"
+            ],
             "lp": 0
         },
         "graynote": {
@@ -478,7 +510,9 @@
                 "revisionDate": 1601194033000,
                 "summonerLevel": 232
             },
-            "teams": [],
+            "teams": [
+                "XFL:434766902221340682"
+            ],
             "lp": 0
         },
         "larrylobster333": {
@@ -512,7 +546,10 @@
                 "revisionDate": 1600637398000,
                 "summonerLevel": 151
             },
-            "teams": [],
+            "teams": [
+                "XFL:434766902221340682",
+                "XFL:264422225711464448"
+            ],
             "lp": 0
         },
         "1deepgenz": {
@@ -531,7 +568,10 @@
             "games": 246,
             "leagues": [],
             "wr mod": 53.55,
-            "teams": [],
+            "teams": [
+                "XFL:409135880960213002",
+                "XFL:460129267775176715"
+            ],
             "lp": 0
         },
         "bobbyzlich": {
@@ -552,7 +592,11 @@
                 "summonerLevel": 78
             },
             "inactive": false,
-            "teams": [],
+            "teams": [
+                "XFL:264422225711464448",
+                "XFL:199962540275400704",
+                "XFL:178942452034568192"
+            ],
             "lp": 0
         },
         "u\u00f1orthodox": {
@@ -572,7 +616,10 @@
                 "revisionDate": 1601355542000,
                 "summonerLevel": 157
             },
-            "teams": [],
+            "teams": [
+                "XFL:371034483836846090",
+                "XFL:460129267775176715"
+            ],
             "lp": 0
         },
         "ahhhaustin": {
@@ -606,7 +653,11 @@
                 "revisionDate": 1600308864000,
                 "summonerLevel": 41
             },
-            "teams": [],
+            "teams": [
+                "XFL:434766902221340682",
+                "XFL:199962540275400704",
+                "XFL:178942452034568192"
+            ],
             "lp": 0
         },
         "i am dogunyun": {
@@ -639,7 +690,9 @@
                 "summonerLevel": 55
             },
             "inactive": false,
-            "teams": [],
+            "teams": [
+                "XFL:178942452034568192"
+            ],
             "lp": 0
         },
         "meatmattress": {
@@ -748,7 +801,9 @@
                 "revisionDate": 1600559847000,
                 "summonerLevel": 484
             },
-            "teams": [],
+            "teams": [
+                "XFL:264422225711464448"
+            ],
             "lp": 0
         },
         "xtrader": {
@@ -768,7 +823,10 @@
                 "revisionDate": 1600949285000,
                 "summonerLevel": 259
             },
-            "teams": [],
+            "teams": [
+                "XFL:199962540275400704",
+                "XFL:178942452034568192"
+            ],
             "lp": 0
         },
         "purplebumblebeez": {
@@ -788,7 +846,11 @@
                 "revisionDate": 1600103694000,
                 "summonerLevel": 140
             },
-            "teams": [],
+            "teams": [
+                "XFL:409135880960213002",
+                "XFL:300110170858717184",
+                "XFL:199962540275400704"
+            ],
             "lp": 0
         },
         "pooplol": {
@@ -808,7 +870,9 @@
                 "revisionDate": 1598752257000,
                 "summonerLevel": 351
             },
-            "teams": [],
+            "teams": [
+                "XFL:371034483836846090"
+            ],
             "lp": 0
         },
         "durkledingus": {
@@ -826,8 +890,31 @@
                 "revisionDate": 1597196632000,
                 "summonerLevel": 78
             },
-            "teams": [],
+            "teams": [
+                "XFL:460129267775176715"
+            ],
             "lp": 0
+        },
+        "fent bars": {
+            "dat": {
+                "id": "ucKcS94DDJBL61drgDbE_9Gc2-bg6MCUEChT6a6L_ixBHmPy",
+                "accountId": "8wYrK6ieTLtZhdEGiUHLJXeXmPQUFn-8oUQZMa7D-UefcPXlMP0IeLGl",
+                "puuid": "osr9U3z3ruEUtXOq69yEVEamr6hHICBXZeTNPqho_vEEq0alz9yG_mEkU-PHKJbwgZyr5U83FsxirQ",
+                "name": "fent bars",
+                "profileIconId": 1296,
+                "revisionDate": 1600665789000,
+                "summonerLevel": 67
+            },
+            "rank": "SILVER II",
+            "inactive": false,
+            "wr": 46.0,
+            "games": 200,
+            "leagues": [],
+            "wr mod": 53.05,
+            "lp": 39,
+            "teams": [
+                "XFL:213709745964580874"
+            ]
         }
     }
 }

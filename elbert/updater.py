@@ -132,7 +132,8 @@ class Updater:
                     c_player["games"] = n
                     c_player["leagues"] = [] if "leagues" not in c_player else c_player["leagues"]
                     c_player["wr mod"] = round(cost, 2)
-                    c_player["lp"] = player['lp']
+                    c_player["lp"] = player['leaguePoints']
+                    c_player["teams"] = [] if "teams" not in c_player else c_player["teams"]
 
         self.save(league=True)
         return resp
@@ -190,4 +191,4 @@ if __name__ == "__main__":
     #u.run()
 
     u = Updater('ranked')
-    print(u.update_ranked(["uñorthodox"]))
+    print(u.update_ranked(["fent bars"]))
