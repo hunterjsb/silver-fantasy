@@ -206,7 +206,9 @@
             "leagues": [
                 "XFL"
             ],
-            "wr mod": 56.31
+            "wr mod": 56.31,
+            "teams": [],
+            "lp": 0
         },
         "x\u00e2n": {
             "rank": "SILVER II",
@@ -226,7 +228,9 @@
                 "revisionDate": 1600928420000,
                 "summonerLevel": 283
             },
-            "inactive": false
+            "inactive": false,
+            "teams": [],
+            "lp": 0
         },
         "ipogoz": {
             "rank": "GOLD IV",
@@ -245,7 +249,9 @@
                 "revisionDate": 1600634622000,
                 "summonerLevel": 427
             },
-            "inactive": false
+            "inactive": false,
+            "teams": [],
+            "lp": 0
         },
         "snakebee16": {
             "rank": "IRON IV",
@@ -263,7 +269,9 @@
                 "profileIconId": 3883,
                 "revisionDate": 1600034433000,
                 "summonerLevel": 405
-            }
+            },
+            "teams": [],
+            "lp": 0
         },
         "b\u00e9p": {
             "rank": "GOLD IV",
@@ -279,16 +287,18 @@
                 "profileIconId": 3865,
                 "revisionDate": 1600382020000,
                 "summonerLevel": 49
-            }
+            },
+            "teams": [],
+            "lp": 0
         },
         "drag0nham": {
-            "rank": null,
-            "wr": 0.0,
+            "rank": "BRONZE I",
+            "wr": 40.32,
             "leagues": [
                 "XFL"
             ],
-            "games": 0,
-            "wr mod": 0,
+            "games": 62,
+            "wr mod": 49.02,
             "dat": {
                 "id": "pzF5qBYq6mCOkqBKBrVrarkRky4qewegXtj0gPyrfYuTkkC6",
                 "accountId": "KlBmCwBpAalCDPX9C2CFpDZ4DB89AU5NS0eGvukaI6Wf5OleWyTLtevC",
@@ -297,7 +307,10 @@
                 "profileIconId": 4630,
                 "revisionDate": 1600803931000,
                 "summonerLevel": 73
-            }
+            },
+            "inactive": false,
+            "lp": 0,
+            "teams": []
         },
         "xxda1hpwarriorxx": {
             "rank": "BRONZE II",
@@ -315,7 +328,9 @@
                 "profileIconId": 4655,
                 "revisionDate": 1600048314000,
                 "summonerLevel": 142
-            }
+            },
+            "teams": [],
+            "lp": 0
         },
         "kronova": {
             "rank": "PLATINUM II",
@@ -333,7 +348,9 @@
                 "profileIconId": 4667,
                 "revisionDate": 1600569430000,
                 "summonerLevel": 500
-            }
+            },
+            "teams": [],
+            "lp": 0
         },
         "nkjukko": {
             "dat": {
@@ -350,7 +367,9 @@
             "wr": 47.67,
             "games": 86,
             "leagues": [],
-            "wr mod": 53.53
+            "wr mod": 53.53,
+            "teams": [],
+            "lp": 0
         },
         "1deepturtle": {
             "rank": "GOLD IV",
@@ -369,7 +388,9 @@
                 "profileIconId": 4657,
                 "revisionDate": 1601058967000,
                 "summonerLevel": 394
-            }
+            },
+            "teams": [],
+            "lp": 0
         },
         "darkshadow2015": {
             "rank": "SILVER III",
@@ -379,7 +400,9 @@
             "wr mod": 52.29161290322581,
             "dat": {
                 "id": "iWvws8YbDoUefCRYWE0UlI5BwCJCCbp6xtr87DLZdJ0DXFw"
-            }
+            },
+            "teams": [],
+            "lp": 0
         },
         "micheal nguyen": {
             "rank": "PLATINUM II",
@@ -391,7 +414,9 @@
             "wr mod": 62.75635135135135,
             "dat": {
                 "id": "C1VsxlMYY8_Qrw02atDoeXCVsMxZ0kPSyTeAqFjpuyFwsdc"
-            }
+            },
+            "teams": [],
+            "lp": 0
         },
         "jhonny blaze": {
             "rank": "BRONZE I",
@@ -401,7 +426,9 @@
             "wr mod": 52.369528301886795,
             "dat": {
                 "id": "JrCmbK_bwnWnZZRIrDF0eEUsnuh5xmrT2pYJELwZe0Dc"
-            }
+            },
+            "teams": [],
+            "lp": 0
         },
         "jusyithings": {
             "rank": "PLATINUM III",
@@ -411,7 +438,9 @@
             "wr mod": 64.33928571428572,
             "dat": {
                 "id": "ttcoSaPqzAMAj3JEkIyTdEARgdMurYt89ZAPDsImny6dvtc"
-            }
+            },
+            "teams": [],
+            "lp": 0
         },
         "stinny": {
             "dat": {
@@ -428,7 +457,9 @@
             "wr": 48.4,
             "games": 969,
             "leagues": [],
-            "wr mod": 55.98
+            "wr mod": 55.98,
+            "teams": [],
+            "lp": 0
         },
         "graynote": {
             "rank": "GOLD II",
@@ -446,7 +477,9 @@
                 "profileIconId": 3839,
                 "revisionDate": 1601194033000,
                 "summonerLevel": 232
-            }
+            },
+            "teams": [],
+            "lp": 0
         },
         "larrylobster333": {
             "rank": "SILVER IV",
@@ -458,7 +491,9 @@
             "wr mod": 53.819848484848485,
             "dat": {
                 "id": "ZzmkZuAK0LZBd41nuyVb630Ka6FES-d8BzS6gwVUje4HcX4"
-            }
+            },
+            "teams": [],
+            "lp": 0
         },
         "yasuomoe": {
             "rank": "SILVER IV",
@@ -476,7 +511,9 @@
                 "profileIconId": 3797,
                 "revisionDate": 1600637398000,
                 "summonerLevel": 151
-            }
+            },
+            "teams": [],
+            "lp": 0
         },
         "1deepgenz": {
             "dat": {
@@ -493,7 +530,9 @@
             "wr": 46.75,
             "games": 246,
             "leagues": [],
-            "wr mod": 53.55
+            "wr mod": 53.55,
+            "teams": [],
+            "lp": 0
         },
         "bobbyzlich": {
             "rank": "SILVER IV",
@@ -512,7 +551,9 @@
                 "revisionDate": 1600310710000,
                 "summonerLevel": 78
             },
-            "inactive": false
+            "inactive": false,
+            "teams": [],
+            "lp": 0
         },
         "u\u00f1orthodox": {
             "rank": "SILVER III",
@@ -530,7 +571,9 @@
                 "profileIconId": 4631,
                 "revisionDate": 1601355542000,
                 "summonerLevel": 157
-            }
+            },
+            "teams": [],
+            "lp": 0
         },
         "ahhhaustin": {
             "rank": "PLATINUM III",
@@ -542,7 +585,9 @@
             "wr mod": 58.24391156462586,
             "dat": {
                 "id": "oQLbZD7-WiOmLAf2XJ4oA-L7A4wHp13y-2t3bFv7IN2Wizk"
-            }
+            },
+            "teams": [],
+            "lp": 0
         },
         "chillguy": {
             "rank": "GOLD IV",
@@ -560,7 +605,9 @@
                 "profileIconId": 1301,
                 "revisionDate": 1600308864000,
                 "summonerLevel": 41
-            }
+            },
+            "teams": [],
+            "lp": 0
         },
         "i am dogunyun": {
             "rank": "PLATINUM I",
@@ -570,7 +617,9 @@
             "wr mod": 73.97413533834586,
             "dat": {
                 "id": "AY9lGFEnVOye4CgU0-7eH2-kuHNpnktGDtbH9JQ5Ve7EKSAC"
-            }
+            },
+            "teams": [],
+            "lp": 0
         },
         "squackythebird": {
             "rank": "PLATINUM IV",
@@ -589,7 +638,9 @@
                 "revisionDate": 1601002707000,
                 "summonerLevel": 55
             },
-            "inactive": false
+            "inactive": false,
+            "teams": [],
+            "lp": 0
         },
         "meatmattress": {
             "dat": {
@@ -606,7 +657,9 @@
             "wr": 49.37,
             "games": 79,
             "leagues": [],
-            "wr mod": 54.61
+            "wr mod": 54.61,
+            "teams": [],
+            "lp": 0
         },
         "ipisgood": {
             "dat": {
@@ -623,7 +676,9 @@
             "wr": 47.8,
             "games": 431,
             "leagues": [],
-            "wr mod": 55.52
+            "wr mod": 55.52,
+            "teams": [],
+            "lp": 0
         },
         "doublelift": {
             "dat": {
@@ -640,7 +695,9 @@
             "wr": 52.32,
             "games": 732,
             "leagues": [],
-            "wr mod": 68.42
+            "wr mod": 68.42,
+            "teams": [],
+            "lp": 0
         },
         "huhi": {
             "dat": {
@@ -657,7 +714,9 @@
             "wr": 54.58,
             "games": 491,
             "leagues": [],
-            "wr mod": 74.16
+            "wr mod": 74.16,
+            "teams": [],
+            "lp": 0
         },
         "almostanantag": {
             "dat": {
@@ -668,7 +727,9 @@
                 "profileIconId": 3546,
                 "revisionDate": 1594018770000,
                 "summonerLevel": 17
-            }
+            },
+            "teams": [],
+            "lp": 0
         },
         "yasheo": {
             "rank": "GOLD II",
@@ -686,7 +747,9 @@
                 "profileIconId": 4677,
                 "revisionDate": 1600559847000,
                 "summonerLevel": 484
-            }
+            },
+            "teams": [],
+            "lp": 0
         },
         "xtrader": {
             "rank": "PLATINUM II",
@@ -704,7 +767,9 @@
                 "profileIconId": 3367,
                 "revisionDate": 1600949285000,
                 "summonerLevel": 259
-            }
+            },
+            "teams": [],
+            "lp": 0
         },
         "purplebumblebeez": {
             "rank": "GOLD I",
@@ -722,7 +787,9 @@
                 "profileIconId": 3159,
                 "revisionDate": 1600103694000,
                 "summonerLevel": 140
-            }
+            },
+            "teams": [],
+            "lp": 0
         },
         "pooplol": {
             "rank": "DIAMOND II",
@@ -740,7 +807,9 @@
                 "profileIconId": 23,
                 "revisionDate": 1598752257000,
                 "summonerLevel": 351
-            }
+            },
+            "teams": [],
+            "lp": 0
         },
         "durkledingus": {
             "rank": "GOLD I",
@@ -756,7 +825,9 @@
                 "profileIconId": 4353,
                 "revisionDate": 1597196632000,
                 "summonerLevel": 78
-            }
+            },
+            "teams": [],
+            "lp": 0
         }
     }
 }
