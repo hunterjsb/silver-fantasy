@@ -23,7 +23,7 @@ class AsyncRequester:
     t_req = 0
 
     def __init__(self, init_req=None):
-        if init_req:
+        if init_req:  # if given initialization requests set the counter and local list
             self.c_req = len(init_req)
             self.set_requests(init_req)
         else:
@@ -43,6 +43,7 @@ class AsyncRequester:
         return f'{type(self)}\n{self.c_req} REQUESTS: {self.requests}'
 
     def __mod__(self, size: int):
+        """splits request list in to a list of lists of the given size"""
         chunks = [self.requests[x:x+size] for x in range(0, len(self.requests), size)]
         return chunks
 
@@ -56,6 +57,7 @@ class AsyncRequester:
 
     @staticmethod
     def _add_queries(endpoint: str, queries: dict):
+        """for decorating a URL with PHP query requests."""
         i = 0
         for k, v in queries.items():
             i += 1
@@ -65,6 +67,7 @@ class AsyncRequester:
         return endpoint
 
     async def _make_request(self, endpoint, session):
+        """uses the session to make a request to the endpoint"""
         async with session.get(endpoint, headers=HEADERS) as s_resp:
             AsyncRequester.t_req += 1
             self.c_req -= 1
@@ -79,8 +82,9 @@ class AsyncRequester:
             return await s_resp.json()
 
     async def _gather_requests(self):
+        """schedules all of the endpoints to be requested, then requests them all asynchronously. clears requests."""
         tasks = []
-        print(f'{BColors.HEADER}requests made: {AsyncRequester.t_req} ({self.c_req} pending{BColors.ENDC})')
+        print(f'{BColors.HEADER}{AsyncRequester.t_req} made | {self.c_req} pending{BColors.ENDC}')
 
         async with aiohttp.ClientSession() as session:
             for req in self.requests:

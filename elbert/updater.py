@@ -3,8 +3,9 @@ from elbert.asyncriothandle import AsyncRequester
 import json
 import sys
 import datetime
+import time
 
-# FILE-PATHS FOR THE DATA!!!
+# FILE-PATHS FOR THE DATA!!! apparently trey no likey
 LEAGUE_FP = "../json/silverfantasy.json"
 GAMES_FP = "../json/soloqgames.json"
 
@@ -47,6 +48,7 @@ class Updater:
 
         self.ar = AsyncRequester()
         self.request_type = request_type
+        self.erred = []
 
     def save(self, league=False, games=False):
         """write the instance data in .league or .games to its respective file bu setting it to True"""
@@ -167,10 +169,24 @@ class Updater:
         """takes in summoners and updates matches"""
         to_get = self.request_weekly_soloq(args)
         match_ar = AsyncRequester()
+        resp = []
 
+        i = 0
         for mid in to_get:
             match_ar.match(mid)
-        print(match_ar.run())
+            if (AsyncRequester.t_req + match_ar.c_req) % 20 == 0:
+                resp += match_ar.run()
+                time.sleep(1)
+                i += 1
+                if i % 5 == 0:
+                    print('U DONE IT NOW BOY')
+                    time.sleep(90)
+
+        resp += match_ar.run()
+        for r in resp:
+            for i in r:
+                print(i)
+        return resp
 
     def run(self):
         """for running from the command line"""
@@ -182,6 +198,8 @@ class Updater:
             return self.update_ranked(args)
         elif self.request_type == "history":
             return self.request_weekly_soloq(args)
+        elif self.request_type == "matches":
+            return self.update_matches(args)
         else:
             print(f'\033[93mERROR: UNKNOWN REQUEST TYPE {self.request_type}\033[0m')
 
@@ -190,5 +208,5 @@ if __name__ == "__main__":
     #u = Updater(sys.argv[1])  # take first argument as class input
     #u.run()
 
-    u = Updater('ranked')
-    print(u.update_ranked(["fent bars"]))
+    u = Updater('ranked')  # doesn't even matter how i initialize it
+    print(u.update_matches(["black xan bible", "xân"]))#, "fent bars", "1deepgenz", "1deepturtle", "stinny", "yasheo"]))
