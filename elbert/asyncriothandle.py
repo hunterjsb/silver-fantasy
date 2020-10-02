@@ -1,7 +1,7 @@
 import asyncio
 import aiohttp
 
-HEADERS = {"X-Riot-Token": "RGAPI-X"}
+HEADERS = {"X-Riot-Token": "RGAPI-9ac67d68-c7fc-4185-a79a-9c1897985cde"}
 
 
 # COLORS! for console printing

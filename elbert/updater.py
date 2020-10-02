@@ -10,20 +10,6 @@ LEAGUE_FP = "../json/silverfantasy.json"
 GAMES_FP = "../json/soloqgames.json"
 
 
-# CHECKS TO SEE IF A TIMESTAMP IS OLDER THAN LAST FRIDAY
-def recent(raw_timestamp_ms, date=False, last=True):
-
-    if date:
-        time = datetime.datetime.strptime(raw_timestamp_ms, "%m/%d/%Y")
-    else:
-        time = datetime.datetime.fromtimestamp(raw_timestamp_ms // 1000)
-
-    today = datetime.datetime.today()
-    n = 7 if last else 0
-    friday = today + datetime.timedelta((4 - today.weekday()) % 7) - datetime.timedelta(n)
-    return time.date() >= friday.date()
-
-
 def last_friday():
     today = datetime.datetime.today()
     friday = today + datetime.timedelta((4 - today.weekday()) % 7) - datetime.timedelta(6)
@@ -46,11 +32,10 @@ class Updater:
         with open(GAMES_FP) as f2:
             self.games = json.load(f2)
 
-        self.ar = AsyncRequester()
+        self.erred = {}
         self.request_type = request_type
-        self.erred = []
 
-    def save(self, league=False, games=False):
+    def save(self, league=False, games=False, state=None):
         """write the instance data in .league or .games to its respective file bu setting it to True"""
         if league:
             with open(LEAGUE_FP, 'w') as f:
@@ -61,6 +46,9 @@ class Updater:
             with open(GAMES_FP, 'w') as f2:
                 json.dump(self.games, f2, indent=4)
                 print(f'\033[94msaved {GAMES_FP}\033[0m')
+
+        if state:  # save some data from an AR
+            self.erred.update(state.erred)
 
     def update_summoner(self, args):
         """takes a list of IGN's and requests summoner data for each
@@ -74,8 +62,7 @@ class Updater:
         resp = id_ar.run()
 
         for player in resp:
-            if 'status' in player:
-                print(f'\033[93mERROR\033[0m  {player}')
+            if 'status' in player:  # skip errors
                 continue
 
             try:
@@ -84,7 +71,7 @@ class Updater:
                 self.league["PLAYERS"][player["name"].lower()] = {}
                 self.league["PLAYERS"][player["name"].lower()]['dat'] = player
 
-        self.save(league=True)
+        self.save(league=True, state=id_ar)
         return resp
 
     def check_ids(self, igns: list, id_type='id', request=True):
@@ -137,7 +124,7 @@ class Updater:
                     c_player["lp"] = player['leaguePoints']
                     c_player["teams"] = [] if "teams" not in c_player else c_player["teams"]
 
-        self.save(league=True)
+        self.save(league=True, state=rank_ar)
         return resp
     
     def request_weekly_soloq(self, args):
@@ -161,8 +148,7 @@ class Updater:
             else:
                 errors += 1
 
-        print(f'\033[93m{errors} NULL PLAYERS(S)\033[0m')
-
+        self.save(state=hist_ar)
         return to_request
 
     def update_matches(self, args):
@@ -183,9 +169,10 @@ class Updater:
                     time.sleep(90)
 
         resp += match_ar.run()
-        for r in resp:
-            for i in r:
-                print(i)
+        for r in resp[0]:
+            print(r)
+
+        self.save(state=match_ar)
         return resp
 
     def run(self):
@@ -196,12 +183,12 @@ class Updater:
             return self.update_summoner(args)
         elif self.request_type == "ranked":
             return self.update_ranked(args)
-        elif self.request_type == "history":
-            return self.request_weekly_soloq(args)
         elif self.request_type == "matches":
             return self.update_matches(args)
         else:
             print(f'\033[93mERROR: UNKNOWN REQUEST TYPE {self.request_type}\033[0m')
+
+        print(f'\033[93mERRORS:\033[0m  {self.erred}')
 
 
 if __name__ == "__main__":
@@ -209,4 +196,6 @@ if __name__ == "__main__":
     #u.run()
 
     u = Updater('ranked')  # doesn't even matter how i initialize it
-    print(u.update_matches(["black xan bible", "xân"]))#, "fent bars", "1deepgenz", "1deepturtle", "stinny", "yasheo"]))
+    # u.update_ranked(["ipogoz", "nkjukko", "x", "ybguhisjddiojasdas", "huhi"])
+    u.update_matches(["black xan bible", "xân", "1deepgenz", "1deepturtle", "stinny", "yasheo", "pooplol"])
+    print(u.erred)
