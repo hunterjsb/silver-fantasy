@@ -1,9 +1,7 @@
 import asyncio
 import aiohttp
 
-# load_dotenv()
-# TOKEN = os.getenv("RIOT_TOKEN")  # WAIT IM NOT SURE IF THIS WORKS
-HEADERS = {"X-Riot-Token": "RGAPI-9ac67d68-c7fc-4185-a79a-9c1897985cde"}
+HEADERS = {"X-Riot-Token": "RGAPI-X"}
 
 
 # COLORS! for console printing
