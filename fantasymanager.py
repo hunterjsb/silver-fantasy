@@ -1,7 +1,6 @@
 from riothandle import Summoner, Match
 import json
 import datetime
-from elbert.updater import Updater
 
 
 def _sq_open():  # this is called on sq_save, which is called by elbert on_ready
@@ -399,8 +398,8 @@ class League:
     @property
     def locked(self):
         now = datetime.datetime.now()
-        # return False
-        return now > self.lock_at
+        return False
+        # return now > self.lock_at
 
     def start_friday(self):
         today = datetime.datetime.today()

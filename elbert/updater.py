@@ -1,19 +1,28 @@
-from elbert.asyncriothandle import AsyncRequester
-#from asyncriothandle import AsyncRequester
+# from elbert.asyncriothandle import AsyncRequester
+from asyncriothandle import AsyncRequester
 import json
-import sys
 import datetime
 import time
+import requests
 
 # FILE-PATHS FOR THE DATA!!! apparently trey no likey
 LEAGUE_FP = "../json/silverfantasy.json"
 GAMES_FP = "../json/soloqgames.json"
 
 
-def last_friday():
+def last_friday():  # get last friday as a timestamp (in ms maybe)
     today = datetime.datetime.today()
     friday = today + datetime.timedelta((4 - today.weekday()) % 7) - datetime.timedelta(6)
     return round(friday.timestamp() * 1000)
+
+
+def get_champ(champ_id):
+    champ_dat = requests.get('http://ddragon.leagueoflegends.com/cdn/10.10.3208608/data/en_US/champion.json').json()[
+        'data']
+    for champ in champ_dat:
+        cid = int(champ_dat[champ]['key'])
+        if cid == champ_id:
+            return champ
 
 
 lin_mmr_dict = {'IRON IV': 0, 'IRON III': 250, 'IRON II': 500, 'IRON I': 750, 'BRONZE IV': 1000, 'BRONZE III':
@@ -25,8 +34,9 @@ lin_mmr_dict = {'IRON IV': 0, 'IRON III': 250, 'IRON II': 500, 'IRON I': 750, 'B
 
 
 class Updater:
+    """class that takes arguments and decides what it needs to retrieve in order to update the relevant JSON files"""
     def __init__(self, request_type: str):
-        """open the two json files, creates an AsyncRequester object and take the request type as input"""
+        """open the two json files, takes the request type as input"""
         with open(LEAGUE_FP) as f:
             self.league = json.load(f)
         with open(GAMES_FP) as f2:
@@ -34,6 +44,8 @@ class Updater:
 
         self.erred = {}
         self.request_type = request_type
+        self.champ_data = requests.get('http://ddragon.leagueoflegends.com/cdn/10.10.3208608/data/en_US/'
+                                       'champion.json').json()['data']
 
     def save(self, league=False, games=False, state=None):
         """write the instance data in .league or .games to its respective file bu setting it to True"""
@@ -50,6 +62,12 @@ class Updater:
         if state:  # save some data from an AR
             self.erred.update(state.erred)
 
+    def champ_by_id(self, champ_id):
+        for champ in self.champ_data:
+            cid = int(self.champ_data[champ]['key'])
+            if cid == champ_id:
+                return champ
+
     def update_summoner(self, args):
         """takes a list of IGN's and requests summoner data for each
         saves it to silverfantasy.json. returns raw resp."""
@@ -57,9 +75,8 @@ class Updater:
 
         for s_ign in args:
             id_ar.sum_dat(s_ign)
-
-        id_ar.__floor__()
-        resp = id_ar.run()
+        # id_ar.__floor__()
+        resp = id_ar.__floor__().run()
 
         for player in resp:
             if 'status' in player:  # skip errors
@@ -72,7 +89,9 @@ class Updater:
                 self.league["PLAYERS"][player["name"].lower()]['dat'] = player
 
         self.save(league=True, state=id_ar)
-        return resp
+
+        ret = {"resp": resp}  # hack resp in to a JSON-able format, change ret later to what trey wants
+        return ret
 
     def check_ids(self, igns: list, id_type='id', request=True):
         """take list of igns, returns dict of ign: id_type
@@ -87,7 +106,7 @@ class Updater:
                 to_request.append(ign)
 
         if request and to_request:  # request id's for the ign's not found locally. skip errors.
-            resp = self.update_summoner(to_request)
+            resp = self.update_summoner(to_request)['resp']
             for s in resp:
                 if 'status' not in s:
                     ids[s["name"]] = s[id_type]
@@ -125,7 +144,9 @@ class Updater:
                     c_player["teams"] = [] if "teams" not in c_player else c_player["teams"]
 
         self.save(league=True, state=rank_ar)
-        return resp
+
+        ret = {"resp": resp}  # hack resp in to a JSON-able format, change ret later to what trey wants
+        return ret
     
     def request_weekly_soloq(self, args):
         """takes in a bunch of summoners and returns matches to be requested.
@@ -137,11 +158,11 @@ class Updater:
         for ign in aids_dict:
             aid = aids_dict[ign]
             hist_ar.match_history(aid, queries={"beginTime": last_friday(), "queue": 420})
+        resp = hist_ar.run()  # get the match histories
 
-        resp = hist_ar.run()
         errors = 0
         for hist in resp:
-            if 'status' not in hist:
+            if 'status' not in hist:  # ignore all errors
                 for match in hist["matches"]:
                     if match['gameId'] not in self.games:
                         to_request.append(match['gameId'])
@@ -151,51 +172,71 @@ class Updater:
         self.save(state=hist_ar)
         return to_request
 
-    def update_matches(self, args):
-        """takes in summoners and updates matches"""
+    def _get_registered_pids(self, raw_game):
+        """take a raw match-by-id API response and gets participant id's for registered players"""
+        pid = {}
+        for p in raw_game["participantIdentities"]:
+            if p['player']['summonerName'].lower() in self.league["PLAYERS"]:
+                pid[p['player']['summonerName']] = p['participantId']
+        return pid
+
+    def request_matches(self, args):
+        """takes in summoners and updates matches
+        DOES NOT SAVE"""
         to_get = self.request_weekly_soloq(args)
         match_ar = AsyncRequester()
         resp = []
 
-        i = 0
+        i = 0  # count the number of times it's run (every 20 req / 1 sec)
+        # RATE LIMITING IMPLEMENTED HERE - 20 / SEC & 100 / 90 + 5 SEC
         for mid in to_get:
             match_ar.match(mid)
-            if (AsyncRequester.t_req + match_ar.c_req) % 20 == 0:
-                resp += match_ar.run()
-                time.sleep(1)
+            if (AsyncRequester.t_req + match_ar.__floor__().c_req) % 20 == 0:  # every 20 requests...
+                resp += match_ar.run()  # run
+                time.sleep(1)  # then wait a sec
                 i += 1
-                if i % 5 == 0:
+                if i % 5 == 0:  # 100 req / 90 (120?) sec
                     print('U DONE IT NOW BOY')
                     time.sleep(90)
-
         resp += match_ar.run()
-        for r in resp[0]:
-            print(r)
 
-        self.save(state=match_ar)
-        return resp
+        # CHANGING EVERYTHING: games will now be stored at a SURFACE level without repeats. NOT under players.
+        # PLAYER dicts will still exist while this is under development.
+        ret = {}  # return variable indexes game by id
+        for game in resp:
+            if 'status' in game:  # skip errors
+                print(game['status'])
+                continue
 
-    def run(self):
-        """for running from the command line"""
-        args = sys.argv[2:]
+            matched = self._get_registered_pids(game)  # get riot's dumb participant id's
+            self.games[game['gameId']] = {} if game['gameId'] not in self.games else self.games[game['gameId']]
+
+            for player, pid in matched.items():
+                part = game['participants'][pid-1]
+                c_game = self.games[game['gameId']]
+                c_game.update({player: {"pid": pid,
+                                        "champ": get_champ(part['championId'])
+                                        }})  # create player dicts within the game
+                ret[game['gameId']] = c_game
+
+        print(ret)
+        self.save(games=True, state=match_ar)
+        return ret
+
+    def run(self, args):
+        """for running"""
 
         if self.request_type == "summoner":
             return self.update_summoner(args)
         elif self.request_type == "ranked":
             return self.update_ranked(args)
         elif self.request_type == "matches":
-            return self.update_matches(args)
+            return self.request_matches(args)
         else:
             print(f'\033[93mERROR: UNKNOWN REQUEST TYPE {self.request_type}\033[0m')
 
-        print(f'\033[93mERRORS:\033[0m  {self.erred}')
-
 
 if __name__ == "__main__":
-    #u = Updater(sys.argv[1])  # take first argument as class input
-    #u.run()
-
     u = Updater('ranked')  # doesn't even matter how i initialize it
-    # u.update_ranked(["ipogoz", "nkjukko", "x", "ybguhisjddiojasdas", "huhi"])
-    u.update_matches(["black xan bible", "xân", "1deepgenz", "1deepturtle", "stinny", "yasheo", "pooplol"])
+    u.request_matches(["1deepturtle", "stinny", "xân", "yasuomoe", "pooplol"])
     print(u.erred)

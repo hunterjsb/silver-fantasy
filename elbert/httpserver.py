@@ -1,30 +1,43 @@
-import socketserver
-from elbert.updater import Updater
+from abc import ABC
+import tornado.ioloop
+import tornado.web
+from updater import Updater
 
 
-class MyTCPHandler(socketserver.BaseRequestHandler):
-    """
-    The request handler class for our server.
+class MainHandler(tornado.web.RequestHandler, ABC):
+    def initialize(self):
+        print(f'hosting on port: idk')
 
-    It is instantiated once per connection to the server, and must
-    override the handle() method to implement communication to the
-    client.
-    """
+    def set_default_headers(self):
+        print("setting headers")
+        self.set_header("Access-Control-Allow-Origin", "*")
+        self.set_header("Access-Control-Allow-Headers", "x-requested-with")
+        self.set_header('Access-Control-Allow-Methods', 'POST, GET, OPTIONS')
 
-    def handle(self):
-        # self.request is the TCP socket connected to the client
-        self.data = self.request.recv(1024).strip()
-        print("{} wrote:".format(self.client_address[0]))
-        print(self.data)
-        # just send back the same data, but upper-cased
-        self.request.sendall(self.data.upper())
+    async def get(self):
+        print(f'GET {self.request.uri}')
+        self.set_status(200, "data recv")
+        rt = self.get_query_argument("requestType")
+        args = self.get_query_arguments("arg")
+
+        u = Updater(rt)
+        resp = u.run(args)
+        self.write(resp)
+
+    def post(self):
+        print('POST!')
+        self.set_status(200, "data recv")
+        self.set_header("Content-Type", "text/plain")
+        self.write("You wrote " + self.request.body)
+
+
+def make_app():
+    return tornado.web.Application([
+        (r"/", MainHandler),
+    ])
 
 
 if __name__ == "__main__":
-    HOST, PORT = "localhost", 19
-
-    # Create the server, binding to localhost on port 9999
-    with socketserver.TCPServer((HOST, PORT), MyTCPHandler) as server:
-        # Activate the server; this will keep running until you
-        # interrupt the program with Ctrl-C
-        server.serve_forever()
+    app = make_app()
+    app.listen(591, '157.245.247.40')
+    tornado.ioloop.IOLoop.current().start()

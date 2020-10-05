@@ -1,5 +1,6 @@
 import asyncio
 import aiohttp
+import nest_asyncio
 
 HEADERS = {"X-Riot-Token": "RGAPI-9ac67d68-c7fc-4185-a79a-9c1897985cde"}
 
@@ -28,6 +29,7 @@ class AsyncRequester:
             self.requests = []
             self.c_req = 0
 
+        nest_asyncio.apply()
         self.region = 'na1'
         self.erred = {}  # enter 429'd hoes here - url: error. does not reset automatically.
 
