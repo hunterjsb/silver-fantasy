@@ -164,7 +164,7 @@ class Updater:
         for hist in resp:
             if 'status' not in hist:  # ignore all errors
                 for match in hist["matches"]:
-                    if match['gameId'] not in self.games:
+                    if str(match['gameId']) not in self.games:
                         to_request.append(match['gameId'])
             else:
                 errors += 1
@@ -205,7 +205,6 @@ class Updater:
         ret = {}  # return variable indexes game by id
         for game in resp:
             if 'status' in game:  # skip errors
-                print(game['status'])
                 continue
 
             matched = self._get_registered_pids(game)  # get riot's dumb participant id's
@@ -213,13 +212,41 @@ class Updater:
 
             for player, pid in matched.items():
                 part = game['participants'][pid-1]
+                stats = part['stats']
+
+                # CALCULATE (MAKE THIS ITS OWN CLASS)
+                duration = game['gameDuration']
+                kills = stats["kills"]
+                deaths = stats["deaths"]
+                assists = stats["assists"]
+                csm = (stats['neutralMinionsKilled'] + stats['totalMinionsKilled']) / (duration / 60)
+                team = part['teamId']
+                tk, td, ta = 0, 0, 0  # team kills, assists, deaths
+                for sumr in game["participants"]:
+                    if sumr["teamId"] == team:
+                        tk += sumr["stats"]["kills"]
+                        td += sumr["stats"]["deaths"]
+                        ta += sumr["stats"]["assists"]
+                kp = (kills + assists) / tk
+                dp = deaths / td
+                vpm = stats['visionScore'] / (duration / 60)
+                points = (kills + .75 * assists - deaths) * (0.9 + kp / 5) + csm + 3 * vpm
+
+                # WRITE
                 c_game = self.games[game['gameId']]
                 c_game.update({player: {"pid": pid,
-                                        "champ": get_champ(part['championId'])
+                                        "score": round(points, 2),
+                                        "champ": get_champ(part['championId']),
+                                        "kda": (kills, deaths, assists),
+                                        "duration": duration,
+                                        "csm": round(csm, 2),
+                                        "team": team,
+                                        "kp": round(100*kp, 2),
+                                        "dp": round(100*dp, 2),
+                                        "vpm": round(vpm, 2)
                                         }})  # create player dicts within the game
                 ret[game['gameId']] = c_game
 
-        print(ret)
         self.save(games=True, state=match_ar)
         return ret
 
@@ -238,5 +265,5 @@ class Updater:
 
 if __name__ == "__main__":
     u = Updater('ranked')  # doesn't even matter how i initialize it
-    u.request_matches(["1deepturtle", "stinny", "xân", "yasuomoe", "pooplol"])
+    u.request_matches(["stinny"])
     print(u.erred)
