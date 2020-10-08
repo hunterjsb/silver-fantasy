@@ -71,6 +71,138 @@
             "csm": 5.11,
             "vision": 42,
             "*cc": 3.62
+        },
+        "3605192303": {
+            "score": 2.85,
+            "champ": "Nunu",
+            "date": "10/05/2020",
+            "role": "NONE JUNGLE",
+            "duration": "26:16",
+            "kda": "1/12/10",
+            "kp": 0.4782608695652174,
+            "csm": 4.3,
+            "vision": 18,
+            "*cc": 0.76
+        },
+        "3605143057": {
+            "score": 10.54,
+            "champ": "Nunu",
+            "date": "10/05/2020",
+            "role": "NONE JUNGLE",
+            "duration": "28:17",
+            "kda": "4/5/4",
+            "kp": 0.6666666666666666,
+            "csm": 5.1,
+            "vision": 32,
+            "*cc": 1.35
+        },
+        "3605073831": {
+            "score": 20.28,
+            "champ": "Graves",
+            "date": "10/05/2020",
+            "role": "NONE JUNGLE",
+            "duration": "26:15",
+            "kda": "6/6/11",
+            "kp": 0.3469387755102041,
+            "csm": 8.84,
+            "vision": 30,
+            "*cc": 2.06
+        },
+        "3604958998": {
+            "score": 17.5,
+            "champ": "Nunu",
+            "date": "10/05/2020",
+            "role": "DUO_SUPPORT NONE",
+            "duration": "15:09",
+            "kda": "3/1/9",
+            "kp": 0.7058823529411765,
+            "csm": 5.55,
+            "vision": 15,
+            "*cc": 9.09
+        },
+        "3604215759": {
+            "score": 7.35,
+            "champ": "Nunu",
+            "date": "10/04/2020",
+            "role": "NONE JUNGLE",
+            "duration": "20:12",
+            "kda": "1/5/7",
+            "kp": 0.5,
+            "csm": 4.78,
+            "vision": 9,
+            "*cc": 2.34
+        },
+        "3604129231": {
+            "score": 10.51,
+            "champ": "Nunu",
+            "date": "10/04/2020",
+            "role": "NONE JUNGLE",
+            "duration": "24:14",
+            "kda": "2/3/7",
+            "kp": 0.6923076923076923,
+            "csm": 4.38,
+            "vision": 14,
+            "*cc": 3.19
+        },
+        "3604141044": {
+            "score": 13.61,
+            "champ": "Nunu",
+            "date": "10/04/2020",
+            "role": "NONE JUNGLE",
+            "duration": "24:14",
+            "kda": "2/2/8",
+            "kp": 0.35714285714285715,
+            "csm": 5.17,
+            "vision": 21,
+            "*cc": 3.72
+        },
+        "3604053695": {
+            "score": 23.86,
+            "champ": "Nunu",
+            "date": "10/04/2020",
+            "role": "NONE JUNGLE",
+            "duration": "27:16",
+            "kda": "4/1/16",
+            "kp": 0.7142857142857143,
+            "csm": 5.6,
+            "vision": 24,
+            "*cc": 20.35
+        },
+        "3603922374": {
+            "score": 4.45,
+            "champ": "Khazix",
+            "date": "10/04/2020",
+            "role": "NONE JUNGLE",
+            "duration": "23:14",
+            "kda": "4/8/1",
+            "kp": 0.625,
+            "csm": 4.78,
+            "vision": 23,
+            "*cc": 0.14
+        },
+        "3603877378": {
+            "score": 8.97,
+            "champ": "Nunu",
+            "date": "10/04/2020",
+            "role": "NONE JUNGLE",
+            "duration": "20:12",
+            "kda": "3/4/3",
+            "kp": 0.75,
+            "csm": 5.48,
+            "vision": 15,
+            "*cc": 1.6
+        },
+        "3603833163": {
+            "score": 21.41,
+            "champ": "Nunu",
+            "date": "10/04/2020",
+            "role": "NONE JUNGLE",
+            "duration": "23:14",
+            "kda": "8/2/9",
+            "kp": 0.6296296296296297,
+            "csm": 5.27,
+            "vision": 24,
+            "*cc": 11.56
         }
     },
     "ipogoz": {
@@ -135,6 +267,30 @@
             "csm": 5.27,
             "vision": 15,
             "*cc": 2.44
+        },
+        "3605168616": {
+            "score": 24.38,
+            "champ": "Mordekaiser",
+            "date": "10/05/2020",
+            "role": "SOLO TOP",
+            "duration": "28:17",
+            "kda": "10/1/7",
+            "kp": 0.68,
+            "csm": 7.71,
+            "vision": 18,
+            "*cc": 7.18
+        },
+        "3604916316": {
+            "score": 20.57,
+            "champ": "Mordekaiser",
+            "date": "10/05/2020",
+            "role": "SOLO TOP",
+            "duration": "24:15",
+            "kda": "6/2/11",
+            "kp": 0.53125,
+            "csm": 6.42,
+            "vision": 15,
+            "*cc": 3.78
         }
     },
     "black xan bible": {
@@ -161,6 +317,18 @@
             "csm": 3.61,
             "vision": 20,
             "*cc": 2.64
+        },
+        "3605168616": {
+            "score": 11.39,
+            "champ": "Amumu",
+            "date": "10/05/2020",
+            "role": "NONE JUNGLE",
+            "duration": "28:17",
+            "kda": "0/1/5",
+            "kp": 0.2,
+            "csm": 6.8,
+            "vision": 19,
+            "*cc": 2.99
         }
     },
     "drag0nham": {
@@ -453,6 +621,126 @@
             "csm": 4.92,
             "vision": 18,
             "*cc": 0.74
+        },
+        "3607298109": {
+            "score": 7.61,
+            "champ": "Pantheon",
+            "date": "10/07/2020",
+            "role": "NONE JUNGLE",
+            "duration": "22:13",
+            "kda": "7/7/3",
+            "kp": 0.7142857142857143,
+            "csm": 1.45,
+            "vision": 28,
+            "*cc": 1.43
+        },
+        "3607283552": {
+            "score": 13.87,
+            "champ": "Irelia",
+            "date": "10/07/2020",
+            "role": "SOLO TOP",
+            "duration": "40:24",
+            "kda": "12/7/0",
+            "kp": 0.32432432432432434,
+            "csm": 6.92,
+            "vision": 29,
+            "*cc": 0.8
+        },
+        "3607057779": {
+            "score": 12.55,
+            "champ": "TwistedFate",
+            "date": "10/07/2020",
+            "role": "SOLO MIDDLE",
+            "duration": "33:20",
+            "kda": "3/4/9",
+            "kp": 0.48,
+            "csm": 5.2,
+            "vision": 18,
+            "*cc": 2.62
+        },
+        "3607083711": {
+            "score": 25.27,
+            "champ": "TwistedFate",
+            "date": "10/07/2020",
+            "role": "SOLO MIDDLE",
+            "duration": "35:21",
+            "kda": "10/5/14",
+            "kp": 0.48,
+            "csm": 5.04,
+            "vision": 57,
+            "*cc": 6.45
+        },
+        "3607060426": {
+            "score": 16.52,
+            "champ": "Leblanc",
+            "date": "10/07/2020",
+            "role": "DUO TOP",
+            "duration": "29:17",
+            "kda": "12/6/6",
+            "kp": 0.5806451612903226,
+            "csm": 4.12,
+            "vision": 17,
+            "*cc": 1.32
+        },
+        "3607033580": {
+            "score": 12.61,
+            "champ": "Graves",
+            "date": "10/07/2020",
+            "role": "NONE JUNGLE",
+            "duration": "32:19",
+            "kda": "9/12/11",
+            "kp": 0.47619047619047616,
+            "csm": 5.53,
+            "vision": 20,
+            "*cc": 1.44
+        },
+        "3607010361": {
+            "score": 3.84,
+            "champ": null,
+            "date": "10/07/2020",
+            "role": "NONE JUNGLE",
+            "duration": "23:14",
+            "kda": "1/7/4",
+            "kp": 0.35714285714285715,
+            "csm": 4.06,
+            "vision": 21,
+            "*cc": 0.43
+        },
+        "3606116957": {
+            "score": 35.04,
+            "champ": null,
+            "date": "10/06/2020",
+            "role": "NONE JUNGLE",
+            "duration": "34:21",
+            "kda": "11/5/26",
+            "kp": 0.6851851851851852,
+            "csm": 5.76,
+            "vision": 33,
+            "*cc": 5.72
+        },
+        "3606112158": {
+            "score": 12.83,
+            "champ": "Graves",
+            "date": "10/06/2020",
+            "role": "NONE JUNGLE",
+            "duration": "28:17",
+            "kda": "3/3/3",
+            "kp": 0.1875,
+            "csm": 6.91,
+            "vision": 36,
+            "*cc": 0.49
+        },
+        "3605542440": {
+            "score": 7.07,
+            "champ": "TwistedFate",
+            "date": "10/06/2020",
+            "role": "SOLO MIDDLE",
+            "duration": "25:15",
+            "kda": "3/7/6",
+            "kp": 0.45,
+            "csm": 5.53,
+            "vision": 9,
+            "*cc": 0.95
         }
     },
     "yasuomoe": {
@@ -479,6 +767,30 @@
             "csm": 4.6,
             "vision": 49,
             "*cc": 3.21
+        },
+        "3604176071": {
+            "score": 8.57,
+            "champ": "Evelynn",
+            "date": "10/04/2020",
+            "role": "NONE JUNGLE",
+            "duration": "35:21",
+            "kda": "7/9/5",
+            "kp": 0.4444444444444444,
+            "csm": 4.9,
+            "vision": 23,
+            "*cc": 0.3
+        },
+        "3604065058": {
+            "score": 19.62,
+            "champ": "Veigar",
+            "date": "10/04/2020",
+            "role": "SOLO MIDDLE",
+            "duration": "28:17",
+            "kda": "8/7/13",
+            "kp": 0.65625,
+            "csm": 4.73,
+            "vision": 36,
+            "*cc": 2.75
         }
     },
     "graynote": {
@@ -555,6 +867,66 @@
             "csm": 4.79,
             "vision": 13,
             "*cc": 1.54
+        },
+        "3606513678": {
+            "score": 18.6,
+            "champ": "MonkeyKing",
+            "date": "10/06/2020",
+            "role": "SOLO TOP",
+            "duration": "34:20",
+            "kda": "12/10/14",
+            "kp": 0.5777777777777777,
+            "csm": 4.51,
+            "vision": 16,
+            "*cc": 2.95
+        },
+        "3606381089": {
+            "score": 17.12,
+            "champ": "Vayne",
+            "date": "10/06/2020",
+            "role": "SOLO TOP",
+            "duration": "36:22",
+            "kda": "9/9/14",
+            "kp": 0.6764705882352942,
+            "csm": 4.61,
+            "vision": 20,
+            "*cc": 0.77
+        },
+        "3605951757": {
+            "score": 2.67,
+            "champ": "Sylas",
+            "date": "10/06/2020",
+            "role": "SOLO TOP",
+            "duration": "43:26",
+            "kda": "5/15/11",
+            "kp": 0.2222222222222222,
+            "csm": 2.94,
+            "vision": 20,
+            "*cc": 0.81
+        },
+        "3605073867": {
+            "score": 11.21,
+            "champ": "MonkeyKing",
+            "date": "10/05/2020",
+            "role": "NONE JUNGLE",
+            "duration": "40:24",
+            "kda": "18/14/4",
+            "kp": 0.46808510638297873,
+            "csm": 2.84,
+            "vision": 19,
+            "*cc": 1.37
+        },
+        "3608031670": {
+            "score": 4.75,
+            "champ": "Sylas",
+            "date": "10/07/2020",
+            "role": "SOLO TOP",
+            "duration": "42:25",
+            "kda": "12/17/7",
+            "kp": 0.5757575757575758,
+            "csm": 2.96,
+            "vision": 22,
+            "*cc": 0.88
         }
     },
     "meatmattress": {
@@ -569,6 +941,238 @@
             "csm": 1.43,
             "vision": 29,
             "*cc": 3.49
+        }
+    },
+    "3604215759": {
+        "pooplol": {
+            "pid": 2,
+            "score": 7.35,
+            "champ": "Nunu",
+            "kda": [
+                1,
+                5,
+                7
+            ],
+            "duration": 1230,
+            "csm": 4.78,
+            "team": 100,
+            "kp": 50.0,
+            "dp": 19.23,
+            "vpm": 0.44
+        }
+    },
+    "3604129231": {
+        "pooplol": {
+            "pid": 3,
+            "score": 10.51,
+            "champ": "Nunu",
+            "kda": [
+                2,
+                3,
+                7
+            ],
+            "duration": 1466,
+            "csm": 4.38,
+            "team": 100,
+            "kp": 69.23,
+            "dp": 11.11,
+            "vpm": 0.57
+        }
+    },
+    "3604141044": {
+        "pooplol": {
+            "pid": 7,
+            "score": 13.61,
+            "champ": "Nunu",
+            "kda": [
+                2,
+                2,
+                8
+            ],
+            "duration": 1450,
+            "csm": 5.17,
+            "team": 200,
+            "kp": 35.71,
+            "dp": 12.5,
+            "vpm": 0.87
+        }
+    },
+    "3604053695": {
+        "pooplol": {
+            "pid": 7,
+            "score": 23.86,
+            "champ": "Nunu",
+            "kda": [
+                4,
+                1,
+                16
+            ],
+            "duration": 1651,
+            "csm": 5.6,
+            "team": 200,
+            "kp": 71.43,
+            "dp": 8.33,
+            "vpm": 0.87
+        }
+    },
+    "3603922374": {
+        "pooplol": {
+            "pid": 2,
+            "score": 4.45,
+            "champ": "Khazix",
+            "kda": [
+                4,
+                8,
+                1
+            ],
+            "duration": 1381,
+            "csm": 4.78,
+            "team": 100,
+            "kp": 62.5,
+            "dp": 29.63,
+            "vpm": 1.0
+        }
+    },
+    "3603877378": {
+        "pooplol": {
+            "pid": 1,
+            "score": 8.97,
+            "champ": "Nunu",
+            "kda": [
+                3,
+                4,
+                3
+            ],
+            "duration": 1238,
+            "csm": 5.48,
+            "team": 100,
+            "kp": 75.0,
+            "dp": 18.18,
+            "vpm": 0.73
+        }
+    },
+    "3603833163": {
+        "pooplol": {
+            "pid": 2,
+            "score": 21.41,
+            "champ": "Nunu",
+            "kda": [
+                8,
+                2,
+                9
+            ],
+            "duration": 1412,
+            "csm": 5.27,
+            "team": 100,
+            "kp": 62.96,
+            "dp": 14.29,
+            "vpm": 1.02
+        }
+    },
+    "3603805993": {
+        "pooplol": {
+            "pid": 5,
+            "score": 15.69,
+            "champ": "Nunu",
+            "kda": [
+                2,
+                3,
+                10
+            ],
+            "duration": 2053,
+            "csm": 5.11,
+            "team": 100,
+            "kp": 80.0,
+            "dp": 17.65,
+            "vpm": 1.23
+        }
+    },
+    "3603780020": {
+        "pooplol": {
+            "pid": 7,
+            "score": 16.92,
+            "champ": "Nunu",
+            "kda": [
+                3,
+                3,
+                14
+            ],
+            "duration": 1741,
+            "csm": 4.38,
+            "team": 200,
+            "kp": 58.62,
+            "dp": 15.0,
+            "vpm": 0.62
+        }
+    },
+    "3603685994": {
+        "pooplol": {
+            "pid": 4,
+            "score": 8.14,
+            "champ": "Nunu",
+            "kda": [
+                2,
+                7,
+                8
+            ],
+            "duration": 1364,
+            "csm": 4.62,
+            "team": 100,
+            "kp": 55.56,
+            "dp": 22.58,
+            "vpm": 0.84
+        }
+    },
+    "3605168616": {
+        "black xan bible": {
+            "pid": 2,
+            "score": 11.39,
+            "champ": "Amumu",
+            "kda": [
+                0,
+                1,
+                5
+            ],
+            "duration": 1704,
+            "csm": 6.8,
+            "team": 100,
+            "kp": 20.0,
+            "dp": 14.29,
+            "vpm": 0.67
+        },
+        "x\u00e2n": {
+            "pid": 3,
+            "score": 24.38,
+            "champ": "Mordekaiser",
+            "kda": [
+                10,
+                1,
+                7
+            ],
+            "duration": 1704,
+            "csm": 7.71,
+            "team": 100,
+            "kp": 68.0,
+            "dp": 14.29,
+            "vpm": 0.63
+        }
+    },
+    "3604916316": {
+        "x\u00e2n": {
+            "pid": 6,
+            "score": 20.57,
+            "champ": "Mordekaiser",
+            "kda": [
+                6,
+                2,
+                11
+            ],
+            "duration": 1485,
+            "csm": 6.42,
+            "team": 200,
+            "kp": 53.12,
+            "dp": 11.11,
+            "vpm": 0.61
         }
     },
     "3603944567": {
@@ -605,6 +1209,42 @@
             "vpm": 0.83
         }
     },
+    "3604176071": {
+        "yasuomoe": {
+            "pid": 3,
+            "score": 8.57,
+            "champ": "Evelynn",
+            "kda": [
+                7,
+                9,
+                5
+            ],
+            "duration": 2132,
+            "csm": 4.9,
+            "team": 100,
+            "kp": 44.44,
+            "dp": 25.0,
+            "vpm": 0.65
+        }
+    },
+    "3604065058": {
+        "yasuomoe": {
+            "pid": 3,
+            "score": 19.62,
+            "champ": "Veigar",
+            "kda": [
+                8,
+                7,
+                13
+            ],
+            "duration": 1701,
+            "csm": 4.73,
+            "team": 100,
+            "kp": 65.62,
+            "dp": 26.92,
+            "vpm": 1.27
+        }
+    },
     "3603810303": {
         "x\u00e2n": {
             "pid": 8,
@@ -622,7 +1262,7 @@
             "dp": 23.33,
             "vpm": 0.68
         },
-        "Yasuomoe": {
+        "yasuomoe": {
             "pid": 9,
             "score": 0.01,
             "champ": "Diana",
@@ -637,6 +1277,330 @@
             "kp": 27.27,
             "dp": 26.67,
             "vpm": 0.62
+        }
+    },
+    "3603734061": {
+        "yasuomoe": {
+            "pid": 3,
+            "score": 20.61,
+            "champ": "Veigar",
+            "kda": [
+                15,
+                11,
+                10
+            ],
+            "duration": 2127,
+            "csm": 4.6,
+            "team": 100,
+            "kp": 65.79,
+            "dp": 28.95,
+            "vpm": 1.38
+        }
+    },
+    "3607298109": {
+        "stinny": {
+            "pid": 7,
+            "score": 7.61,
+            "champ": "Pantheon",
+            "kda": [
+                7,
+                7,
+                3
+            ],
+            "duration": 1322,
+            "csm": 1.45,
+            "team": 200,
+            "kp": 71.43,
+            "dp": 29.17,
+            "vpm": 1.27
+        }
+    },
+    "3607283552": {
+        "stinny": {
+            "pid": 4,
+            "score": 13.87,
+            "champ": "Irelia",
+            "kda": [
+                12,
+                7,
+                0
+            ],
+            "duration": 2455,
+            "csm": 6.92,
+            "team": 100,
+            "kp": 32.43,
+            "dp": 23.33,
+            "vpm": 0.71
+        }
+    },
+    "3607057779": {
+        "stinny": {
+            "pid": 2,
+            "score": 12.55,
+            "champ": "TwistedFate",
+            "kda": [
+                3,
+                4,
+                9
+            ],
+            "duration": 1995,
+            "csm": 5.2,
+            "team": 100,
+            "kp": 48.0,
+            "dp": 13.33,
+            "vpm": 0.54
+        }
+    },
+    "3607083711": {
+        "stinny": {
+            "pid": 5,
+            "score": 25.27,
+            "champ": "TwistedFate",
+            "kda": [
+                10,
+                5,
+                14
+            ],
+            "duration": 2142,
+            "csm": 5.04,
+            "team": 100,
+            "kp": 48.0,
+            "dp": 14.71,
+            "vpm": 1.6
+        }
+    },
+    "3607060426": {
+        "stinny": {
+            "pid": 5,
+            "score": 16.52,
+            "champ": "Leblanc",
+            "kda": [
+                12,
+                6,
+                6
+            ],
+            "duration": 1775,
+            "csm": 4.12,
+            "team": 100,
+            "kp": 58.06,
+            "dp": 19.35,
+            "vpm": 0.57
+        }
+    },
+    "3607033580": {
+        "stinny": {
+            "pid": 9,
+            "score": 12.61,
+            "champ": "Graves",
+            "kda": [
+                9,
+                12,
+                11
+            ],
+            "duration": 1942,
+            "csm": 5.53,
+            "team": 200,
+            "kp": 47.62,
+            "dp": 29.27,
+            "vpm": 0.62
+        }
+    },
+    "3607010361": {
+        "stinny": {
+            "pid": 6,
+            "score": 3.84,
+            "champ": null,
+            "kda": [
+                1,
+                7,
+                4
+            ],
+            "duration": 1404,
+            "csm": 4.06,
+            "team": 200,
+            "kp": 35.71,
+            "dp": 22.58,
+            "vpm": 0.9
+        }
+    },
+    "3606116957": {
+        "stinny": {
+            "pid": 1,
+            "score": 35.04,
+            "champ": null,
+            "kda": [
+                11,
+                5,
+                26
+            ],
+            "duration": 2094,
+            "csm": 5.76,
+            "team": 100,
+            "kp": 68.52,
+            "dp": 13.51,
+            "vpm": 0.95
+        }
+    },
+    "3606112158": {
+        "stinny": {
+            "pid": 5,
+            "score": 12.83,
+            "champ": "Graves",
+            "kda": [
+                3,
+                3,
+                3
+            ],
+            "duration": 1701,
+            "csm": 6.91,
+            "team": 100,
+            "kp": 18.75,
+            "dp": 17.65,
+            "vpm": 1.27
+        }
+    },
+    "3605542440": {
+        "stinny": {
+            "pid": 10,
+            "score": 7.07,
+            "champ": "TwistedFate",
+            "kda": [
+                3,
+                7,
+                6
+            ],
+            "duration": 1542,
+            "csm": 5.53,
+            "team": 200,
+            "kp": 45.0,
+            "dp": 17.95,
+            "vpm": 0.35
+        }
+    },
+    "3602888098": {
+        "stinny": {
+            "pid": 3,
+            "score": 13.07,
+            "champ": null,
+            "kda": [
+                8,
+                7,
+                5
+            ],
+            "duration": 2187,
+            "csm": 5.9,
+            "team": 100,
+            "kp": 36.11,
+            "dp": 17.95,
+            "vpm": 0.85
+        }
+    },
+    "3602841353": {
+        "stinny": {
+            "pid": 9,
+            "score": 26.07,
+            "champ": "Twitch",
+            "kda": [
+                19,
+                9,
+                10
+            ],
+            "duration": 2232,
+            "csm": 5.94,
+            "team": 200,
+            "kp": 74.36,
+            "dp": 24.32,
+            "vpm": 0.59
+        }
+    },
+    "3602549317": {
+        "stinny": {
+            "pid": 1,
+            "score": 4.09,
+            "champ": "Aphelios",
+            "kda": [
+                0,
+                7,
+                6
+            ],
+            "duration": 1429,
+            "csm": 5.75,
+            "team": 100,
+            "kp": 33.33,
+            "dp": 30.43,
+            "vpm": 0.25
+        }
+    },
+    "3602409870": {
+        "stinny": {
+            "pid": 5,
+            "score": 9.02,
+            "champ": "Olaf",
+            "kda": [
+                6,
+                10,
+                6
+            ],
+            "duration": 1908,
+            "csm": 4.94,
+            "team": 100,
+            "kp": 48.0,
+            "dp": 23.26,
+            "vpm": 1.19
+        }
+    },
+    "3602294560": {
+        "stinny": {
+            "pid": 1,
+            "score": 13.56,
+            "champ": "Graves",
+            "kda": [
+                9,
+                9,
+                8
+            ],
+            "duration": 1717,
+            "csm": 5.28,
+            "team": 100,
+            "kp": 65.38,
+            "dp": 16.67,
+            "vpm": 0.7
+        }
+    },
+    "3602236509": {
+        "stinny": {
+            "pid": 4,
+            "score": 14.97,
+            "champ": "Nidalee",
+            "kda": [
+                1,
+                3,
+                10
+            ],
+            "duration": 1524,
+            "csm": 5.94,
+            "team": 100,
+            "kp": 37.93,
+            "dp": 18.75,
+            "vpm": 1.22
+        }
+    },
+    "3602280950": {
+        "stinny": {
+            "pid": 1,
+            "score": 11.01,
+            "champ": null,
+            "kda": [
+                6,
+                8,
+                7
+            ],
+            "duration": 1654,
+            "csm": 5.7,
+            "team": 100,
+            "kp": 50.0,
+            "dp": 21.05,
+            "vpm": 0.69
         }
     },
     "3603245623": {
@@ -657,184 +1621,829 @@
             "vpm": 0.9
         }
     },
-    "3604176071": {
-        "Yasuomoe": {
-            "pid": 3,
-            "score": 8.57,
-            "champ": "Evelynn",
-            "kda": [
-                7,
-                9,
-                5
-            ],
-            "duration": 2132,
-            "csm": 4.9,
-            "team": 100,
-            "kp": 44.44,
-            "dp": 25.0,
-            "vpm": 0.65
+    "purplebumblebeez": {
+        "3607765766": {
+            "score": 18.26,
+            "champ": "Morgana",
+            "date": "10/07/2020",
+            "role": "DUO_SUPPORT BOTTOM",
+            "duration": "26:16",
+            "kda": "4/3/12",
+            "kp": 0.7272727272727273,
+            "csm": 0.6,
+            "vision": 64,
+            "*cc": 13.21
         }
     },
-    "3604065058": {
-        "Yasuomoe": {
-            "pid": 3,
-            "score": 19.62,
-            "champ": "Veigar",
+    "u\u00f1orthodox": {},
+    "1deepgenz": {},
+    "chillguy": {},
+    "3608502522": {
+        "black xan bible": {
+            "pid": 2,
+            "score": 8.16,
+            "champ": "Jax",
             "kda": [
-                8,
-                7,
-                13
+                3,
+                6,
+                7
             ],
-            "duration": 1701,
-            "csm": 4.73,
-            "team": 100,
-            "kp": 65.62,
-            "dp": 26.92,
-            "vpm": 1.27
-        }
-    },
-    "3603734061": {
-        "Yasuomoe": {
-            "pid": 3,
-            "score": 20.61,
-            "champ": "Veigar",
-            "kda": [
-                15,
-                11,
-                10
-            ],
-            "duration": 2127,
-            "csm": 4.6,
-            "team": 100,
-            "kp": 65.79,
-            "dp": 28.95,
-            "vpm": 1.38
-        }
-    },
-    "3602888098": {
-        "Stinny": {
-            "pid": 3,
-            "score": 13.07,
-            "champ": null,
-            "kda": [
-                8,
-                7,
-                5
-            ],
-            "duration": 2187,
-            "csm": 5.9,
-            "team": 100,
-            "kp": 36.11,
-            "dp": 17.95,
-            "vpm": 0.85
-        }
-    },
-    "3602841353": {
-        "Stinny": {
-            "pid": 9,
-            "score": 26.07,
-            "champ": "Twitch",
-            "kda": [
-                19,
-                9,
-                10
-            ],
-            "duration": 2232,
-            "csm": 5.94,
-            "team": 200,
-            "kp": 74.36,
-            "dp": 24.32,
-            "vpm": 0.59
-        }
-    },
-    "3602549317": {
-        "Stinny": {
-            "pid": 1,
-            "score": 4.09,
-            "champ": "Aphelios",
-            "kda": [
-                0,
-                7,
-                6
-            ],
-            "duration": 1429,
-            "csm": 5.75,
+            "duration": 2177,
+            "csm": 4.82,
             "team": 100,
             "kp": 33.33,
-            "dp": 30.43,
-            "vpm": 0.25
-        }
-    },
-    "3602409870": {
-        "Stinny": {
-            "pid": 5,
-            "score": 9.02,
-            "champ": "Olaf",
-            "kda": [
-                6,
-                10,
-                6
-            ],
-            "duration": 1908,
-            "csm": 4.94,
-            "team": 100,
-            "kp": 48.0,
-            "dp": 23.26,
-            "vpm": 1.19
-        }
-    },
-    "3602294560": {
-        "Stinny": {
-            "pid": 1,
-            "score": 13.56,
-            "champ": "Graves",
-            "kda": [
-                9,
-                9,
-                8
-            ],
-            "duration": 1717,
-            "csm": 5.28,
-            "team": 100,
-            "kp": 65.38,
-            "dp": 16.67,
-            "vpm": 0.7
-        }
-    },
-    "3602236509": {
-        "Stinny": {
-            "pid": 4,
-            "score": 14.97,
-            "champ": "Nidalee",
+            "dp": 15.38,
+            "vpm": 0.39
+        },
+        "x\u00e2n": {
+            "pid": 3,
+            "score": 11.25,
+            "champ": "Ornn",
             "kda": [
                 1,
-                3,
-                10
+                8,
+                15
             ],
-            "duration": 1524,
-            "csm": 5.94,
+            "duration": 2177,
+            "csm": 5.15,
             "team": 100,
-            "kp": 37.93,
-            "dp": 18.75,
-            "vpm": 1.22
+            "kp": 53.33,
+            "dp": 20.51,
+            "vpm": 0.61
         }
     },
-    "3602280950": {
-        "Stinny": {
-            "pid": 1,
-            "score": 11.01,
+    "3605992851": {
+        "snakebee16": {
+            "pid": 9,
+            "score": 2.47,
+            "champ": "Lux",
+            "kda": [
+                1,
+                1,
+                0
+            ],
+            "duration": 1483,
+            "csm": 1.74,
+            "team": 200,
+            "kp": 9.09,
+            "dp": 6.67,
+            "vpm": 0.24
+        }
+    },
+    "3603295823": {
+        "drag0nham": {
+            "pid": 10,
+            "score": 1.79,
+            "champ": "Janna",
+            "kda": [
+                0,
+                5,
+                4
+            ],
+            "duration": 1444,
+            "csm": 1.33,
+            "team": 200,
+            "kp": 26.67,
+            "dp": 16.13,
+            "vpm": 0.79
+        }
+    },
+    "3608516962": {
+        "1deepturtle": {
+            "pid": 5,
+            "score": 13.88,
             "champ": null,
             "kda": [
                 6,
+                1,
+                2
+            ],
+            "duration": 982,
+            "csm": 6.35,
+            "team": 100,
+            "kp": 44.44,
+            "dp": 16.67,
+            "vpm": 0.37
+        }
+    },
+    "3608179442": {
+        "1deepturtle": {
+            "pid": 8,
+            "score": -1.32,
+            "champ": null,
+            "kda": [
+                2,
+                17,
+                11
+            ],
+            "duration": 2497,
+            "csm": 3.89,
+            "team": 200,
+            "kp": 26.53,
+            "dp": 29.31,
+            "vpm": 0.41
+        }
+    },
+    "3608234584": {
+        "1deepturtle": {
+            "pid": 8,
+            "score": 3.89,
+            "champ": null,
+            "kda": [
+                5,
+                6,
+                0
+            ],
+            "duration": 1404,
+            "csm": 3.68,
+            "team": 200,
+            "kp": 20.0,
+            "dp": 18.18,
+            "vpm": 0.38
+        }
+    },
+    "3608233312": {
+        "1deepturtle": {
+            "pid": 6,
+            "score": 4.77,
+            "champ": null,
+            "kda": [
+                1,
+                0,
+                0
+            ],
+            "duration": 196,
+            "csm": 3.67,
+            "team": 200,
+            "kp": 100.0,
+            "dp": 0,
+            "vpm": 0.0
+        }
+    },
+    "3608129428": {
+        "1deepturtle": {
+            "pid": 10,
+            "score": 13.54,
+            "champ": null,
+            "kda": [
+                7,
+                7,
+                7
+            ],
+            "duration": 2049,
+            "csm": 6.97,
+            "team": 200,
+            "kp": 33.33,
+            "dp": 26.92,
+            "vpm": 0.5
+        }
+    },
+    "3608104831": {
+        "1deepturtle": {
+            "pid": 4,
+            "score": 9.81,
+            "champ": "Jax",
+            "kda": [
+                11,
+                11,
+                3
+            ],
+            "duration": 2001,
+            "csm": 6.45,
+            "team": 100,
+            "kp": 58.33,
+            "dp": 23.91,
+            "vpm": 0.36
+        }
+    },
+    "3608049162": {
+        "1deepturtle": {
+            "pid": 5,
+            "score": 14.88,
+            "champ": "Tryndamere",
+            "kda": [
+                10,
+                4,
+                1
+            ],
+            "duration": 1359,
+            "csm": 7.15,
+            "team": 100,
+            "kp": 34.38,
+            "dp": 40.0,
+            "vpm": 0.4
+        }
+    },
+    "3608031670": {
+        "1deepturtle": {
+            "pid": 2,
+            "score": 4.75,
+            "champ": "Sylas",
+            "kda": [
+                12,
+                17,
+                7
+            ],
+            "duration": 2577,
+            "csm": 2.96,
+            "team": 100,
+            "kp": 57.58,
+            "dp": 32.69,
+            "vpm": 0.51
+        }
+    },
+    "3606513678": {
+        "1deepturtle": {
+            "pid": 7,
+            "score": 18.6,
+            "champ": "MonkeyKing",
+            "kda": [
+                12,
+                10,
+                14
+            ],
+            "duration": 2062,
+            "csm": 4.51,
+            "team": 200,
+            "kp": 57.78,
+            "dp": 22.22,
+            "vpm": 0.47
+        }
+    },
+    "3606381089": {
+        "1deepturtle": {
+            "pid": 9,
+            "score": 17.12,
+            "champ": "Vayne",
+            "kda": [
+                9,
+                9,
+                14
+            ],
+            "duration": 2198,
+            "csm": 4.61,
+            "team": 200,
+            "kp": 67.65,
+            "dp": 32.14,
+            "vpm": 0.55
+        }
+    },
+    "3605951757": {
+        "1deepturtle": {
+            "pid": 6,
+            "score": 2.67,
+            "champ": "Sylas",
+            "kda": [
+                5,
+                15,
+                11
+            ],
+            "duration": 2609,
+            "csm": 2.94,
+            "team": 200,
+            "kp": 22.22,
+            "dp": 28.3,
+            "vpm": 0.46
+        }
+    },
+    "3605073867": {
+        "1deepturtle": {
+            "pid": 5,
+            "score": 11.21,
+            "champ": "MonkeyKing",
+            "kda": [
+                18,
+                14,
+                4
+            ],
+            "duration": 2410,
+            "csm": 2.84,
+            "team": 100,
+            "kp": 46.81,
+            "dp": 25.0,
+            "vpm": 0.47
+        }
+    },
+    "3603681446": {
+        "1deepturtle": {
+            "pid": 7,
+            "score": 4.83,
+            "champ": "Riven",
+            "kda": [
+                4,
+                6,
+                3
+            ],
+            "duration": 2103,
+            "csm": 3.82,
+            "team": 200,
+            "kp": 25.93,
+            "dp": 19.35,
+            "vpm": 0.26
+        }
+    },
+    "3603022601": {
+        "1deepturtle": {
+            "pid": 5,
+            "score": 4.27,
+            "champ": "Sett",
+            "kda": [
+                8,
+                15,
+                6
+            ],
+            "duration": 2710,
+            "csm": 5.56,
+            "team": 100,
+            "kp": 33.33,
+            "dp": 30.0,
+            "vpm": 0.38
+        }
+    },
+    "3602058395": {
+        "1deepturtle": {
+            "pid": 8,
+            "score": 8.46,
+            "champ": "Ashe",
+            "kda": [
+                5,
                 8,
                 7
             ],
-            "duration": 1654,
-            "csm": 5.7,
+            "duration": 1496,
+            "csm": 4.65,
+            "team": 200,
+            "kp": 48.0,
+            "dp": 26.67,
+            "vpm": 0.52
+        }
+    },
+    "3602012401": {
+        "1deepturtle": {
+            "pid": 5,
+            "score": 4.93,
+            "champ": "MonkeyKing",
+            "kda": [
+                8,
+                12,
+                4
+            ],
+            "duration": 1946,
+            "csm": 4.78,
+            "team": 100,
+            "kp": 27.91,
+            "dp": 30.77,
+            "vpm": 0.37
+        }
+    },
+    "3608377938": {
+        "stinny": {
+            "pid": 9,
+            "score": 18.41,
+            "champ": "Nocturne",
+            "kda": [
+                13,
+                9,
+                8
+            ],
+            "duration": 1982,
+            "csm": 4.84,
+            "team": 200,
+            "kp": 46.67,
+            "dp": 25.71,
+            "vpm": 1.21
+        }
+    },
+    "3608345734": {
+        "stinny": {
+            "pid": 1,
+            "score": 24.84,
+            "champ": "LeeSin",
+            "kda": [
+                12,
+                10,
+                19
+            ],
+            "duration": 2518,
+            "csm": 5.27,
+            "team": 100,
+            "kp": 62.0,
+            "dp": 26.32,
+            "vpm": 0.98
+        }
+    },
+    "3608324575": {
+        "stinny": {
+            "pid": 3,
+            "score": 6.23,
+            "champ": "Graves",
+            "kda": [
+                0,
+                7,
+                9
+            ],
+            "duration": 1379,
+            "csm": 5.05,
+            "team": 100,
+            "kp": 56.25,
+            "dp": 19.44,
+            "vpm": 0.48
+        }
+    },
+    "3608322296": {
+        "stinny": {
+            "pid": 6,
+            "score": 26.08,
+            "champ": null,
+            "kda": [
+                16,
+                7,
+                11
+            ],
+            "duration": 2067,
+            "csm": 6.79,
+            "team": 200,
+            "kp": 58.7,
+            "dp": 15.56,
+            "vpm": 0.58
+        }
+    },
+    "3608284358": {
+        "stinny": {
+            "pid": 2,
+            "score": 8.89,
+            "champ": "Lucian",
+            "kda": [
+                8,
+                12,
+                6
+            ],
+            "duration": 2015,
+            "csm": 6.61,
+            "team": 100,
+            "kp": 46.67,
+            "dp": 30.0,
+            "vpm": 0.6
+        }
+    },
+    "3608261926": {
+        "stinny": {
+            "pid": 4,
+            "score": 28.08,
+            "champ": "Kassadin",
+            "kda": [
+                21,
+                5,
+                4
+            ],
+            "duration": 1680,
+            "csm": 6.14,
+            "team": 100,
+            "kp": 56.82,
+            "dp": 23.81,
+            "vpm": 0.89
+        }
+    },
+    "3608218321": {
+        "stinny": {
+            "pid": 10,
+            "score": 16.94,
+            "champ": null,
+            "kda": [
+                11,
+                9,
+                10
+            ],
+            "duration": 1770,
+            "csm": 5.39,
+            "team": 200,
+            "kp": 61.76,
+            "dp": 20.0,
+            "vpm": 0.61
+        }
+    },
+    "3607232389": {
+        "bobbyzlich": {
+            "pid": 10,
+            "score": 5.49,
+            "champ": "Maokai",
+            "kda": [
+                1,
+                9,
+                11
+            ],
+            "duration": 2559,
+            "csm": 4.13,
+            "team": 200,
+            "kp": 32.43,
+            "dp": 23.68,
+            "vpm": 0.38
+        }
+    },
+    "3605864082": {
+        "bobbyzlich": {
+            "pid": 2,
+            "score": 0.89,
+            "champ": "Renekton",
+            "kda": [
+                1,
+                7,
+                2
+            ],
+            "duration": 1895,
+            "csm": 4.56,
+            "team": 100,
+            "kp": 10.0,
+            "dp": 15.91,
+            "vpm": 0.16
+        }
+    },
+    "3605900120": {
+        "bobbyzlich": {
+            "pid": 5,
+            "score": 3.13,
+            "champ": "Mordekaiser",
+            "kda": [
+                2,
+                6,
+                3
+            ],
+            "duration": 1311,
+            "csm": 4.62,
+            "team": 100,
+            "kp": 16.67,
+            "dp": 26.09,
+            "vpm": 0.05
+        }
+    },
+    "3604579267": {
+        "bobbyzlich": {
+            "pid": 10,
+            "score": 16.83,
+            "champ": "Ornn",
+            "kda": [
+                6,
+                1,
+                8
+            ],
+            "duration": 1931,
+            "csm": 5.13,
+            "team": 200,
+            "kp": 43.75,
+            "dp": 4.17,
+            "vpm": 0.28
+        }
+    },
+    "3604537706": {
+        "bobbyzlich": {
+            "pid": 5,
+            "score": 9.72,
+            "champ": "Maokai",
+            "kda": [
+                6,
+                4,
+                2
+            ],
+            "duration": 1660,
+            "csm": 6.25,
+            "team": 100,
+            "kp": 29.63,
+            "dp": 11.76,
+            "vpm": 0.04
+        }
+    },
+    "3602033305": {
+        "bobbyzlich": {
+            "pid": 2,
+            "score": 4.08,
+            "champ": "Mordekaiser",
+            "kda": [
+                5,
+                12,
+                8
+            ],
+            "duration": 2130,
+            "csm": 4.7,
+            "team": 100,
+            "kp": 31.71,
+            "dp": 27.27,
+            "vpm": 0.11
+        }
+    },
+    "3601959217": {
+        "bobbyzlich": {
+            "pid": 5,
+            "score": 13.01,
+            "champ": "Gangplank",
+            "kda": [
+                2,
+                2,
+                8
+            ],
+            "duration": 1385,
+            "csm": 6.97,
+            "team": 100,
+            "kp": 31.25,
+            "dp": 15.38,
+            "vpm": 0.09
+        }
+    },
+    "3601984723": {
+        "bobbyzlich": {
+            "pid": 2,
+            "score": 23.67,
+            "champ": "Ornn",
+            "kda": [
+                8,
+                1,
+                13
+            ],
+            "duration": 1521,
+            "csm": 6.11,
+            "team": 100,
+            "kp": 60.0,
+            "dp": 5.26,
+            "vpm": 0.16
+        }
+    },
+    "3604929149": {
+        "squackythebird": {
+            "pid": 10,
+            "score": 7.57,
+            "champ": "TahmKench",
+            "kda": [
+                2,
+                4,
+                0
+            ],
+            "duration": 1641,
+            "csm": 7.17,
+            "team": 200,
+            "kp": 25.0,
+            "dp": 13.79,
+            "vpm": 0.77
+        }
+    },
+    "3604895703": {
+        "squackythebird": {
+            "pid": 3,
+            "score": 10.21,
+            "champ": "TahmKench",
+            "kda": [
+                4,
+                3,
+                1
+            ],
+            "duration": 1298,
+            "csm": 5.55,
             "team": 100,
             "kp": 50.0,
-            "dp": 21.05,
-            "vpm": 0.69
+            "dp": 12.5,
+            "vpm": 0.97
+        }
+    },
+    "3608222772": {
+        "ipisgood": {
+            "pid": 10,
+            "score": 16.23,
+            "champ": "Malphite",
+            "kda": [
+                5,
+                7,
+                17
+            ],
+            "duration": 1988,
+            "csm": 3.62,
+            "team": 200,
+            "kp": 52.38,
+            "dp": 21.88,
+            "vpm": 0.6
+        }
+    },
+    "3606943163": {
+        "ipisgood": {
+            "pid": 4,
+            "score": 12.99,
+            "champ": "Ornn",
+            "kda": [
+                4,
+                3,
+                6
+            ],
+            "duration": 1520,
+            "csm": 6.59,
+            "team": 100,
+            "kp": 23.81,
+            "dp": 21.43,
+            "vpm": 0.39
+        }
+    },
+    "3606866477": {
+        "ipisgood": {
+            "pid": 1,
+            "score": 7.24,
+            "champ": "Malphite",
+            "kda": [
+                3,
+                5,
+                2
+            ],
+            "duration": 1828,
+            "csm": 6.53,
+            "team": 100,
+            "kp": 21.74,
+            "dp": 10.64,
+            "vpm": 0.39
+        }
+    },
+    "3607765766": {
+        "purplebumblebeez": {
+            "pid": 10,
+            "score": 18.26,
+            "champ": "Morgana",
+            "kda": [
+                4,
+                3,
+                12
+            ],
+            "duration": 1599,
+            "csm": 0.6,
+            "team": 200,
+            "kp": 72.73,
+            "dp": 18.75,
+            "vpm": 2.4
+        }
+    },
+    "3605192303": {
+        "pooplol": {
+            "pid": 6,
+            "score": 2.85,
+            "champ": "Nunu",
+            "kda": [
+                1,
+                12,
+                10
+            ],
+            "duration": 1591,
+            "csm": 4.3,
+            "team": 200,
+            "kp": 47.83,
+            "dp": 29.27,
+            "vpm": 0.68
+        }
+    },
+    "3605143057": {
+        "pooplol": {
+            "pid": 4,
+            "score": 10.54,
+            "champ": "Nunu",
+            "kda": [
+                4,
+                5,
+                4
+            ],
+            "duration": 1706,
+            "csm": 5.1,
+            "team": 100,
+            "kp": 66.67,
+            "dp": 20.0,
+            "vpm": 1.13
+        }
+    },
+    "3605073831": {
+        "pooplol": {
+            "pid": 3,
+            "score": 20.28,
+            "champ": "Graves",
+            "kda": [
+                6,
+                6,
+                11
+            ],
+            "duration": 1568,
+            "csm": 8.84,
+            "team": 100,
+            "kp": 34.69,
+            "dp": 24.0,
+            "vpm": 1.15
+        }
+    },
+    "3604958998": {
+        "pooplol": {
+            "pid": 8,
+            "score": 17.5,
+            "champ": "Nunu",
+            "kda": [
+                3,
+                1,
+                9
+            ],
+            "duration": 951,
+            "csm": 5.55,
+            "team": 200,
+            "kp": 70.59,
+            "dp": 50.0,
+            "vpm": 0.95
         }
     }
 }

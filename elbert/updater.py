@@ -72,11 +72,15 @@ class Updater:
         """takes a list of IGN's and requests summoner data for each
         saves it to silverfantasy.json. returns raw resp."""
         id_ar = AsyncRequester()
+        resp = []
 
         for s_ign in args:
+            if (AsyncRequester.t_req + id_ar.c_req) % 20 == 0:  # rate limit
+                resp += id_ar.run()
+                time.sleep(1)
             id_ar.sum_dat(s_ign)
         # id_ar.__floor__()
-        resp = id_ar.__floor__().run()
+        resp += id_ar.run()
 
         for player in resp:
             if 'status' in player:  # skip errors
@@ -90,7 +94,7 @@ class Updater:
 
         self.save(league=True, state=id_ar)
 
-        ret = {"resp": resp}  # hack resp in to a JSON-able format, change ret later to what trey wants
+        ret = {"resp": resp, "err": self.erred}
         return ret
 
     def check_ids(self, igns: list, id_type='id', request=True):
@@ -118,11 +122,15 @@ class Updater:
         UPDATES AND SAVES LOCAL"""
         rank_ar = AsyncRequester()
         _ids = self.check_ids(args)
+        resp = []
 
         for sid in _ids:
             rank_ar.ranked(_ids[sid])
+            if (AsyncRequester.t_req + rank_ar.c_req) % 20 == 0:
+                resp += rank_ar.run()
+                time.sleep(1)
 
-        resp = rank_ar.run()
+        resp += rank_ar.run()
         for ranked_dat in resp:  # for all the players' ranked data
             for stats in ranked_dat:  # for the diff queues (max 3; solo, flex, TFT)
                 if stats['queueType'] == 'RANKED_SOLO_5x5':
@@ -144,8 +152,7 @@ class Updater:
                     c_player["teams"] = [] if "teams" not in c_player else c_player["teams"]
 
         self.save(league=True, state=rank_ar)
-
-        ret = {"resp": resp}  # hack resp in to a JSON-able format, change ret later to what trey wants
+        ret = {"resp": resp, "err": self.erred}  # hack resp in to a JSON-able, change ret later to what trey wants
         return ret
     
     def request_weekly_soloq(self, args):
@@ -154,14 +161,18 @@ class Updater:
         hist_ar = AsyncRequester()
         aids_dict = self.check_ids(args, 'accountId')  # lol AIDS
         to_request = []
+        resp = []
 
         for ign in aids_dict:
             aid = aids_dict[ign]
             hist_ar.match_history(aid, queries={"beginTime": last_friday(), "queue": 420})
-        resp = hist_ar.run()  # get the match histories
+            if (AsyncRequester.t_req + hist_ar.c_req) % 20 == 0:
+                resp += hist_ar.run()
+                time.sleep(1)
+        resp += hist_ar.run()  # get the match histories
 
         errors = 0
-        for hist in resp:
+        for hist in resp:  # PROBABLY BROKEN
             if 'status' not in hist:  # ignore all errors
                 for match in hist["matches"]:
                     if str(match['gameId']) not in self.games:
@@ -169,21 +180,30 @@ class Updater:
             else:
                 errors += 1
 
-        self.save(state=hist_ar)
+        self.save(state=hist_ar, league=True)
         return to_request
 
     def _get_registered_pids(self, raw_game):
         """take a raw match-by-id API response and gets participant id's for registered players"""
         pid = {}
         for p in raw_game["participantIdentities"]:
-            if p['player']['summonerName'].lower() in self.league["PLAYERS"]:
-                pid[p['player']['summonerName']] = p['participantId']
+            ign = p['player']['summonerName'].lower()
+            if ign in self.league["PLAYERS"]:
+                pid[ign] = p['participantId']
+                try:  # save the game in the players match history
+                    if raw_game['gameId'] not in self.league["PLAYERS"][ign]['history']:
+                        self.league["PLAYERS"][ign]['history'].append(raw_game['gameId'])
+                except KeyError:
+                    self.league["PLAYERS"][ign]['history'] = [raw_game['gameId']]
+
         return pid
 
-    def request_matches(self, args):
-        """takes in summoners and updates matches
-        DOES NOT SAVE"""
+    def update_matches(self, args):
+        """takes in summoners and updates matches, save ALL! return updated matches."""
         to_get = self.request_weekly_soloq(args)
+        if not to_get:
+            return None
+
         match_ar = AsyncRequester()
         resp = []
 
@@ -227,8 +247,8 @@ class Updater:
                         tk += sumr["stats"]["kills"]
                         td += sumr["stats"]["deaths"]
                         ta += sumr["stats"]["assists"]
-                kp = (kills + assists) / tk
-                dp = deaths / td
+                kp = (kills + assists) / tk if tk > 0 else 1
+                dp = deaths / td if td > 0 else 0
                 vpm = stats['visionScore'] / (duration / 60)
                 points = (kills + .75 * assists - deaths) * (0.9 + kp / 5) + csm + 3 * vpm
 
@@ -247,23 +267,29 @@ class Updater:
                                         }})  # create player dicts within the game
                 ret[game['gameId']] = c_game
 
-        self.save(games=True, state=match_ar)
+        self.save(league=True, games=True, state=match_ar)
+        ret = {"resp": ret, "err": self.erred}
         return ret
 
-    def run(self, args):
-        """for running"""
+    def avg_by_queue(self, args):
+        print(args)
+        return {'status': 200}
 
+    def run(self, args):
+        """for running xD"""
         if self.request_type == "summoner":
             return self.update_summoner(args)
         elif self.request_type == "ranked":
             return self.update_ranked(args)
         elif self.request_type == "matches":
-            return self.request_matches(args)
+            return self.update_matches(args)
+        elif self.request_type == "avg":
+            return self.avg_by_queue(args)
         else:
             print(f'\033[93mERROR: UNKNOWN REQUEST TYPE {self.request_type}\033[0m')
 
 
 if __name__ == "__main__":
-    u = Updater('ranked')  # doesn't even matter how i initialize it
-    u.request_matches(["stinny"])
-    print(u.erred)
+    u = Updater('matches')  # doesn't even matter how i initialize it
+    master_list = [p for p in u.league["PLAYERS"]]
+    print(u.update_matches(master_list))

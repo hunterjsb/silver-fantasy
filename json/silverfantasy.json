@@ -9,7 +9,7 @@
             "whitelisted": true,
             "teams": {
                 "371034483836846090": {
-                    "points": 125.3,
+                    "points": 176.32,
                     "budget": 1,
                     "owner": "x\u00c3\u00a2n",
                     "players": {
@@ -21,7 +21,7 @@
                     }
                 },
                 "409135880960213002": {
-                    "points": 58.18,
+                    "points": 115.19000000000001,
                     "budget": 6,
                     "owner": "ed",
                     "players": {
@@ -33,7 +33,7 @@
                     }
                 },
                 "434766902221340682": {
-                    "points": 111.1,
+                    "points": 154.52,
                     "budget": 8,
                     "owner": "yasuomoe",
                     "players": {
@@ -45,7 +45,7 @@
                     }
                 },
                 "300110170858717184": {
-                    "points": 99.38,
+                    "points": 183.35,
                     "owner": "DurkleDingus",
                     "budget": 6,
                     "players": {
@@ -207,27 +207,33 @@
             "leagues": [
                 "XFL"
             ],
-            "games": 732,
-            "wr mod": 55.79212276214834,
+            "games": 734,
+            "wr mod": 55.5,
             "dat": {
                 "id": "dA01EnQpC6yFsJW9EywybRtBQQLN3CnU382Z7M4yF5neutM",
                 "accountId": "xvdkTzcV4JRM_XOnCIhhIojg4YdV8EsUKdyUxhaqOjrZjkE",
                 "puuid": "6dQbPPIVLepkQoExbOm6kviRz_VvsQfKLzCTfkyrFTd_JB4eI_uQRMO82Ban95VBkNgCc0VZLKG3KA",
                 "name": "black xan bible",
                 "profileIconId": 4655,
-                "revisionDate": 1601676729000,
-                "summonerLevel": 310
-            }
+                "revisionDate": 1601951967000,
+                "summonerLevel": 311
+            },
+            "inactive": false,
+            "lp": 58,
+            "teams": [],
+            "history": [
+                3608502522
+            ]
         },
         "x\u00e2n": {
             "rank": "SILVER II",
-            "wr": 49.07,
+            "wr": 49.08,
             "leagues": [
                 "XFL",
                 "XFL"
             ],
-            "games": 430,
-            "wr mod": 55.416666666666664,
+            "games": 434,
+            "wr mod": 55.42,
             "dat": {
                 "id": "5WCVixd8vtY9I0x_7mXNt1kpLIZFkzt4N6unnTc0ir1eYNc",
                 "accountId": "SCXS0NPDLdjum2HXlWaLAHUPeqZy83DReWAkTEpnVTyg7mE",
@@ -235,8 +241,16 @@
                 "name": "x\u00e2n",
                 "profileIconId": 4480,
                 "revisionDate": 1601604869000,
-                "summonerLevel": 284
-            }
+                "summonerLevel": 285
+            },
+            "history": [
+                3603810303,
+                3603245623,
+                3608502522
+            ],
+            "inactive": false,
+            "lp": 17,
+            "teams": []
         },
         "ipogoz": {
             "rank": "GOLD IV",
@@ -245,43 +259,50 @@
                 "XFL"
             ],
             "games": 398,
-            "wr mod": 59.14928571428571,
+            "wr mod": 58.84,
             "dat": {
                 "id": "OKWi93IF3ObWvgp8h0PMpuCS05ZrME-Ft99uTqjalDUsdCo",
                 "accountId": "EeGbYPyTb8kWjKF7kpN-XFzbhHvHugrJ0U79xVEiDMDKlzM",
                 "puuid": "eB3hxnlKjy9t2dgOI5nxdsYyRgQJ7zy30qnGO001OkOrB2Jhwmz_FQbiap_RDikwJuKNCIXmMf3ZTQ",
                 "name": "iPogoZ",
                 "profileIconId": 4312,
-                "revisionDate": 1601170083000,
-                "summonerLevel": 429
-            }
+                "revisionDate": 1601946538000,
+                "summonerLevel": 431
+            },
+            "inactive": false,
+            "lp": 62,
+            "teams": []
         },
         "snakebee16": {
-            "rank": "IRON IV",
-            "wr": 45.18,
+            "rank": "IRON III",
+            "wr": 46.32,
             "leagues": [
                 "XFL"
             ],
-            "games": 197,
-            "wr mod": 46.35884615384615,
+            "games": 231,
+            "wr mod": 47.6,
             "dat": {
                 "id": "sRBjeSogGHnDfwhE565_rxLwW-gJ6Gn2vB7V2Tf_z9nJ2Bo",
                 "accountId": "ESRnF2P8G9PczMRxY2SUG8IE7Kl0-DZ2VSMXRN0d3PuWHN4",
                 "puuid": "vqRxb_ZiVV36TTojcuRaoF1cWR93V3I95QgeThgn1K8RjJ6kaSqWgov_gG6p1ui9tbXL7AqPWTjPug",
                 "name": "SnakeBee16",
-                "profileIconId": 3883,
-                "revisionDate": 1600034433000,
-                "summonerLevel": 405
+                "profileIconId": 4756,
+                "revisionDate": 1602012492000,
+                "summonerLevel": 411
             },
             "teams": [],
-            "lp": 0
+            "lp": 29,
+            "inactive": false,
+            "history": [
+                3605992851
+            ]
         },
         "b\u00e9p": {
             "rank": "GOLD IV",
             "wr": 65.62,
             "leagues": [],
             "games": 64,
-            "wr mod": 66.4969298245614,
+            "wr mod": 66.27,
             "dat": {
                 "id": "9DWb4UAquc3s0kLSc3CXnIiOY79S1fcZ5flsk-nSwapd-ZpJ",
                 "accountId": "EIkYgCRxl2j6Nh3Mt209zpKvMu7luYgFK4rOKt93MsOayO-NmnLpAxwh",
@@ -292,7 +313,8 @@
                 "summonerLevel": 49
             },
             "teams": [],
-            "lp": 0
+            "lp": 45,
+            "inactive": false
         },
         "drag0nham": {
             "rank": "BRONZE I",
@@ -301,16 +323,22 @@
                 "XFL"
             ],
             "games": 63,
-            "wr mod": 48.62278761061947,
+            "wr mod": 48.62,
             "dat": {
                 "id": "pzF5qBYq6mCOkqBKBrVrarkRky4qewegXtj0gPyrfYuTkkC6",
                 "accountId": "KlBmCwBpAalCDPX9C2CFpDZ4DB89AU5NS0eGvukaI6Wf5OleWyTLtevC",
                 "puuid": "cSy_-m7MfsgRP4EAFFKfAl37MfX5LXThWuLdMDHzUEFcj38qkClzi-vt2YmoncJZI_ovNo71p1UVmA",
                 "name": "Drag0nHam",
                 "profileIconId": 4756,
-                "revisionDate": 1601408669000,
+                "revisionDate": 1601859872000,
                 "summonerLevel": 74
-            }
+            },
+            "inactive": false,
+            "lp": 0,
+            "teams": [],
+            "history": [
+                3603295823
+            ]
         },
         "xxda1hpwarriorxx": {
             "rank": "BRONZE II",
@@ -319,7 +347,7 @@
                 "XFL"
             ],
             "games": 60,
-            "wr mod": 54.25,
+            "wr mod": 53.75,
             "dat": {
                 "id": "8zBQapKrC4QWfPoDc8282Wyy-IEnhexP-LOqEOoiQlzY4mvj",
                 "accountId": "oCWkwbScZtcwpebmTYU1cRSJ7ce6DuwWRLHjfnwjO36hqXmJYnglpMFr",
@@ -330,7 +358,8 @@
                 "summonerLevel": 142
             },
             "teams": [],
-            "lp": 0
+            "lp": 100,
+            "inactive": false
         },
         "kronova": {
             "rank": "PLATINUM II",
@@ -339,18 +368,19 @@
                 "XFL"
             ],
             "games": 328,
-            "wr mod": 60.31679894179894,
+            "wr mod": 60.19,
             "dat": {
                 "id": "0rDgrRBh1oRQf_zO7usVVa4gmAuG_cM5vDFT11bP3-EWFqk",
                 "accountId": "XGZzvC7oTBky0T9-OjraTQy47kkNxnqVyzc3fMAKJfj5Rsg",
                 "puuid": "0RdA-gkEQCeI0q1ljocF6kah-5b_ep1unA8Q2ynfKuTlK7MMi4TevEVIwJyd34_I45m6F1Obm5_t9g",
                 "name": "Kronova",
-                "profileIconId": 4667,
-                "revisionDate": 1600569430000,
-                "summonerLevel": 500
+                "profileIconId": 4673,
+                "revisionDate": 1602037551000,
+                "summonerLevel": 506
             },
             "teams": [],
-            "lp": 0
+            "lp": 25,
+            "inactive": false
         },
         "nkjukko": {
             "dat": {
@@ -359,89 +389,119 @@
                 "puuid": "x5Zn1xrC8tnBc1LqinQlz-ttGdGaNVMc12IP__Eb2kybKU_fSK55lsc_j4_mtGuJnSh3uX3J6th88Q",
                 "name": "NKJukko",
                 "profileIconId": 4025,
-                "revisionDate": 1601415188000,
-                "summonerLevel": 142
+                "revisionDate": 1601915020000,
+                "summonerLevel": 143
             },
             "rank": "SILVER III",
             "inactive": false,
-            "wr": 48.31,
-            "games": 89,
+            "wr": 48.35,
+            "games": 91,
             "leagues": [],
-            "wr mod": 54.55,
+            "wr mod": 54.56,
             "teams": [
                 "XFL:408704037358272535"
             ],
-            "lp": 23
+            "lp": 31
         },
         "1deepturtle": {
             "rank": "GOLD III",
-            "wr": 50.77,
+            "wr": 50.8,
             "leagues": [
                 "XFL"
             ],
-            "games": 1233,
-            "wr mod": 58.86545206547155,
+            "games": 1244,
+            "wr mod": 58.9,
             "dat": {
                 "id": "V6YfF68BOhAw9QNHTomGVgpf_bTQaw_a5lLwQMqPr70wIKA",
                 "accountId": "yosljBbJlYNqKgnx71k2fRLas0KrO3SemwufwTHHSCh8QQ",
                 "puuid": "xSiPfUC-yrrg1pKcnhaBMuif-P0vXqNxJWsk33NAvlabCu-xXNXwz3uD9CHHbUIvzGUDgMa4-SbYow",
                 "name": "1DeepTurtle",
                 "profileIconId": 4657,
-                "revisionDate": 1601516581000,
-                "summonerLevel": 395
-            }
+                "revisionDate": 1602037960000,
+                "summonerLevel": 396
+            },
+            "inactive": false,
+            "lp": 31,
+            "teams": [],
+            "history": [
+                3608516962,
+                3608179442,
+                3608234584,
+                3608233312,
+                3608129428,
+                3608104831,
+                3608049162,
+                3608031670,
+                3606513678,
+                3606381089,
+                3605951757,
+                3605073867,
+                3603681446,
+                3603022601,
+                3602058395,
+                3602012401
+            ]
         },
         "darkshadow2015": {
-            "rank": "SILVER III",
-            "wr": 44.76,
+            "rank": "SILVER II",
+            "wr": 46.85,
             "leagues": [],
-            "games": 105,
-            "wr mod": 52.29161290322581,
+            "games": 111,
+            "wr mod": 54.08,
             "dat": {
-                "id": "iWvws8YbDoUefCRYWE0UlI5BwCJCCbp6xtr87DLZdJ0DXFw"
+                "id": "iWvws8YbDoUefCRYWE0UlI5BwCJCCbp6xtr87DLZdJ0DXFw",
+                "accountId": "vuztcZQ_AuipW9I1tAC5x04zETRhNHs8slk7tGCVW8GEVW4",
+                "puuid": "lbnQ_Gmf4N0381h0sXwoCAM1ejj1sYgb6bajrAnvTEgoVQZyxfObQy6M5nItC6vu_izfBSBhfLiE0g",
+                "name": "DarKShadow2015",
+                "profileIconId": 4659,
+                "revisionDate": 1601976588000,
+                "summonerLevel": 258
             },
             "teams": [],
-            "lp": 0
+            "lp": 0,
+            "inactive": false
         },
         "micheal nguyen": {
             "rank": "PLATINUM II",
-            "wr": 54.17,
+            "wr": 57.14,
             "leagues": [
                 "XFL"
             ],
-            "games": 24,
-            "wr mod": 62.75635135135135,
+            "games": 28,
+            "wr mod": 63.81,
             "dat": {
-                "id": "C1VsxlMYY8_Qrw02atDoeXCVsMxZ0kPSyTeAqFjpuyFwsdc"
+                "id": "C1VsxlMYY8_Qrw02atDoeXCVsMxZ0kPSyTeAqFjpuyFwsdc",
+                "accountId": "ztXlevjwbB7Iez1s-Iv54Qv0X0zqstezqLh5s2kNl_Vtoug",
+                "puuid": "pyuk-xxasxJk5UmQ9Zshr8Wet65AZfAqjLOlZMRIC42UqMOcBaQpI90UDURHzCVAPNbwR1jXkbKBmg",
+                "name": "Micheal Nguyen",
+                "profileIconId": 779,
+                "revisionDate": 1601943243000,
+                "summonerLevel": 292
             },
             "teams": [
                 "XFL:264422225711464448"
             ],
-            "lp": 0
+            "lp": 83,
+            "inactive": false
         },
         "jhonny blaze": {
             "rank": "BRONZE I",
             "wr": 47.71,
             "leagues": [],
             "games": 480,
-            "wr mod": 52.369528301886795,
+            "wr mod": 52.3,
             "dat": {
-                "id": "JrCmbK_bwnWnZZRIrDF0eEUsnuh5xmrT2pYJELwZe0Dc"
+                "id": "JrCmbK_bwnWnZZRIrDF0eEUsnuh5xmrT2pYJELwZe0Dc",
+                "accountId": "8RqXm2P5Ot4m0TW0kOE84zbuwVzkk_eLvkZ0xLTxw54",
+                "puuid": "vpAaOoIEia2UikbL9AOTdUhASlcAFb5BaL0V3z12Xfj6hJ2NWxNPuvv0l_RI5hNGGCKet72LhzFQVg",
+                "name": "jhonny blaze",
+                "profileIconId": 1296,
+                "revisionDate": 1594437532000,
+                "summonerLevel": 161
             },
             "teams": [],
-            "lp": 0
-        },
-        "jusyithings": {
-            "rank": "PLATINUM III",
-            "wr": 55.2,
-            "leagues": [],
-            "games": 125,
-            "wr mod": 64.33928571428572,
-            "dat": {
-                "id": "ttcoSaPqzAMAj3JEkIyTdEARgdMurYt89ZAPDsImny6dvtc"
-            },
-            "teams": [],
-            "lp": 0
+            "lp": 14,
+            "inactive": false
         },
         "stinny": {
             "dat": {
@@ -450,31 +510,57 @@
                 "puuid": "rpb0A5EZha_rhjP_dubiBGjw07S19GyAY8BP081a9qe3bD4vYRKA52Eu1J9rX83cFyxtyfTSsjB2EQ",
                 "name": "Stinny",
                 "profileIconId": 4090,
-                "revisionDate": 1601459835000,
-                "summonerLevel": 380
+                "revisionDate": 1601800393000,
+                "summonerLevel": 382
             },
-            "rank": "GOLD IV",
+            "rank": "SILVER I",
             "inactive": false,
-            "wr": 48.4,
-            "games": 969,
+            "wr": 48.17,
+            "games": 1013,
             "leagues": [],
-            "wr mod": 55.98,
+            "wr mod": 55.13,
             "teams": [
                 "XFL:371034483836846090",
                 "XFL:434766902221340682",
                 "XFL:300110170858717184",
                 "XFL:408704037358272535"
             ],
-            "lp": 0
+            "lp": 83,
+            "history": [
+                3607298109,
+                3607283552,
+                3607057779,
+                3607083711,
+                3607060426,
+                3607033580,
+                3607010361,
+                3606116957,
+                3606112158,
+                3605542440,
+                3602888098,
+                3602841353,
+                3602549317,
+                3602409870,
+                3602294560,
+                3602236509,
+                3602280950,
+                3608377938,
+                3608345734,
+                3608324575,
+                3608322296,
+                3608284358,
+                3608261926,
+                3608218321
+            ]
         },
         "graynote": {
-            "rank": "GOLD II",
-            "wr": 47.83,
+            "rank": "GOLD I",
+            "wr": 50.0,
             "leagues": [
                 "XFL"
             ],
-            "games": 115,
-            "wr mod": 57.60484848484848,
+            "games": 122,
+            "wr mod": 59.38,
             "dat": {
                 "id": "s84P_MVv_qn6IchUQ7XvzbcplvcGFrkQ4mearKEbVwuNCcY",
                 "accountId": "VNvED3hzJEVRlROVojmuLRTMcoo3Uo0YRJicaYQNMeUWHxI",
@@ -482,49 +568,64 @@
                 "name": "GrayNote",
                 "profileIconId": 3839,
                 "revisionDate": 1601194033000,
-                "summonerLevel": 232
+                "summonerLevel": 234
             },
             "teams": [
                 "XFL:434766902221340682"
             ],
-            "lp": 0
+            "lp": 61,
+            "inactive": false
         },
         "larrylobster333": {
             "rank": "SILVER IV",
-            "wr": 43.75,
+            "wr": 40.91,
             "leagues": [
                 "XFL"
             ],
-            "games": 16,
-            "wr mod": 53.819848484848485,
+            "games": 22,
+            "wr mod": 52.22,
             "dat": {
-                "id": "ZzmkZuAK0LZBd41nuyVb630Ka6FES-d8BzS6gwVUje4HcX4"
+                "id": "ZzmkZuAK0LZBd41nuyVb630Ka6FES-d8BzS6gwVUje4HcX4",
+                "accountId": "wsFw8OxdQrEUQ_dYXhct2UPMqFF4fqPcARuSoTcX9NrMbrQ",
+                "puuid": "C400JPWqtOhL57a6eRGt8vJ2cbBQroiA9_z-nbKkNYEMogOKPNR04qJtKa89N4OirZiqOcmFmgPjVg",
+                "name": "larrylobster333",
+                "profileIconId": 3501,
+                "revisionDate": 1601590334000,
+                "summonerLevel": 188
             },
             "teams": [],
-            "lp": 0
+            "lp": 70,
+            "inactive": false
         },
         "yasuomoe": {
-            "rank": "SILVER IV",
-            "wr": 48.11,
+            "rank": "SILVER III",
+            "wr": 48.17,
             "leagues": [
                 "XFL"
             ],
-            "games": 503,
-            "wr mod": 53.682097649186254,
+            "games": 519,
+            "wr mod": 53.96,
             "dat": {
                 "id": "Y22qOyTNuxZfkWAXSAMYeoMgzIdayPYvj4nsR8ejUB8sEP0",
                 "accountId": "mz4DAb8Za01Qj9NW_7W9PWKvduN2DCkx2PNuJ6JORD7_ghIKTT8tblwL",
                 "puuid": "_skREFbAHjWnHdcMmMkc7PUsKQLNM3SHwvpzvHce5i2-wOiComDI4Natu8W5s9c-koqi6VyRWNmIfA",
                 "name": "Yasuomoe",
                 "profileIconId": 3797,
-                "revisionDate": 1601666851000,
-                "summonerLevel": 152
+                "revisionDate": 1602021268000,
+                "summonerLevel": 154
             },
             "teams": [
                 "XFL:434766902221340682",
                 "XFL:264422225711464448"
             ],
-            "lp": 0
+            "lp": 22,
+            "history": [
+                3604176071,
+                3604065058,
+                3603810303,
+                3603734061
+            ],
+            "inactive": false
         },
         "1deepgenz": {
             "dat": {
@@ -533,8 +634,8 @@
                 "puuid": "Fj3t8TiO5GwgfAMe80FuK3RDYobLQngb5R6I6LjzAsxAEk-29lDFZvo_bgRssM21DeeeJIp-wxRlgA",
                 "name": "1DeepGenZ",
                 "profileIconId": 4116,
-                "revisionDate": 1600839140000,
-                "summonerLevel": 246
+                "revisionDate": 1601952970000,
+                "summonerLevel": 248
             },
             "rank": "SILVER II",
             "inactive": false,
@@ -550,20 +651,20 @@
         },
         "bobbyzlich": {
             "rank": "SILVER IV",
-            "wr": 46.07,
+            "wr": 46.79,
             "leagues": [
                 "XFL"
             ],
-            "games": 89,
-            "wr mod": 52.63201438848921,
+            "games": 109,
+            "wr mod": 52.8,
             "dat": {
                 "id": "UxgVW-Lk5hO7Gp25fnLtX3hC7Khgm-YROvAEqz0buUEYs78",
                 "accountId": "1JDzZB-WczYfZXgUtZiZYGuct7FOFiq6RYfPXO7fe7ojDFA",
                 "puuid": "SfUPoQiMgRvUHM1pOVZH1FKpkuZL5rrM6T9LPXlDE19AIrXh5NIAq-NuHZk4EkS19fOboqlu_rCkDg",
                 "name": "BobbyZlich",
                 "profileIconId": 4658,
-                "revisionDate": 1600310710000,
-                "summonerLevel": 78
+                "revisionDate": 1602081274000,
+                "summonerLevel": 81
             },
             "inactive": false,
             "teams": [
@@ -571,7 +672,17 @@
                 "XFL:199962540275400704",
                 "XFL:178942452034568192"
             ],
-            "lp": 0
+            "lp": 68,
+            "history": [
+                3607232389,
+                3605864082,
+                3605900120,
+                3604579267,
+                3604537706,
+                3602033305,
+                3601959217,
+                3601984723
+            ]
         },
         "u\u00f1orthodox": {
             "rank": "SILVER III",
@@ -580,35 +691,43 @@
                 "XFL"
             ],
             "games": 190,
-            "wr mod": 53.651666666666664,
+            "wr mod": 53.54,
             "dat": {
                 "id": "Pv10ZJc9HcaKBFaLiR7velcmfaCJV3ritN5CH8ca7uZKuLVM",
                 "accountId": "6S6QZu0QmiA2NH2rxLKS_FkOCLA5GDZnvfcyzEbEy4Kw-gsSLY4jsFbo",
                 "puuid": "vLX4PIpvCyGfP8iwadvExE_aGIEZg3_Va93c007NZHnYF-BbbpNCRKhWdWrJsuPIY4jXN2JQ67t_DA",
                 "name": "U\u00f1orthodox",
                 "profileIconId": 4631,
-                "revisionDate": 1601355542000,
-                "summonerLevel": 157
+                "revisionDate": 1601919670000,
+                "summonerLevel": 159
             },
             "teams": [
                 "XFL:371034483836846090",
                 "XFL:460129267775176715"
             ],
-            "lp": 0
+            "lp": 22,
+            "inactive": false
         },
         "ahhhaustin": {
             "rank": "PLATINUM III",
-            "wr": 46.72,
+            "wr": 46.53,
             "leagues": [
                 "XFL"
             ],
-            "games": 244,
-            "wr mod": 58.24391156462586,
+            "games": 245,
+            "wr mod": 57.74,
             "dat": {
-                "id": "oQLbZD7-WiOmLAf2XJ4oA-L7A4wHp13y-2t3bFv7IN2Wizk"
+                "id": "oQLbZD7-WiOmLAf2XJ4oA-L7A4wHp13y-2t3bFv7IN2Wizk",
+                "accountId": "VOD4cQsdqCx6UrZTcbNc8phZ1FHyW7k7__sGjSFBi1u6A4A",
+                "puuid": "YBHkibCoYo4pS7G6fXCSDcI8-gArSwGvnoicgLdkRLpxsrtTIir-yBE-9QjRg4fVtMYOWvG2Ilq75w",
+                "name": "AhhhAustin",
+                "profileIconId": 4214,
+                "revisionDate": 1601525046000,
+                "summonerLevel": 286
             },
             "teams": [],
-            "lp": 0
+            "lp": 50,
+            "inactive": false
         },
         "chillguy": {
             "rank": "GOLD IV",
@@ -617,7 +736,7 @@
                 "XFL"
             ],
             "games": 17,
-            "wr mod": 58.396268656716416,
+            "wr mod": 58.25,
             "dat": {
                 "id": "fbcMxLhE5hWKCOwStS4L-P2yyzLUPV-kCcMAU7JXaENfEuQ",
                 "accountId": "8YcU9ryqK9J0Vi_2FLJ4EWLPeeIcHjDPtxqdbfspCsCMsA",
@@ -626,60 +745,77 @@
                 "profileIconId": 1301,
                 "revisionDate": 1600308864000,
                 "summonerLevel": 41
-            }
+            },
+            "inactive": false,
+            "lp": 30,
+            "teams": []
         },
         "i am dogunyun": {
-            "rank": "PLATINUM I",
-            "wr": 68.67,
+            "rank": "DIAMOND IV",
+            "wr": 66.67,
             "leagues": [],
-            "games": 83,
-            "wr mod": 73.97413533834586,
+            "games": 96,
+            "wr mod": 73.46,
             "dat": {
-                "id": "AY9lGFEnVOye4CgU0-7eH2-kuHNpnktGDtbH9JQ5Ve7EKSAC"
+                "id": "AY9lGFEnVOye4CgU0-7eH2-kuHNpnktGDtbH9JQ5Ve7EKSAC",
+                "accountId": "trQhX05lWZRjATfG30LmXDo4yevljJOOUL4Mhs0sWrEKMR6sw8Gx4zSE",
+                "puuid": "VrwHm7pcC5PtQVC8nkyaIOacsziNr30ld5aXFcrhlW8OESDzgvbjyCfuKgEsGOspJUIHOeLm5iQAqQ",
+                "name": "I am Dogunyun",
+                "profileIconId": 4568,
+                "revisionDate": 1600622205000,
+                "summonerLevel": 39
             },
             "teams": [],
-            "lp": 0
+            "lp": 0,
+            "inactive": false
         },
         "squackythebird": {
             "rank": "PLATINUM IV",
-            "wr": 53.2,
+            "wr": 55.51,
             "leagues": [
                 "XFL"
             ],
-            "games": 203,
-            "wr mod": 61.19416996047431,
+            "games": 236,
+            "wr mod": 64.55,
             "dat": {
                 "id": "DmhVHtHcELF2fgn1DJ-iMGpmfOrw5k8u4Hu6BeK3wpl0uSeK",
                 "accountId": "Qc1A8wPx2WdMN3Y-DgvLU-f1shia4mz_uGW7iUXLsnEmUKggSBoNSbVA",
                 "puuid": "b5po4K-nbZtNi46GP-jwC4o3VJCLQw5oQdwXMhi2N2Cuo0ObHb9UVrCjCB0KhcG7uk6hpgrXezPFwA",
                 "name": "SquackyTheBird",
                 "profileIconId": 4657,
-                "revisionDate": 1601002707000,
-                "summonerLevel": 55
+                "revisionDate": 1602052040000,
+                "summonerLevel": 56
             },
             "inactive": false,
             "teams": [
                 "XFL:178942452034568192"
             ],
-            "lp": 0
+            "lp": 0,
+            "history": [
+                3604929149,
+                3604895703
+            ]
         },
         "meatmattress": {
             "rank": "SILVER IV",
-            "wr": 49.37,
+            "wr": 48.75,
             "leagues": [
                 "XFL"
             ],
-            "games": 79,
-            "wr mod": 54.662403100775194,
+            "games": 80,
+            "wr mod": 54.23,
             "dat": {
                 "id": "69mevBSzUfL3Gr209J6lnAXpVzv75-UZfPpmLW8DDElkW7o",
                 "accountId": "mXYyhqEX_WO0nBJK5HOlgr8GVdO3_zNA062eDInFMWj5Jdw",
                 "puuid": "QRIcVUeQoNryg3pa6a-mPf2T4SQtQQDgAXdq41BABY0zFz8RkTh2wheZ2tO_9zQmPgZdks_BFWmlPw",
                 "name": "MeatMattress",
                 "profileIconId": 4404,
-                "revisionDate": 1598138842000,
+                "revisionDate": 1601860921000,
                 "summonerLevel": 118
-            }
+            },
+            "inactive": false,
+            "lp": 0,
+            "teams": []
         },
         "ipisgood": {
             "dat": {
@@ -687,18 +823,23 @@
                 "accountId": "gQ-vcUeosyNuGsSwsUHtqnK3nXc-p77vZi2OUEBS5YgH6ak",
                 "puuid": "uplm7gzNGc2VLqV-j-qrafCjcBUqwuecba_Wpvw3PTiPk6mj_yOoAGOmgPsPM-ZzQm8X_F-AB_-NFw",
                 "name": "ipisgood",
-                "profileIconId": 4635,
-                "revisionDate": 1600682741000,
-                "summonerLevel": 209
+                "profileIconId": 4764,
+                "revisionDate": 1601944139000,
+                "summonerLevel": 214
             },
             "rank": "GOLD IV",
             "inactive": false,
-            "wr": 47.8,
-            "games": 431,
+            "wr": 47.93,
+            "games": 434,
             "leagues": [],
-            "wr mod": 55.52,
+            "wr mod": 55.64,
             "teams": [],
-            "lp": 0
+            "lp": 28,
+            "history": [
+                3608222772,
+                3606943163,
+                3606866477
+            ]
         },
         "doublelift": {
             "dat": {
@@ -717,7 +858,7 @@
             "leagues": [],
             "wr mod": 68.42,
             "teams": [],
-            "lp": 0
+            "lp": 25
         },
         "almostanantag": {
             "dat": {
@@ -739,20 +880,21 @@
                 "XFL"
             ],
             "games": 93,
-            "wr mod": 64.10475524475524,
+            "wr mod": 63.99,
             "dat": {
                 "id": "Uy4S8UNrGTeSm8k0UB1fA2bSAvOA4dVZxNf4kUITg6ipgx4",
                 "accountId": "e9uS24xb0HsGhtt8prfkWFsQtoSkm_T36Kw8Y-jQiZfMdQ",
                 "puuid": "JucqnzGaZ2rY7OUWwM3a0GcEmV7NbVH5DFjMY_VGvcCRbQjdGk-qhnCAURWGH4ru_BdkDVw-BTbBDA",
                 "name": "yasheo",
                 "profileIconId": 4677,
-                "revisionDate": 1600559847000,
-                "summonerLevel": 484
+                "revisionDate": 1601768689000,
+                "summonerLevel": 487
             },
             "teams": [
                 "XFL:264422225711464448"
             ],
-            "lp": 0
+            "lp": 22,
+            "inactive": false
         },
         "xtrader": {
             "rank": "PLATINUM II",
@@ -761,37 +903,38 @@
                 "XFL"
             ],
             "games": 246,
-            "wr mod": 59.32297297297298,
+            "wr mod": 59.22,
             "dat": {
                 "id": "wcmG8znTSXBpNVmCo7czIUqeQVNvwu-rWVlajaildcyml5Y",
                 "accountId": "57XtPHkwOCB37BluWB-ud-R540nfoLwuRLf67CSLGmYpVlc",
                 "puuid": "LjsqJlaSzaGebOrojSainzEFpBHxzWYjBIARAcBvghVtklM0JzQKQ8ic7IDTgTXW6JCSg8innxo9iA",
                 "name": "xtrader",
                 "profileIconId": 3367,
-                "revisionDate": 1600949285000,
-                "summonerLevel": 259
+                "revisionDate": 1602013246000,
+                "summonerLevel": 261
             },
             "teams": [
                 "XFL:199962540275400704",
                 "XFL:178942452034568192"
             ],
-            "lp": 0
+            "lp": 20,
+            "inactive": false
         },
         "purplebumblebeez": {
             "rank": "GOLD I",
-            "wr": 51.16,
+            "wr": 53.33,
             "leagues": [
                 "XFL"
             ],
-            "games": 43,
-            "wr mod": 60.027634408602154,
+            "games": 45,
+            "wr mod": 60.95,
             "dat": {
                 "id": "KAXeaVGT5MS7cuvr31P38kTbl0gEae7IKUAo5B231dBFJto",
                 "accountId": "r1ZMO2G18yqCPKckIHUnAN1pExQiBpEBQu61OcvGz6HsrQ",
                 "puuid": "RNHMkOSfDEVyUuEl3Qkh1cNgX819MdSsJfVZtBJGzEk9sfT6RgtMdUYAmWSslXOuveiQ9EyiYg3C9Q",
                 "name": "PurpleBumblebeez",
                 "profileIconId": 3159,
-                "revisionDate": 1600103694000,
+                "revisionDate": 1601915020000,
                 "summonerLevel": 140
             },
             "teams": [
@@ -799,16 +942,20 @@
                 "XFL:300110170858717184",
                 "XFL:199962540275400704"
             ],
-            "lp": 0
+            "lp": 69,
+            "inactive": false,
+            "history": [
+                3607765766
+            ]
         },
         "pooplol": {
-            "rank": "DIAMOND I",
-            "wr": 55.56,
+            "rank": "DIAMOND II",
+            "wr": 55.12,
             "leagues": [
                 "XFL"
             ],
-            "games": 369,
-            "wr mod": 71.2076014319809,
+            "games": 381,
+            "wr mod": 69.52,
             "dat": {
                 "id": "pVkU96Zv6-NeE9iRpB1ZTbcxVvWWYlvPfb34PHt1szXAB7Y",
                 "accountId": "EXayTNFMCnMvSeuKCtAJKTHshCPXixiP86_7Ms8tGSTEbVc",
@@ -816,15 +963,24 @@
                 "name": "pooplol",
                 "profileIconId": 23,
                 "revisionDate": 1598752257000,
-                "summonerLevel": 355
-            }
+                "summonerLevel": 357
+            },
+            "inactive": false,
+            "lp": 49,
+            "teams": [],
+            "history": [
+                3605192303,
+                3605143057,
+                3605073831,
+                3604958998
+            ]
         },
         "durkledingus": {
             "rank": "GOLD I",
             "wr": 57.69,
             "leagues": [],
             "games": 26,
-            "wr mod": 62.00657894736842,
+            "wr mod": 62.01,
             "dat": {
                 "id": "mbqvzr5_bxmcrGnGCzyt77EY-TNqP1C8hNh3iOr3ujgiQeAL",
                 "accountId": "PONGqu1k1H675hrpsa0jrElK_S34TtgbyNinNE7LVjfCnrEZ_fDfRtY_",
@@ -837,7 +993,8 @@
             "teams": [
                 "XFL:460129267775176715"
             ],
-            "lp": 0
+            "lp": 0,
+            "inactive": false
         },
         "fent bars": {
             "dat": {
@@ -870,13 +1027,13 @@
                 "revisionDate": 1601004921000,
                 "summonerLevel": 221
             },
-            "rank": "GRANDMASTER I",
+            "rank": "DIAMOND I",
             "inactive": false,
             "wr": 54.58,
             "games": 491,
             "leagues": [],
-            "wr mod": 72.91,
-            "lp": 267,
+            "wr mod": 70.41,
+            "lp": 75,
             "teams": []
         }
     }

@@ -45,7 +45,10 @@ def sq_save():
 
 def sq_clean_games():
     for player in sq_games:
-        delete = [key for key in sq_games[player] if not recent(sq_games[player][key]["date"], True)]
+        try:
+            delete = [key for key in sq_games[player] if not recent(sq_games[player][key]["date"], True)]
+        except KeyError:
+            pass
 
         for key in delete:
             print(f'delete game {key} on {sq_games[player][key]["date"]}')

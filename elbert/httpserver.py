@@ -17,10 +17,9 @@ class MainHandler(tornado.web.RequestHandler, ABC):
     async def get(self):
         print(f'GET {self.request.uri}')
         self.set_status(200, "data recv")
-        rt = self.get_query_argument("requestType")
-        args = self.get_query_arguments("arg")
+        u = Updater(self.get_query_argument("requestType"))  # initialize updater
+        args = self.get_arguments("ign")
 
-        u = Updater(rt)
         resp = u.run(args)
         self.write(resp)
 
