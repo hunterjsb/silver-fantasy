@@ -9,7 +9,7 @@
             "whitelisted": true,
             "teams": {
                 "371034483836846090": {
-                    "points": 176.32,
+                    "points": 51.730000000000004,
                     "budget": 1,
                     "owner": "x\u00c3\u00a2n",
                     "players": {
@@ -21,7 +21,7 @@
                     }
                 },
                 "409135880960213002": {
-                    "points": 115.19000000000001,
+                    "points": 13.639999999999999,
                     "budget": 6,
                     "owner": "ed",
                     "players": {
@@ -33,7 +33,7 @@
                     }
                 },
                 "434766902221340682": {
-                    "points": 154.52,
+                    "points": 28.2,
                     "budget": 8,
                     "owner": "yasuomoe",
                     "players": {
@@ -45,19 +45,19 @@
                     }
                 },
                 "300110170858717184": {
-                    "points": 183.35,
+                    "points": 66.23,
                     "owner": "DurkleDingus",
-                    "budget": 6,
+                    "budget": 0,
                     "players": {
                         "1deepturtle": 58,
-                        "x\u00e2n": 54,
                         "stinny": 56,
                         "black xan bible": 56,
-                        "purplebumblebeez": 60
+                        "x\u00e2n": 55,
+                        "squackythebird": 65
                     }
                 },
                 "264422225711464448": {
-                    "points": 28.13,
+                    "points": 33.47,
                     "owner": "Jukko",
                     "budget": 0,
                     "players": {
@@ -69,7 +69,7 @@
                     }
                 },
                 "408704037358272535": {
-                    "points": 123.9,
+                    "points": 27.32,
                     "owner": "drag0nham",
                     "budget": 10,
                     "players": {
@@ -81,7 +81,7 @@
                     }
                 },
                 "199962540275400704": {
-                    "points": 17.27,
+                    "points": 33.47,
                     "owner": "BobbyZlich",
                     "budget": 2,
                     "players": {
@@ -93,7 +93,7 @@
                     }
                 },
                 "178942452034568192": {
-                    "points": 66.45,
+                    "points": 47.989999999999995,
                     "owner": "xtrader",
                     "budget": 6,
                     "players": {
@@ -105,7 +105,7 @@
                     }
                 },
                 "460129267775176715": {
-                    "points": 120.1,
+                    "points": 38.029999999999994,
                     "owner": "Alex Figs \u30c4",
                     "budget": 11,
                     "players": {
@@ -127,7 +127,7 @@
                     }
                 },
                 "313070612643840001": {
-                    "points": 97.36000000000001,
+                    "points": 76.96000000000001,
                     "owner": "MeatMattress",
                     "budget": 0,
                     "players": {
@@ -207,50 +207,36 @@
             "leagues": [
                 "XFL"
             ],
-            "games": 734,
-            "wr mod": 55.5,
+            "games": 738,
+            "wr mod": 55.79309644670051,
             "dat": {
                 "id": "dA01EnQpC6yFsJW9EywybRtBQQLN3CnU382Z7M4yF5neutM",
                 "accountId": "xvdkTzcV4JRM_XOnCIhhIojg4YdV8EsUKdyUxhaqOjrZjkE",
                 "puuid": "6dQbPPIVLepkQoExbOm6kviRz_VvsQfKLzCTfkyrFTd_JB4eI_uQRMO82Ban95VBkNgCc0VZLKG3KA",
                 "name": "black xan bible",
                 "profileIconId": 4655,
-                "revisionDate": 1601951967000,
-                "summonerLevel": 311
-            },
-            "inactive": false,
-            "lp": 58,
-            "teams": [],
-            "history": [
-                3608502522
-            ]
+                "revisionDate": 1602227227000,
+                "summonerLevel": 312
+            }
         },
         "x\u00e2n": {
             "rank": "SILVER II",
-            "wr": 49.08,
+            "wr": 48.97,
             "leagues": [
                 "XFL",
                 "XFL"
             ],
-            "games": 434,
-            "wr mod": 55.42,
+            "games": 435,
+            "wr mod": 55.322164948453604,
             "dat": {
                 "id": "5WCVixd8vtY9I0x_7mXNt1kpLIZFkzt4N6unnTc0ir1eYNc",
                 "accountId": "SCXS0NPDLdjum2HXlWaLAHUPeqZy83DReWAkTEpnVTyg7mE",
                 "puuid": "87h358P9T8ESwzZ8r3MSsJwZpDDUqMpqrsk_JaKYQGHuPukxZiUVyQSBWFvLmmerqtUmPvSJfKVj7w",
                 "name": "x\u00e2n",
                 "profileIconId": 4480,
-                "revisionDate": 1601604869000,
-                "summonerLevel": 285
-            },
-            "history": [
-                3603810303,
-                3603245623,
-                3608502522
-            ],
-            "inactive": false,
-            "lp": 17,
-            "teams": []
+                "revisionDate": 1602224855000,
+                "summonerLevel": 286
+            }
         },
         "ipogoz": {
             "rank": "GOLD IV",
@@ -776,7 +762,7 @@
                 "XFL"
             ],
             "games": 236,
-            "wr mod": 64.55,
+            "wr mod": 64.54545454545455,
             "dat": {
                 "id": "DmhVHtHcELF2fgn1DJ-iMGpmfOrw5k8u4Hu6BeK3wpl0uSeK",
                 "accountId": "Qc1A8wPx2WdMN3Y-DgvLU-f1shia4mz_uGW7iUXLsnEmUKggSBoNSbVA",
@@ -785,16 +771,7 @@
                 "profileIconId": 4657,
                 "revisionDate": 1602052040000,
                 "summonerLevel": 56
-            },
-            "inactive": false,
-            "teams": [
-                "XFL:178942452034568192"
-            ],
-            "lp": 0,
-            "history": [
-                3604929149,
-                3604895703
-            ]
+            }
         },
         "meatmattress": {
             "rank": "SILVER IV",
@@ -880,7 +857,7 @@
                 "XFL"
             ],
             "games": 93,
-            "wr mod": 63.99,
+            "wr mod": 64.10475524475524,
             "dat": {
                 "id": "Uy4S8UNrGTeSm8k0UB1fA2bSAvOA4dVZxNf4kUITg6ipgx4",
                 "accountId": "e9uS24xb0HsGhtt8prfkWFsQtoSkm_T36Kw8Y-jQiZfMdQ",
@@ -888,13 +865,8 @@
                 "name": "yasheo",
                 "profileIconId": 4677,
                 "revisionDate": 1601768689000,
-                "summonerLevel": 487
-            },
-            "teams": [
-                "XFL:264422225711464448"
-            ],
-            "lp": 22,
-            "inactive": false
+                "summonerLevel": 488
+            }
         },
         "xtrader": {
             "rank": "PLATINUM II",
@@ -950,12 +922,12 @@
         },
         "pooplol": {
             "rank": "DIAMOND II",
-            "wr": 55.12,
+            "wr": 54.83,
             "leagues": [
                 "XFL"
             ],
-            "games": 381,
-            "wr mod": 69.52,
+            "games": 383,
+            "wr mod": 69.34251732101616,
             "dat": {
                 "id": "pVkU96Zv6-NeE9iRpB1ZTbcxVvWWYlvPfb34PHt1szXAB7Y",
                 "accountId": "EXayTNFMCnMvSeuKCtAJKTHshCPXixiP86_7Ms8tGSTEbVc",
@@ -963,17 +935,8 @@
                 "name": "pooplol",
                 "profileIconId": 23,
                 "revisionDate": 1598752257000,
-                "summonerLevel": 357
-            },
-            "inactive": false,
-            "lp": 49,
-            "teams": [],
-            "history": [
-                3605192303,
-                3605143057,
-                3605073831,
-                3604958998
-            ]
+                "summonerLevel": 358
+            }
         },
         "durkledingus": {
             "rank": "GOLD I",

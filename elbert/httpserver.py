@@ -15,12 +15,13 @@ class MainHandler(tornado.web.RequestHandler, ABC):
         self.set_header('Access-Control-Allow-Methods', 'POST, GET, OPTIONS')
 
     async def get(self):
-        print(f'GET {self.request.uri}')
+        print(f'GET {self.request.uri}, version 0.1')
         self.set_status(200, "data recv")
         u = Updater(self.get_query_argument("requestType"))  # initialize updater
         args = self.get_arguments("ign")
 
         resp = u.run(args)
+        print(f'**************RESPONSE {resp}*************************************************************')
         self.write(resp)
 
     def post(self):

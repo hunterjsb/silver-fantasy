@@ -202,7 +202,7 @@ class Updater:
         """takes in summoners and updates matches, save ALL! return updated matches."""
         to_get = self.request_weekly_soloq(args)
         if not to_get:
-            return None
+            return {'resp': None, 'err': self.erred}
 
         match_ar = AsyncRequester()
         resp = []
@@ -268,7 +268,7 @@ class Updater:
                 ret[game['gameId']] = c_game
 
         self.save(league=True, games=True, state=match_ar)
-        ret = {"resp": ret, "err": self.erred}
+        ret = {"resp": resp, "err": self.erred}
         return ret
 
     def avg_by_queue(self, args):
