@@ -3,6 +3,8 @@ import aiohttp
 import nest_asyncio
 
 HEADERS = {"X-Riot-Token": "RGAPI-9ac67d68-c7fc-4185-a79a-9c1897985cde"}
+# TREY - RGAPI-46a6a91b-faab-41ef-9d0a-0e55d4cb90a1
+# ME - RGAPI-9ac67d68-c7fc-4185-a79a-9c1897985cde
 
 
 # COLORS! for console printing

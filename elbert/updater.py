@@ -8,6 +8,7 @@ import requests
 # FILE-PATHS FOR THE DATA!!! apparently trey no likey
 LEAGUE_FP = "../json/silverfantasy.json"
 GAMES_FP = "../json/soloqgames.json"
+REQ_PER_SEC = 20
 
 
 def last_friday():  # get last friday as a timestamp (in ms maybe)
@@ -34,6 +35,8 @@ lin_mmr_dict = {'IRON IV': 0, 'IRON III': 250, 'IRON II': 500, 'IRON I': 750, 'B
 
 
 class Updater:
+    chunks_sent = 0
+
     """class that takes arguments and decides what it needs to retrieve in order to update the relevant JSON files"""
     def __init__(self, request_type: str):
         """open the two json files, takes the request type as input"""
@@ -75,7 +78,7 @@ class Updater:
         resp = []
 
         for s_ign in args:
-            if (AsyncRequester.t_req + id_ar.c_req) % 20 == 0:  # rate limit
+            if (AsyncRequester.t_req + id_ar.c_req) % REQ_PER_SEC == 0 and id_ar.c_req > 0:  # rate limit
                 resp += id_ar.run()
                 time.sleep(1)
             id_ar.sum_dat(s_ign)
@@ -126,7 +129,7 @@ class Updater:
 
         for sid in _ids:
             rank_ar.ranked(_ids[sid])
-            if (AsyncRequester.t_req + rank_ar.c_req) % 20 == 0:
+            if (AsyncRequester.t_req + rank_ar.c_req) % REQ_PER_SEC == 0:
                 resp += rank_ar.run()
                 time.sleep(1)
 
@@ -211,7 +214,7 @@ class Updater:
         # RATE LIMITING IMPLEMENTED HERE - 20 / SEC & 100 / 90 + 5 SEC
         for mid in to_get:
             match_ar.match(mid)
-            if (AsyncRequester.t_req + match_ar.__floor__().c_req) % 20 == 0:  # every 20 requests...
+            if (AsyncRequester.t_req + match_ar.__floor__().c_req) % REQ_PER_SEC == 0:
                 resp += match_ar.run()  # run
                 time.sleep(1)  # then wait a sec
                 i += 1
@@ -285,6 +288,8 @@ class Updater:
             return self.update_matches(args)
         elif self.request_type == "avg":
             return self.avg_by_queue(args)
+        elif self.request_type == "ABC":
+            return f'ABSTRACT BASE CLASS'
         else:
             print(f'\033[93mERROR: UNKNOWN REQUEST TYPE {self.request_type}\033[0m')
 
