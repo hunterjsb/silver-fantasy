@@ -61,6 +61,30 @@
             "csm": 5.26,
             "vision": 21,
             "*cc": 2.14
+        },
+        "3613369696": {
+            "score": 24.6,
+            "champ": "Shyvana",
+            "date": "10/11/2020",
+            "role": "NONE JUNGLE",
+            "duration": "25:15",
+            "kda": "11/5/10",
+            "kp": 0.5833333333333334,
+            "csm": 7.02,
+            "vision": 33,
+            "*cc": 0.98
+        },
+        "3613412600": {
+            "score": 22.28,
+            "champ": "Hecarim",
+            "date": "10/11/2020",
+            "role": "NONE JUNGLE",
+            "duration": "21:13",
+            "kda": "7/4/13",
+            "kp": 0.6666666666666666,
+            "csm": 6.29,
+            "vision": 20,
+            "*cc": 5.4
         }
     },
     "black xan bible": {
@@ -235,6 +259,162 @@
             "csm": 4.05,
             "vision": 9,
             "*cc": 0.53
+        },
+        "3613953142": {
+            "score": 22.3,
+            "champ": "Nocturne",
+            "date": "10/12/2020",
+            "role": "NONE JUNGLE",
+            "duration": "33:20",
+            "kda": "15/9/9",
+            "kp": 0.8275862068965517,
+            "csm": 6.91,
+            "vision": 20,
+            "*cc": 14.74
+        },
+        "3613733584": {
+            "score": 3.89,
+            "champ": "Nocturne",
+            "date": "10/12/2020",
+            "role": "SOLO TOP",
+            "duration": "37:22",
+            "kda": "2/10/7",
+            "kp": 0.32142857142857145,
+            "csm": 5.11,
+            "vision": 18,
+            "*cc": 3.35
+        },
+        "3613665510": {
+            "score": 33.79,
+            "champ": "Nocturne",
+            "date": "10/12/2020",
+            "role": "NONE JUNGLE",
+            "duration": "51:30",
+            "kda": "27/14/17",
+            "kp": 0.7213114754098361,
+            "csm": 4.63,
+            "vision": 39,
+            "*cc": 21.62
+        },
+        "3613099853": {
+            "score": 12.15,
+            "champ": "Zoe",
+            "date": "10/11/2020",
+            "role": "SOLO TOP",
+            "duration": "40:24",
+            "kda": "9/8/9",
+            "kp": 0.4186046511627907,
+            "csm": 3.27,
+            "vision": 17,
+            "*cc": 2.88
+        },
+        "3613043077": {
+            "score": 12.34,
+            "champ": "Rammus",
+            "date": "10/11/2020",
+            "role": "SOLO TOP",
+            "duration": "24:15",
+            "kda": "5/5/12",
+            "kp": 0.4594594594594595,
+            "csm": 2.92,
+            "vision": 4,
+            "*cc": 4.97
+        },
+        "3612230059": {
+            "score": 7.24,
+            "champ": "Jax",
+            "date": "10/11/2020",
+            "role": "SOLO TOP",
+            "duration": "35:21",
+            "kda": "5/12/12",
+            "kp": 0.425,
+            "csm": 4.17,
+            "vision": 13,
+            "*cc": 1.61
+        },
+        "3612183545": {
+            "score": 2.18,
+            "champ": "Darius",
+            "date": "10/11/2020",
+            "role": "SOLO TOP",
+            "duration": "27:16",
+            "kda": "9/12/0",
+            "kp": 0.3,
+            "csm": 5.06,
+            "vision": 0,
+            "*cc": 0.58
+        },
+        "3611997744": {
+            "score": 8.35,
+            "champ": "Nasus",
+            "date": "10/10/2020",
+            "role": "SOLO TOP",
+            "duration": "23:14",
+            "kda": "5/5/3",
+            "kp": 0.2962962962962963,
+            "csm": 6.07,
+            "vision": 1,
+            "*cc": 0.67
+        },
+        "3611935307": {
+            "score": 12.81,
+            "champ": "Jax",
+            "date": "10/10/2020",
+            "role": "SOLO TOP",
+            "duration": "44:26",
+            "kda": "16/14/5",
+            "kp": 0.39622641509433965,
+            "csm": 6.04,
+            "vision": 17,
+            "*cc": 1.28
+        },
+        "3611879145": {
+            "score": 2.56,
+            "champ": "Chogath",
+            "date": "10/10/2020",
+            "role": "SOLO TOP",
+            "duration": "26:15",
+            "kda": "1/9/6",
+            "kp": 0.22580645161290322,
+            "csm": 4.95,
+            "vision": 8,
+            "*cc": 1.97
+        },
+        "3611408524": {
+            "score": 1.81,
+            "champ": "Chogath",
+            "date": "10/10/2020",
+            "role": "SOLO TOP",
+            "duration": "22:13",
+            "kda": "4/10/4",
+            "kp": 0.4444444444444444,
+            "csm": 3.7,
+            "vision": 8,
+            "*cc": 2.74
+        },
+        "3611453334": {
+            "score": 16.02,
+            "champ": "Chogath",
+            "date": "10/10/2020",
+            "role": "DUO_SUPPORT NONE",
+            "duration": "18:11",
+            "kda": "8/2/4",
+            "kp": 0.3333333333333333,
+            "csm": 6.68,
+            "vision": 4,
+            "*cc": 16.35
+        },
+        "3611390696": {
+            "score": 3.29,
+            "champ": "Lucian",
+            "date": "10/10/2020",
+            "role": "SOLO TOP",
+            "duration": "24:14",
+            "kda": "2/7/1",
+            "kp": 0.08108108108108109,
+            "csm": 6.2,
+            "vision": 8,
+            "*cc": 0.0
         }
     },
     "3604215759": {
@@ -1747,6 +1927,30 @@
             "csm": 6.38,
             "vision": 17,
             "*cc": 1.85
+        },
+        "3611087085": {
+            "score": 14.94,
+            "champ": "Gangplank",
+            "date": "10/10/2020",
+            "role": "SOLO TOP",
+            "duration": "31:19",
+            "kda": "4/2/8",
+            "kp": 0.42857142857142855,
+            "csm": 6.39,
+            "vision": 7,
+            "*cc": 1.91
+        },
+        "3611046137": {
+            "score": 14.34,
+            "champ": "Ornn",
+            "date": "10/10/2020",
+            "role": "SOLO TOP",
+            "duration": "21:13",
+            "kda": "4/1/5",
+            "kp": 0.42857142857142855,
+            "csm": 7.13,
+            "vision": 4,
+            "*cc": 10.35
         }
     },
     "3612132655": {
@@ -2087,6 +2291,108 @@
             "kp": 57.45,
             "dp": 23.33,
             "vpm": 1.05
+        }
+    },
+    "u\u00f1orthodox": {
+        "3612278838": {
+            "score": 8.41,
+            "champ": "LeeSin",
+            "date": "10/11/2020",
+            "role": "NONE JUNGLE",
+            "duration": "28:17",
+            "kda": "6/9/5",
+            "kp": 0.44,
+            "csm": 5.74,
+            "vision": 18,
+            "*cc": 0.7
+        },
+        "3612324653": {
+            "score": 13.77,
+            "champ": "Akali",
+            "date": "10/11/2020",
+            "role": "DUO MIDDLE",
+            "duration": "28:17",
+            "kda": "8/3/1",
+            "kp": 0.32142857142857145,
+            "csm": 6.09,
+            "vision": 20,
+            "*cc": 0.32
+        }
+    },
+    "yasuomoe": {
+        "3613102497": {
+            "score": 18.45,
+            "champ": "Orianna",
+            "date": "10/11/2020",
+            "role": "SOLO MIDDLE",
+            "duration": "40:24",
+            "kda": "9/10/16",
+            "kp": 0.5681818181818182,
+            "csm": 3.48,
+            "vision": 52,
+            "*cc": 1.96
+        },
+        "3613016567": {
+            "score": 30.33,
+            "champ": "Annie",
+            "date": "10/11/2020",
+            "role": "SOLO MIDDLE",
+            "duration": "37:22",
+            "kda": "16/7/17",
+            "kp": 0.6470588235294118,
+            "csm": 4.13,
+            "vision": 47,
+            "*cc": 7.26
+        },
+        "3611935447": {
+            "score": 29.46,
+            "champ": "Annie",
+            "date": "10/10/2020",
+            "role": "SOLO MIDDLE",
+            "duration": "33:20",
+            "kda": "18/4/8",
+            "kp": 0.6341463414634146,
+            "csm": 4.66,
+            "vision": 47,
+            "*cc": 5.31
+        },
+        "3611846005": {
+            "score": 13.84,
+            "champ": "Orianna",
+            "date": "10/10/2020",
+            "role": "SOLO MIDDLE",
+            "duration": "33:20",
+            "kda": "5/7/10",
+            "kp": 0.6521739130434783,
+            "csm": 4.98,
+            "vision": 36,
+            "*cc": 1.27
+        }
+    },
+    "micheal nguyen": {
+        "3611301075": {
+            "score": 6.4,
+            "champ": "Nautilus",
+            "date": "10/10/2020",
+            "role": "DUO_SUPPORT BOTTOM",
+            "duration": "24:15",
+            "kda": "1/10/14",
+            "kp": 0.625,
+            "csm": 0.85,
+            "vision": 33,
+            "*cc": 3.22
+        },
+        "3611214190": {
+            "score": 19.18,
+            "champ": "Thresh",
+            "date": "10/10/2020",
+            "role": "DUO_SUPPORT BOTTOM",
+            "duration": "36:21",
+            "kda": "2/4/17",
+            "kp": 0.6551724137931034,
+            "csm": 1.18,
+            "vision": 84,
+            "*cc": 5.22
         }
     }
 }

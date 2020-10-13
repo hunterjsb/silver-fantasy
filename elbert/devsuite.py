@@ -139,7 +139,7 @@ class Versioner(Updater):
 
     def by_rank(self):
         scores = {}
-        i=0
+        i = 0
         for gid, game in self.c_games.items():
             for player, stats in game.items():
                 rank = self.league["PLAYERS"][player]['rank']
@@ -206,4 +206,4 @@ class Versioner(Updater):
 
 
 wax = Versioner()
-print(wax.by_rank())
+print(wax.analyze_current())
