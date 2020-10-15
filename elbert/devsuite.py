@@ -52,7 +52,7 @@ class Summoner(Updater):
         hist_ar.match_history(self.aid, queries=queries)
         return hist_ar.run()
 
-    def get_soloq(self, update=False):
+    def get_soloq(self):
         match_ar = AR()
         resp = []
 
@@ -80,13 +80,13 @@ class Versioner(Updater):
         self.version = self.lib['version']
         self.key = str(self.version) + '.' + str(self.lv)
         self.cv = self.lib[self.key]
-        self.c_games = self.cv['games'] if 'games' in self.cv else {}
+        self.local_games = self.cv['games'] if 'games' in self.cv else {}
 
     def save_lib(self):
         self.lib['literalVersion'] = self.lv
         self.lib['version'] = self.version
         self.lib[self.key] = self.cv
-        self.lib[self.key]['games'] = self.c_games
+        self.lib[self.key]['games'] = self.local_games
 
         with open(LIB_FP, 'w') as f:
             json.dump(self.lib, f, indent=4)
@@ -100,9 +100,9 @@ class Versioner(Updater):
             return False
 
     def new_version(self, notes: str, values: str):
-        def_notes = "points = (kills + .75 * assists - deaths) * (0.9 + kp / 5) + csm + 3 * vpm"
-        def_values = (1, 0.75, 1, 0.9, 5, 1, 3, 0)  # K, A, D, KPb, KPd, CSM, VPM, DP coefficients
-        k, a, d, kpb, kpd, vsm, vpm, dp = def_values
+        # def_notes = "points = (kills + .75 * assists - deaths) * (0.9 + kp / 5) + csm + 3 * vpm"
+        # def_values = (1, 0.75, 1, 0.9, 5, 1, 3, 0)  # K, A, D, KPb, KPd, CSM, VPM, DP coefficients
+        # k, a, d, kpb, kpd, vsm, vpm, dp = def_values
         
         if notes != self.cv['notes']:  # new notes means new equation, new version!
             self.version += 1  # create new version here
@@ -110,18 +110,29 @@ class Versioner(Updater):
         if values != self.cv['values']:  # create new literalVersion (subversion) here
             self.lv += 1  # new subverion here
 
-    def analyze_current(self):
+    def graph_current(self):
         scores = {}
-        for gid, game in self.c_games.items():
+        kdas = {}
+        for gid, game in self.local_games.items():
             for player, stats in game.items():
+                kda = stats['kda']
+                kda_r = (kda[0] + kda[2]) / kda[1] if kda[1] > 0 else kda[0] + kda[2]
+
                 scores[player] = [] if player not in scores else scores[player]
+                kdas[player] = [] if player not in kdas else kdas[player]
                 scores[player].append(stats["score"])
+                kdas[player].append(kda_r)
 
         kn_names, kn_scores = keynumerate(scores)
+        knn2, kn_kdas = keynumerate(kdas)
         avgs = dict_avg(scores)
-        fig, axs = plt.subplots(figsize=(len(scores) + 4, 10))
+        k_avg = dict_avg(kdas)
+
+        fig, axs = plt.subplots(1, 1, figsize=(len(scores) + 4, 10))
         axs.scatter(kn_names, kn_scores, marker='.')
+        # axs[1].scatter(knn2, kn_kdas, marker='o', color='b')
         axs.scatter(list(avgs.keys()), list(avgs.values()), c='red', label='average', marker='d')
+        axs.scatter(list(k_avg.keys()), list(k_avg.values()), c='y', marker='d', label='avg kda')
         fig.suptitle('xanax')
 
         rd, cd = {}, {}
@@ -129,25 +140,31 @@ class Versioner(Updater):
             summoner = Summoner(ign)
             rd[ign] = (avgs[ign]/summoner.cost)*100
             cd[ign] = summoner.cost - 40
-        plt.scatter(list(cd.keys()), list(cd.values()), c='lime', label='cost', marker='d')
-        plt.scatter(list(rd.keys()), list(rd.values()), c='m', label='avg/cost', marker='D')
+        axs.scatter(list(cd.keys()), list(cd.values()), c='lime', label='cost', marker='d')
+        axs.scatter(list(rd.keys()), list(rd.values()), c='m', label='avg/cost', marker='D')
+        axs.legend()
 
-        plt.legend()
         plt.show()
 
         return scores
 
+    def graph_alternate(self):  # take point input tuple here
+        for game in self.local_games.values():
+            for player, stats in game.items():
+                k, d, a = stats['kda']
+                print(k, d, a)
+
     def by_rank(self):
         scores = {}
         i = 0
-        for gid, game in self.c_games.items():
+        for gid, game in self.local_games.items():
             for player, stats in game.items():
                 rank = self.league["PLAYERS"][player]['rank']
                 scores[rank] = [] if rank not in scores else scores[rank]
                 scores[rank].append(stats["score"])
 
                 i += 1
-                print(f'{i}/{len(self.c_games)}')
+                print(f'{i}/{len(self.local_games)}')
 
         kn_ranks, kn_scores = keynumerate(scores)
         fig, axs = plt.subplots(figsize=(len(scores) + 4, 10))
@@ -162,7 +179,7 @@ class Versioner(Updater):
                 continue
 
             matched = self._get_registered_pids(game)  # get riot's dumb participant id's
-            self.c_games[game['gameId']] = {} if game['gameId'] not in self.c_games else self.games[game['gameId']]
+            self.local_games[game['gameId']] = {} if game['gameId'] not in self.local_games else self.games[game['gameId']]
 
             for player, pid in matched.items():
                 part = game['participants'][pid-1]
@@ -187,7 +204,7 @@ class Versioner(Updater):
                 points = (kills + .75 * assists - deaths) * (0.9 + kp / 5) + csm + 3 * vpm
 
                 # WRITE
-                c_game = self.c_games[game['gameId']]
+                c_game = self.local_games[game['gameId']]
                 c_game.update({player: {"pid": pid,
                                         "score": round(points, 2),
                                         "champ": get_champ(part['championId']),
@@ -199,11 +216,11 @@ class Versioner(Updater):
                                         "dp": round(100 * dp, 2),
                                         "vpm": round(vpm, 2)
                                         }})  # create player dicts within the game
-                self.c_games[game['gameId']].update(c_game)
+                self.local_games[game['gameId']].update(c_game)
 
         self.save_lib()
-        return self.c_games
+        return self.local_games
 
 
 wax = Versioner()
-print(wax.analyze_current())
+print(wax.graph_current())

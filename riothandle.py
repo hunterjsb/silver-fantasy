@@ -404,10 +404,7 @@ class Match:
 
 
 def main():
-    now = datetime.datetime.now()
-    week_ago = now.date() - datetime.timedelta(days=7)
-    a = datetime.date(2020, 9, 5)
-    print(week_ago < a)
+    l = None
 
 
 if __name__ == '__main__':

@@ -49,11 +49,11 @@ class AsyncRequester:
         chunks = [self.requests[x:x+size] for x in range(0, len(self.requests), size)]
         return chunks
 
-    def _add_request(self, req):
+    def _add_request(self, req: str):
         self.requests.append(req)
         self.c_req += 1
 
-    def set_requests(self, reqs):
+    def set_requests(self, reqs: list):
         self.c_req = len(reqs)
         self.requests = reqs
 
