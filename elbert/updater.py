@@ -5,7 +5,7 @@ import datetime
 import time
 import requests
 
-# FILE-PATHS FOR THE DATA!!! apparently trey no likey
+# File-paths for the data
 LEAGUE_FP = "../json/silverfantasy.json"
 GAMES_FP = "../json/soloqgames.json"
 REQ_PER_SEC = 20
@@ -279,7 +279,7 @@ class Updater:
         return {'status': 200}
 
     def run(self, args):
-        """for running xD"""
+        """for running"""
         if self.request_type == "summoner":
             return self.update_summoner(args)
         elif self.request_type == "ranked":
