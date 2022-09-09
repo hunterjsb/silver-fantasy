@@ -7,7 +7,7 @@ HEADERS = {"X-Riot-Token": "RGAPI-9ac67d68-c7fc-4185-a79a-9c1897985cde"}
 # ME - RGAPI-9ac67d68-c7fc-4185-a79a-9c1897985cde
 
 
-# COLORS! for console printing
+# Colors for console printing
 class BColors:
     HEADER = '\033[95m'
     OKBLUE = '\033[94m'
@@ -33,7 +33,7 @@ class AsyncRequester:
 
         nest_asyncio.apply()
         self.region = 'na1'
-        self.erred = {}  # enter 429'd hoes here - url: error. does not reset automatically.
+        self.erred = {}  # url: error. does not reset automatically.
 
     def __floor__(self):
         """removes duplicates from list"""
@@ -123,7 +123,7 @@ class AsyncRequester:
 
 if __name__ == '__main__':
     ar = AsyncRequester()
-    ar.sum_dat('black xan bible')
+    ar.sum_dat('xtrader')
     resp = ar.run()
     ids = resp[0]
 
