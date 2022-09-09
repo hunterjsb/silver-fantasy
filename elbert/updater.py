@@ -219,7 +219,7 @@ class Updater:
                 time.sleep(1)  # then wait a sec
                 i += 1
                 if i % 5 == 0:  # 100 req / 90 (120?) sec
-                    print('U DONE IT NOW BOY')
+                    print('RATE LIMIT EXCEEDED - SLEEPING')
                     time.sleep(90)
         resp += match_ar.run()
 
